@@ -25,9 +25,9 @@ public class NotificacionController {
     //READ
     //BUSCAR
     @GetMapping("/{id}")
-    public ResponseEntity<Notificacion> buscar(@PathVariable Integer id){
+    public ResponseEntity<Notificacion> buscar(@PathVariable Long id){
         try{
-            Notificacion notificacion = notificacionService.findById(id.longValue());
+            Notificacion notificacion = notificacionService.findById(id);
             return ResponseEntity.ok(notificacion);
         } catch (Exception e){
             return ResponseEntity.notFound().build();
