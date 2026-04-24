@@ -1,10 +1,10 @@
-package duoc.marketplace;
+package com.marketplace.usuarios;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class MarketplaceApplicationTests {
+class UsuariosApplicationTests {
 
 	@Test
 	void contextLoads() {

@@ -1,4 +1,4 @@
-package duoc.marketplace.Model;
+package com.marketplace.Model;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
