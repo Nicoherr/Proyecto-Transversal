@@ -1,6 +1,6 @@
-package duoc.marketplace.Service;
-import duoc.marketplace.model.Usuario;
-import duoc.marketplace.repository.UsuarioRepository;
+package com.marketplace.usuarios.Service.;
+import com.marketplace.usuarios.Usuario;
+import com.marketplace.usuarios.repository.UsuarioRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -30,8 +30,8 @@ public class UsuarioService {
                 .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
     }
 
-    public Usuario actualizar(Long id, Usuario nuevo) {
-        Usuario u = obtener(id);
+    public Usuarios actualizar(Long id, Usuarios nuevo) {
+        Usuarios u = obtener(id);
 
         u.setNombre(nuevo.getNombre());
         u.setEmail(nuevo.getEmail());

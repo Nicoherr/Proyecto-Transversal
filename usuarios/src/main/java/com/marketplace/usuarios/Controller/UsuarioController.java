@@ -1,6 +1,6 @@
-package duoc.marketplace.Controller;
-import duoc.marketplace.model.Usuario;
-import duoc.marketplace.service.UsuarioService;
+package com.marketplace.usuarios.Controller;
+import com.marketplace.usuarios.model.Usuario;
+import com.marketplace.usuarios.service.UsuarioService;
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
