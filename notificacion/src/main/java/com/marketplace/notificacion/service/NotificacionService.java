@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
+
 @Service
 @Transactional
 public class NotificacionService{
@@ -20,7 +22,10 @@ public class NotificacionService{
     public List<Notificacion> findAll(){
         return notificacionRepository.findAll();
     }
-    public void delete(){
-        notificacionRepository.deleteAll();
+
+
+    public void delete(long id){
+        Notificacion notificacion= notificacionRepository.findById(id).get();
+        notificacionRepository.delete(notificacion);
     }
 }

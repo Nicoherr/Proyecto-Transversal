@@ -17,7 +17,7 @@ import java.util.Date;
 public class Pago {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private long id;
 
     @NotBlank(message = "Escribe el metodo de pago")
     @Column()

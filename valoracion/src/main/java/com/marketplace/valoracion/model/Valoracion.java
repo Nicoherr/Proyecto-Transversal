@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 public class Valoracion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private long id;
 
     @Column()
     private int numEstrella;

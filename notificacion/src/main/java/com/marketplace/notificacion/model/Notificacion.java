@@ -16,7 +16,7 @@ import java.util.Date;
 public class Notificacion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private long id;
 
 
     @NotBlank(message = "El asunto deve estar descrito")

@@ -16,7 +16,7 @@ import java.util.Date;
 public class Reporte {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private long id;
 
     @NotBlank(message = "Ingresa un texto valido")
     @Column(nullable = false)

@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 public class Pedido {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private long id;
 
     @NotBlank(message = "Ingresa el nombre del producto")
     @Column(nullable = false)

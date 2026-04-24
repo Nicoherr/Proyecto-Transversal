@@ -14,21 +14,20 @@ public class ValoracionService {
 
     @Autowired
     private ValoracionRepository valoracionRepository;
-    //CREAR
+
     public Valoracion save(Valoracion valoracion){ return valoracionRepository.save(valoracion);
     }
-    //BUSCAR
+
     public Valoracion findById(Long id){ return valoracionRepository.findById(id).get();
     }
-    //ACTUALIZAR
 
-    //LISTAR
     public List<Valoracion> findAll(){
         return valoracionRepository.findAll();
     }
-    //DELETE
-    public void delete(){
-        valoracionRepository.deleteById(id);
+
+    public void deleteValoracion(long id){
+        Valoracion valoracion = valoracionRepository.findById(id).get();
+        valoracionRepository.delete(valoracion);
     }
 
 }
