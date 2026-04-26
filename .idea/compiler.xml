@@ -6,13 +6,8 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="vendedor" />
         <module name="pedido" />
         <module name="valoracion" />
-        <module name="producto" />
-        <module name="carrito" />
-        <module name="usuarios" />
-        <module name="inventario" />
         <module name="pago" />
         <module name="notificacion" />
         <module name="reporte" />
