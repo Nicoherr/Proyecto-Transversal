@@ -17,7 +17,7 @@ import java.util.Date;
 public class Pago {
     @Id// este campo es el ID único de cada registro
     @GeneratedValue(strategy = GenerationType.IDENTITY)// el ID se genera solo, no lo ingresa el usuario
-    private Long id;
+    private long id;
 
     @NotBlank(message = "Escribe el metodo de pago")
     @Column(nullable = false, length = 20)//Validamos que el dato no sea nulo en la Base de Datos.

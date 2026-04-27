@@ -29,7 +29,7 @@
         <module>producto</module>
 
         <module>reporte</module>
-        <module>usuarios</module>
+        <module>usuario</module>
         <module>valoracion</module>
         <module>vendedor</module>
     </modules>

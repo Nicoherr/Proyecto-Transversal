@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 public class Valoracion {
     @Id// este campo es el ID único de cada registro
     @GeneratedValue(strategy = GenerationType.IDENTITY)// el ID se genera solo, no lo ingresa el usuario
-    private Long id;
+    private long id;
 
     @NotNull(message = "El campo no puede ser nulo")
     @Column(nullable = false)//Validamos que el dato no sea nulo en la Base de Datos.

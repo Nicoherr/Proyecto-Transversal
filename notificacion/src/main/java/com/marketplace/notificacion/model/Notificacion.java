@@ -16,7 +16,7 @@ import java.util.Date;
 public class Notificacion {
     @Id// este campo es el ID único de cada registro
     @GeneratedValue(strategy = GenerationType.IDENTITY)// el ID se genera solo, no lo ingresa el usuario
-    private Long id;
+    private long id;
 
 
     @NotBlank(message = "El asunto deve estar descrito")

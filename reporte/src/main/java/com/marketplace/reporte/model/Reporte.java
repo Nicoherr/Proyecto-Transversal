@@ -16,7 +16,7 @@ import java.util.Date;
 public class Reporte {
     @Id// este campo es el ID único de cada registro
     @GeneratedValue(strategy = GenerationType.IDENTITY)// el ID se genera solo, no lo ingresa el usuario
-    private Long id;
+    private long id;
 
     @NotBlank(message = "Ingresa un tipo de reporte valido")
     @Column(nullable = false, length= 100) //Validamos que el dato no sea nulo en la Base de Datos.
