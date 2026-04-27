@@ -16,17 +16,22 @@ public class PagoService {
     @Autowired
     private PagoRepository pagoRepository;
 
-    public Pago save(Pago pago){
-        return pagoRepository.save(pago);
-    }
-
-    public List<Pago> findAll(){
+    //Listar
+    public List<Pago> getPago(){
         return pagoRepository.findAll();
     }
 
-    public Pago findById(Long id){
-        return pagoRepository.findById(id).get();
+    //Crear
+    public PagoDTO createPago(PagoNewDTO newPagoDTO){
+        Pago pago = new Pago(0, newPagodto.getMetodoPago(), newPagoDTO.getComprobante(), new Date());
+        pago = pagoRepository.save(pago);
+        PagoDTO pagoDTO = new PagoDTO(pago.getId(), pago.getMetodopago());
+        return pagoDTO;
+    }
 
+    //Buscar
+    public Pago getPago(long id){
+        return pagoRepository.findById(id).get();
     }
 
 }

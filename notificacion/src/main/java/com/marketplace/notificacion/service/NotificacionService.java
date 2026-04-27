@@ -15,17 +15,27 @@ public class NotificacionService{
     @Autowired
     private NotificacionRepository notificacionRepository;
 
-    public Notificacion save(Notificacion notificacion) { return notificacionRepository.save(notificacion);
-    }
-    public Notificacion findById(Long id){ return notificacionRepository.findById(id).get();
-    }
-    public List<Notificacion> findAll(){
+    //Listar
+    public List<Notificacion> getNotificaciones(){
         return notificacionRepository.findAll();
     }
 
+    //Buscar
+    public Notificacion getNotificacion(long id){
+        return notificacionRepository.findById(id).get();
+    }
 
-    public void delete(long id){
-        Notificacion notificacion= notificacionRepository.findById(id).get();
+    //Crear
+    public NotificacionDTO createNotificacion(NotificacionNewDTO newNotificacionDTO){
+        Notificacion notificacion = new Notificacion(0, newNotificacionDTO.getAsunto(), newNotificacionDTO.getMensaje(), new Date());
+        notificacion = notificacionRepository.save(notificacion);
+        NotificacionDTO notificacionDTO = new notificacionDTO(notificacion.getId(), notificacion.getAsunto(), notificacion.getMensaje());
+        return notificacionDTO;
+    }
+
+    //Eliminar
+    public void deleteNotificacion(long id) {
+        Notificacion notificacion = notificacionRepository.findById(id).get();
         notificacionRepository.delete(notificacion);
     }
 }

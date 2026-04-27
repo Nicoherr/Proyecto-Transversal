@@ -11,13 +11,9 @@ public class PagoDTO {
     private long id = 0;
 
     @NotBlank(message = "Escribe el metodo de pago")
-    @Column(nullable = false, length = 20)//Validamos que el dato no sea nulo en la Base de Datos.
     private String metodoPago;
 
-
-    @Column(nullable = false)//Validamos que el dato no sea nulo en la Base de Datos.
     private String comprobante;
 
-    @Column(nullable = false)//Validamos que el dato no sea nulo en la Base de Datos.
     private Date fecha;
 }

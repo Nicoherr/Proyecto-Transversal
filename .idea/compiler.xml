@@ -17,8 +17,8 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="carrito" options="-parameters" />
-      <module name="inventario" options="-parameters" />
+      <module name="carrito" options="" />
+      <module name="inventario" options="" />
       <module name="notificacion" options="" />
       <module name="pago" options="" />
       <module name="pedido" options="" />

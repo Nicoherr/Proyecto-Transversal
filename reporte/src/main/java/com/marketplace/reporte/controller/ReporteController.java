@@ -14,7 +14,7 @@ public class ReporteController {
 
     //CREATE
     @PostMapping
-
+    public Reporte
 
     //READ
     //USAR TRY/CATCH PARA CUANDO NO HAY UN ID

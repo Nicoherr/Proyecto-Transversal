@@ -15,16 +15,23 @@ public class ReporteService {
     @Autowired
     private ReporteRepository reporteRepository;
 
-    public Reporte save(Reporte reporte){ return reporteRepository.save(reporte);
+    //Listar
+    public List<Reporte> getReporte(){
+        return reporteRepository.findAll();
     }
 
-    public Reporte findById(Long id){ return reporteRepository.findById(id).get();
+    //Crear
+    public ReporteDTO createReporte(ReporteNewDTO newReporteDTO){
+        Reporte reporte = new Reporte(0, newReporteDTO.getTipo(), newReporteDTO.getDescripcion(), new Date(), true);
+        reporte = reporteRepository.save(reporte);
+        ReporteDTO reporteDTO = new ReporteDTO(reporte.getId(), reporte.getTipo(), reporte.getdescripcion());
+        return reporteDTO;
     }
 
-    public List<Reporte> findAll(){ return reporteRepository.findAll();
-    }
-
-    public void deleteById(Long id){ reporteRepository.deleteById(id);
+    //Eliminar
+    public void deleteReporte(long id){
+        Reporte reporte = reporteRepository.findById(id).get();
+        reporteRepository.delete(reporte);
 
     }
 }

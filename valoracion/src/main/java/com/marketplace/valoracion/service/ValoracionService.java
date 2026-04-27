@@ -15,19 +15,27 @@ public class ValoracionService {
     @Autowired
     private ValoracionRepository valoracionRepository;
 
-    public Valoracion save(Valoracion valoracion){ return valoracionRepository.save(valoracion);
-    }
-
-    public Valoracion findById(Long id){ return valoracionRepository.findById(id).get();
-    }
-
-    public List<Valoracion> findAll(){
+    //Listar
+    public List<Valoracion> getValoracion(){
         return valoracionRepository.findAll();
     }
 
+    //Crear
+    public ValoracionDTO createValoracion(ValoracionNewDTO newValoracionDTO){
+        Valoracion valoracion = new Valoracion(0, newValoracionDTO.getNumEstrella(), newValoracionDTO.getRecomendacion());
+        valoracion = valoracionRepository.save(valoracion);
+        ValoracionDTO valoracionDTO = new ValoracionDTO(valoracion.getId(), valoracion.getNumEstrella(), valoracion.getRecomendacion());
+        return valoracionDTO;
+    }
+
+    //Buscar
+    public Valoracion getValoracion(long id){
+        return valoracionRepository.findById(id).get();
+    }
+
+    //Eliminar
     public void deleteValoracion(long id){
         Valoracion valoracion = valoracionRepository.findById(id).get();
         valoracionRepository.delete(valoracion);
     }
-
 }

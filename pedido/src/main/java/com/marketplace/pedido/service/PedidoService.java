@@ -18,17 +18,28 @@ public class PedidoService {
     @Autowired
     private PedidoRepository pedidoRepository;
 
-    public PedidoDTO createdPedido(PedidoNewDTO newPedidoDTO){
-        Pedido pedido = new Pedido(0,newPedidoDTO.getNomProducto(), newPedidoDTO.getTipoProducto(),0);
+    //Listar
+    public List<Pedido> getPedido(){
+        return pedidoRepository.findAll();
+    }
+
+    //Crear
+    public PedidoDTO createPedido(PedidoNewDTO newPedidoDTO){
+        Pedido pedido = new Pedido(0,newPedidoDTO.getNomProducto(), newPedidoDTO.getTipoProducto(), newPedidoDTO.getPrecio());
         pedido = pedidoRepository.save(pedido);
-        PedidoDTO pedidoDTO = new PedidoDTO(pedido.getId(), pedido.getNomProducto(), pedido.getTipoProducto());
+        PedidoDTO pedidoDTO = new PedidoDTO(pedido.getId(), pedido.getNomProducto, pedido.getTipoProducto(), pedido.getPrecio());
         return pedidoDTO;
     }
-    public List<Pedido> findAll(){ return pedidoRepository.findAll();
+
+    //Buscar
+    public Pedido getPedido(long id){
+        return pedidoRepository.findById(id).get();
     }
-    public Pedido findById(Long id){ return pedidoRepository.findById(id).get();
-    }
-    public void deleteById(Long id){
-        pedidoRepository.deleteById(id);
+
+    //Eliminar
+    public void deletePedido(long id){
+        Pedido pedido = pedidoRepository.findById(id).get();
+        pedidoRepository.delete(pedido);
+
     }
 }

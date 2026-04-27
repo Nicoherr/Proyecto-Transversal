@@ -17,13 +17,10 @@ public class NotificacionDTO {
     private long id = 0;
 
     @NotBlank(message = "El asunto deve estar descrito")
-    @Column(nullable = false, length = 100)//Validamos que el dato no sea nulo en la Base de Datos.
     private String asunto;
 
     @NotBlank(message = "El mensaje no puede estar vacio")
-    @Column(nullable = false, length = 512)//Validamos que el dato no sea nulo en la Base de Datos.
     private String mensaje;
 
-    @Column(nullable = false)//Validamos que el dato no sea nulo en la Base de Datos.
     private Date fecha;
 }
