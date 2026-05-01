@@ -5,6 +5,7 @@ import com.marketplace.pago.DTO.PagoResponseDTO;
 import com.marketplace.pago.model.Pago;
 import com.marketplace.pago.repository.PagoRepository;
 import jakarta.transaction.Transactional;
+import lombok.RequiredArgsConstructor;
 import org.apache.catalina.startup.ContextRuleSet;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,11 +15,11 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-@Transactional
+@RequiredArgsConstructor
 public class PagoService {
 
     @Autowired
-    private PagoRepository pagoRepository;
+    private final PagoRepository pagoRepository;
 
     private PagoResponseDTO makeToPagoResponseDTO(Pago pago){
         return new PagoResponseDTO(pago.getId(), pago.getMetodoPago(), pago.getComprobante(), pago.getFecha());
@@ -37,7 +38,7 @@ public class PagoService {
 
     //Crear
     public PagoResponseDTO createPago(PagoRequestDTO newPagoDTO){
-        Pago pago = new Pago(0, newPagoDTO.getMetodoPago(), newPagoDTO.getComprobante(), newPagoDTO.getFecha());
+        Pago pago = new Pago(0, newPagoDTO.getMetodoPago(), newPagoDTO.getMetodoPago(), new Date ());
         pago = pagoRepository.save(pago);
         PagoResponseDTO pagoDTO = new PagoResponseDTO(pago.getId(), pago.getMetodoPago(), pago.getComprobante(), pago.getFecha());
         return pagoDTO;

@@ -32,7 +32,7 @@ public class NotificacionService{
     //Buscar
     public NotificacionRequestDTO findNotificacionesById(long id) {
         Notificacion notificacion = notificacionRepository.findById(id).get();
-        return new NotificacionRequestDTO(notificacion.getMensaje());
+        return new NotificacionRequestDTO(notificacion.getMensaje(), notificacion.getAsunto());
     }
 
     //Crear

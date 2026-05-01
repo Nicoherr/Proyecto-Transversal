@@ -53,43 +53,4 @@ public class NotificacionController {
         return ResponseEntity.noContent().build();
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    //UPDATE
-    @PutMapping("/{id}")
-    public ResponseEntity<Notificacion> actualizar(@PathVariable Integer id, @RequestBody Notificacion notificacion){
-        try{
-            Notificacion not = notificacionService.findById(id.longValue());
-            not.setId(notificacion.getId());
-            not.setAsunto(notificacion.getAsunto());
-            not.setMensaje(notificacion.getMensaje());
-            not.setFecha(notificacion.getFecha());
-            notificacionService.save(not);
-            return ResponseEntity.ok(notificacion);
-        }catch (Exception e){
-            return ResponseEntity.notFound().build();
-        }
-    }
-
 }

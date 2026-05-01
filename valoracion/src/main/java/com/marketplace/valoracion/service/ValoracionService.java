@@ -1,40 +1,50 @@
 package com.marketplace.valoracion.service;
 
+import com.marketplace.valoracion.DTO.ValoracionRequestDTO;
+import com.marketplace.valoracion.DTO.ValoracionResponseDTO;
 import com.marketplace.valoracion.model.Valoracion;
 import com.marketplace.valoracion.repository.ValoracionRepository;
 import jakarta.transaction.Transactional;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
-@Transactional
+@RequiredArgsConstructor
 public class ValoracionService {
 
     @Autowired
-    private ValoracionRepository valoracionRepository;
+    private final ValoracionRepository valoracionRepository;
 
-    //Listar
-    public List<Valoracion> getValoracion(){
-        return valoracionRepository.findAll();
+    private ValoracionResponseDTO makeToValoracionResponseDTO(Valoracion valoracion){
+        return new ValoracionResponseDTO(valoracion.getId(), valoracion.getNumEstrella(), valoracion.getRecomendacion());
     }
 
-    //Crear
-    public ValoracionDTO createValoracion(ValoracionNewDTO newValoracionDTO){
-        Valoracion valoracion = new Valoracion(0, newValoracionDTO.getNumEstrella(), newValoracionDTO.getRecomendacion());
-        valoracion = valoracionRepository.save(valoracion);
-        ValoracionDTO valoracionDTO = new ValoracionDTO(valoracion.getId(), valoracion.getNumEstrella(), valoracion.getRecomendacion());
-        return valoracionDTO;
+    //Listar
+    public List<ValoracionResponseDTO> findAllValoraciones(){
+        return valoracionRepository.findAll().stream().map(this::makeToValoracionResponseDTO).collect(Collectors.toList());
     }
 
     //Buscar
-    public Valoracion getValoracion(long id){
-        return valoracionRepository.findById(id).get();
+    public ValoracionRequestDTO findValoracionesById(long id) {
+        Valoracion valoracion = valoracionRepository.findById(id).get();
+        return new ValoracionRequestDTO(valoracion.getNumEstrella(), valoracion.getRecomendacion());
+    }
+
+    //Crear
+    public ValoracionResponseDTO createValoracion(ValoracionRequestDTO newValoracionDTO){
+        Valoracion valoracion = new Valoracion(0, newValoracionDTO.getNumEstrella(), newValoracionDTO.getRecomendacion());
+        valoracion = valoracionRepository.save(valoracion);
+        ValoracionResponseDTO valoracionDTO = new ValoracionResponseDTO(valoracion.getId(), valoracion.getNumEstrella(), valoracion.getRecomendacion());
+        return valoracionDTO;
     }
 
     //Eliminar
-    public void deleteValoracion(long id){
+    public void deleteValoracion(long id) {
         Valoracion valoracion = valoracionRepository.findById(id).get();
         valoracionRepository.delete(valoracion);
     }

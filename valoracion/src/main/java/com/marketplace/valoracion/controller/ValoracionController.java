@@ -21,16 +21,16 @@ public class ValoracionController {
     //CREATE
     @PostMapping
     public ResponseEntity<ValoracionResponseDTO> guardar(@Valid @RequestBody ValoracionRequestDTO valoracionDTO){
-        NotificacionResponseDTO nuevo = notificacionService.createNotificacion(notificacionDTO);
+        ValoracionResponseDTO nuevo = valoracionService.createValoracion(valoracionDTO);
         return ResponseEntity.status(HttpStatus.CREATED).body(nuevo);
     }
     //READ
     //BUSCAR
     @GetMapping("/{id}")
-    public ResponseEntity<NotificacionRequestDTO> buscar(@PathVariable Long id){
+    public ResponseEntity<ValoracionRequestDTO> buscar(@PathVariable Long id){
         try{
-            NotificacionRequestDTO notificacion = notificacionService.findNotificacionesById(id);
-            return ResponseEntity.ok(notificacion);
+            ValoracionRequestDTO valoracion = valoracionService.findValoracionesById(id);
+            return ResponseEntity.ok(valoracion);
         } catch (Exception e){
             return ResponseEntity.notFound().build();
         }
@@ -38,17 +38,17 @@ public class ValoracionController {
     }
     //LISTAR
     @GetMapping
-    public ResponseEntity<List<NotificacionResponseDTO>> listar() {
-        List<NotificacionResponseDTO> notificaciones = notificacionService.findAllNotificaciones();
-        if (notificaciones.isEmpty()) {
+    public ResponseEntity<List<ValoracionResponseDTO>> listar() {
+        List<ValoracionResponseDTO> valoraciones = valoracionService.findAllValoraciones();
+        if (valoraciones.isEmpty()) {
             return ResponseEntity.noContent().build();
         }
-        return ResponseEntity.ok(notificaciones);
+        return ResponseEntity.ok(valoraciones);
     }
     //ELIMINAR
     @DeleteMapping("/{id}")
     public ResponseEntity<?> eliminar(@PathVariable long id) {
-        notificacionService.deleteNotificacion(id);
+        valoracionService.deleteValoracion(id);
         return ResponseEntity.noContent().build();
     }
 }

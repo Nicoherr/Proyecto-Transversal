@@ -5,17 +5,21 @@ import com.marketplace.pedido.DTO.PedidoResponseDTO;
 import com.marketplace.pedido.model.Pedido;
 import com.marketplace.pedido.repository.PedidoRepository;
 import jakarta.transaction.Transactional;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-@Transactional
+@RequiredArgsConstructor
 public class PedidoService {
 
     @Autowired
-    private PedidoRepository pedidoRepository;
+    private final PedidoRepository pedidoRepository;
+
+    private PedidoResponseDTO makeToReporteResponseDTO(Pedido pedido{
+        return new PedidoResponseDTO(pedido.getId(),pedido.getNomProducto(),pedido.getTipoProducto(),pedido.getPrecio());
 
     //Listar
     public List<Pedido> getPedido(){
@@ -26,7 +30,7 @@ public class PedidoService {
     public PedidoRequestDTO createPedido(PedidoResponseDTO newPedidoDTO){
         Pedido pedido = new Pedido(0,newPedidoDTO.getNomProducto(), newPedidoDTO.getTipoProducto(), newPedidoDTO.getPrecio());
         pedido = pedidoRepository.save(pedido);
-        PedidoRequestDTO pedidoDTO = new PedidoRequestDTO(pedido.getId(), pedido.getNomProducto, pedido.getTipoProducto(), pedido.getPrecio());
+        PedidoRequestDTO pedidoDTO = new PedidoRequestDTO(pedido.getId(), pedido.getNomProducto(),pedido.getTipoProducto(), pedido.getPrecio());
         return pedidoDTO;
     }
 
