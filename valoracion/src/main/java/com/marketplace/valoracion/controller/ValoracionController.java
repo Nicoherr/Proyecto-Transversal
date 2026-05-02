@@ -18,36 +18,34 @@ public class ValoracionController {
     @Autowired
     private ValoracionService valoracionService;
 
-    //CREATE
+    //CREAR
     @PostMapping
-    public ResponseEntity<ValoracionResponseDTO> guardar(@Valid @RequestBody ValoracionRequestDTO valoracionDTO){
-        ValoracionResponseDTO nuevo = valoracionService.createValoracion(valoracionDTO);
-        return ResponseEntity.status(HttpStatus.CREATED).body(nuevo);
+    public ResponseEntity<ValoracionResponseDTO> postValoracion(@Valid @RequestBody ValoracionResponseDTO newValoracion) {
+        ValoracionResponseDTO valoracion = valoracionService.makeValoracion(newValoracion);
+        return ResponseEntity.status(HttpStatus.CREATED).body(valoracion);
     }
-    //READ
-    //BUSCAR
-    @GetMapping("/{id}")
-    public ResponseEntity<ValoracionRequestDTO> buscar(@PathVariable Long id){
-        try{
-            ValoracionRequestDTO valoracion = valoracionService.findValoracionesById(id);
-            return ResponseEntity.ok(valoracion);
-        } catch (Exception e){
-            return ResponseEntity.notFound().build();
-        }
 
-    }
     //LISTAR
     @GetMapping
-    public ResponseEntity<List<ValoracionResponseDTO>> listar() {
-        List<ValoracionResponseDTO> valoraciones = valoracionService.findAllValoraciones();
-        if (valoraciones.isEmpty()) {
-            return ResponseEntity.noContent().build();
-        }
-        return ResponseEntity.ok(valoraciones);
+    public ResponseEntity<List<ValoracionResponseDTO>> getValoraciones(){
+        return ResponseEntity.ok(valoracionService.findAllValoraciones());
     }
+
+    //BUSCAR
+    @GetMapping("/{id}")
+    public ResponseEntity<ValoracionRequestDTO> getValoracion(@PathVariable long id){
+        return ResponseEntity.ok(valoracionService.findValoracionById(id));
+    }
+
+    //ACTUALIZAR
+    @PutMapping("/{id}")
+    public ResponseEntity<ValoracionResponseDTO> putValoracion(@PathVariable long id, @RequestBody ValoracionRequestDTO user){
+        return ResponseEntity.ok(valoracionService.updateValoracion(id,user));
+    }
+
     //ELIMINAR
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> eliminar(@PathVariable long id) {
+    public ResponseEntity<ValoracionRequestDTO> deleteValoracion(@PathVariable long id){
         valoracionService.deleteValoracion(id);
         return ResponseEntity.noContent().build();
     }

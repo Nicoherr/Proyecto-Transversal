@@ -30,18 +30,16 @@ public class NotificacionService{
     }
 
     //Buscar
-    public NotificacionRequestDTO findNotificacionesById(long id) {
+    public NotificacionResponseDTO findNotificacionesById(long id) {
         Notificacion notificacion = notificacionRepository.findById(id).get();
-        return new NotificacionRequestDTO(notificacion.getMensaje(), notificacion.getAsunto());
+        return makeToNotificacionResponseDTO(notificacion);
     }
 
     //Crear
-    public NotificacionResponseDTO createNotificacion(NotificacionRequestDTO newNotificacionDTO){
-        Notificacion notificacion = new Notificacion(0, newNotificacionDTO.getAsunto(), newNotificacionDTO.getMensaje(), new Date());
+    public NotificacionResponseDTO makeNotificacion(NotificacionRequestDTO newNotificacion) {
+        Notificacion notificacion = new Notificacion(0,newNotificacion.getAsunto(), newNotificacion.getMensaje(), new Date());
         notificacion = notificacionRepository.save(notificacion);
-        NotificacionResponseDTO notificacionDTO = new NotificacionResponseDTO(notificacion.getId(), notificacion.getAsunto(), notificacion.getMensaje(), notificacion.getFecha());
-        return notificacionDTO;
-    }
+        return makeToNotificacionResponseDTO(notificacion);
 
     //Eliminar
     public void deleteNotificacion(long id) {

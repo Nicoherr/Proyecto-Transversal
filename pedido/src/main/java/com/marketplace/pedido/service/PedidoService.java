@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -18,25 +19,28 @@ public class PedidoService {
     @Autowired
     private final PedidoRepository pedidoRepository;
 
-    private PedidoResponseDTO makeToReporteResponseDTO(Pedido pedido{
+    private PedidoResponseDTO makeToPedidoResponseDTO(Pedido pedido){
         return new PedidoResponseDTO(pedido.getId(),pedido.getNomProducto(),pedido.getTipoProducto(),pedido.getPrecio());
 
     //Listar
-    public List<Pedido> getPedido(){
-        return pedidoRepository.findAll();
+    public List<PedidoResponseDTO> findAllPedidos(){
+        return pedidoRepository.findAll().stream().map(this::makeToPedidoResponseDTO).collect(Collectors.toList());
     }
 
     //Crear
-    public PedidoRequestDTO createPedido(PedidoResponseDTO newPedidoDTO){
-        Pedido pedido = new Pedido(0,newPedidoDTO.getNomProducto(), newPedidoDTO.getTipoProducto(), newPedidoDTO.getPrecio());
+    public PedidoResponseDTO createPedido(PedidoRequestDTO newPedidoDTO){
+        Pedido pedido = new Pedido(0, newPedidoDTO.getNomProducto(), newPedidoDTO.getTipoProducto(), newPedidoDTO.getPrecio());
         pedido = pedidoRepository.save(pedido);
-        PedidoRequestDTO pedidoDTO = new PedidoRequestDTO(pedido.getId(), pedido.getNomProducto(),pedido.getTipoProducto(), pedido.getPrecio());
+        PedidoResponseDTO pedidoDTO = new PedidoResponseDTO(pedido.getId(), pedido.getNomProducto(),pedido.getTipoProducto(), pedido.getPrecio());
         return pedidoDTO;
     }
 
     //Buscar
-    public Pedido getPedido(long id){
-        return pedidoRepository.findById(id).get();
+    public PedidoRequestDTO findPedidoById(long id){
+        Pedido pedido = pedidoRepository.findById(id).get();
+        return new PedidoRequestDTO(pedido.getNomProducto(), pedido.getTipoProducto(), pedido.getPrecio());
+
+        }
     }
 
     //Eliminar

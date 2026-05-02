@@ -22,7 +22,7 @@ public class NotificacionController {
     //CREATE
     @PostMapping
     public ResponseEntity<NotificacionResponseDTO> guardar(@Valid @RequestBody NotificacionRequestDTO notificacionDTO){
-        NotificacionResponseDTO nuevo = notificacionService.createNotificacion(notificacionDTO);
+        NotificacionResponseDTO nuevo = notificacionService.makeNotificacion(notificacionDTO);
         return ResponseEntity.status(HttpStatus.CREATED).body(nuevo);
     }
     //READ

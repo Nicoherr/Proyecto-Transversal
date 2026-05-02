@@ -14,7 +14,7 @@ public class PedidoResponseDTO {
         //Devuelve datos al usuario como respuesta
         //Usamos los campos de la clase reporte pero solo los que deve llenar un usuario por la Api
 
-        private Long id = 0;
+        private long id = 0;
 
         @NotBlank(message = "Ingresa el nombre del producto")
         private String nomProducto;

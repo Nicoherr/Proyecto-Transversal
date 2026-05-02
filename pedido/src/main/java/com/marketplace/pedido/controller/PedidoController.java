@@ -37,16 +37,19 @@ public class PedidoController {
     @GetMapping("{id}")
     public ResponseEntity<Pedido> buscar(@PathVariablec Long id){
         try{
-            Pedido pedido =pedidoService.findById(id):
+            Pedido pedido =pedidoService.findById(id);
             return ResponseEntity.ok(pedido);
         } catch (Exception e){
             return ResponseEntity.notFound().build();
         }
     }
 
-    //Eliminar
-    @DeleteMapping("{id}")
-    public void eliminarPedido(Long id)
+    //ELIMINAR
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> eliminar(@PathVariable long id) {
+        pedidoService.deletePedido(id);
+        return ResponseEntity.noContent().build();
+    }
 
 
 }

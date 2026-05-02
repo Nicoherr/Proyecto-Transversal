@@ -15,6 +15,6 @@ public class NotificacionRequestDTO {
 
     @NotBlank(message = "El asunto deve estar descrito")
     private String asunto;
-    @NotNull(message = "El mensaje no puede estar vacio")
+    @NotBlank(message = "El mensaje no puede estar vacio")
     private String mensaje;
 }

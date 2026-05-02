@@ -6,6 +6,7 @@ import com.marketplace.valoracion.model.Valoracion;
 import com.marketplace.valoracion.repository.ValoracionRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -34,13 +35,19 @@ public class ValoracionService {
         Valoracion valoracion = valoracionRepository.findById(id).get();
         return new ValoracionRequestDTO(valoracion.getNumEstrella(), valoracion.getRecomendacion());
     }
+    //Actualizar
+    public ValoracionResponseDTO valoracionUser(long id, ValoracionRequestDTO updateValoracion){
+        Valoracion valoracion = valoracionRepository.findById(id).get();
+        valoracion.setRecomendacion(updateValoracion.getRecomendacion());
+        valoracion = valoracionRepository.save(valoracion);
+        return new ValoracionResponseDTO(valoracion.getId(), valoracion.getRecomendacion());
+    }
 
     //Crear
-    public ValoracionResponseDTO createValoracion(ValoracionRequestDTO newValoracionDTO){
-        Valoracion valoracion = new Valoracion(0, newValoracionDTO.getNumEstrella(), newValoracionDTO.getRecomendacion());
+    public ValoracionResponseDTO makeValoracion(ValoracionRequestDTO newValoracion){
+        Valoracion valoracion = new Valoracion(0, newValoracion.getNumEstrella(), newValoracion.getRecomendacion());
         valoracion = valoracionRepository.save(valoracion);
-        ValoracionResponseDTO valoracionDTO = new ValoracionResponseDTO(valoracion.getId(), valoracion.getNumEstrella(), valoracion.getRecomendacion());
-        return valoracionDTO;
+        return new ValoracionResponseDTO(valoracion.getId(), valoracion.getNumEstrella(), valoracion.getRecomendacion());
     }
 
     //Eliminar

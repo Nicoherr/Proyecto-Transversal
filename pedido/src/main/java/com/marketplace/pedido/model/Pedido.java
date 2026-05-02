@@ -15,14 +15,14 @@ import lombok.NoArgsConstructor;
 public class Pedido {
     @Id// este campo es el ID único de cada registro
     @GeneratedValue(strategy = GenerationType.IDENTITY)// el ID se genera solo, no lo ingresa el usuario
-    private Long id;
+    private long id;
 
     @NotBlank(message = "Ingresa el nombre del producto")
-    @Column(nullable = false, lenght = 200)//Validamos que el dato no sea nulo en la Base de Datos.
+    @Column(nullable = false, length = 200)//Validamos que el dato no sea nulo en la Base de Datos.
     private String nomProducto;
 
     @NotBlank(message = "Deves especificar el tipo de producto")
-    @Column(nullable = false, lenght = 30)//Validamos que el dato no sea nulo en la Base de Datos.
+    @Column(nullable = false, length = 30)//Validamos que el dato no sea nulo en la Base de Datos.
     private String tipoProducto;
 
     @NotNull(message = "Deves ingresar el precio del producto que deseas vender")
