@@ -1,12 +1,14 @@
 package com.marketplace.carrito.controller;
-import com.marketplace.carrito.model.*;
+import com.marketplace.carrito.dto.*;
 import com.marketplace.carrito.service.CarritoService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/carrito")
+@RequestMapping("/api/carritos")
 public class CarritoController {
 
     private final CarritoService service;
@@ -15,34 +17,24 @@ public class CarritoController {
         this.service = service;
     }
 
-    @PostMapping("/crear")
-    public Carrito crear(@RequestParam Long usuarioId) {
-        return service.crearCarrito(usuarioId);
+    @PostMapping
+    public ResponseEntity<CarritoResponseDTO> crear(@RequestBody CarritoRequestDTO dto) {
+        return new ResponseEntity<>(service.crearCarrito(dto), HttpStatus.CREATED);
     }
 
-    @GetMapping("/{carritoId}")
-    public List<CarritoProducto> ver(@PathVariable Long carritoId) {
-        return service.verCarrito(carritoId);
+    @GetMapping("/{id}")
+    public ResponseEntity<CarritoResponseDTO> obtener(@PathVariable Long id) {
+        return ResponseEntity.ok(service.obtenerCarrito(id));
     }
 
-    @PostMapping("/{carritoId}/agregar")
-    public CarritoProducto agregar(
-            @PathVariable Long carritoId,
-            @RequestParam Long productoId,
-            @RequestParam int cantidad) {
-        return service.agregarProducto(carritoId, productoId, cantidad);
+    @PostMapping("/productos")
+    public ResponseEntity<CarritoProductoResponseDTO> agregarProducto(@RequestBody CarritoProductoRequestDTO dto) {
+        return new ResponseEntity<>(service.agregarProducto(dto), HttpStatus.CREATED);
     }
 
-    @DeleteMapping("/producto/{id}")
-    public void eliminar(@PathVariable Long id) {
-        service.eliminarProducto(id);
-    }
-
-    @PutMapping("/producto/{id}")
-    public CarritoProducto actualizar(
-            @PathVariable Long id,
-            @RequestParam int cantidad) {
-        return service.actualizarCantidad(id, cantidad);
+    @GetMapping("/{carritoId}/productos")
+    public ResponseEntity<List<CarritoProductoResponseDTO>> listarProductos(@PathVariable Long carritoId) {
+        return ResponseEntity.ok(service.listarProductos(carritoId));
     }
 }
 
