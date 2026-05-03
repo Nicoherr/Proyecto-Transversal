@@ -1,9 +1,12 @@
 package com.marketplace.vendedor.service;
+import com.marketplace.vendedor.dto.VendedorRequestDTO;
+import com.marketplace.vendedor.dto.VendedorResponseDTO;
 import com.marketplace.vendedor.model.Vendedor;
 import com.marketplace.vendedor.repository.VendedorRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class VendedorService {
@@ -14,46 +17,38 @@ public class VendedorService {
         this.repository = repository;
     }
 
-    public List<Vendedor> listar() {
-        return repository.findAll();
+    public VendedorResponseDTO crear(VendedorRequestDTO dto) {
+        Vendedor vendedor = new Vendedor();
+        vendedor.setNombreTienda(dto.getNombreTienda());
+        vendedor.setDescripcion(dto.getDescripcion());
+        vendedor.setUsuarioId(dto.getUsuarioId());
+        // reputacion, cantidadValoraciones y activo ya tienen sus valores por defecto gracias a tu modelo
+
+        return convertirAResponse(repository.save(vendedor));
     }
 
-    public List<Vendedor> listarActivos() {
-        return repository.findByActivoTrue();
+    public List<VendedorResponseDTO> listar() {
+        return repository.findAll().stream()
+                .map(this::convertirAResponse)
+                .collect(Collectors.toList());
     }
 
-    public Vendedor crear(Vendedor vendedor) {
-        return repository.save(vendedor);
+    public VendedorResponseDTO obtener(Long id) {
+        Vendedor v = repository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Vendedor/Tienda no encontrado"));
+        return convertirAResponse(v);
     }
 
-    public Vendedor obtener(Long id) {
-        return repository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Vendedor no encontrado"));
-    }
-
-    public Vendedor actualizar(Long id, Vendedor nuevo) {
-        Vendedor v = obtener(id);
-
-        v.setNombreTienda(nuevo.getNombreTienda());
-        v.setDescripcion(nuevo.getDescripcion());
-
-        return repository.save(v);
-    }
-
-    public void eliminar(Long id) {
-        repository.deleteById(id);
-    }
-
-    public Vendedor valorar(Long id, int puntuacion) {
-        Vendedor v = obtener(id);
-
-        double total = v.getReputacion() * v.getCantidadValoraciones();
-        total += puntuacion;
-
-        v.setCantidadValoraciones(v.getCantidadValoraciones() + 1);
-        v.setReputacion(total / v.getCantidadValoraciones());
-
-        return repository.save(v);
+    // Método para mapear tu modelo real al Response
+    private VendedorResponseDTO convertirAResponse(Vendedor v) {
+        VendedorResponseDTO res = new VendedorResponseDTO();
+        res.setId(v.getId());
+        res.setNombreTienda(v.getNombreTienda());
+        res.setDescripcion(v.getDescripcion());
+        res.setReputacion(v.getReputacion());
+        res.setCantidadValoraciones(v.getCantidadValoraciones());
+        res.setUsuarioId(v.getUsuarioId());
+        res.setActivo(v.isActivo());
+        return res;
     }
 }
-
