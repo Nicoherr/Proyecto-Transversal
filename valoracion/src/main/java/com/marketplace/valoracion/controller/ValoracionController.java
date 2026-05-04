@@ -24,7 +24,7 @@ public class ValoracionController {
         ValoracionResponseDTO valoracion = valoracionService.makeValoracion(newValoracion);
         return ResponseEntity.status(HttpStatus.CREATED).body(valoracion);
     }
-
+c
     //LISTAR
     @GetMapping
     public ResponseEntity<List<ValoracionResponseDTO>> getValoraciones(){

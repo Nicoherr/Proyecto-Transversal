@@ -37,11 +37,10 @@ public class PagoService {
     }
 
     //Crear
-    public PagoResponseDTO createPago(PagoRequestDTO newPagoDTO){
-        Pago pago = new Pago(0, newPagoDTO.getMetodoPago(), newPagoDTO.getMetodoPago(), new Date ());
+    public PagoResponseDTO makePago(PagoRequestDTO newPago){
+        Pago pago = new Pago(0, newPago.getMetodoPago(), newPago.getMetodoPago(), new Date ());
         pago = pagoRepository.save(pago);
-        PagoResponseDTO pagoDTO = new PagoResponseDTO(pago.getId(), pago.getMetodoPago(), pago.getComprobante(), pago.getFecha());
-        return pagoDTO;
+        return new PagoResponseDTO(pago.getId(), pago.getMetodoPago(), pago.getComprobante(), pago.getFecha());
     }
 
 

@@ -19,29 +19,28 @@ public class PedidoService {
     @Autowired
     private final PedidoRepository pedidoRepository;
 
-    private PedidoResponseDTO makeToPedidoResponseDTO(Pedido pedido){
-        return new PedidoResponseDTO(pedido.getId(),pedido.getNomProducto(),pedido.getTipoProducto(),pedido.getPrecio());
-
+    private PedidoResponseDTO makeToPedidoResponseDTO(Pedido pedido) {
+        return new PedidoResponseDTO(pedido.getId(), pedido.getNomProducto(), pedido.getTipoProducto(), pedido.getPrecio());
+    }
     //Listar
     public List<PedidoResponseDTO> findAllPedidos(){
         return pedidoRepository.findAll().stream().map(this::makeToPedidoResponseDTO).collect(Collectors.toList());
     }
 
     //Crear
-    public PedidoResponseDTO createPedido(PedidoRequestDTO newPedidoDTO){
-        Pedido pedido = new Pedido(0, newPedidoDTO.getNomProducto(), newPedidoDTO.getTipoProducto(), newPedidoDTO.getPrecio());
+    public PedidoResponseDTO makePedido(PedidoRequestDTO newPedido){
+        Pedido pedido = new Pedido(0, newPedido.getNomProducto(), newPedido.getTipoProducto(), newPedido.getPrecio());
         pedido = pedidoRepository.save(pedido);
-        PedidoResponseDTO pedidoDTO = new PedidoResponseDTO(pedido.getId(), pedido.getNomProducto(),pedido.getTipoProducto(), pedido.getPrecio());
-        return pedidoDTO;
+        return new PedidoResponseDTO(pedido.getId(), pedido.getNomProducto(), pedido.getTipoProducto(), pedido.getPrecio());
     }
+
 
     //Buscar
     public PedidoRequestDTO findPedidoById(long id){
         Pedido pedido = pedidoRepository.findById(id).get();
         return new PedidoRequestDTO(pedido.getNomProducto(), pedido.getTipoProducto(), pedido.getPrecio());
-
-        }
     }
+
 
     //Eliminar
     public void deletePedido(long id){

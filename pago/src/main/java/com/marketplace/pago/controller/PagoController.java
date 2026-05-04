@@ -21,30 +21,21 @@ public class PagoController {
 
     //CREATE
     @PostMapping
-    public ResponseEntity<PagoResponseDTO> guardar(@Valid @RequestBody PagoRequestDTO pagoDTO){
-        PagoResponseDTO nuevo = pagoService.createPago(pagoDTO);
+    public ResponseEntity<PagoResponseDTO> postPago(@Valid @RequestBody PagoRequestDTO pagoDTO){
+        PagoResponseDTO nuevo = pagoService.makePago(pagoDTO);
         return ResponseEntity.status(HttpStatus.CREATED).body(nuevo);
     }
-    //READ
+
     //BUSCAR
     @GetMapping("/{id}")
-    public ResponseEntity<PagoRequestDTO> buscar(@PathVariable Long id){
-        try{
-            PagoRequestDTO pago = pagoService.findPagosById(id);
-            return ResponseEntity.ok(pago);
-        } catch (Exception e){
-            return ResponseEntity.notFound().build();
-        }
+    public ResponseEntity<PagoRequestDTO> buscar(@PathVariable long id){
+        return ResponseEntity.ok(pagoService.findPagosById(id));
 
     }
     //LISTAR
     @GetMapping
-    public ResponseEntity<List<PagoResponseDTO>> listar() {
-        List<PagoResponseDTO> pagos = pagoService.findAllPagos();
-        if (pagos.isEmpty()) {
-            return ResponseEntity.noContent().build();
-        }
-        return ResponseEntity.ok(pagos);
+    public ResponseEntity<List<PagoResponseDTO>> getPagos(){
+        return ResponseEntity.ok(pagoService.findAllPagos());
     }
 
 }

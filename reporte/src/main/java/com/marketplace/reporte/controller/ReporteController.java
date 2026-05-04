@@ -21,31 +21,23 @@ public class ReporteController {
 
     //CREATE
     @PostMapping
-    public ResponseEntity<ReporteResponseDTO> guardar(@Valid @RequestBody ReporteRequestDTO reporteDTO){
-        ReporteResponseDTO nuevo = reporteService.createReporte(reporteDTO);
-        return ResponseEntity.status(HttpStatus.CREATED).body(nuevo);
+    public ResponseEntity<ReporteResponseDTO> postReporte(@Valid @RequestBody ReporteRequestDTO newReporte){
+        ReporteResponseDTO reporte = reporteService.makeReporte(newReporte);
+        return ResponseEntity.status(HttpStatus.CREATED).body(reporte);
     }
-    //READ
     //BUSCAR
     @GetMapping("/{id}")
-    public ResponseEntity<ReporteRequestDTO> buscar(@PathVariable Long id){
-        try{
-            ReporteRequestDTO reporte = reporteService.findReportesById(id);
-            return ResponseEntity.ok(reporte);
-        } catch (Exception e){
-            return ResponseEntity.notFound().build();
-        }
-
+    public ResponseEntity<ReporteRequestDTO> getReporte(@PathVariable long id){
+        return ResponseEntity.ok(reporteService.findReportesById(id));
     }
     //LISTAR
     @GetMapping
     public ResponseEntity<List<ReporteResponseDTO>> getReportes() {
-        return ResponseEntity.ok(reporteService.findAllReportes);
-
+        return ResponseEntity.ok(reporteService.findAllReportes());
     }
     //ELIMINAR
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> eliminar(@PathVariable long id) {
+    public ResponseEntity<ReporteRequestDTO> deleteReporte(@PathVariable long id) {
         reporteService.deleteReporte(id);
         return ResponseEntity.noContent().build();
     }
