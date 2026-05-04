@@ -20,7 +20,7 @@ public class ValoracionController {
 
     //CREAR
     @PostMapping
-    public ResponseEntity<ValoracionResponseDTO> postValoracion(@Valid @RequestBody ValoracionResponseDTO newValoracion) {
+    public ResponseEntity<ValoracionResponseDTO> postValoracion(@Valid @RequestBody ValoracionRequestDTO newValoracion) {
         ValoracionResponseDTO valoracion = valoracionService.makeValoracion(newValoracion);
         return ResponseEntity.status(HttpStatus.CREATED).body(valoracion);
     }

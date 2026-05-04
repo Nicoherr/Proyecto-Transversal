@@ -20,9 +20,9 @@ public class ReporteService {
     @Autowired
     private final ReporteRepository reporteRepository;
 
-    private ReporteResponseDTO makeToReporteResponseDTO(Reporte reporte){
-        return new ReporteResponseDTO(reporte.getId(),reporte.getTipo(),reporte.getDescripcion(),reporte.getFecha(),reporte.getEstado());
-
+    private ReporteResponseDTO makeToReporteResponseDTO(Reporte reporte) {
+        return new ReporteResponseDTO(reporte.getId(), reporte.getTipo(), reporte.getDescripcion(), reporte.getFecha(), reporte.getEstado());
+    }
         //Listar
         public List<ReporteResponseDTO> findAllReportes(){
             return reporteRepository.findAll().stream().map(this::makeToReporteResponseDTO).collect(Collectors.toList());
@@ -35,10 +35,10 @@ public class ReporteService {
         }
 
         //Crear
-        public ReporteResponseDTO createReporte(ReporteRequestDTO newReporteDTO){
-            Reporte reporte = new Reporte(0, newReporte.getTipo(), newReporte.getDescripcion(), newReporte.getFecha(), reporte.getEstado());
+        public ReporteResponseDTO createReporte(ReporteRequestDTO newReporte){
+            Reporte reporte = new Reporte(0, newReporte.getTipo(), newReporte.getDescripcion(), new Date, true);
             reporte = reporteRepository.save(reporte);
-            ReporteResponseDTO reporteDTO = new ReporteResponseDTO(valoracion.getId(), valoracion.getNumEstrella(), valoracion.getRecomendacion());
+            ReporteResponseDTO reporteDTO = new ReporteResponseDTO(reporte.getId(), reporte.getTipo(), reporte.getDescripcion(), new Date, true);
             return reporteDTO;
         }
 

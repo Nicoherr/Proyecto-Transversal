@@ -28,14 +28,8 @@ public class NotificacionController {
     //READ
     //BUSCAR
     @GetMapping("/{id}")
-    public ResponseEntity<NotificacionRequestDTO> buscar(@PathVariable Long id){
-        try{
-            NotificacionRequestDTO notificacion = notificacionService.findNotificacionesById(id);
-            return ResponseEntity.ok(notificacion);
-        } catch (Exception e){
-            return ResponseEntity.notFound().build();
-        }
-
+    public ResponseEntity<NotificacionResponseDTO> buscar(@PathVariable long id){
+        return ResponseEntity.ok(notificacionService.findNotificacionesById(id));
     }
     //LISTAR
     @GetMapping
@@ -48,9 +42,8 @@ public class NotificacionController {
     }
     //ELIMINAR
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> eliminar(@PathVariable long id) {
+    public ResponseEntity<NotificacionRequestDTO> deleteNotificacion(@PathVariable long id) {
         notificacionService.deleteNotificacion(id);
         return ResponseEntity.noContent().build();
     }
-
 }

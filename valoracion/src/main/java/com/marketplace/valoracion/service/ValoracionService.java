@@ -31,16 +31,16 @@ public class ValoracionService {
     }
 
     //Buscar
-    public ValoracionRequestDTO findValoracionesById(long id) {
+    public ValoracionRequestDTO findValoracionById(long id) {
         Valoracion valoracion = valoracionRepository.findById(id).get();
         return new ValoracionRequestDTO(valoracion.getNumEstrella(), valoracion.getRecomendacion());
     }
     //Actualizar
-    public ValoracionResponseDTO valoracionUser(long id, ValoracionRequestDTO updateValoracion){
+    public ValoracionResponseDTO updateValoracion(long id, ValoracionRequestDTO updateValoracion){
         Valoracion valoracion = valoracionRepository.findById(id).get();
         valoracion.setRecomendacion(updateValoracion.getRecomendacion());
         valoracion = valoracionRepository.save(valoracion);
-        return new ValoracionResponseDTO(valoracion.getId(), valoracion.getRecomendacion());
+        return new ValoracionResponseDTO(valoracion.getId(),valoracion.getNumEstrella(), valoracion.getRecomendacion());
     }
 
     //Crear

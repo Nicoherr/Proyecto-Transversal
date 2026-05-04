@@ -39,12 +39,9 @@ public class ReporteController {
     }
     //LISTAR
     @GetMapping
-    public ResponseEntity<List<ReporteResponseDTO>> listar() {
-        List<ReporteResponseDTO> reporte = reporteService.findAllReportes();
-        if (reporte.isEmpty()) {
-            return ResponseEntity.noContent().build();
-        }
-        return ResponseEntity.ok(reportes);
+    public ResponseEntity<List<ReporteResponseDTO>> getReportes() {
+        return ResponseEntity.ok(reporteService.findAllReportes);
+
     }
     //ELIMINAR
     @DeleteMapping("/{id}")
