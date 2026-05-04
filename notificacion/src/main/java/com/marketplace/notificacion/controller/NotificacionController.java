@@ -1,5 +1,4 @@
 package com.marketplace.notificacion.controller;
-
 import com.marketplace.notificacion.DTO.NotificacionRequestDTO;
 import com.marketplace.notificacion.DTO.NotificacionResponseDTO;
 import com.marketplace.notificacion.model.Notificacion;
@@ -25,12 +24,20 @@ public class NotificacionController {
         NotificacionResponseDTO nuevo = notificacionService.makeNotificacion(notificacionDTO);
         return ResponseEntity.status(HttpStatus.CREATED).body(nuevo);
     }
+
     //READ
     //BUSCAR
     @GetMapping("/{id}")
-    public ResponseEntity<NotificacionResponseDTO> buscar(@PathVariable long id){
-        return ResponseEntity.ok(notificacionService.findNotificacionesById(id));
+    public ResponseEntity<NotificacionResponseDTO> buscar(@PathVariable Long id){ // Cambiado a ResponseDTO
+        try{
+            // Cambiado a ResponseDTO para que coincida con el Service
+            NotificacionResponseDTO notificacion = notificacionService.findNotificacionesById(id);
+            return ResponseEntity.ok(notificacion);
+        } catch (Exception e){
+            return ResponseEntity.notFound().build();
+        }
     }
+
     //LISTAR
     @GetMapping
     public ResponseEntity<List<NotificacionResponseDTO>> listar() {
@@ -40,6 +47,7 @@ public class NotificacionController {
         }
         return ResponseEntity.ok(notificaciones);
     }
+
     //ELIMINAR
     @DeleteMapping("/{id}")
     public ResponseEntity<NotificacionRequestDTO> deleteNotificacion(@PathVariable long id) {

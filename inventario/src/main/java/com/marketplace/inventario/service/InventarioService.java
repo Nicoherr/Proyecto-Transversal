@@ -1,9 +1,13 @@
 package com.marketplace.inventario.service;
+
+import com.marketplace.inventario.dto.InventarioRequestDTO;
+import com.marketplace.inventario.dto.InventarioResponseDTO;
 import com.marketplace.inventario.model.Inventario;
 import com.marketplace.inventario.repository.InventarioRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class InventarioService {
@@ -14,38 +18,40 @@ public class InventarioService {
         this.repository = repository;
     }
 
-    public List<Inventario> listar() {
-        return repository.findAll();
-    }
+    public InventarioResponseDTO crear(InventarioRequestDTO dto) {
+        Inventario inventario = new Inventario();
+        inventario.setProductoId(dto.getProductoId());
+        inventario.setStock(dto.getStock());
 
-    public Inventario crear(Inventario inventario) {
-        return repository.save(inventario);
-    }
-
-    public Inventario obtenerPorProducto(Long productoId) {
-        return repository.findByProductoId(productoId)
-                .orElseThrow(() -> new RuntimeException("Inventario no encontrado"));
-    }
-
-    public Inventario actualizarStock(Long productoId, int cantidad) {
-        Inventario inv = obtenerPorProducto(productoId);
-
-        if (inv.getStock() + cantidad < 0) {
-            throw new RuntimeException("Stock insuficiente");
+        // Si nos envían un stock mínimo específico, lo usamos.
+        // Si no, se queda con el 5 que le agregamos en el modelo.
+        if (dto.getStockMinimo() != null) {
+            inventario.setStockMinimo(dto.getStockMinimo());
         }
 
-        inv.setStock(inv.getStock() + cantidad);
-
-        return repository.save(inv);
+        return convertirAResponse(repository.save(inventario));
     }
 
-    public void eliminar(Long id) {
-        repository.deleteById(id);
+    public List<InventarioResponseDTO> listar() {
+        return repository.findAll().stream()
+                .map(this::convertirAResponse)
+                .collect(Collectors.toList());
     }
 
-    public boolean stockBajo(Long productoId) {
-        Inventario inv = obtenerPorProducto(productoId);
-        return inv.getStock() <= inv.getStockMinimo();
+    public InventarioResponseDTO obtener(Long id) {
+        Inventario inv = repository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Inventario no encontrado"));
+        return convertirAResponse(inv);
+    }
+
+    // Método para mapear el modelo al DTO
+    private InventarioResponseDTO convertirAResponse(Inventario inv) {
+        InventarioResponseDTO res = new InventarioResponseDTO();
+        res.setId(inv.getId());
+        res.setProductoId(inv.getProductoId());
+        res.setStock(inv.getStock());
+        res.setStockMinimo(inv.getStockMinimo());
+        return res;
     }
 }
 

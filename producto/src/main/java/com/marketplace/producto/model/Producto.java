@@ -1,11 +1,13 @@
 package com.marketplace.producto.model;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "producto")
 @AllArgsConstructor
 @NoArgsConstructor
+@Data
 public class Producto {
 
     @Id

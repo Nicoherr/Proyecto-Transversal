@@ -4,20 +4,18 @@ import com.marketplace.notificacion.DTO.NotificacionRequestDTO;
 import com.marketplace.notificacion.DTO.NotificacionResponseDTO;
 import com.marketplace.notificacion.model.Notificacion;
 import com.marketplace.notificacion.repository.NotificacionRepository;
-import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
-
 @Service
 @RequiredArgsConstructor
-public class NotificacionService{
-    @Autowired
+public class NotificacionService {
+
+    // Eliminamos el @Autowired porque @RequiredArgsConstructor ya hace el trabajo
     private final NotificacionRepository notificacionRepository;
 
     private NotificacionResponseDTO makeToNotificacionResponseDTO(Notificacion notificacion){
@@ -37,9 +35,10 @@ public class NotificacionService{
 
     //Crear
     public NotificacionResponseDTO makeNotificacion(NotificacionRequestDTO newNotificacion) {
-        Notificacion notificacion = new Notificacion(0,newNotificacion.getAsunto(), newNotificacion.getMensaje(), new Date());
+        Notificacion notificacion = new Notificacion(0, newNotificacion.getAsunto(), newNotificacion.getMensaje(), new Date());
         notificacion = notificacionRepository.save(notificacion);
         return makeToNotificacionResponseDTO(notificacion);
+    } // ¡Faltaba esta llave de cierre!
 
     //Eliminar
     public void deleteNotificacion(long id) {

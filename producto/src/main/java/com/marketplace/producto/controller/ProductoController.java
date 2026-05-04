@@ -1,6 +1,10 @@
 package com.marketplace.producto.controller;
-import com.marketplace.producto.model.Producto;
+
+import com.marketplace.producto.dto.ProductoRequestDTO;
+import com.marketplace.producto.dto.ProductoResponseDTO;
 import com.marketplace.producto.service.ProductoService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,46 +19,19 @@ public class ProductoController {
         this.service = service;
     }
 
-    @GetMapping
-    public List<Producto> listar() {
-        return service.listar();
-    }
-
-    @GetMapping("/activos")
-    public List<Producto> listarActivos() {
-        return service.listarActivos();
-    }
-
-    @GetMapping("/vendedor/{id}")
-    public List<Producto> listarPorVendedor(@PathVariable Long id) {
-        return service.listarPorVendedor(id);
-    }
-
     @PostMapping
-    public Producto crear(@RequestBody Producto producto) {
-        return service.crear(producto);
+    public ResponseEntity<ProductoResponseDTO> crear(@RequestBody ProductoRequestDTO dto) {
+        return new ResponseEntity<>(service.crear(dto), HttpStatus.CREATED);
+    }
+
+    @GetMapping
+    public ResponseEntity<List<ProductoResponseDTO>> listar() {
+        return ResponseEntity.ok(service.listar());
     }
 
     @GetMapping("/{id}")
-    public Producto obtener(@PathVariable Long id) {
-        return service.obtener(id);
-    }
-
-    @PutMapping("/{id}")
-    public Producto actualizar(@PathVariable Long id,
-                               @RequestBody Producto producto) {
-        return service.actualizar(id, producto);
-    }
-
-    @DeleteMapping("/{id}")
-    public void eliminar(@PathVariable Long id) {
-        service.eliminar(id);
-    }
-
-    @PutMapping("/{id}/stock")
-    public Producto actualizarStock(@PathVariable Long id,
-                                    @RequestParam int cantidad) {
-        return service.actualizarStock(id, cantidad);
+    public ResponseEntity<ProductoResponseDTO> obtener(@PathVariable Long id) {
+        return ResponseEntity.ok(service.obtener(id));
     }
 }
 

@@ -1,11 +1,13 @@
 package com.marketplace.carrito.model;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "carrito_producto")
 @AllArgsConstructor
 @NoArgsConstructor
+@Data
 public class CarritoProducto {
 
     @Id

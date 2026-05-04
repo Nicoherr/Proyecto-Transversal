@@ -1,9 +1,13 @@
 package com.marketplace.producto.service;
+
+import com.marketplace.producto.dto.ProductoRequestDTO;
+import com.marketplace.producto.dto.ProductoResponseDTO;
 import com.marketplace.producto.model.Producto;
 import com.marketplace.producto.repository.ProductoRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class ProductoService {
@@ -14,50 +18,40 @@ public class ProductoService {
         this.repository = repository;
     }
 
-    public List<Producto> listar() {
-        return repository.findAll();
+    public ProductoResponseDTO crear(ProductoRequestDTO dto) {
+        Producto producto = new Producto();
+        producto.setNombre(dto.getNombre());
+        producto.setDescripcion(dto.getDescripcion());
+        producto.setPrecio(dto.getPrecio());
+        producto.setStock(dto.getStock());
+        producto.setVendedorId(dto.getVendedorId());
+        // 'activo' ya es true por defecto en tu modelo
+
+        return convertirAResponse(repository.save(producto));
     }
 
-    public List<Producto> listarActivos() {
-        return repository.findByActivoTrue();
+    public List<ProductoResponseDTO> listar() {
+        return repository.findAll().stream()
+                .map(this::convertirAResponse)
+                .collect(Collectors.toList());
     }
 
-    public List<Producto> listarPorVendedor(Long vendedorId) {
-        return repository.findByVendedorId(vendedorId);
-    }
-
-    public Producto crear(Producto producto) {
-        return repository.save(producto);
-    }
-
-    public Producto obtener(Long id) {
-        return repository.findById(id)
+    public ProductoResponseDTO obtener(Long id) {
+        Producto p = repository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Producto no encontrado"));
+        return convertirAResponse(p);
     }
 
-    public Producto actualizar(Long id, Producto nuevo) {
-        Producto p = obtener(id);
-
-        p.setNombre(nuevo.getNombre());
-        p.setDescripcion(nuevo.getDescripcion());
-        p.setPrecio(nuevo.getPrecio());
-        p.setStock(nuevo.getStock());
-
-        return repository.save(p);
-    }
-
-    public void eliminar(Long id) {
-        repository.deleteById(id);
-    }
-
-    public Producto actualizarStock(Long id, int cantidad) {
-        Producto p = obtener(id);
-
-        if (p.getStock() + cantidad < 0) {
-            throw new RuntimeException("Stock insuficiente");
-        }
-
-        p.setStock(p.getStock() + cantidad);
-        return repository.save(p);
+    // Método de mapeo
+    private ProductoResponseDTO convertirAResponse(Producto p) {
+        ProductoResponseDTO res = new ProductoResponseDTO();
+        res.setId(p.getId());
+        res.setNombre(p.getNombre());
+        res.setDescripcion(p.getDescripcion());
+        res.setPrecio(p.getPrecio());
+        res.setStock(p.getStock());
+        res.setVendedorId(p.getVendedorId());
+        res.setActivo(p.isActivo());
+        return res;
     }
 }
