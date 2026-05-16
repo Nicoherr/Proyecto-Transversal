@@ -1,0 +1,9 @@
+CREATE TABLE usuario (
+    id       BIGINT NOT NULL AUTO_INCREMENT,
+    nombre   VARCHAR(100) NOT NULL,
+    email    VARCHAR(100) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    rol      VARCHAR(50) NOT NULL,
+    activo   BIT NOT NULL DEFAULT 1,
+    PRIMARY KEY (id)
+) ENGINE=InnoDB;

@@ -1,4 +1,5 @@
 package com.marketplace.carrito.service;
+
 import com.marketplace.carrito.dto.CarritoRequestDTO;
 import com.marketplace.carrito.dto.CarritoResponseDTO;
 import com.marketplace.carrito.dto.CarritoProductoRequestDTO;
@@ -27,7 +28,7 @@ public class CarritoService {
     }
 
     public CarritoResponseDTO crear(CarritoRequestDTO dto) {
-        log.info("Creando un nuevo carrito vacío para el Usuario ID: {}", dto.getUsuarioId());
+        log.info("Creando un nuevo carrito para el Usuario ID: {}", dto.getUsuarioId());
         Carrito carrito = new Carrito();
         carrito.setUsuarioId(dto.getUsuarioId());
         Carrito guardado = carritoRepository.save(carrito);
@@ -39,47 +40,48 @@ public class CarritoService {
         log.info("Buscando carrito con ID: {}", id);
         Carrito c = carritoRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Carrito no encontrado con id: " + id));
-        log.info("Carrito del Usuario ID {} encontrado correctamente", c.getUsuarioId());
+        log.info("Carrito encontrado para el Usuario ID: {}", c.getUsuarioId());
         return convertirAResponse(c);
     }
 
-    // MÉTODOS DE PRODUCTOS DEL CARRITO AJUSTADOS PARA EL CONTROLLER
-
     public CarritoProductoResponseDTO agregarProducto(CarritoProductoRequestDTO dto) {
-        log.info("Intentando agregar {} unidades del Producto ID: {} al Carrito ID: {}",
+        log.info("Agregando {} unidades del Producto ID: {} al Carrito ID: {}",
                 dto.getCantidad(), dto.getProductoId(), dto.getCarritoId());
 
-        carritoRepository.findById(dto.getCarritoId())
+        // Buscamos el carrito completo porque @ManyToOne necesita la entidad, no solo el ID
+        Carrito carrito = carritoRepository.findById(dto.getCarritoId())
                 .orElseThrow(() -> new RuntimeException("Carrito no encontrado con ID: " + dto.getCarritoId()));
 
-        Optional<CarritoProducto> productoExistente = carritoProductoRepository.findByCarritoIdAndProductoId(dto.getCarritoId(), dto.getProductoId());
+        // Verificamos si el producto ya existe en el carrito
+        Optional<CarritoProducto> productoExistente = carritoProductoRepository
+                .findByCarrito_IdAndProductoId(dto.getCarritoId(), dto.getProductoId());
 
         CarritoProducto guardado;
         if (productoExistente.isPresent()) {
+            // Si ya existe, solo sumamos la cantidad nueva a la que había
             CarritoProducto cp = productoExistente.get();
             cp.setCantidad(cp.getCantidad() + dto.getCantidad());
             guardado = carritoProductoRepository.save(cp);
-            log.info("El producto ya estaba en el carrito. Nueva cantidad actualizada a: {}", cp.getCantidad());
+            log.info("Producto ya existía en el carrito. Cantidad actualizada a: {}", guardado.getCantidad());
         } else {
+            // Si no existe, lo creamos y le asignamos la entidad Carrito completa
             CarritoProducto nuevoCp = new CarritoProducto();
-            nuevoCp.setCarritoId(dto.getCarritoId());
+            nuevoCp.setCarrito(carrito); // ✅ Asignamos la entidad, no el ID
             nuevoCp.setProductoId(dto.getProductoId());
             nuevoCp.setCantidad(dto.getCantidad());
             guardado = carritoProductoRepository.save(nuevoCp);
-            log.info("Producto nuevo registrado en el carrito exitosamente.");
+            log.info("Producto agregado al carrito exitosamente con ID: {}", guardado.getId());
         }
 
         return convertirProductoAResponse(guardado);
     }
 
     public List<CarritoProductoResponseDTO> listarProductos(Long carritoId) {
-        log.info("Listando todos los productos del Carrito ID: {}", carritoId);
-        return carritoProductoRepository.findByCarritoId(carritoId).stream()
+        log.info("Listando productos del Carrito ID: {}", carritoId);
+        return carritoProductoRepository.findByCarrito_Id(carritoId).stream()
                 .map(this::convertirProductoAResponse)
                 .collect(Collectors.toList());
     }
-
-    // MÉTODOS DE MAPEO
 
     private CarritoResponseDTO convertirAResponse(Carrito c) {
         CarritoResponseDTO res = new CarritoResponseDTO();
@@ -91,7 +93,8 @@ public class CarritoService {
     private CarritoProductoResponseDTO convertirProductoAResponse(CarritoProducto cp) {
         CarritoProductoResponseDTO res = new CarritoProductoResponseDTO();
         res.setId(cp.getId());
-        res.setCarritoId(cp.getCarritoId());
+        // Como ahora carrito es una entidad, obtenemos el ID así
+        res.setCarritoId(cp.getCarrito().getId()); // ✅ .getCarrito().getId()
         res.setProductoId(cp.getProductoId());
         res.setCantidad(cp.getCantidad());
         return res;
