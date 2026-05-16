@@ -1,1 +1,3 @@
-INSERT INTO `marketplace_inventario`.`inventario` (`active`, `email`, `password`, `role`) VALUES (b'1', 'rob.morenop@profesor.duoc.cl', '$2b$12$okPQajXIw4Qv4l/ZADKMg.p5oLNapMJZv946hp9qm6o3Nfgxs8uXO', 'ADMIN');
+-- Insertamos un registro de prueba: producto ID 1 con 100 unidades de stock
+INSERT INTO inventario (producto_id, stock, stock_minimo)
+VALUES (1, 100, 5);
