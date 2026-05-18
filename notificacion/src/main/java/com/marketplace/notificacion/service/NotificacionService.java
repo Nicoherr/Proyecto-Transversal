@@ -12,9 +12,9 @@ import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Service
-@RequiredArgsConstructor
-@Slf4j
+@Service //SpringRegistra la clase como bean de servicio
+@RequiredArgsConstructor //Lombok Genera constructor para campos final
+@Slf4j //Lombok Agrega un logger listo para usar
 public class NotificacionService {
     private final NotificacionRepository notificacionRepository;
 
