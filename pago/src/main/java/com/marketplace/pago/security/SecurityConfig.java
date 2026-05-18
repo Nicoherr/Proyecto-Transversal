@@ -21,11 +21,7 @@ public class SecurityConfig {
                 .cors(Customizer.withDefaults())
                 .sessionManagement(session -> session
                         .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-                .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/auth/**").permitAll()
-                        .requestMatchers(HttpMethod.GET, "/pago/**").authenticated()
-                        .requestMatchers("/pago/**").hasRole("USER")
-                        .anyRequest().authenticated()
+                .authorizeHttpRequests(auth -> auth.anyRequest().permitAll()
                 );
         return http.build();
     }

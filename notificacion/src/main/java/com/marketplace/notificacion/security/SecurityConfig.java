@@ -21,11 +21,7 @@ public class SecurityConfig {
                 .cors(Customizer.withDefaults()) // Habilita CORS con configuración por defecto
                 .sessionManagement(session -> session // Configura gestión de sesiones
                         .sessionCreationPolicy(SessionCreationPolicy.STATELESS)) // Sin estado (no guarda sesiones, ideal para JWT)
-                .authorizeHttpRequests(auth -> auth // Configura reglas de autorización para peticiones HTTP
-                        .requestMatchers("/auth/**").permitAll() // Las rutas raíz ("/", "/index", etc.) son públicas (permite todo)
-                        .requestMatchers(HttpMethod.GET, "/api/v1/notificaciones/**").authenticated() // GET a notificaciones requiere autenticación
-                        .requestMatchers("/api/v1/notificaciones/**").hasRole("USER") // Cualquier otro método HTTP sobre notificaciones requiere rol USER
-                        .anyRequest().authenticated() // Cualquier otra petición requiere autenticación
+                .authorizeHttpRequests(auth -> auth.anyRequest().permitAll()
                 );
         return http.build(); // Construye y retorna la configuración
     }
