@@ -94,7 +94,7 @@ public class CarritoService {
         CarritoProductoResponseDTO res = new CarritoProductoResponseDTO();
         res.setId(cp.getId());
         // Como ahora carrito es una entidad, obtenemos el ID así
-        res.setCarritoId(cp.getCarrito().getId()); // ✅ .getCarrito().getId()
+        res.setCarritoId(cp.getCarrito().getId()); //  .getCarrito().getId()
         res.setProductoId(cp.getProductoId());
         res.setCantidad(cp.getCantidad());
         return res;
