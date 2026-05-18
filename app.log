@@ -815,3 +815,16 @@ This generated password is for development use only. Your security configuration
 2026-05-18T15:37:54.232-04:00 DEBUG 14521 --- [notificacion] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
 2026-05-18T15:37:54.270-04:00 DEBUG 14521 --- [notificacion] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 2 RequestBodyAdvice, 1 ResponseBodyAdvice
 2026-05-18T15:37:54.299-04:00 DEBUG 14521 --- [notificacion] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2026-05-18T15:40:14.467-04:00  WARN 14751 --- [notificacion] [main] org.hibernate.orm.core                   : HHH000511: The 5.5.5 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly.The minimum supported version is 8.0.0. Check the community dialects project for available legacy versions.
+2026-05-18T15:40:14.469-04:00  WARN 14751 --- [notificacion] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-05-18T15:40:15.002-04:00  WARN 14751 --- [notificacion] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-05-18T15:40:15.063-04:00  WARN 14751 --- [notificacion] [main] .s.a.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: aa5ff4e0-53bc-42a2-b95c-799610c900c0
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-05-18T15:40:15.184-04:00 DEBUG 14751 --- [notificacion] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 6 mappings in 'requestMappingHandlerMapping'
+2026-05-18T15:40:15.214-04:00 DEBUG 14751 --- [notificacion] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2026-05-18T15:40:15.260-04:00 DEBUG 14751 --- [notificacion] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 2 RequestBodyAdvice, 1 ResponseBodyAdvice
+2026-05-18T15:40:15.290-04:00 DEBUG 14751 --- [notificacion] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
