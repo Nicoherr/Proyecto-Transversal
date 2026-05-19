@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController // Marca la clase como controlador REST (combina @Controller + @ResponseBody)
-@RequestMapping("/api/v1/notificaciones") // Ruta base para todos los endpoints de este controlador
+@RequestMapping("notificaciones") // Ruta base para todos los endpoints de este controlador
 @RequiredArgsConstructor // Lombok: genera constructor automático para campos finales
 public class NotificacionController { // Clase controladora para manejar peticiones HTTP de notificaciones
 
