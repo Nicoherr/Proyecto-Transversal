@@ -1,18 +1,20 @@
 package com.marketplace.pago.DTO;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Date;
-
-@Data //Getter and Setter
-@AllArgsConstructor //Constructores con parametros
-@NoArgsConstructor //Constructores sin parametros
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class PagoRequestDTO {
-    //Recibe los datos del usuario al crear un Reporte.
-    //Usamos lo mismo de la clase Reporte pero sin la notaciones JPA y sin @Entity y @Table.
+
+    @NotNull(message = "Debes indicar el ID del pedido a pagar")
+    private Long pedidoId; // ID del pedido en el microservicio de pedido
+
     @NotBlank(message = "Escribe el metodo de pago")
     private String metodoPago;
 }
+
