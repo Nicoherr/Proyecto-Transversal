@@ -1,15 +1,17 @@
 # Marketplace Fullstack I - Proyecto Transversal
 
-## 📋 Descripción
+## Descripción
 Plataforma de marketplace desarrollada como proyecto semestral para la asignatura **Desarrollo Fullstack I**.  
 El sistema permite a vendedores publicar productos y a compradores realizar compras, utilizando una **arquitectura de microservicios** con comunicación directa mediante **RestTemplate**.
 
 **Nota:** Este proyecto es exclusivamente backend. No incluye interfaz de usuario. Las APIs se prueban mediante Postman.
 
-## 👥 Integrantes
+## Integrantes
 - Nicolas Herrera
 - Danae Aliante
 
+## Link de Trello
+- [Ver tablero de trello](https://trello.com/invite/b/6a0d17f942e017212a7de690/ATTI8c4f76f4ada4ad08e6dd3141e3b7a44d58E44F98/proyecto-transversal-marketplace)
 ## 🛠️ Tecnologías utilizadas
 | Tecnología | Propósito |
 |------------|-----------|
@@ -23,7 +25,7 @@ El sistema permite a vendedores publicar productos y a compradores realizar comp
 | Postman | Pruebas de APIs |
 | GitHub | Control de versiones |
 
-## 🏗️ Microservicios (10 independientes)
+## Microservicios (10 independientes)
 
 | # | Microservicio | Puerto | Base de datos | Responsabilidad |
 |---|---------------|--------|---------------|-----------------|
