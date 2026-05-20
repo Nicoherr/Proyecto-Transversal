@@ -2,6 +2,7 @@ package com.marketplace.carrito.controller;
 
 import com.marketplace.carrito.dto.*;
 import com.marketplace.carrito.service.CarritoService;
+import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,7 +22,7 @@ public class CarritoController {
     }
 
     @PostMapping
-    public ResponseEntity<CarritoResponseDTO> crear(@RequestBody CarritoRequestDTO dto) {
+    public ResponseEntity<CarritoResponseDTO> crear(@Valid @RequestBody CarritoRequestDTO dto) {
         log.info("POST /api/carritos - Solicitud para crear carrito para usuario ID: {}", dto.getUsuarioId());
         return new ResponseEntity<>(service.crear(dto), HttpStatus.CREATED);
     }

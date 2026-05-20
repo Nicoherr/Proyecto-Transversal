@@ -2,6 +2,7 @@ package com.marketplace.usuario.controller;
 import com.marketplace.usuario.dto.UsuarioRequestDTO;
 import com.marketplace.usuario.dto.UsuarioResponseDTO;
 import com.marketplace.usuario.service.UsuarioService;
+import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,7 +22,7 @@ public class UsuarioController {
     }
 
     @PostMapping
-    public ResponseEntity<UsuarioResponseDTO> crear(@RequestBody UsuarioRequestDTO dto) {
+    public ResponseEntity<UsuarioResponseDTO> crear(@Valid @RequestBody UsuarioRequestDTO dto) {
         log.info("POST /api/usuario - Solicitud para crear usuario con email: {}", dto.getEmail());
         return new ResponseEntity<>(service.crear(dto), HttpStatus.CREATED);
     }
