@@ -11,7 +11,8 @@ El sistema permite a vendedores publicar productos y a compradores realizar comp
 - Danae Aliante
 
 ## Link de Trello
-- [](https://trello.com/invite/b/6a0d17f942e017212a7de690/ATTI8c4f76f4ada4ad08e6dd3141e3b7a44d58E44F98/proyecto-transversal-marketplace)
+- [
+- ](https://trello.com/invite/b/6a0d17f942e017212a7de690/ATTI8c4f76f4ada4ad08e6dd3141e3b7a44d58E44F98/proyecto-transversal-marketplace)
 ## 🛠️ Tecnologías utilizadas
 | Tecnología | Propósito |
 |------------|-----------|
