@@ -33,7 +33,7 @@ public class PedidoService {
         log.info("Consultando microservicio Producto para verificar producto con id: {}", productoId);
         try {
             return productoWebClient.get()
-                    .uri("/productos/{id}", productoId) // GET http://localhost:8084/productos/{id}
+                    .uri("/api/producto/{id}", productoId) // GET http://localhost:8084/api/producto/{id}
                     .retrieve()
                     .bodyToMono(ProductoClientDTO.class)
                     .block(); // block() convierte la llamada reactiva a síncrona
