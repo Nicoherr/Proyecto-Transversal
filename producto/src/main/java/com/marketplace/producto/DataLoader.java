@@ -30,7 +30,7 @@ public class DataLoader implements CommandLineRunner {
             productoRepository.save(p);
         }
 
-        System.out.println("✅ 15 productos generados con DataFaker");
+        System.out.println("15 productos generados con DataFaker");
     }
 }
 
