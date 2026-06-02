@@ -11,15 +11,8 @@ import java.util.Date;
 @AllArgsConstructor //Constructores con parametros
 @NoArgsConstructor //Constructores sin parametros
 public class NotificacionResponseDTO {
-    //Recibe los datos del usuario al crear un Reporte.
-    //Usamos lo mismo de la clase Reporte pero sin la notaciones JPA y sin @Entity y @Table.
     private long id = 0;
-
-    @NotBlank(message = "El asunto debe estar descrito")
     private String asunto;
-
-    @NotBlank(message = "El mensaje no puede estar vacio")
     private String mensaje;
-
     private Date fecha;
 }

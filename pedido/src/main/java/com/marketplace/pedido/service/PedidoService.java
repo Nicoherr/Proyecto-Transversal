@@ -76,7 +76,7 @@ public class PedidoService {
         // ── Interacción: verificar que el producto existe, está activo y tiene stock ──
         ProductoClientDTO producto = obtenerProducto(dto.getProductoId());
 
-        if (!producto.isActivo()) {
+        if (!producto.getActivo()) {
             log.warn("Intento de pedir producto inactivo con id: {}", dto.getProductoId());
             throw new IllegalArgumentException("El producto '" + producto.getNombre() + "' no está disponible para pedidos.");
         }
