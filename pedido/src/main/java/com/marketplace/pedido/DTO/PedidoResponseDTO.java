@@ -1,6 +1,7 @@
 package com.marketplace.pedido.DTO;
 
 
+import jakarta.persistence.Column;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -25,6 +26,9 @@ public class PedidoResponseDTO {
         @NotNull(message = "Deves ingresar el precio del producto que deseas vender")
         private int precio;
 
+
+        @NotBlank(message = "Ingresa la direccion para el despacho")
+        private String direccionEntrega;
 
 
 }

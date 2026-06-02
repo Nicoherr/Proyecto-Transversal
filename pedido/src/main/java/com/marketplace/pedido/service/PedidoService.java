@@ -25,7 +25,7 @@ public class PedidoService {
     private final WebClient productoWebClient; // Inyectamos el WebClient configurado
 
     private PedidoResponseDTO makeToPedidoResponseDTO(Pedido pedido) {
-        return new PedidoResponseDTO(pedido.getId(), pedido.getNomProducto(), pedido.getTipoProducto(), pedido.getPrecio());
+        return new PedidoResponseDTO(pedido.getId(), pedido.getNomProducto(), pedido.getTipoProducto(), pedido.getPrecio(), pedido.getDireccionEntrega());
     }
 
     // Método que consulta el microservicio de Producto para validar que existe y tiene stock
@@ -56,7 +56,7 @@ public class PedidoService {
     public PedidoResponseDTO findPedidoById(long id) {
         log.info("Se busca pedido con id: {}", id);
         Pedido pedido = pedidoRepository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Pedido no encontrado con id: " + id));
+                .orElseThrow(() -> new IllegalArgumentException("El id no esta registrado en la base de datos de pedido: " + id));
         return makeToPedidoResponseDTO(pedido);
     }
 
@@ -73,13 +73,15 @@ public class PedidoService {
             throw new IllegalArgumentException("El producto con id " + newPedido.getProductoId() + " no tiene stock disponible");
         }
 
-        log.info("Producto verificado: {}. Stock disponible: {}", producto.getNombre(), producto.getStock());
+        log.info("Producto verificado: {}. Stock disponible: {}", producto.getNombre(), producto.getStock(), producto.getPrecio());
 
         Pedido pedido = new Pedido();
         pedido.setNomProducto(newPedido.getNomProducto());
         pedido.setTipoProducto(newPedido.getTipoProducto());
         pedido.setPrecio(newPedido.getPrecio());
+        pedido.setDireccionEntrega(newPedido.getDireccionEntrega());
         pedido = pedidoRepository.save(pedido);
+
 
         log.info("Pedido creado exitosamente con id: {}", pedido.getId());
         return makeToPedidoResponseDTO(pedido);

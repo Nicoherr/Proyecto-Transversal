@@ -28,4 +28,8 @@ public class Pedido {
     @NotNull(message = "Deves ingresar el precio del producto que deseas vender")
     @Column(nullable = false)//Validamos que el dato no sea nulo en la Base de Datos.
     private int precio;
+
+    @NotBlank(message = "Ingresa la direccion para el despacho")
+    @Column
+    private String direccionEntrega;
 }
