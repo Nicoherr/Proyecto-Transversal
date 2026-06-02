@@ -13,6 +13,7 @@ import org.springframework.web.reactive.function.client.WebClientResponseExcepti
 
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
@@ -22,34 +23,41 @@ import java.util.stream.Collectors;
 public class PagoService {
 
     private final PagoRepository pagoRepository;
-    private final WebClient pedidoWebClient; // Inyectamos el WebClient configurado
+    private final WebClient pedidoWebClient;
 
-    private PagoResponseDTO makeToPagoResponseDTO(Pago pago) {
+    // Métodos de pago permitidos por el marketplace
+    private static final Set<String> METODOS_PERMITIDOS = Set.of(
+            "Tarjeta de crédito", "Tarjeta de débito", "Transferencia bancaria", "PayPal"
+    );
+
+    // ─── Mapper ───────────────────────────────────────────────────────────────
+    private PagoResponseDTO toDTO(Pago pago) {
         return new PagoResponseDTO(pago.getId(), pago.getMetodoPago(), pago.getComprobante(), pago.getFecha());
     }
 
-    // Método que consulta el microservicio de Pedido para validar que existe
+    // ─── Comunicación con microservicio Pedido ─────────────────────────────────
     private PedidoClientDTO obtenerPedido(Long pedidoId) {
         log.info("Consultando microservicio Pedido para verificar pedido con id: {}", pedidoId);
         try {
             return pedidoWebClient.get()
-                    .uri("/pedidos/{id}", pedidoId) // GET http://localhost:8086/pedidos/{id}
+                    .uri("/pedidos/{id}", pedidoId)
                     .retrieve()
                     .bodyToMono(PedidoClientDTO.class)
-                    .block(); // block() convierte la llamada reactiva a síncrona
+                    .block();
         } catch (WebClientResponseException.NotFound e) {
             log.error("Pedido con id {} no encontrado en el microservicio de Pedido", pedidoId);
-            throw new IllegalArgumentException("El pedido con id " + pedidoId + " no existe");
+            throw new IllegalArgumentException("El pedido con id " + pedidoId + " no existe.");
         } catch (Exception e) {
             log.error("Error al comunicarse con el microservicio de Pedido: {}", e.getMessage());
             throw new IllegalArgumentException("No se pudo verificar el pedido. Intenta nuevamente.");
         }
     }
 
+    // ─── CRUD ─────────────────────────────────────────────────────────────────
     public List<PagoResponseDTO> findAllPagos() {
         log.info("Se listan todos los pagos");
         return pagoRepository.findAll().stream()
-                .map(this::makeToPagoResponseDTO)
+                .map(this::toDTO)
                 .collect(Collectors.toList());
     }
 
@@ -57,25 +65,47 @@ public class PagoService {
         log.info("Se busca pago con id: {}", id);
         Pago pago = pagoRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Pago no encontrado con id: " + id));
-        return makeToPagoResponseDTO(pago);
+        return toDTO(pago);
     }
 
-    public PagoResponseDTO makePago(PagoRequestDTO newPago) {
-        log.info("Se inicia la creación de pago para pedidoId: {}", newPago.getPedidoId());
+    public PagoResponseDTO makePago(PagoRequestDTO dto) {
+        log.info("Se inicia la creación de pago para pedidoId: {}", dto.getPedidoId());
 
-        // Comunicación con microservicio Pedido: verifica que el pedido existe
-        PedidoClientDTO pedido = obtenerPedido(newPago.getPedidoId());
-        log.info("Pedido verificado: producto '{}' por precio ${}. Procediendo con el pago.", pedido.getNomProducto(), pedido.getPrecio());
+        // ── Regla 1: El método de pago debe ser uno de los permitidos ─────────
+        if (!METODOS_PERMITIDOS.contains(dto.getMetodoPago())) {
+            throw new IllegalArgumentException(
+                    "Método de pago inválido. Los métodos permitidos son: " + String.join(", ", METODOS_PERMITIDOS)
+            );
+        }
+
+        // ── Regla 2: No se puede procesar un pago para un pedido ya pagado ────
+        boolean yaExistePago = pagoRepository.findAll().stream()
+                .anyMatch(p -> p.getPedidoId() != null && p.getPedidoId().equals(dto.getPedidoId()));
+        if (yaExistePago) {
+            log.warn("Intento de pagar dos veces el pedido con id: {}", dto.getPedidoId());
+            throw new IllegalArgumentException("El pedido con id " + dto.getPedidoId() + " ya tiene un pago registrado.");
+        }
+
+        // ── Interacción: verificar que el pedido existe ───────────────────────
+        PedidoClientDTO pedido = obtenerPedido(dto.getPedidoId());
+        log.info("Pedido verificado: producto '{}' por ${}. Procediendo con el pago.", pedido.getNomProducto(), pedido.getPrecio());
+
+        // ── Regla 3: El precio del pedido debe ser mayor a 0 ─────────────────
+        if (pedido.getPrecio() <= 0) {
+            throw new IllegalArgumentException("No se puede procesar un pago para un pedido con precio inválido.");
+        }
 
         String comprobante = "COMP-" + UUID.randomUUID().toString().substring(0, 8).toUpperCase();
+
         Pago pago = new Pago();
-        pago.setMetodoPago(newPago.getMetodoPago());
+        pago.setMetodoPago(dto.getMetodoPago());
         pago.setComprobante(comprobante);
         pago.setFecha(new Date());
+        pago.setPedidoId(dto.getPedidoId());
         pago = pagoRepository.save(pago);
 
-        log.info("Pago creado exitosamente con comprobante: {}", comprobante);
-        return makeToPagoResponseDTO(pago);
+        log.info("Pago creado exitosamente con comprobante: {} para pedido '{}'", comprobante, pedido.getNomProducto());
+        return toDTO(pago);
     }
 
     public void deletePago(long id) {
@@ -83,5 +113,6 @@ public class PagoService {
         Pago pago = pagoRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Pago no encontrado con id: " + id));
         pagoRepository.delete(pago);
+        log.info("Pago con id: {} eliminado exitosamente", id);
     }
 }

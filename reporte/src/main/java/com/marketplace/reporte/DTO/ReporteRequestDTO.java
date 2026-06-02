@@ -1,22 +1,22 @@
 package com.marketplace.reporte.DTO;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Date;
-
-@Data //Getter and Setter
-@AllArgsConstructor //Constructores con parametros
-@NoArgsConstructor //Constructores sin parametros
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class ReporteRequestDTO {
-    //Recibe los datos del usuario al crear un Reporte.
-    //Usamos los campos de la clase reporte pero solo los que deve llenar un usuario por la Api
+
+    @NotNull(message = "El id del pago es obligatorio")
+    private Long pagoId; // ID del pago asociado (interacción con microservicio Pago)
+
     @NotBlank(message = "Ingresa un tipo de reporte valido")
-    private String tipo;
+    private String tipo; // Debe ser uno de los tipos permitidos (validado en Service)
 
     @NotBlank(message = "La descripcion del Reporte es obligatoria")
-    private String descripcion;
-
+    private String descripcion; // Mínimo 10 caracteres (validado en Service)
 }

@@ -9,25 +9,27 @@ import lombok.NoArgsConstructor;
 
 import java.util.Date;
 
-@Entity //JPA crea la tabla en la BD automaticamente.
-@Table(name = "pago") //Nombre de la Tabla en la Base de datos
-@Data //Getter and Setter
-@AllArgsConstructor //Constructores con parametros
-@NoArgsConstructor //Constructores sin parametros
+@Entity
+@Table(name = "pago")
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Pago {
-    @Id// este campo es el ID único de cada registro
-    @GeneratedValue(strategy = GenerationType.IDENTITY)// el ID se genera solo, no lo ingresa el usuario
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     @NotBlank(message = "Escribe el metodo de pago")
-    @Column(nullable = false, length = 20)//Validamos que el dato no sea nulo en la Base de Datos.
+    @Column(nullable = false, length = 50)
     private String metodoPago;
 
-
-    @Column(nullable = false)//Validamos que el dato no sea nulo en la Base de Datos.
+    @Column(nullable = false)
     private String comprobante;
 
-    @Column(nullable = false)//Validamos que el dato no sea nulo en la Base de Datos.
+    @Column(nullable = false)
     private Date fecha;
 
+    @Column(name = "pedido_id")
+    private Long pedidoId; // Referencia al pedido pagado (para evitar pagos duplicados)
 }
