@@ -11,7 +11,7 @@ public class WebClientConfig {
     @Bean
     public WebClient pedidoWebClient() {
         return WebClient.builder()
-                .baseUrl("http://localhost:8087") // URL base del microservicio pedido
+                .baseUrl("http://localhost:8086") // URL base del microservicio pedido
                 .build();
     }
 }

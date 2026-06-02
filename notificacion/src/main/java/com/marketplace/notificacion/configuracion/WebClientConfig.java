@@ -10,7 +10,7 @@ public class WebClientConfig {
     @Bean
     public WebClient pagoWebClient() {
         return WebClient.builder()
-                .baseUrl("http://localhost:8089")
+                .baseUrl("http://localhost:8086")
                 .build();
     }
 }
