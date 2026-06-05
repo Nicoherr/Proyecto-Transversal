@@ -1,7 +1,7 @@
 package com.marketplace.pago.assemblers;
 
-import com.marketplace.pago.controller.PagoControllerV2;
 import com.marketplace.pago.DTO.PagoResponseDTO;
+import com.marketplace.pago.controller.PagoController;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.server.RepresentationModelAssembler;
 import org.springframework.stereotype.Component;
@@ -14,8 +14,8 @@ public class PagoModelAssembler implements RepresentationModelAssembler<PagoResp
     @Override
     public EntityModel<PagoResponseDTO> toModel(PagoResponseDTO dto) {
         return EntityModel.of(dto,
-                linkTo(methodOn(PagoControllerV2.class).obtener(dto.getId())).withSelfRel(),
-                linkTo(methodOn(PagoControllerV2.class).listar()).withRel("pagos")
+                linkTo(methodOn(PagoController.class).obtener(dto.getId())).withSelfRel(),
+                linkTo(methodOn(PagoController.class).listar()).withRel("pagos")
         );
     }
 }

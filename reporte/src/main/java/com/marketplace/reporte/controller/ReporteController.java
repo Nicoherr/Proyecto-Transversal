@@ -1,168 +1,86 @@
 package com.marketplace.reporte.controller;
 
-import com.marketplace.reporte.DTO.ExceptionDTO;
 import com.marketplace.reporte.DTO.ReporteRequestDTO;
 import com.marketplace.reporte.DTO.ReporteResponseDTO;
+import com.marketplace.reporte.assemblers.ReporteModelAssembler;
 import com.marketplace.reporte.service.ReporteService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
-import io.swagger.v3.oas.annotations.media.ArraySchema;
-import io.swagger.v3.oas.annotations.media.Content;
-import io.swagger.v3.oas.annotations.media.ExampleObject;
-import io.swagger.v3.oas.annotations.media.Schema;
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
+import org.springframework.hateoas.CollectionModel;
+import org.springframework.hateoas.EntityModel;
+import org.springframework.hateoas.MediaTypes;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.*;
+
+@Tag(name = "Reportes", description = "Operaciones relacionadas con la generación y consulta de reportes")
 @RestController
-@RequestMapping("reportes")
-@RequiredArgsConstructor
-@Tag(name = "Reportes", description = "Operaciones relacionadas con la generación y consulta de reportes de ventas")
+@RequestMapping("/reportes")
 public class ReporteController {
 
-    private final ReporteService reporteService;
+    @Autowired
+    private ReporteService reporteService;
 
-    // ─── GET ALL ──────────────────────────────────────────────────────────────
-    @Operation(
-            summary = "Obtener todos los reportes",
-            description = "Retorna una lista completa de todos los reportes generados en el sistema"
-    )
+    @Autowired
+    private ReporteModelAssembler assembler;
+
+    @Operation(summary = "Obtener todos los reportes", description = "Retorna lista de reportes con links HATEOAS")
     @ApiResponses(value = {
-            @ApiResponse(
-                    responseCode = "200",
-                    description = "Lista de reportes obtenida exitosamente",
-                    content = @Content(
-                            mediaType = MediaType.APPLICATION_JSON_VALUE,
-                            array = @ArraySchema(schema = @Schema(implementation = ReporteResponseDTO.class))
-                    )
-            ),
-            @ApiResponse(
-                    responseCode = "500",
-                    description = "Error interno del servidor",
-                    content = @Content(
-                            mediaType = MediaType.APPLICATION_JSON_VALUE,
-                            schema = @Schema(implementation = ExceptionDTO.class)
-                    )
-            )
+            @ApiResponse(responseCode = "200", description = "Lista obtenida exitosamente")
     })
-    @GetMapping
-    public ResponseEntity<List<ReporteResponseDTO>> getReportes() {
-        return ResponseEntity.ok(reporteService.findAllReportes());
+    @GetMapping(produces = MediaTypes.HAL_JSON_VALUE)
+    public CollectionModel<EntityModel<ReporteResponseDTO>> listar() {
+        List<EntityModel<ReporteResponseDTO>> reportes = reporteService.findAllReportes().stream()
+                .map(assembler::toModel)
+                .collect(Collectors.toList());
+        return CollectionModel.of(reportes,
+                linkTo(methodOn(ReporteController.class).listar()).withSelfRel());
     }
 
-    // ─── GET BY ID ────────────────────────────────────────────────────────────
-    @Operation(
-            summary = "Obtener reporte por ID",
-            description = "Retorna un reporte específico buscando por su identificador único"
-    )
+    @Operation(summary = "Obtener reporte por ID", description = "Retorna un reporte con links HATEOAS")
     @ApiResponses(value = {
-            @ApiResponse(
-                    responseCode = "200",
-                    description = "Reporte encontrado exitosamente",
-                    content = @Content(
-                            mediaType = MediaType.APPLICATION_JSON_VALUE,
-                            schema = @Schema(implementation = ReporteResponseDTO.class),
-                            examples = @ExampleObject(
-                                    name = "EjemploReporte",
-                                    value = "{\"id\": 1, \"tipo\": \"Ventas mensuales\", \"descripcion\": \"Resumen de ventas del mes de junio\", \"fecha\": \"2026-06-01T09:00:00\", \"estado\": true}"
-                            )
-                    )
-            ),
-            @ApiResponse(
-                    responseCode = "404",
-                    description = "Reporte no encontrado",
-                    content = @Content(
-                            mediaType = MediaType.APPLICATION_JSON_VALUE,
-                            schema = @Schema(implementation = ExceptionDTO.class)
-                    )
-            )
+            @ApiResponse(responseCode = "200", description = "Reporte encontrado"),
+            @ApiResponse(responseCode = "404", description = "Reporte no encontrado")
     })
-    @GetMapping("/{id}")
-    public ResponseEntity<ReporteResponseDTO> getReporte(
-            @Parameter(description = "ID único del reporte", required = true, example = "1")
-            @PathVariable long id
-    ) {
-        return ResponseEntity.ok(reporteService.findReportesById(id));
+    @GetMapping(value = "/{id}", produces = MediaTypes.HAL_JSON_VALUE)
+    public ReporteResponseDTO obtener(
+            @Parameter(description = "ID del reporte", required = true, example = "1")
+            @PathVariable long id) {
+        return assembler.toModel(reporteService.findReportesById(id)).getContent();
     }
 
-    // ─── POST ─────────────────────────────────────────────────────────────────
-    @Operation(
-            summary = "Generar un nuevo reporte",
-            description = "Crea y registra un nuevo reporte en el sistema",
-            requestBody = @io.swagger.v3.oas.annotations.parameters.RequestBody(
-                    description = "Datos para generar el reporte",
-                    required = true,
-                    content = @Content(
-                            mediaType = MediaType.APPLICATION_JSON_VALUE,
-                            schema = @Schema(implementation = ReporteRequestDTO.class),
-                            examples = @ExampleObject(
-                                    name = "EjemploRequest",
-                                    value = "{\"tipo\": \"Ventas mensuales\", \"descripcion\": \"Resumen de ventas del mes de junio\"}"
-                            )
-                    )
-            )
-    )
+    @Operation(summary = "Generar un nuevo reporte", description = "Crea y registra un nuevo reporte en el sistema")
     @ApiResponses(value = {
-            @ApiResponse(
-                    responseCode = "201",
-                    description = "Reporte generado exitosamente",
-                    content = @Content(
-                            mediaType = MediaType.APPLICATION_JSON_VALUE,
-                            schema = @Schema(implementation = ReporteResponseDTO.class)
-                    )
-            ),
-            @ApiResponse(
-                    responseCode = "400",
-                    description = "Datos de entrada inválidos",
-                    content = @Content(
-                            mediaType = MediaType.APPLICATION_JSON_VALUE,
-                            schema = @Schema(implementation = ExceptionDTO.class)
-                    )
-            )
+            @ApiResponse(responseCode = "201", description = "Reporte generado exitosamente"),
+            @ApiResponse(responseCode = "400", description = "Datos inválidos")
     })
-    @PostMapping
-    public ResponseEntity<ReporteResponseDTO> postReporte(
-            @Valid @RequestBody ReporteRequestDTO newReporte
-    ) {
-        ReporteResponseDTO reporte = reporteService.makeReporte(newReporte);
-        return ResponseEntity.status(HttpStatus.CREATED).body(reporte);
+    @PostMapping(produces = MediaTypes.HAL_JSON_VALUE)
+    public ResponseEntity<EntityModel<ReporteResponseDTO>> crear(
+            @Valid @RequestBody ReporteRequestDTO dto) {
+        ReporteResponseDTO nuevo = reporteService.makeReporte(dto);
+        return ResponseEntity
+                .created(linkTo(methodOn(ReporteController.class).obtener(nuevo.getId())).toUri())
+                .body(assembler.toModel(nuevo));
     }
 
-    // ─── DELETE ───────────────────────────────────────────────────────────────
-    @Operation(
-            summary = "Eliminar un reporte",
-            description = "Elimina un reporte del sistema por su ID"
-    )
+    @Operation(summary = "Eliminar un reporte", description = "Elimina un reporte del sistema por ID")
     @ApiResponses(value = {
-            @ApiResponse(
-                    responseCode = "204",
-                    description = "Reporte eliminado exitosamente",
-                    content = @Content
-            ),
-            @ApiResponse(
-                    responseCode = "404",
-                    description = "Reporte no encontrado",
-                    content = @Content(
-                            mediaType = MediaType.APPLICATION_JSON_VALUE,
-                            schema = @Schema(implementation = ExceptionDTO.class)
-                    )
-            )
+            @ApiResponse(responseCode = "204", description = "Reporte eliminado exitosamente"),
+            @ApiResponse(responseCode = "404", description = "Reporte no encontrado")
     })
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteReporte(
-            @Parameter(description = "ID único del reporte a eliminar", required = true, example = "1")
-            @PathVariable long id
-    ) {
+    @DeleteMapping(value = "/{id}", produces = MediaTypes.HAL_JSON_VALUE)
+    public ResponseEntity<?> eliminar(
+            @Parameter(description = "ID del reporte a eliminar", required = true, example = "1")
+            @PathVariable long id) {
         reporteService.deleteReporte(id);
         return ResponseEntity.noContent().build();
     }

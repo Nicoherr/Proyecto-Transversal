@@ -1,7 +1,7 @@
 package com.marketplace.valoracion.assemblers;
 
-import com.marketplace.valoracion.controller.ValoracionControllerV2;
 import com.marketplace.valoracion.DTO.ValoracionResponseDTO;
+import com.marketplace.valoracion.controller.ValoracionController;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.server.RepresentationModelAssembler;
 import org.springframework.stereotype.Component;
@@ -14,8 +14,8 @@ public class ValoracionModelAssembler implements RepresentationModelAssembler<Va
     @Override
     public EntityModel<ValoracionResponseDTO> toModel(ValoracionResponseDTO dto) {
         return EntityModel.of(dto,
-                linkTo(methodOn(ValoracionControllerV2.class).obtener(dto.getId())).withSelfRel(),
-                linkTo(methodOn(ValoracionControllerV2.class).listar()).withRel("valoraciones")
+                linkTo(methodOn(ValoracionController.class).obtener(dto.getId())).withSelfRel(),
+                linkTo(methodOn(ValoracionController.class).listar()).withRel("valoraciones")
         );
     }
 }

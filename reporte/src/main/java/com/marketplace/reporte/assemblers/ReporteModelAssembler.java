@@ -1,7 +1,7 @@
 package com.marketplace.reporte.assemblers;
 
-import com.marketplace.reporte.controller.ReporteControllerV2;
 import com.marketplace.reporte.DTO.ReporteResponseDTO;
+import com.marketplace.reporte.controller.ReporteController;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.server.RepresentationModelAssembler;
 import org.springframework.stereotype.Component;
@@ -14,8 +14,8 @@ public class ReporteModelAssembler implements RepresentationModelAssembler<Repor
     @Override
     public EntityModel<ReporteResponseDTO> toModel(ReporteResponseDTO dto) {
         return EntityModel.of(dto,
-                linkTo(methodOn(ReporteControllerV2.class).obtener(dto.getId())).withSelfRel(),
-                linkTo(methodOn(ReporteControllerV2.class).listar()).withRel("reportes")
+                linkTo(methodOn(ReporteController.class).obtener(dto.getId())).withSelfRel(),
+                linkTo(methodOn(ReporteController.class).listar()).withRel("reportes")
         );
     }
 }

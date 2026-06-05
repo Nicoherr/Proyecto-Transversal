@@ -1,167 +1,86 @@
 package com.marketplace.pago.controller;
 
-import com.marketplace.pago.DTO.ExceptionDTO;
 import com.marketplace.pago.DTO.PagoRequestDTO;
 import com.marketplace.pago.DTO.PagoResponseDTO;
-import com.marketplace.pago.model.Pago;
+import com.marketplace.pago.assemblers.PagoModelAssembler;
 import com.marketplace.pago.service.PagoService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
-import io.swagger.v3.oas.annotations.media.ArraySchema;
-import io.swagger.v3.oas.annotations.media.Content;
-import io.swagger.v3.oas.annotations.media.ExampleObject;
-import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
+import org.springframework.hateoas.CollectionModel;
+import org.springframework.hateoas.EntityModel;
+import org.springframework.hateoas.MediaTypes;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
-@RestController
-@RequestMapping("pagos")
-@RequiredArgsConstructor
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.*;
+
 @Tag(name = "Pagos", description = "Operaciones relacionadas con el procesamiento de pagos")
+@RestController
+@RequestMapping("/pagos")
 public class PagoController {
-    private final PagoService pagoService;
 
-    // ─── GET ALL ──────────────────────────────────────────────────────────────
-    @Operation(
-            summary = "Obtener todos los pagos",
-            description = "Retorna una lista completa de todos los pagos registrados en el sistema"
-    )
+    @Autowired
+    private PagoService pagoService;
+
+    @Autowired
+    private PagoModelAssembler assembler;
+
+    @Operation(summary = "Obtener todos los pagos", description = "Retorna lista de pagos con links HATEOAS")
     @ApiResponses(value = {
-            @ApiResponse(
-                    responseCode = "200",
-                    description = "Lista de pagos obtenida exitosamente",
-                    content = @Content(
-                            mediaType = MediaType.APPLICATION_JSON_VALUE,
-                            array = @ArraySchema(schema = @Schema(implementation = PagoResponseDTO.class))
-                    )
-            ),
-            @ApiResponse(
-                    responseCode = "500",
-                    description = "Error interno del servidor",
-                    content = @Content(
-                            mediaType = MediaType.APPLICATION_JSON_VALUE,
-                            schema = @Schema(implementation = ExceptionDTO.class)
-                    )
-            )
+            @ApiResponse(responseCode = "200", description = "Lista obtenida exitosamente")
     })
-    @GetMapping
-    public ResponseEntity<List<PagoResponseDTO>> getPagos() {
-        return ResponseEntity.ok(pagoService.findAllPagos());
+    @GetMapping(produces = MediaTypes.HAL_JSON_VALUE)
+    public CollectionModel<EntityModel<PagoResponseDTO>> listar() {
+        List<EntityModel<PagoResponseDTO>> pagos = pagoService.findAllPagos().stream()
+                .map(assembler::toModel)
+                .collect(Collectors.toList());
+        return CollectionModel.of(pagos,
+                linkTo(methodOn(PagoController.class).listar()).withSelfRel());
     }
 
-    // ─── GET BY ID ────────────────────────────────────────────────────────────
-    @Operation(
-            summary = "Obtener pago por ID",
-            description = "Retorna un pago específico buscando por su identificador único"
-    )
+    @Operation(summary = "Obtener pago por ID", description = "Retorna un pago con links HATEOAS")
     @ApiResponses(value = {
-            @ApiResponse(
-                    responseCode = "200",
-                    description = "Pago encontrado exitosamente",
-                    content = @Content(
-                            mediaType = MediaType.APPLICATION_JSON_VALUE,
-                            schema = @Schema(implementation = PagoResponseDTO.class),
-                            examples = @ExampleObject(
-                                    name = "EjemploPago",
-                                    value = "{\"id\": 1, \"metodoPago\": \"Tarjeta de crédito\", \"comprobante\": \"COMP-20260601-001\", \"fecha\": \"2026-06-01T12:00:00\"}"
-                            )
-                    )
-            ),
-            @ApiResponse(
-                    responseCode = "404",
-                    description = "Pago no encontrado",
-                    content = @Content(
-                            mediaType = MediaType.APPLICATION_JSON_VALUE,
-                            schema = @Schema(implementation = ExceptionDTO.class)
-                    )
-            )
+            @ApiResponse(responseCode = "200", description = "Pago encontrado"),
+            @ApiResponse(responseCode = "404", description = "Pago no encontrado")
     })
-    @GetMapping("/{id}")
-    public ResponseEntity<PagoResponseDTO> getPago(
-            @Parameter(description = "ID único del pago", required = true, example = "1")
-            @PathVariable long id
-    ) {
-        return ResponseEntity.ok(pagoService.findPagosById(id));
+    @GetMapping(value = "/{id}", produces = MediaTypes.HAL_JSON_VALUE)
+    public PagoResponseDTO obtener(
+            @Parameter(description = "ID del pago", required = true, example = "1")
+            @PathVariable long id) {
+        return assembler.toModel(pagoService.findPagosById(id)).getContent();
     }
 
-    // ─── POST ─────────────────────────────────────────────────────────────────
-    @Operation(
-            summary = "Procesar un nuevo pago",
-            description = "Registra y procesa el pago de un pedido existente en el sistema",
-            requestBody = @io.swagger.v3.oas.annotations.parameters.RequestBody(
-                    description = "Datos para procesar el pago",
-                    required = true,
-                    content = @Content(
-                            mediaType = MediaType.APPLICATION_JSON_VALUE,
-                            schema = @Schema(implementation = PagoRequestDTO.class),
-                            examples = @ExampleObject(
-                                    name = "EjemploRequest",
-                                    value = "{\"pedidoId\": 1, \"metodoPago\": \"Tarjeta de crédito\"}"
-                            )
-                    )
-            )
-    )
+    @Operation(summary = "Procesar un nuevo pago", description = "Registra y procesa el pago de un pedido existente")
     @ApiResponses(value = {
-            @ApiResponse(
-                    responseCode = "201",
-                    description = "Pago procesado exitosamente",
-                    content = @Content(
-                            mediaType = MediaType.APPLICATION_JSON_VALUE,
-                            schema = @Schema(implementation = PagoResponseDTO.class)
-                    )
-            ),
-            @ApiResponse(
-                    responseCode = "400",
-                    description = "Datos de entrada inválidos o pedido no encontrado",
-                    content = @Content(
-                            mediaType = MediaType.APPLICATION_JSON_VALUE,
-                            schema = @Schema(implementation = ExceptionDTO.class)
-                    )
-            )
+            @ApiResponse(responseCode = "201", description = "Pago procesado exitosamente"),
+            @ApiResponse(responseCode = "400", description = "Datos inválidos o pedido no encontrado")
     })
-    @PostMapping
-    public ResponseEntity<PagoResponseDTO> postPago(
-            @Valid @RequestBody PagoRequestDTO pagoDTO
-    ) {
-        PagoResponseDTO nuevo = pagoService.makePago(pagoDTO);
-        return ResponseEntity.status(HttpStatus.CREATED).body(nuevo);
+    @PostMapping(produces = MediaTypes.HAL_JSON_VALUE)
+    public ResponseEntity<EntityModel<PagoResponseDTO>> crear(
+            @Valid @RequestBody PagoRequestDTO dto) {
+        PagoResponseDTO nuevo = pagoService.makePago(dto);
+        return ResponseEntity
+                .created(linkTo(methodOn(PagoController.class).obtener(nuevo.getId())).toUri())
+                .body(assembler.toModel(nuevo));
     }
 
-    // ─── DELETE ───────────────────────────────────────────────────────────────
-    @Operation(
-            summary = "Eliminar un pago",
-            description = "Elimina el registro de un pago del sistema por su ID"
-    )
+    @Operation(summary = "Eliminar un pago", description = "Elimina el registro de un pago por ID")
     @ApiResponses(value = {
-            @ApiResponse(
-                    responseCode = "204",
-                    description = "Pago eliminado exitosamente",
-                    content = @Content
-            ),
-            @ApiResponse(
-                    responseCode = "404",
-                    description = "Pago no encontrado",
-                    content = @Content(
-                            mediaType = MediaType.APPLICATION_JSON_VALUE,
-                            schema = @Schema(implementation = ExceptionDTO.class)
-                    )
-            )
+            @ApiResponse(responseCode = "204", description = "Pago eliminado exitosamente"),
+            @ApiResponse(responseCode = "404", description = "Pago no encontrado")
     })
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deletePago(
-            @Parameter(description = "ID único del pago a eliminar", required = true, example = "1")
-            @PathVariable long id
-    ) {
+    @DeleteMapping(value = "/{id}", produces = MediaTypes.HAL_JSON_VALUE)
+    public ResponseEntity<?> eliminar(
+            @Parameter(description = "ID del pago a eliminar", required = true, example = "1")
+            @PathVariable long id) {
         pagoService.deletePago(id);
         return ResponseEntity.noContent().build();
     }

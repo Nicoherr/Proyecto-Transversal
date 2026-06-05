@@ -25,7 +25,7 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.*;
 
 @Tag(name = "Notificaciones V2", description = "Operaciones de notificación con HATEOAS")
 @RestController
-@RequestMapping("/api/v2/notificaciones")
+@RequestMapping("/notificaciones")
 public class NotificacionController {
 
     @Autowired

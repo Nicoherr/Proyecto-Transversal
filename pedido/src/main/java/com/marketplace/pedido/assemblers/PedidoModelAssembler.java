@@ -1,7 +1,7 @@
 package com.marketplace.pedido.assemblers;
 
-import com.marketplace.pedido.controller.PedidoControllerV2;
 import com.marketplace.pedido.DTO.PedidoResponseDTO;
+import com.marketplace.pedido.controller.PedidoController;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.server.RepresentationModelAssembler;
 import org.springframework.stereotype.Component;
@@ -14,8 +14,8 @@ public class PedidoModelAssembler implements RepresentationModelAssembler<Pedido
     @Override
     public EntityModel<PedidoResponseDTO> toModel(PedidoResponseDTO dto) {
         return EntityModel.of(dto,
-                linkTo(methodOn(PedidoControllerV2.class).obtener(dto.getId())).withSelfRel(),
-                linkTo(methodOn(PedidoControllerV2.class).listar()).withRel("pedidos")
+                linkTo(methodOn(PedidoController.class).obtener(dto.getId())).withSelfRel(),
+                linkTo(methodOn(PedidoController.class).listar()).withRel("pedidos")
         );
     }
 }
