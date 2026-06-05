@@ -1,5 +1,6 @@
 package com.marketplace.notificacion;
 
+
 import com.marketplace.notificacion.model.Notificacion;
 import com.marketplace.notificacion.repository.NotificacionRepository;
 import net.datafaker.Faker;
@@ -21,11 +22,11 @@ public class DataLoader implements CommandLineRunner {
     public void run(String... args) throws Exception {
         Faker faker = new Faker();
 
-        // Genera 10 notificaciones de prueba
-        for (int i = 1; i <= 10; i++) {
+        // Generar 10 notificaciones de prueba
+        for (int i = 0; i < 10; i++) {
             Notificacion notificacion = new Notificacion();
-            notificacion.setAsunto(faker.lorem().sentence(3));   // Asunto corto
-            notificacion.setMensaje(faker.lorem().sentence(15)); // Mensaje más largo
+            notificacion.setAsunto(faker.lorem().sentence(3));
+            notificacion.setMensaje(faker.lorem().sentence(10));
             notificacion.setFecha(new Date());
             notificacionRepository.save(notificacion);
         }

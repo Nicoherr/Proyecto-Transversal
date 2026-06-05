@@ -1,172 +1,88 @@
 package com.marketplace.notificacion.controller;
 
-import com.marketplace.notificacion.DTO.ExceptionDTO;
+
 import com.marketplace.notificacion.DTO.NotificacionRequestDTO;
 import com.marketplace.notificacion.DTO.NotificacionResponseDTO;
-import com.marketplace.notificacion.model.Notificacion;
+import com.marketplace.notificacion.assemblers.NotificacionModelAssembler;
 import com.marketplace.notificacion.service.NotificacionService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
-import io.swagger.v3.oas.annotations.media.ArraySchema;
-import io.swagger.v3.oas.annotations.media.Content;
-import io.swagger.v3.oas.annotations.media.ExampleObject;
-import io.swagger.v3.oas.annotations.media.Schema;
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
+import org.springframework.hateoas.CollectionModel;
+import org.springframework.hateoas.EntityModel;
+import org.springframework.hateoas.MediaTypes;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
-@RestController // Marca la clase como controlador REST (combina @Controller + @ResponseBody)
-@RequestMapping("notificaciones") // Ruta base para todos los endpoints de este controlador
-@RequiredArgsConstructor // Lombok: genera constructor automático para campos finales
-@Tag(name = "Notificaciones", description = "Operaciones relacionadas a las notificaciones")
-public class NotificacionController { // Clase controladora para manejar peticiones HTTP de notificaciones
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.*;
 
-    private final NotificacionService notificacionService; // Servicio inyectado (final para @RequiredArgsConstructor)
+@Tag(name = "Notificaciones V2", description = "Operaciones de notificación con HATEOAS")
+@RestController
+@RequestMapping("/api/v2/notificaciones")
+public class NotificacionController {
 
-    //-----------------------------------------------------------------------------------------------------------------------------------------------------------------
-    // ─── GET ALL ──────────────────────────────────────────────────────────────
-    @Operation(
-            summary = "Obtener todas las notificaciones",
-            description = "Retorna una lista completa de todas las notificaciones registradas en el sistema"
-    )
+    @Autowired
+    private NotificacionService notificacionService;
+
+    @Autowired
+    private NotificacionModelAssembler assembler;
+
+    @Operation(summary = "Obtener todas las notificaciones", description = "Retorna lista de notificaciones con links HATEOAS")
     @ApiResponses(value = {
-            @ApiResponse(
-                    responseCode = "200",
-                    description = "Lista de notificaciones obtenida exitosamente",
-                    content = @Content(
-                            mediaType = MediaType.APPLICATION_JSON_VALUE,
-                            array = @ArraySchema(schema = @Schema(implementation = NotificacionResponseDTO.class))
-                    )
-            ),
-            @ApiResponse(
-                    responseCode = "500",
-                    description = "Error interno del servidor",
-                    content = @Content(
-                            mediaType = MediaType.APPLICATION_JSON_VALUE,
-                            schema = @Schema(implementation = ExceptionDTO.class)
-                    )
-            )
+            @ApiResponse(responseCode = "200", description = "Lista obtenida exitosamente")
     })
-    @GetMapping
-    public ResponseEntity<List<NotificacionResponseDTO>> getNotificaciones() {
-        return ResponseEntity.ok(notificacionService.findAllNotificaciones());
+    @GetMapping(produces = MediaTypes.HAL_JSON_VALUE)
+    public CollectionModel<EntityModel<NotificacionResponseDTO>> listar() {
+        List<EntityModel<NotificacionResponseDTO>> notificaciones = notificacionService.findAllNotificaciones().stream()
+                .map(assembler::toModel)
+                .collect(Collectors.toList());
+        return CollectionModel.of(notificaciones,
+                linkTo(methodOn(NotificacionController.class).listar()).withSelfRel());
     }
 
-    // ─── GET BY ID ────────────────────────────────────────────────────────────
-    @Operation(
-            summary = "Obtener notificación por ID",
-            description = "Retorna una notificación específica buscando por su identificador único"
-    )
+    @Operation(summary = "Obtener notificación por ID", description = "Retorna una notificación con links HATEOAS")
     @ApiResponses(value = {
-            @ApiResponse(
-                    responseCode = "200",
-                    description = "Notificación encontrada exitosamente",
-                    content = @Content(
-                            mediaType = MediaType.APPLICATION_JSON_VALUE,
-                            schema = @Schema(implementation = NotificacionResponseDTO.class),
-                            examples = @ExampleObject(
-                                    name = "EjemploNotificacion",
-                                    value = "{\"id\": 1, \"asunto\": \"Oferta especial\", \"mensaje\": \"El producto que seguías bajó de precio\", \"fecha\": \"2026-06-01T10:00:00\"}"
-                            )
-                    )
-            ),
-            @ApiResponse(
-                    responseCode = "404",
-                    description = "Notificación no encontrada",
-                    content = @Content(
-                            mediaType = MediaType.APPLICATION_JSON_VALUE,
-                            schema = @Schema(implementation = ExceptionDTO.class)
-                    )
-            )
+            @ApiResponse(responseCode = "200", description = "Notificación encontrada"),
+            @ApiResponse(responseCode = "404", description = "Notificación no encontrada")
     })
-    @GetMapping("/{id}")
-    public ResponseEntity<NotificacionResponseDTO> getNotificacion(
-            @Parameter(description = "ID único de la notificación", required = true, example = "1")
-            @PathVariable long id
-    ) {
-        return ResponseEntity.ok(notificacionService.findNotificacionesById(id));
+    @GetMapping(value = "/{id}", produces = MediaTypes.HAL_JSON_VALUE)
+    public NotificacionResponseDTO obtener(
+            @Parameter(description = "ID de la notificación", required = true, example = "1")
+            @PathVariable long id) {
+        return assembler.toModel(notificacionService.findNotificacionesById(id)).getContent();
     }
 
-    // ─── POST ─────────────────────────────────────────────────────────────────
-    @Operation(
-            summary = "Crear una nueva notificación",
-            description = "Registra y envía una nueva notificación en el sistema",
-            requestBody = @io.swagger.v3.oas.annotations.parameters.RequestBody(
-                    description = "Datos para crear la notificación",
-                    required = true,
-                    content = @Content(
-                            mediaType = MediaType.APPLICATION_JSON_VALUE,
-                            schema = @Schema(implementation = NotificacionRequestDTO.class),
-                            examples = @ExampleObject(
-                                    name = "EjemploRequest",
-                                    value = "{\"asunto\": \"Oferta especial\", \"mensaje\": \"El producto que seguías bajó de precio\"}"
-                            )
-                    )
-            )
-    )
+    @Operation(summary = "Crear notificación", description = "Registra una nueva notificación")
     @ApiResponses(value = {
-            @ApiResponse(
-                    responseCode = "201",
-                    description = "Notificación creada exitosamente",
-                    content = @Content(
-                            mediaType = MediaType.APPLICATION_JSON_VALUE,
-                            schema = @Schema(implementation = NotificacionResponseDTO.class)
-                    )
-            ),
-            @ApiResponse(
-                    responseCode = "400",
-                    description = "Datos de entrada inválidos",
-                    content = @Content(
-                            mediaType = MediaType.APPLICATION_JSON_VALUE,
-                            schema = @Schema(implementation = ExceptionDTO.class)
-                    )
-            )
+            @ApiResponse(responseCode = "201", description = "Notificación creada exitosamente"),
+            @ApiResponse(responseCode = "400", description = "Datos inválidos")
     })
-    @PostMapping
-    public ResponseEntity<NotificacionResponseDTO> postNotificacion(
-            @Valid @org.springframework.web.bind.annotation.RequestBody NotificacionRequestDTO notificacionDTO
-    ) {
-        NotificacionResponseDTO nuevo = notificacionService.makeNotificacion(notificacionDTO);
-        return ResponseEntity.status(HttpStatus.CREATED).body(nuevo);
+    @PostMapping(produces = MediaTypes.HAL_JSON_VALUE)
+    public ResponseEntity<EntityModel<NotificacionResponseDTO>> crear(
+            @Valid @RequestBody NotificacionRequestDTO dto) {
+        NotificacionResponseDTO nueva = notificacionService.makeNotificacion(dto);
+        return ResponseEntity
+                .created(linkTo(methodOn(NotificacionController.class).obtener(nueva.getId())).toUri())
+                .body(assembler.toModel(nueva));
     }
 
-    // ─── DELETE ───────────────────────────────────────────────────────────────
-    @Operation(
-            summary = "Eliminar una notificación",
-            description = "Elimina una notificación del sistema por su ID"
-    )
+    @Operation(summary = "Eliminar notificación", description = "Elimina una notificación por ID")
     @ApiResponses(value = {
-            @ApiResponse(
-                    responseCode = "204",
-                    description = "Notificación eliminada exitosamente",
-                    content = @Content
-            ),
-            @ApiResponse(
-                    responseCode = "404",
-                    description = "Notificación no encontrada",
-                    content = @Content(
-                            mediaType = MediaType.APPLICATION_JSON_VALUE,
-                            schema = @Schema(implementation = ExceptionDTO.class)
-                    )
-            )
+            @ApiResponse(responseCode = "204", description = "Notificación eliminada exitosamente"),
+            @ApiResponse(responseCode = "404", description = "Notificación no encontrada")
     })
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteNotificacion(
-            @Parameter(description = "ID único de la notificación a eliminar", required = true, example = "1")
-            @PathVariable long id
-    ) {
+    @DeleteMapping(value = "/{id}", produces = MediaTypes.HAL_JSON_VALUE)
+    public ResponseEntity<?> eliminar(
+            @Parameter(description = "ID de la notificación", required = true, example = "1")
+            @PathVariable long id) {
         notificacionService.deleteNotificacion(id);
         return ResponseEntity.noContent().build();
     }
-    //-----------------------------------------------------------------------------------------------------------------------------------------------------------------
 }
