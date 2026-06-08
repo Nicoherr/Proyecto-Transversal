@@ -1234,3 +1234,808 @@ This generated password is for development use only. Your security configuration
 2026-06-05T13:12:58.790-04:00 DEBUG 20708 --- [notificacion] [http-nio-8089-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/hal+json', given [*/*] and supported [application/hal+json]
 2026-06-05T13:12:58.792-04:00 DEBUG 20708 --- [notificacion] [http-nio-8089-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Writing [CollectionModel { content: [EntityModel { content: NotificacionResponseDTO(id=1, asunto=Prueba, mens (truncated)...]
 2026-06-05T13:12:58.840-04:00 DEBUG 20708 --- [notificacion] [http-nio-8089-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2026-06-05T20:51:28.546-04:00  WARN 11872 --- [notificacion] [main] org.hibernate.orm.core                   : HHH000511: The 5.5.5 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly.The minimum supported version is 8.0.0. Check the community dialects project for available legacy versions.
+2026-06-05T20:51:28.549-04:00  WARN 11872 --- [notificacion] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-05T20:51:29.567-04:00  WARN 11872 --- [notificacion] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-05T20:51:29.604-04:00  WARN 11872 --- [notificacion] [main] .s.a.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 5f8a3b11-f5bc-40b7-a1ee-559de30c3edb
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-06-05T20:51:29.724-04:00 DEBUG 11872 --- [notificacion] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 10 mappings in 'requestMappingHandlerMapping'
+2026-06-05T20:51:29.741-04:00 DEBUG 11872 --- [notificacion] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2026-06-05T20:51:29.758-04:00 DEBUG 11872 --- [notificacion] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 2 RequestBodyAdvice, 1 ResponseBodyAdvice
+2026-06-05T20:51:29.786-04:00 DEBUG 11872 --- [notificacion] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2026-06-05T20:51:29.802-04:00  WARN 11872 --- [notificacion] [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'modelConverterRegistrar' defined in class path resource [org/springdoc/core/configuration/SpringDocConfiguration.class]: Unsatisfied dependency expressed through method 'modelConverterRegistrar' parameter 0: Error creating bean with name 'collectionModelContentConverter' defined in class path resource [org/springdoc/core/configuration/SpringDocHateoasConfiguration.class]: Unsatisfied dependency expressed through method 'collectionModelContentConverter' parameter 0: Error creating bean with name 'hateoasHalProvider' defined in class path resource [org/springdoc/core/configuration/SpringDocHateoasConfiguration.class]: Unexpected exception during bean creation
+2026-06-05T20:51:29.823-04:00 ERROR 11872 --- [notificacion] [main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'modelConverterRegistrar' defined in class path resource [org/springdoc/core/configuration/SpringDocConfiguration.class]: Unsatisfied dependency expressed through method 'modelConverterRegistrar' parameter 0: Error creating bean with name 'collectionModelContentConverter' defined in class path resource [org/springdoc/core/configuration/SpringDocHateoasConfiguration.class]: Unsatisfied dependency expressed through method 'collectionModelContentConverter' parameter 0: Error creating bean with name 'hateoasHalProvider' defined in class path resource [org/springdoc/core/configuration/SpringDocHateoasConfiguration.class]: Unexpected exception during bean creation
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:804) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:546) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1362) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1194) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:565) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:525) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:333) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:371) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:331) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:196) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.instantiateSingleton(DefaultListableBeanFactory.java:1218) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingleton(DefaultListableBeanFactory.java:1184) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:1121) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:994) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:621) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.boot.web.server.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143) ~[spring-boot-web-server-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:756) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:445) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:321) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1365) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354) ~[spring-boot-4.0.6.jar:4.0.6]
+	at com.marketplace.notificacion.NotificacionApplication.main(NotificacionApplication.java:10) ~[classes/:na]
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'collectionModelContentConverter' defined in class path resource [org/springdoc/core/configuration/SpringDocHateoasConfiguration.class]: Unsatisfied dependency expressed through method 'collectionModelContentConverter' parameter 0: Error creating bean with name 'hateoasHalProvider' defined in class path resource [org/springdoc/core/configuration/SpringDocHateoasConfiguration.class]: Unexpected exception during bean creation
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:804) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:546) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1362) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1194) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:565) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:525) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:333) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:371) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:331) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:201) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:229) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.addCandidateEntry(DefaultListableBeanFactory.java:2008) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.findAutowireCandidates(DefaultListableBeanFactory.java:1971) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveMultipleBeanCollection(DefaultListableBeanFactory.java:1863) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveMultipleBeans(DefaultListableBeanFactory.java:1833) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1711) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.createOptionalDependency(DefaultListableBeanFactory.java:2351) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1635) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:912) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791) ~[spring-beans-7.0.7.jar:7.0.7]
+	... 21 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'hateoasHalProvider' defined in class path resource [org/springdoc/core/configuration/SpringDocHateoasConfiguration.class]: Unexpected exception during bean creation
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:538) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:333) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:371) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:331) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:201) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:229) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1762) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1651) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:912) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791) ~[spring-beans-7.0.7.jar:7.0.7]
+	... 40 common frames omitted
+Caused by: java.lang.TypeNotPresentException: Type org.springframework.boot.autoconfigure.hateoas.HateoasProperties not present
+	at java.base/sun.reflect.generics.factory.CoreReflectionFactory.makeNamedType(CoreReflectionFactory.java:117) ~[na:na]
+	at java.base/sun.reflect.generics.visitor.Reifier.visitClassTypeSignature(Reifier.java:125) ~[na:na]
+	at java.base/sun.reflect.generics.tree.ClassTypeSignature.accept(ClassTypeSignature.java:49) ~[na:na]
+	at java.base/sun.reflect.generics.visitor.Reifier.reifyTypeArguments(Reifier.java:68) ~[na:na]
+	at java.base/sun.reflect.generics.visitor.Reifier.visitClassTypeSignature(Reifier.java:138) ~[na:na]
+	at java.base/sun.reflect.generics.tree.ClassTypeSignature.accept(ClassTypeSignature.java:49) ~[na:na]
+	at java.base/sun.reflect.generics.repository.ConstructorRepository.computeParameterTypes(ConstructorRepository.java:111) ~[na:na]
+	at java.base/sun.reflect.generics.repository.ConstructorRepository.getParameterTypes(ConstructorRepository.java:87) ~[na:na]
+	at java.base/java.lang.reflect.Executable.getGenericParameterTypes(Executable.java:313) ~[na:na]
+	at java.base/java.lang.reflect.Method.getGenericParameterTypes(Method.java:337) ~[na:na]
+	at org.springframework.core.MethodParameter.getGenericParameterType(MethodParameter.java:499) ~[spring-core-7.0.7.jar:7.0.7]
+	at org.springframework.core.MethodParameter.getNestedParameterType(MethodParameter.java:539) ~[spring-core-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.config.DependencyDescriptor.getDependencyType(DependencyDescriptor.java:357) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1666) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.createOptionalDependency(DefaultListableBeanFactory.java:2351) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1635) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:912) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:546) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1362) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1194) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:565) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:525) ~[spring-beans-7.0.7.jar:7.0.7]
+	... 49 common frames omitted
+Caused by: java.lang.ClassNotFoundException: org.springframework.boot.autoconfigure.hateoas.HateoasProperties
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641) ~[na:na]
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188) ~[na:na]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526) ~[na:na]
+	at java.base/java.lang.Class.forName0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.forName(Class.java:536) ~[na:na]
+	at java.base/java.lang.Class.forName(Class.java:515) ~[na:na]
+	at java.base/sun.reflect.generics.factory.CoreReflectionFactory.makeNamedType(CoreReflectionFactory.java:114) ~[na:na]
+	... 71 common frames omitted
+
+2026-06-05T20:51:34.888-04:00  WARN 11885 --- [notificacion] [main] org.hibernate.orm.core                   : HHH000511: The 5.5.5 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly.The minimum supported version is 8.0.0. Check the community dialects project for available legacy versions.
+2026-06-05T20:51:34.891-04:00  WARN 11885 --- [notificacion] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-05T20:51:35.661-04:00  WARN 11885 --- [notificacion] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-05T20:51:35.695-04:00  WARN 11885 --- [notificacion] [main] .s.a.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 2ef80be0-374e-4772-b865-4265662c8213
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-06-05T20:51:35.815-04:00 DEBUG 11885 --- [notificacion] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 10 mappings in 'requestMappingHandlerMapping'
+2026-06-05T20:51:35.832-04:00 DEBUG 11885 --- [notificacion] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2026-06-05T20:51:35.847-04:00 DEBUG 11885 --- [notificacion] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 2 RequestBodyAdvice, 1 ResponseBodyAdvice
+2026-06-05T20:51:35.870-04:00 DEBUG 11885 --- [notificacion] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2026-06-05T20:51:35.884-04:00  WARN 11885 --- [notificacion] [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'modelConverterRegistrar' defined in class path resource [org/springdoc/core/configuration/SpringDocConfiguration.class]: Unsatisfied dependency expressed through method 'modelConverterRegistrar' parameter 0: Error creating bean with name 'collectionModelContentConverter' defined in class path resource [org/springdoc/core/configuration/SpringDocHateoasConfiguration.class]: Unsatisfied dependency expressed through method 'collectionModelContentConverter' parameter 0: Error creating bean with name 'hateoasHalProvider' defined in class path resource [org/springdoc/core/configuration/SpringDocHateoasConfiguration.class]: Unexpected exception during bean creation
+2026-06-05T20:51:35.902-04:00 ERROR 11885 --- [notificacion] [main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'modelConverterRegistrar' defined in class path resource [org/springdoc/core/configuration/SpringDocConfiguration.class]: Unsatisfied dependency expressed through method 'modelConverterRegistrar' parameter 0: Error creating bean with name 'collectionModelContentConverter' defined in class path resource [org/springdoc/core/configuration/SpringDocHateoasConfiguration.class]: Unsatisfied dependency expressed through method 'collectionModelContentConverter' parameter 0: Error creating bean with name 'hateoasHalProvider' defined in class path resource [org/springdoc/core/configuration/SpringDocHateoasConfiguration.class]: Unexpected exception during bean creation
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:804) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:546) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1362) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1194) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:565) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:525) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:333) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:371) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:331) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:196) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.instantiateSingleton(DefaultListableBeanFactory.java:1218) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingleton(DefaultListableBeanFactory.java:1184) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:1121) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:994) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:621) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.boot.web.server.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143) ~[spring-boot-web-server-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:756) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:445) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:321) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1365) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354) ~[spring-boot-4.0.6.jar:4.0.6]
+	at com.marketplace.notificacion.NotificacionApplication.main(NotificacionApplication.java:10) ~[classes/:na]
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'collectionModelContentConverter' defined in class path resource [org/springdoc/core/configuration/SpringDocHateoasConfiguration.class]: Unsatisfied dependency expressed through method 'collectionModelContentConverter' parameter 0: Error creating bean with name 'hateoasHalProvider' defined in class path resource [org/springdoc/core/configuration/SpringDocHateoasConfiguration.class]: Unexpected exception during bean creation
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:804) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:546) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1362) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1194) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:565) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:525) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:333) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:371) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:331) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:201) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:229) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.addCandidateEntry(DefaultListableBeanFactory.java:2008) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.findAutowireCandidates(DefaultListableBeanFactory.java:1971) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveMultipleBeanCollection(DefaultListableBeanFactory.java:1863) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveMultipleBeans(DefaultListableBeanFactory.java:1833) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1711) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.createOptionalDependency(DefaultListableBeanFactory.java:2351) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1635) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:912) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791) ~[spring-beans-7.0.7.jar:7.0.7]
+	... 21 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'hateoasHalProvider' defined in class path resource [org/springdoc/core/configuration/SpringDocHateoasConfiguration.class]: Unexpected exception during bean creation
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:538) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:333) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:371) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:331) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:201) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:229) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1762) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1651) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:912) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791) ~[spring-beans-7.0.7.jar:7.0.7]
+	... 40 common frames omitted
+Caused by: java.lang.TypeNotPresentException: Type org.springframework.boot.autoconfigure.hateoas.HateoasProperties not present
+	at java.base/sun.reflect.generics.factory.CoreReflectionFactory.makeNamedType(CoreReflectionFactory.java:117) ~[na:na]
+	at java.base/sun.reflect.generics.visitor.Reifier.visitClassTypeSignature(Reifier.java:125) ~[na:na]
+	at java.base/sun.reflect.generics.tree.ClassTypeSignature.accept(ClassTypeSignature.java:49) ~[na:na]
+	at java.base/sun.reflect.generics.visitor.Reifier.reifyTypeArguments(Reifier.java:68) ~[na:na]
+	at java.base/sun.reflect.generics.visitor.Reifier.visitClassTypeSignature(Reifier.java:138) ~[na:na]
+	at java.base/sun.reflect.generics.tree.ClassTypeSignature.accept(ClassTypeSignature.java:49) ~[na:na]
+	at java.base/sun.reflect.generics.repository.ConstructorRepository.computeParameterTypes(ConstructorRepository.java:111) ~[na:na]
+	at java.base/sun.reflect.generics.repository.ConstructorRepository.getParameterTypes(ConstructorRepository.java:87) ~[na:na]
+	at java.base/java.lang.reflect.Executable.getGenericParameterTypes(Executable.java:313) ~[na:na]
+	at java.base/java.lang.reflect.Method.getGenericParameterTypes(Method.java:337) ~[na:na]
+	at org.springframework.core.MethodParameter.getGenericParameterType(MethodParameter.java:499) ~[spring-core-7.0.7.jar:7.0.7]
+	at org.springframework.core.MethodParameter.getNestedParameterType(MethodParameter.java:539) ~[spring-core-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.config.DependencyDescriptor.getDependencyType(DependencyDescriptor.java:357) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1666) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.createOptionalDependency(DefaultListableBeanFactory.java:2351) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1635) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:912) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:546) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1362) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1194) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:565) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:525) ~[spring-beans-7.0.7.jar:7.0.7]
+	... 49 common frames omitted
+Caused by: java.lang.ClassNotFoundException: org.springframework.boot.autoconfigure.hateoas.HateoasProperties
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641) ~[na:na]
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188) ~[na:na]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526) ~[na:na]
+	at java.base/java.lang.Class.forName0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.forName(Class.java:536) ~[na:na]
+	at java.base/java.lang.Class.forName(Class.java:515) ~[na:na]
+	at java.base/sun.reflect.generics.factory.CoreReflectionFactory.makeNamedType(CoreReflectionFactory.java:114) ~[na:na]
+	... 71 common frames omitted
+
+2026-06-05T20:52:01.943-04:00  WARN 11944 --- [notificacion] [main] org.hibernate.orm.core                   : HHH000511: The 5.5.5 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly.The minimum supported version is 8.0.0. Check the community dialects project for available legacy versions.
+2026-06-05T20:52:01.946-04:00  WARN 11944 --- [notificacion] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-05T20:52:02.724-04:00  WARN 11944 --- [notificacion] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-05T20:52:02.763-04:00  WARN 11944 --- [notificacion] [main] .s.a.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 2e25c0c4-248a-4bff-af4c-8f6c248499e1
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-06-05T20:52:02.890-04:00 DEBUG 11944 --- [notificacion] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 10 mappings in 'requestMappingHandlerMapping'
+2026-06-05T20:52:02.914-04:00 DEBUG 11944 --- [notificacion] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2026-06-05T20:52:02.944-04:00 DEBUG 11944 --- [notificacion] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 2 RequestBodyAdvice, 1 ResponseBodyAdvice
+2026-06-05T20:52:02.974-04:00 DEBUG 11944 --- [notificacion] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2026-06-05T20:52:02.994-04:00  WARN 11944 --- [notificacion] [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'modelConverterRegistrar' defined in class path resource [org/springdoc/core/configuration/SpringDocConfiguration.class]: Unsatisfied dependency expressed through method 'modelConverterRegistrar' parameter 0: Error creating bean with name 'collectionModelContentConverter' defined in class path resource [org/springdoc/core/configuration/SpringDocHateoasConfiguration.class]: Unsatisfied dependency expressed through method 'collectionModelContentConverter' parameter 0: Error creating bean with name 'hateoasHalProvider' defined in class path resource [org/springdoc/core/configuration/SpringDocHateoasConfiguration.class]: Unexpected exception during bean creation
+2026-06-05T20:52:03.018-04:00 ERROR 11944 --- [notificacion] [main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'modelConverterRegistrar' defined in class path resource [org/springdoc/core/configuration/SpringDocConfiguration.class]: Unsatisfied dependency expressed through method 'modelConverterRegistrar' parameter 0: Error creating bean with name 'collectionModelContentConverter' defined in class path resource [org/springdoc/core/configuration/SpringDocHateoasConfiguration.class]: Unsatisfied dependency expressed through method 'collectionModelContentConverter' parameter 0: Error creating bean with name 'hateoasHalProvider' defined in class path resource [org/springdoc/core/configuration/SpringDocHateoasConfiguration.class]: Unexpected exception during bean creation
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:804) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:546) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1362) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1194) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:565) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:525) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:333) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:371) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:331) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:196) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.instantiateSingleton(DefaultListableBeanFactory.java:1218) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingleton(DefaultListableBeanFactory.java:1184) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:1121) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:994) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:621) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.boot.web.server.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143) ~[spring-boot-web-server-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:756) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:445) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:321) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1365) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354) ~[spring-boot-4.0.6.jar:4.0.6]
+	at com.marketplace.notificacion.NotificacionApplication.main(NotificacionApplication.java:10) ~[classes/:na]
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'collectionModelContentConverter' defined in class path resource [org/springdoc/core/configuration/SpringDocHateoasConfiguration.class]: Unsatisfied dependency expressed through method 'collectionModelContentConverter' parameter 0: Error creating bean with name 'hateoasHalProvider' defined in class path resource [org/springdoc/core/configuration/SpringDocHateoasConfiguration.class]: Unexpected exception during bean creation
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:804) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:546) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1362) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1194) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:565) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:525) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:333) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:371) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:331) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:201) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:229) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.addCandidateEntry(DefaultListableBeanFactory.java:2008) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.findAutowireCandidates(DefaultListableBeanFactory.java:1971) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveMultipleBeanCollection(DefaultListableBeanFactory.java:1863) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveMultipleBeans(DefaultListableBeanFactory.java:1833) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1711) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.createOptionalDependency(DefaultListableBeanFactory.java:2351) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1635) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:912) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791) ~[spring-beans-7.0.7.jar:7.0.7]
+	... 21 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'hateoasHalProvider' defined in class path resource [org/springdoc/core/configuration/SpringDocHateoasConfiguration.class]: Unexpected exception during bean creation
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:538) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:333) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:371) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:331) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:201) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:229) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1762) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1651) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:912) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791) ~[spring-beans-7.0.7.jar:7.0.7]
+	... 40 common frames omitted
+Caused by: java.lang.TypeNotPresentException: Type org.springframework.boot.autoconfigure.hateoas.HateoasProperties not present
+	at java.base/sun.reflect.generics.factory.CoreReflectionFactory.makeNamedType(CoreReflectionFactory.java:117) ~[na:na]
+	at java.base/sun.reflect.generics.visitor.Reifier.visitClassTypeSignature(Reifier.java:125) ~[na:na]
+	at java.base/sun.reflect.generics.tree.ClassTypeSignature.accept(ClassTypeSignature.java:49) ~[na:na]
+	at java.base/sun.reflect.generics.visitor.Reifier.reifyTypeArguments(Reifier.java:68) ~[na:na]
+	at java.base/sun.reflect.generics.visitor.Reifier.visitClassTypeSignature(Reifier.java:138) ~[na:na]
+	at java.base/sun.reflect.generics.tree.ClassTypeSignature.accept(ClassTypeSignature.java:49) ~[na:na]
+	at java.base/sun.reflect.generics.repository.ConstructorRepository.computeParameterTypes(ConstructorRepository.java:111) ~[na:na]
+	at java.base/sun.reflect.generics.repository.ConstructorRepository.getParameterTypes(ConstructorRepository.java:87) ~[na:na]
+	at java.base/java.lang.reflect.Executable.getGenericParameterTypes(Executable.java:313) ~[na:na]
+	at java.base/java.lang.reflect.Method.getGenericParameterTypes(Method.java:337) ~[na:na]
+	at org.springframework.core.MethodParameter.getGenericParameterType(MethodParameter.java:499) ~[spring-core-7.0.7.jar:7.0.7]
+	at org.springframework.core.MethodParameter.getNestedParameterType(MethodParameter.java:539) ~[spring-core-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.config.DependencyDescriptor.getDependencyType(DependencyDescriptor.java:357) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1666) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.createOptionalDependency(DefaultListableBeanFactory.java:2351) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1635) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:912) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:546) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1362) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1194) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:565) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:525) ~[spring-beans-7.0.7.jar:7.0.7]
+	... 49 common frames omitted
+Caused by: java.lang.ClassNotFoundException: org.springframework.boot.autoconfigure.hateoas.HateoasProperties
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641) ~[na:na]
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188) ~[na:na]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526) ~[na:na]
+	at java.base/java.lang.Class.forName0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.forName(Class.java:536) ~[na:na]
+	at java.base/java.lang.Class.forName(Class.java:515) ~[na:na]
+	at java.base/sun.reflect.generics.factory.CoreReflectionFactory.makeNamedType(CoreReflectionFactory.java:114) ~[na:na]
+	... 71 common frames omitted
+
+2026-06-05T20:53:37.316-04:00  WARN 12136 --- [notificacion] [main] org.hibernate.orm.core                   : HHH000511: The 5.5.5 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly.The minimum supported version is 8.0.0. Check the community dialects project for available legacy versions.
+2026-06-05T20:53:37.319-04:00  WARN 12136 --- [notificacion] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-05T20:53:38.080-04:00  WARN 12136 --- [notificacion] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-05T20:53:38.116-04:00  WARN 12136 --- [notificacion] [main] .s.a.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: ba6003f8-957b-4f4b-8b89-476c5d0ad0b9
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-06-05T20:53:38.231-04:00 DEBUG 12136 --- [notificacion] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 6 mappings in 'requestMappingHandlerMapping'
+2026-06-05T20:53:38.250-04:00 DEBUG 12136 --- [notificacion] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2026-06-05T20:53:38.271-04:00 DEBUG 12136 --- [notificacion] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 2 RequestBodyAdvice, 1 ResponseBodyAdvice
+2026-06-05T20:53:38.338-04:00 DEBUG 12136 --- [notificacion] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2026-06-05T20:53:46.207-04:00  WARN 12156 --- [notificacion] [main] org.hibernate.orm.core                   : HHH000511: The 5.5.5 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly.The minimum supported version is 8.0.0. Check the community dialects project for available legacy versions.
+2026-06-05T20:53:46.210-04:00  WARN 12156 --- [notificacion] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-05T20:53:46.914-04:00  WARN 12156 --- [notificacion] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-05T20:53:46.948-04:00  WARN 12156 --- [notificacion] [main] .s.a.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 1821aff1-0f44-4290-9a3d-e16257a0ea9e
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-06-05T20:53:47.062-04:00 DEBUG 12156 --- [notificacion] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 6 mappings in 'requestMappingHandlerMapping'
+2026-06-05T20:53:47.078-04:00 DEBUG 12156 --- [notificacion] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2026-06-05T20:53:47.091-04:00 DEBUG 12156 --- [notificacion] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 2 RequestBodyAdvice, 1 ResponseBodyAdvice
+2026-06-05T20:53:47.114-04:00 DEBUG 12156 --- [notificacion] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2026-06-05T20:54:05.697-04:00  WARN 12177 --- [valoracion] [main] org.hibernate.orm.core                   : HHH000511: The 5.5.5 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly.The minimum supported version is 8.0.0. Check the community dialects project for available legacy versions.
+2026-06-05T20:54:05.699-04:00  WARN 12177 --- [valoracion] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-05T20:54:06.402-04:00  WARN 12177 --- [valoracion] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-05T20:54:06.436-04:00  WARN 12177 --- [valoracion] [main] .s.a.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 9e7d899a-3c41-4e06-a922-39b4bd3a7b60
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-06-05T20:54:06.540-04:00 DEBUG 12177 --- [valoracion] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 7 mappings in 'requestMappingHandlerMapping'
+2026-06-05T20:54:06.555-04:00 DEBUG 12177 --- [valoracion] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2026-06-05T20:54:06.568-04:00 DEBUG 12177 --- [valoracion] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 2 RequestBodyAdvice, 1 ResponseBodyAdvice
+2026-06-05T20:54:06.592-04:00 DEBUG 12177 --- [valoracion] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2026-06-05T20:54:23.537-04:00  WARN 12212 --- [pedido] [main] org.hibernate.orm.core                   : HHH000511: The 5.5.5 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly.The minimum supported version is 8.0.0. Check the community dialects project for available legacy versions.
+2026-06-05T20:54:23.540-04:00  WARN 12212 --- [pedido] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-05T20:54:24.261-04:00  WARN 12212 --- [pedido] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-05T20:54:24.298-04:00  WARN 12212 --- [pedido] [main] .s.a.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 2067c385-37c2-4bfd-b8c3-40567cf2ef0d
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-06-05T20:54:24.411-04:00 DEBUG 12212 --- [pedido] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 6 mappings in 'requestMappingHandlerMapping'
+2026-06-05T20:54:24.426-04:00 DEBUG 12212 --- [pedido] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2026-06-05T20:54:24.441-04:00 DEBUG 12212 --- [pedido] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 2 RequestBodyAdvice, 1 ResponseBodyAdvice
+2026-06-05T20:54:24.463-04:00 DEBUG 12212 --- [pedido] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2026-06-05T20:54:29.876-04:00  INFO 12226 --- [producto] [main] c.m.producto.ProductoApplication         : Starting ProductoApplication using Java 21.0.11 with PID 12226 (/Users/nicolasherrera/Desktop/Proyecto-Transversal/producto/target/classes started by nicolasherrera in /Users/nicolasherrera/Desktop/Proyecto-Transversal)
+2026-06-05T20:54:29.878-04:00 DEBUG 12226 --- [producto] [main] c.m.producto.ProductoApplication         : Running with Spring Boot v4.0.6, Spring v7.0.7
+2026-06-05T20:54:29.879-04:00  INFO 12226 --- [producto] [main] c.m.producto.ProductoApplication         : The following 1 profile is active: "dev"
+2026-06-05T20:54:31.033-04:00  WARN 12226 --- [producto] [main] org.hibernate.orm.core                   : HHH000511: The 5.5.5 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly.The minimum supported version is 8.0.0. Check the community dialects project for available legacy versions.
+2026-06-05T20:54:31.036-04:00  WARN 12226 --- [producto] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-05T20:54:31.644-04:00  WARN 12226 --- [producto] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-05T20:54:31.737-04:00 DEBUG 12226 --- [producto] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 8 mappings in 'requestMappingHandlerMapping'
+2026-06-05T20:54:31.753-04:00 DEBUG 12226 --- [producto] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2026-06-05T20:54:31.766-04:00 DEBUG 12226 --- [producto] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 2 RequestBodyAdvice, 1 ResponseBodyAdvice
+2026-06-05T20:54:31.788-04:00 DEBUG 12226 --- [producto] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2026-06-05T20:54:31.863-04:00  INFO 12226 --- [producto] [main] c.m.producto.ProductoApplication         : Started ProductoApplication in 2.221 seconds (process running for 2.695)
+2026-06-05T20:55:19.693-04:00  WARN 12307 --- [reporte] [main] org.hibernate.orm.core                   : HHH000511: The 5.5.5 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly.The minimum supported version is 8.0.0. Check the community dialects project for available legacy versions.
+2026-06-05T20:55:19.696-04:00  WARN 12307 --- [reporte] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-05T20:55:20.607-04:00  WARN 12307 --- [reporte] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-05T20:55:20.641-04:00  WARN 12307 --- [reporte] [main] .s.a.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 31c3506c-0359-4e15-8bf0-caaf9e6351e3
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-06-05T20:55:20.756-04:00 DEBUG 12307 --- [reporte] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 9 mappings in 'requestMappingHandlerMapping'
+2026-06-05T20:55:20.773-04:00 DEBUG 12307 --- [reporte] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2026-06-05T20:55:20.790-04:00 DEBUG 12307 --- [reporte] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 2 RequestBodyAdvice, 1 ResponseBodyAdvice
+2026-06-05T20:55:20.814-04:00 DEBUG 12307 --- [reporte] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2026-06-05T20:56:30.909-04:00  WARN 12411 --- [pedido] [main] org.hibernate.orm.core                   : HHH000511: The 5.5.5 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly.The minimum supported version is 8.0.0. Check the community dialects project for available legacy versions.
+2026-06-05T20:56:30.912-04:00  WARN 12411 --- [pedido] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-05T20:56:31.600-04:00  WARN 12411 --- [pedido] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-05T20:56:31.635-04:00  WARN 12411 --- [pedido] [main] .s.a.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 304927e6-600e-4f5c-b2f2-ff725d0dacef
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-06-05T20:56:31.746-04:00 DEBUG 12411 --- [pedido] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 6 mappings in 'requestMappingHandlerMapping'
+2026-06-05T20:56:31.762-04:00 DEBUG 12411 --- [pedido] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2026-06-05T20:56:31.775-04:00 DEBUG 12411 --- [pedido] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 2 RequestBodyAdvice, 1 ResponseBodyAdvice
+2026-06-05T20:56:31.797-04:00 DEBUG 12411 --- [pedido] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2026-06-05T20:56:45.392-04:00  WARN 12430 --- [pago] [main] org.hibernate.orm.core                   : HHH000511: The 5.5.5 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly.The minimum supported version is 8.0.0. Check the community dialects project for available legacy versions.
+2026-06-05T20:56:45.396-04:00  WARN 12430 --- [pago] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-05T20:56:46.118-04:00  WARN 12430 --- [pago] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-05T20:56:46.155-04:00  WARN 12430 --- [pago] [main] .s.a.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 09e3c5a7-eb0b-4ded-a79b-3f53c73caa53
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-06-05T20:56:46.262-04:00 DEBUG 12430 --- [pago] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 6 mappings in 'requestMappingHandlerMapping'
+2026-06-05T20:56:46.278-04:00 DEBUG 12430 --- [pago] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2026-06-05T20:56:46.293-04:00 DEBUG 12430 --- [pago] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 2 RequestBodyAdvice, 1 ResponseBodyAdvice
+2026-06-05T20:56:46.317-04:00 DEBUG 12430 --- [pago] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2026-06-05T20:59:42.075-04:00  INFO 12156 --- [notificacion] [http-nio-8089-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-06-05T20:59:42.076-04:00 DEBUG 12156 --- [notificacion] [http-nio-8089-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2026-06-05T20:59:42.077-04:00 DEBUG 12156 --- [notificacion] [http-nio-8089-exec-1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2026-06-05T20:59:42.080-04:00 DEBUG 12156 --- [notificacion] [http-nio-8089-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@437ac2dc
+2026-06-05T20:59:42.081-04:00 DEBUG 12156 --- [notificacion] [http-nio-8089-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@3fe70a2d
+2026-06-05T20:59:42.081-04:00 DEBUG 12156 --- [notificacion] [http-nio-8089-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2026-06-05T20:59:42.081-04:00  INFO 12156 --- [notificacion] [http-nio-8089-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
+2026-06-05T20:59:42.097-04:00 DEBUG 12156 --- [notificacion] [http-nio-8089-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/notificaciones", parameters={}
+2026-06-05T20:59:42.105-04:00 DEBUG 12156 --- [notificacion] [http-nio-8089-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.marketplace.notificacion.controller.NotificacionController#listar()
+2026-06-05T20:59:42.374-04:00 DEBUG 12156 --- [notificacion] [http-nio-8089-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/hal+json', given [*/*] and supported [application/hal+json]
+2026-06-05T20:59:42.376-04:00 DEBUG 12156 --- [notificacion] [http-nio-8089-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Writing [CollectionModel { content: [EntityModel { content: NotificacionResponseDTO(id=1, asunto=Prueba, mens (truncated)...]
+2026-06-05T20:59:42.426-04:00 DEBUG 12156 --- [notificacion] [http-nio-8089-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2026-06-05T21:00:07.941-04:00  INFO 12411 --- [pedido] [http-nio-8086-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-06-05T21:00:07.942-04:00 DEBUG 12411 --- [pedido] [http-nio-8086-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2026-06-05T21:00:07.942-04:00 DEBUG 12411 --- [pedido] [http-nio-8086-exec-1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2026-06-05T21:00:07.943-04:00 DEBUG 12411 --- [pedido] [http-nio-8086-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@32180efb
+2026-06-05T21:00:07.944-04:00 DEBUG 12411 --- [pedido] [http-nio-8086-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@1ed763aa
+2026-06-05T21:00:07.944-04:00 DEBUG 12411 --- [pedido] [http-nio-8086-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2026-06-05T21:00:07.945-04:00  INFO 12411 --- [pedido] [http-nio-8086-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2026-06-05T21:00:07.970-04:00 DEBUG 12411 --- [pedido] [http-nio-8086-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/pedidos", parameters={}
+2026-06-05T21:00:07.975-04:00 DEBUG 12411 --- [pedido] [http-nio-8086-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.marketplace.pedido.controller.PedidoController#listar()
+2026-06-05T21:00:08.209-04:00 DEBUG 12411 --- [pedido] [http-nio-8086-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/hal+json', given [*/*] and supported [application/hal+json]
+2026-06-05T21:00:08.211-04:00 DEBUG 12411 --- [pedido] [http-nio-8086-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Writing [CollectionModel { content: [EntityModel { content: PedidoResponseDTO(id=1, nomProducto=Zapatillas Ni (truncated)...]
+2026-06-05T21:00:08.263-04:00 DEBUG 12411 --- [pedido] [http-nio-8086-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2026-06-05T21:00:13.031-04:00 DEBUG 12411 --- [pedido] [http-nio-8086-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/pedidos", parameters={}
+2026-06-05T21:00:13.032-04:00 DEBUG 12411 --- [pedido] [http-nio-8086-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.marketplace.pedido.controller.PedidoController#listar()
+2026-06-05T21:00:13.045-04:00 DEBUG 12411 --- [pedido] [http-nio-8086-exec-3] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/hal+json', given [*/*] and supported [application/hal+json]
+2026-06-05T21:00:13.046-04:00 DEBUG 12411 --- [pedido] [http-nio-8086-exec-3] m.m.a.RequestResponseBodyMethodProcessor : Writing [CollectionModel { content: [EntityModel { content: PedidoResponseDTO(id=1, nomProducto=Zapatillas Ni (truncated)...]
+2026-06-05T21:00:13.048-04:00 DEBUG 12411 --- [pedido] [http-nio-8086-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2026-06-05T21:00:25.891-04:00  INFO 12430 --- [pago] [http-nio-8087-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-06-05T21:00:25.892-04:00 DEBUG 12430 --- [pago] [http-nio-8087-exec-2] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2026-06-05T21:00:25.892-04:00 DEBUG 12430 --- [pago] [http-nio-8087-exec-2] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2026-06-05T21:00:25.895-04:00 DEBUG 12430 --- [pago] [http-nio-8087-exec-2] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@f1e8753
+2026-06-05T21:00:25.895-04:00 DEBUG 12430 --- [pago] [http-nio-8087-exec-2] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@61f18997
+2026-06-05T21:00:25.895-04:00 DEBUG 12430 --- [pago] [http-nio-8087-exec-2] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2026-06-05T21:00:25.896-04:00  INFO 12430 --- [pago] [http-nio-8087-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2026-06-05T21:00:25.910-04:00 DEBUG 12430 --- [pago] [http-nio-8087-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/pagos", parameters={}
+2026-06-05T21:00:25.916-04:00 DEBUG 12430 --- [pago] [http-nio-8087-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.marketplace.pago.controller.PagoController#listar()
+2026-06-05T21:00:26.175-04:00 DEBUG 12430 --- [pago] [http-nio-8087-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/hal+json', given [*/*] and supported [application/hal+json]
+2026-06-05T21:00:26.179-04:00 DEBUG 12430 --- [pago] [http-nio-8087-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Writing [CollectionModel { content: [EntityModel { content: PagoResponseDTO(id=1, metodoPago=Tarjeta de crédi (truncated)...]
+2026-06-05T21:00:26.241-04:00 DEBUG 12430 --- [pago] [http-nio-8087-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2026-06-05T21:00:40.450-04:00  INFO 12177 --- [valoracion] [http-nio-8088-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-06-05T21:00:40.451-04:00 DEBUG 12177 --- [valoracion] [http-nio-8088-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2026-06-05T21:00:40.451-04:00 DEBUG 12177 --- [valoracion] [http-nio-8088-exec-1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2026-06-05T21:00:40.459-04:00 DEBUG 12177 --- [valoracion] [http-nio-8088-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@57386162
+2026-06-05T21:00:40.460-04:00 DEBUG 12177 --- [valoracion] [http-nio-8088-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@5a63de07
+2026-06-05T21:00:40.460-04:00 DEBUG 12177 --- [valoracion] [http-nio-8088-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2026-06-05T21:00:40.460-04:00  INFO 12177 --- [valoracion] [http-nio-8088-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 9 ms
+2026-06-05T21:00:40.483-04:00 DEBUG 12177 --- [valoracion] [http-nio-8088-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/valoracion", parameters={}
+2026-06-05T21:00:40.490-04:00 DEBUG 12177 --- [valoracion] [http-nio-8088-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.marketplace.valoracion.controller.ValoracionController#listar()
+2026-06-05T21:00:40.745-04:00 DEBUG 12177 --- [valoracion] [http-nio-8088-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/hal+json', given [*/*] and supported [application/hal+json]
+2026-06-05T21:00:40.747-04:00 DEBUG 12177 --- [valoracion] [http-nio-8088-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Writing [CollectionModel { content: [EntityModel { content: ValoracionResponseDTO(id=1, numEstrella=5, recome (truncated)...]
+2026-06-05T21:00:40.796-04:00 DEBUG 12177 --- [valoracion] [http-nio-8088-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2026-06-05T21:00:59.081-04:00  INFO 12307 --- [reporte] [http-nio-8090-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-06-05T21:00:59.082-04:00 DEBUG 12307 --- [reporte] [http-nio-8090-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2026-06-05T21:00:59.082-04:00 DEBUG 12307 --- [reporte] [http-nio-8090-exec-1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2026-06-05T21:00:59.086-04:00 DEBUG 12307 --- [reporte] [http-nio-8090-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@6fc9c0cc
+2026-06-05T21:00:59.086-04:00 DEBUG 12307 --- [reporte] [http-nio-8090-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@269a37bc
+2026-06-05T21:00:59.087-04:00 DEBUG 12307 --- [reporte] [http-nio-8090-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2026-06-05T21:00:59.087-04:00  INFO 12307 --- [reporte] [http-nio-8090-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
+2026-06-05T21:00:59.100-04:00 DEBUG 12307 --- [reporte] [http-nio-8090-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/reportes", parameters={}
+2026-06-05T21:00:59.106-04:00 DEBUG 12307 --- [reporte] [http-nio-8090-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.marketplace.reporte.controller.ReporteController#listar()
+2026-06-05T21:00:59.290-04:00 DEBUG 12307 --- [reporte] [http-nio-8090-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/hal+json', given [*/*] and supported [application/hal+json]
+2026-06-05T21:00:59.292-04:00 DEBUG 12307 --- [reporte] [http-nio-8090-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Writing [CollectionModel { content: [EntityModel { content: ReporteResponseDTO(id=1, tipo=Ventas, descripcion (truncated)...]
+2026-06-05T21:00:59.353-04:00 DEBUG 12307 --- [reporte] [http-nio-8090-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2026-06-05T21:02:34.235-04:00  INFO 12886 --- [producto] [main] c.m.producto.ProductoApplication         : Starting ProductoApplication using Java 21.0.11 with PID 12886 (/Users/nicolasherrera/Desktop/Proyecto-Transversal/producto/target/classes started by nicolasherrera in /Users/nicolasherrera/Desktop/Proyecto-Transversal)
+2026-06-05T21:02:34.237-04:00 DEBUG 12886 --- [producto] [main] c.m.producto.ProductoApplication         : Running with Spring Boot v4.0.6, Spring v7.0.7
+2026-06-05T21:02:34.237-04:00  INFO 12886 --- [producto] [main] c.m.producto.ProductoApplication         : The following 1 profile is active: "dev"
+2026-06-05T21:02:35.434-04:00  WARN 12886 --- [producto] [main] org.hibernate.orm.core                   : HHH000511: The 5.5.5 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly.The minimum supported version is 8.0.0. Check the community dialects project for available legacy versions.
+2026-06-05T21:02:35.436-04:00  WARN 12886 --- [producto] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-05T21:02:36.047-04:00  WARN 12886 --- [producto] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-05T21:02:36.138-04:00 DEBUG 12886 --- [producto] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 8 mappings in 'requestMappingHandlerMapping'
+2026-06-05T21:02:36.152-04:00 DEBUG 12886 --- [producto] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2026-06-05T21:02:36.165-04:00 DEBUG 12886 --- [producto] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 2 RequestBodyAdvice, 1 ResponseBodyAdvice
+2026-06-05T21:02:36.187-04:00 DEBUG 12886 --- [producto] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2026-06-05T21:02:36.266-04:00  INFO 12886 --- [producto] [main] c.m.producto.ProductoApplication         : Started ProductoApplication in 2.387 seconds (process running for 3.001)
+2026-06-05T21:03:47.243-04:00 DEBUG 12411 --- [pedido] [http-nio-8086-exec-6] o.s.web.servlet.DispatcherServlet        : POST "/pedidos", parameters={}
+2026-06-05T21:03:47.246-04:00 DEBUG 12411 --- [pedido] [http-nio-8086-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.marketplace.pedido.controller.PedidoController#crear(PedidoRequestDTO)
+2026-06-05T21:03:47.302-04:00 DEBUG 12411 --- [pedido] [http-nio-8086-exec-6] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [PedidoRequestDTO(productoId=1, nomProducto=Audífonos Bluetooth, tipoProducto=Electrónica, precio=259 (truncated)...]
+2026-06-05T21:03:47.354-04:00 DEBUG 12411 --- [pedido] [http-nio-8086-exec-6] .m.m.a.ExceptionHandlerExceptionResolver : Using @ExceptionHandler com.marketplace.pedido.Exception.GlobalExceptionHandler#handleValidation(MethodArgumentNotValidException)
+2026-06-05T21:03:47.373-04:00 DEBUG 12411 --- [pedido] [http-nio-8086-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/yaml]
+2026-06-05T21:03:47.374-04:00 DEBUG 12411 --- [pedido] [http-nio-8086-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ExceptionDTO(code=400, type=Bad Request, date=Fri Jun 05 21:03:47 CLT 2026, message=direccionEntrega (truncated)...]
+2026-06-05T21:03:47.376-04:00 DEBUG 12411 --- [pedido] [http-nio-8086-exec-6] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public org.springframework.http.ResponseEntity<org.springframework.hateoas.EntityModel<com.marketplace.pedido.DTO.PedidoResponseDTO>> com.marketplace.pedido.controller.PedidoController.crear(com.marketplace.pedido.DTO.PedidoRequestDTO): [Field error in object 'pedidoRequestDTO' on field 'direccionEntrega': rejected value [null]; codes [NotBlank.pedidoRequestDTO.direccionEntrega,NotBlank.direccionEntrega,NotBlank.java.lang.String,NotBlank]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [pedidoRequestDTO.direccionEntrega,direccionEntrega]; arguments []; default message [direccionEntrega]]; default message [Ingresa la direccion para el despacho]] ]
+2026-06-05T21:03:47.377-04:00 DEBUG 12411 --- [pedido] [http-nio-8086-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 400 BAD_REQUEST
+2026-06-05T21:23:13.437-04:00 DEBUG 12411 --- [pedido] [http-nio-8086-exec-7] o.s.web.servlet.DispatcherServlet        : POST "/pedidos", parameters={}
+2026-06-05T21:23:13.440-04:00 DEBUG 12411 --- [pedido] [http-nio-8086-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.marketplace.pedido.controller.PedidoController#crear(PedidoRequestDTO)
+2026-06-05T21:23:13.445-04:00 DEBUG 12411 --- [pedido] [http-nio-8086-exec-7] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [PedidoRequestDTO(productoId=1, nomProducto=Audífonos Bluetooth, tipoProducto=Electrónica, precio=259 (truncated)...]
+2026-06-05T21:23:13.519-04:00 DEBUG 12411 --- [pedido] [http-nio-8086-exec-7] o.s.w.r.f.client.ExchangeFunctions       : [20b9b107] HTTP GET http://localhost:8083/api/producto/1
+2026-06-05T21:23:13.594-04:00 ERROR 12411 --- [pedido] [http-nio-8086-exec-7] i.n.r.d.DnsServerAddressStreamProviders  : Unable to load io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider, fallback to system defaults. This may result in incorrect DNS resolutions on MacOS. Check whether you have a dependency on 'io.netty:netty-resolver-dns-native-macos'. Use DEBUG level to see the full stack: java.lang.UnsatisfiedLinkError: failed to load the required native library
+2026-06-05T21:23:13.691-04:00 ERROR 12411 --- [pedido] [http-nio-8086-exec-7] c.m.pedido.service.PedidoService         : Error al comunicarse con el microservicio de Producto: Connection refused: localhost/127.0.0.1:8083
+2026-06-05T21:23:13.692-04:00 DEBUG 12411 --- [pedido] [http-nio-8086-exec-7] .m.m.a.ExceptionHandlerExceptionResolver : Using @ExceptionHandler com.marketplace.pedido.Exception.GlobalExceptionHandler#handleIllegalArgument(IllegalArgumentException)
+2026-06-05T21:23:13.694-04:00 DEBUG 12411 --- [pedido] [http-nio-8086-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/yaml]
+2026-06-05T21:23:13.694-04:00 DEBUG 12411 --- [pedido] [http-nio-8086-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ExceptionDTO(code=400, type=Bad Request, date=Fri Jun 05 21:23:13 CLT 2026, message=No se pudo verif (truncated)...]
+2026-06-05T21:23:13.695-04:00 DEBUG 12411 --- [pedido] [http-nio-8086-exec-7] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.IllegalArgumentException: No se pudo verificar el producto. Intenta nuevamente.]
+2026-06-05T21:23:13.696-04:00 DEBUG 12411 --- [pedido] [http-nio-8086-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 400 BAD_REQUEST
+2026-06-05T21:23:15.290-04:00 DEBUG 12411 --- [pedido] [http-nio-8086-exec-10] o.s.web.servlet.DispatcherServlet        : POST "/pedidos", parameters={}
+2026-06-05T21:23:15.291-04:00 DEBUG 12411 --- [pedido] [http-nio-8086-exec-10] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.marketplace.pedido.controller.PedidoController#crear(PedidoRequestDTO)
+2026-06-05T21:23:15.292-04:00 DEBUG 12411 --- [pedido] [http-nio-8086-exec-10] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [PedidoRequestDTO(productoId=1, nomProducto=Audífonos Bluetooth, tipoProducto=Electrónica, precio=259 (truncated)...]
+2026-06-05T21:23:15.293-04:00 DEBUG 12411 --- [pedido] [http-nio-8086-exec-10] o.s.w.r.f.client.ExchangeFunctions       : [48073b71] HTTP GET http://localhost:8083/api/producto/1
+2026-06-05T21:23:15.296-04:00 ERROR 12411 --- [pedido] [http-nio-8086-exec-10] c.m.pedido.service.PedidoService         : Error al comunicarse con el microservicio de Producto: Connection refused: localhost/127.0.0.1:8083
+2026-06-05T21:23:15.297-04:00 DEBUG 12411 --- [pedido] [http-nio-8086-exec-10] .m.m.a.ExceptionHandlerExceptionResolver : Using @ExceptionHandler com.marketplace.pedido.Exception.GlobalExceptionHandler#handleIllegalArgument(IllegalArgumentException)
+2026-06-05T21:23:15.297-04:00 DEBUG 12411 --- [pedido] [http-nio-8086-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/yaml]
+2026-06-05T21:23:15.298-04:00 DEBUG 12411 --- [pedido] [http-nio-8086-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ExceptionDTO(code=400, type=Bad Request, date=Fri Jun 05 21:23:15 CLT 2026, message=No se pudo verif (truncated)...]
+2026-06-05T21:23:15.298-04:00 DEBUG 12411 --- [pedido] [http-nio-8086-exec-10] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.IllegalArgumentException: No se pudo verificar el producto. Intenta nuevamente.]
+2026-06-05T21:23:15.298-04:00 DEBUG 12411 --- [pedido] [http-nio-8086-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 400 BAD_REQUEST
+2026-06-05T21:23:23.424-04:00 DEBUG 12411 --- [pedido] [http-nio-8086-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/pedidos", parameters={}
+2026-06-05T21:23:23.426-04:00 DEBUG 12411 --- [pedido] [http-nio-8086-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.marketplace.pedido.controller.PedidoController#listar()
+2026-06-05T21:23:23.505-04:00 DEBUG 12411 --- [pedido] [http-nio-8086-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/hal+json', given [*/*] and supported [application/hal+json]
+2026-06-05T21:23:23.506-04:00 DEBUG 12411 --- [pedido] [http-nio-8086-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Writing [CollectionModel { content: [EntityModel { content: PedidoResponseDTO(id=1, nomProducto=Zapatillas Ni (truncated)...]
+2026-06-05T21:23:23.510-04:00 DEBUG 12411 --- [pedido] [http-nio-8086-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2026-06-05T21:23:28.819-04:00 DEBUG 12411 --- [pedido] [http-nio-8086-exec-3] o.s.web.servlet.DispatcherServlet        : POST "/pedidos", parameters={}
+2026-06-05T21:23:28.819-04:00 DEBUG 12411 --- [pedido] [http-nio-8086-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.marketplace.pedido.controller.PedidoController#crear(PedidoRequestDTO)
+2026-06-05T21:23:28.821-04:00 DEBUG 12411 --- [pedido] [http-nio-8086-exec-3] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [PedidoRequestDTO(productoId=1, nomProducto=Audífonos Bluetooth, tipoProducto=Electrónica, precio=259 (truncated)...]
+2026-06-05T21:23:28.823-04:00 DEBUG 12411 --- [pedido] [http-nio-8086-exec-3] o.s.w.r.f.client.ExchangeFunctions       : [4e0f30d2] HTTP GET http://localhost:8083/api/producto/1
+2026-06-05T21:23:28.828-04:00 ERROR 12411 --- [pedido] [http-nio-8086-exec-3] c.m.pedido.service.PedidoService         : Error al comunicarse con el microservicio de Producto: Connection refused: localhost/127.0.0.1:8083
+2026-06-05T21:23:28.828-04:00 DEBUG 12411 --- [pedido] [http-nio-8086-exec-3] .m.m.a.ExceptionHandlerExceptionResolver : Using @ExceptionHandler com.marketplace.pedido.Exception.GlobalExceptionHandler#handleIllegalArgument(IllegalArgumentException)
+2026-06-05T21:23:28.828-04:00 DEBUG 12411 --- [pedido] [http-nio-8086-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/yaml]
+2026-06-05T21:23:28.828-04:00 DEBUG 12411 --- [pedido] [http-nio-8086-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ExceptionDTO(code=400, type=Bad Request, date=Fri Jun 05 21:23:28 CLT 2026, message=No se pudo verif (truncated)...]
+2026-06-05T21:23:28.829-04:00 DEBUG 12411 --- [pedido] [http-nio-8086-exec-3] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.IllegalArgumentException: No se pudo verificar el producto. Intenta nuevamente.]
+2026-06-05T21:23:28.829-04:00 DEBUG 12411 --- [pedido] [http-nio-8086-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 400 BAD_REQUEST
+2026-06-05T21:25:16.372-04:00  WARN 14528 --- [pedido] [main] org.hibernate.orm.core                   : HHH000511: The 5.5.5 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly.The minimum supported version is 8.0.0. Check the community dialects project for available legacy versions.
+2026-06-05T21:25:16.375-04:00  WARN 14528 --- [pedido] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-05T21:25:17.133-04:00  WARN 14528 --- [pedido] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-05T21:25:17.167-04:00  WARN 14528 --- [pedido] [main] .s.a.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 93f3c446-9b39-4a62-8393-b8865bdf9c5d
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-06-05T21:25:17.280-04:00 DEBUG 14528 --- [pedido] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 6 mappings in 'requestMappingHandlerMapping'
+2026-06-05T21:25:17.295-04:00 DEBUG 14528 --- [pedido] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2026-06-05T21:25:17.308-04:00 DEBUG 14528 --- [pedido] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 2 RequestBodyAdvice, 1 ResponseBodyAdvice
+2026-06-05T21:25:17.328-04:00 DEBUG 14528 --- [pedido] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2026-06-05T21:25:17.819-04:00  INFO 14528 --- [pedido] [http-nio-8086-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-06-05T21:25:17.819-04:00 DEBUG 14528 --- [pedido] [http-nio-8086-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2026-06-05T21:25:17.819-04:00 DEBUG 14528 --- [pedido] [http-nio-8086-exec-1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2026-06-05T21:25:17.820-04:00 DEBUG 14528 --- [pedido] [http-nio-8086-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@5852605c
+2026-06-05T21:25:17.821-04:00 DEBUG 14528 --- [pedido] [http-nio-8086-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@25192b6e
+2026-06-05T21:25:17.821-04:00 DEBUG 14528 --- [pedido] [http-nio-8086-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2026-06-05T21:25:17.821-04:00  INFO 14528 --- [pedido] [http-nio-8086-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2026-06-05T21:25:17.831-04:00 DEBUG 14528 --- [pedido] [http-nio-8086-exec-1] o.s.web.servlet.DispatcherServlet        : POST "/pedidos", parameters={}
+2026-06-05T21:25:17.836-04:00 DEBUG 14528 --- [pedido] [http-nio-8086-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.marketplace.pedido.controller.PedidoController#crear(PedidoRequestDTO)
+2026-06-05T21:25:17.920-04:00 DEBUG 14528 --- [pedido] [http-nio-8086-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [PedidoRequestDTO(productoId=1, nomProducto=Audífonos Bluetooth, tipoProducto=Electrónica, precio=259 (truncated)...]
+2026-06-05T21:25:17.963-04:00 DEBUG 14528 --- [pedido] [http-nio-8086-exec-1] o.s.w.r.f.client.ExchangeFunctions       : [429a64c6] HTTP GET http://localhost:8084/api/producto/1
+2026-06-05T21:25:18.012-04:00 ERROR 14528 --- [pedido] [http-nio-8086-exec-1] i.n.r.d.DnsServerAddressStreamProviders  : Unable to load io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider, fallback to system defaults. This may result in incorrect DNS resolutions on MacOS. Check whether you have a dependency on 'io.netty:netty-resolver-dns-native-macos'. Use DEBUG level to see the full stack: java.lang.UnsatisfiedLinkError: failed to load the required native library
+2026-06-05T21:25:18.153-04:00  INFO 12886 --- [producto] [http-nio-8084-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-06-05T21:25:18.153-04:00 DEBUG 12886 --- [producto] [http-nio-8084-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2026-06-05T21:25:18.153-04:00 DEBUG 12886 --- [producto] [http-nio-8084-exec-1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2026-06-05T21:25:18.156-04:00 DEBUG 12886 --- [producto] [http-nio-8084-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@1a7f2d34
+2026-06-05T21:25:18.156-04:00 DEBUG 12886 --- [producto] [http-nio-8084-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@7c55e559
+2026-06-05T21:25:18.156-04:00 DEBUG 12886 --- [producto] [http-nio-8084-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2026-06-05T21:25:18.156-04:00  INFO 12886 --- [producto] [http-nio-8084-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2026-06-05T21:25:18.163-04:00 DEBUG 12886 --- [producto] [http-nio-8084-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/api/producto/1", parameters={}
+2026-06-05T21:25:18.171-04:00 DEBUG 12886 --- [producto] [http-nio-8084-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.marketplace.producto.controller.ProductoController#obtener(Long)
+2026-06-05T21:25:18.188-04:00  INFO 12886 --- [producto] [http-nio-8084-exec-1] c.m.p.controller.ProductoController      : GET /api/producto/1 - Solicitud para obtener producto
+2026-06-05T21:25:18.188-04:00  INFO 12886 --- [producto] [http-nio-8084-exec-1] c.m.producto.service.ProductoService     : Buscando producto con ID: 1
+2026-06-05T21:25:18.251-04:00  INFO 12886 --- [producto] [http-nio-8084-exec-1] c.m.producto.service.ProductoService     : Producto 'Zapatillas Nike' encontrado correctamente
+2026-06-05T21:25:18.307-04:00 DEBUG 12886 --- [producto] [http-nio-8084-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/yaml]
+2026-06-05T21:25:18.310-04:00 DEBUG 12886 --- [producto] [http-nio-8084-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ProductoResponseDTO(id=1, nombre=Zapatillas Nike, descripcion=Zapatillas deportivas, precio=50000.0, (truncated)...]
+2026-06-05T21:25:18.338-04:00 DEBUG 12886 --- [producto] [http-nio-8084-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2026-06-05T21:25:18.349-04:00 DEBUG 14528 --- [pedido] [reactor-http-nio-2] o.s.w.r.f.client.ExchangeFunctions       : [429a64c6] [875c8b49-1] Response 200 OK
+2026-06-05T21:25:18.369-04:00 DEBUG 14528 --- [pedido] [reactor-http-nio-2] org.springframework.web.HttpLogging      : [429a64c6] [875c8b49-1] Decoded [ProductoClientDTO(id=1, nombre=Zapatillas Nike, precio=50000.0, stock=10, activo=true)]
+2026-06-05T21:25:18.369-04:00  WARN 14528 --- [pedido] [http-nio-8086-exec-1] c.m.pedido.service.PedidoService         : Precio enviado ($25990) difiere del precio real ($50000.0) en más de un 10%
+2026-06-05T21:25:18.371-04:00 DEBUG 14528 --- [pedido] [http-nio-8086-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Using @ExceptionHandler com.marketplace.pedido.Exception.GlobalExceptionHandler#handleIllegalArgument(IllegalArgumentException)
+2026-06-05T21:25:18.387-04:00 DEBUG 14528 --- [pedido] [http-nio-8086-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/yaml]
+2026-06-05T21:25:18.388-04:00 DEBUG 14528 --- [pedido] [http-nio-8086-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ExceptionDTO(code=400, type=Bad Request, date=Fri Jun 05 21:25:18 CLT 2026, message=El precio enviad (truncated)...]
+2026-06-05T21:25:18.404-04:00 DEBUG 14528 --- [pedido] [http-nio-8086-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.IllegalArgumentException: El precio enviado no coincide con el precio del producto. Precio actual: $50000.0]
+2026-06-05T21:25:18.405-04:00 DEBUG 14528 --- [pedido] [http-nio-8086-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 400 BAD_REQUEST
+2026-06-05T21:25:26.926-04:00 DEBUG 14528 --- [pedido] [http-nio-8086-exec-4] o.s.web.servlet.DispatcherServlet        : POST "/pedidos", parameters={}
+2026-06-05T21:25:26.928-04:00 DEBUG 14528 --- [pedido] [http-nio-8086-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.marketplace.pedido.controller.PedidoController#crear(PedidoRequestDTO)
+2026-06-05T21:25:26.934-04:00 DEBUG 14528 --- [pedido] [http-nio-8086-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [PedidoRequestDTO(productoId=1, nomProducto=Audífonos Bluetooth, tipoProducto=Electrónica, precio=259 (truncated)...]
+2026-06-05T21:25:26.936-04:00 DEBUG 14528 --- [pedido] [http-nio-8086-exec-4] o.s.w.r.f.client.ExchangeFunctions       : [21ac544f] HTTP GET http://localhost:8084/api/producto/1
+2026-06-05T21:25:26.944-04:00 DEBUG 12886 --- [producto] [http-nio-8084-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/api/producto/1", parameters={}
+2026-06-05T21:25:26.946-04:00 DEBUG 12886 --- [producto] [http-nio-8084-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.marketplace.producto.controller.ProductoController#obtener(Long)
+2026-06-05T21:25:26.948-04:00  INFO 12886 --- [producto] [http-nio-8084-exec-2] c.m.p.controller.ProductoController      : GET /api/producto/1 - Solicitud para obtener producto
+2026-06-05T21:25:26.948-04:00  INFO 12886 --- [producto] [http-nio-8084-exec-2] c.m.producto.service.ProductoService     : Buscando producto con ID: 1
+2026-06-05T21:25:26.959-04:00  INFO 12886 --- [producto] [http-nio-8084-exec-2] c.m.producto.service.ProductoService     : Producto 'Zapatillas Nike' encontrado correctamente
+2026-06-05T21:25:26.964-04:00 DEBUG 12886 --- [producto] [http-nio-8084-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/yaml]
+2026-06-05T21:25:26.965-04:00 DEBUG 12886 --- [producto] [http-nio-8084-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ProductoResponseDTO(id=1, nombre=Zapatillas Nike, descripcion=Zapatillas deportivas, precio=50000.0, (truncated)...]
+2026-06-05T21:25:26.967-04:00 DEBUG 12886 --- [producto] [http-nio-8084-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2026-06-05T21:25:26.968-04:00 DEBUG 14528 --- [pedido] [reactor-http-nio-2] o.s.w.r.f.client.ExchangeFunctions       : [21ac544f] [875c8b49-2] Response 200 OK
+2026-06-05T21:25:26.972-04:00 DEBUG 14528 --- [pedido] [reactor-http-nio-2] org.springframework.web.HttpLogging      : [21ac544f] [875c8b49-2] Decoded [ProductoClientDTO(id=1, nombre=Zapatillas Nike, precio=50000.0, stock=10, activo=true)]
+2026-06-05T21:25:26.972-04:00  WARN 14528 --- [pedido] [http-nio-8086-exec-4] c.m.pedido.service.PedidoService         : Precio enviado ($25990) difiere del precio real ($50000.0) en más de un 10%
+2026-06-05T21:25:26.974-04:00 DEBUG 14528 --- [pedido] [http-nio-8086-exec-4] .m.m.a.ExceptionHandlerExceptionResolver : Using @ExceptionHandler com.marketplace.pedido.Exception.GlobalExceptionHandler#handleIllegalArgument(IllegalArgumentException)
+2026-06-05T21:25:26.975-04:00 DEBUG 14528 --- [pedido] [http-nio-8086-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/yaml]
+2026-06-05T21:25:26.975-04:00 DEBUG 14528 --- [pedido] [http-nio-8086-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ExceptionDTO(code=400, type=Bad Request, date=Fri Jun 05 21:25:26 CLT 2026, message=El precio enviad (truncated)...]
+2026-06-05T21:25:26.977-04:00 DEBUG 14528 --- [pedido] [http-nio-8086-exec-4] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.IllegalArgumentException: El precio enviado no coincide con el precio del producto. Precio actual: $50000.0]
+2026-06-05T21:25:26.978-04:00 DEBUG 14528 --- [pedido] [http-nio-8086-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 400 BAD_REQUEST
+2026-06-05T21:26:14.049-04:00 DEBUG 14528 --- [pedido] [http-nio-8086-exec-7] o.s.web.servlet.DispatcherServlet        : POST "/pedidos", parameters={}
+2026-06-05T21:26:14.051-04:00 DEBUG 14528 --- [pedido] [http-nio-8086-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.marketplace.pedido.controller.PedidoController#crear(PedidoRequestDTO)
+2026-06-05T21:26:14.058-04:00 DEBUG 14528 --- [pedido] [http-nio-8086-exec-7] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [PedidoRequestDTO(productoId=1, nomProducto=Audífonos Bluetooth, tipoProducto=Electrónica, precio=500 (truncated)...]
+2026-06-05T21:26:14.065-04:00 DEBUG 14528 --- [pedido] [http-nio-8086-exec-7] o.s.w.r.f.client.ExchangeFunctions       : [7b7e4aa2] HTTP GET http://localhost:8084/api/producto/1
+2026-06-05T21:26:14.069-04:00 DEBUG 12886 --- [producto] [http-nio-8084-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/api/producto/1", parameters={}
+2026-06-05T21:26:14.071-04:00 DEBUG 12886 --- [producto] [http-nio-8084-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.marketplace.producto.controller.ProductoController#obtener(Long)
+2026-06-05T21:26:14.072-04:00  INFO 12886 --- [producto] [http-nio-8084-exec-3] c.m.p.controller.ProductoController      : GET /api/producto/1 - Solicitud para obtener producto
+2026-06-05T21:26:14.073-04:00  INFO 12886 --- [producto] [http-nio-8084-exec-3] c.m.producto.service.ProductoService     : Buscando producto con ID: 1
+2026-06-05T21:26:14.085-04:00  INFO 12886 --- [producto] [http-nio-8084-exec-3] c.m.producto.service.ProductoService     : Producto 'Zapatillas Nike' encontrado correctamente
+2026-06-05T21:26:14.087-04:00 DEBUG 12886 --- [producto] [http-nio-8084-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/yaml]
+2026-06-05T21:26:14.088-04:00 DEBUG 12886 --- [producto] [http-nio-8084-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ProductoResponseDTO(id=1, nombre=Zapatillas Nike, descripcion=Zapatillas deportivas, precio=50000.0, (truncated)...]
+2026-06-05T21:26:14.090-04:00 DEBUG 12886 --- [producto] [http-nio-8084-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2026-06-05T21:26:14.091-04:00 DEBUG 14528 --- [pedido] [reactor-http-nio-2] o.s.w.r.f.client.ExchangeFunctions       : [7b7e4aa2] [875c8b49-3] Response 200 OK
+2026-06-05T21:26:14.092-04:00 DEBUG 14528 --- [pedido] [reactor-http-nio-2] org.springframework.web.HttpLogging      : [7b7e4aa2] [875c8b49-3] Decoded [ProductoClientDTO(id=1, nombre=Zapatillas Nike, precio=50000.0, stock=10, activo=true)]
+2026-06-05T21:26:14.143-04:00 DEBUG 14528 --- [pedido] [http-nio-8086-exec-7] .m.m.a.ExceptionHandlerExceptionResolver : Using @ExceptionHandler com.marketplace.pedido.Exception.GlobalExceptionHandler#handleGenericException(Exception)
+2026-06-05T21:26:14.144-04:00 DEBUG 14528 --- [pedido] [http-nio-8086-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/yaml]
+2026-06-05T21:26:14.144-04:00 DEBUG 14528 --- [pedido] [http-nio-8086-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ExceptionDTO(code=500, type=Internal Server Error, date=Fri Jun 05 21:26:14 CLT 2026, message=Error  (truncated)...]
+2026-06-05T21:26:14.145-04:00 DEBUG 14528 --- [pedido] [http-nio-8086-exec-7] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [jakarta.validation.ConstraintViolationException: Validation failed for classes [com.marketplace.pedido.model.Pedido] during persist time for groups [jakarta.validation.groups.Default, ]<EOL>List of constraint violations:[<EOL>?ConstraintViolationImpl{interpolatedMessage='Ingresa la direccion para el despacho', propertyPath=direccionEntrega, rootBeanClass=class com.marketplace.pedido.model.Pedido, messageTemplate='Ingresa la direccion para el despacho'}<EOL>]]
+2026-06-05T21:26:14.145-04:00 DEBUG 14528 --- [pedido] [http-nio-8086-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 500 INTERNAL_SERVER_ERROR
+2026-06-05T21:28:09.474-04:00  WARN 14740 --- [pedido] [main] org.hibernate.orm.core                   : HHH000511: The 5.5.5 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly.The minimum supported version is 8.0.0. Check the community dialects project for available legacy versions.
+2026-06-05T21:28:09.477-04:00  WARN 14740 --- [pedido] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-05T21:28:10.124-04:00  WARN 14740 --- [pedido] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-05T21:28:10.215-04:00  WARN 14740 --- [pedido] [main] .s.a.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 2b8afbaf-4464-456a-a54f-ad02bca68150
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-06-05T21:28:10.353-04:00 DEBUG 14740 --- [pedido] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 6 mappings in 'requestMappingHandlerMapping'
+2026-06-05T21:28:10.372-04:00 DEBUG 14740 --- [pedido] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2026-06-05T21:28:10.389-04:00 DEBUG 14740 --- [pedido] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 2 RequestBodyAdvice, 1 ResponseBodyAdvice
+2026-06-05T21:28:10.413-04:00 DEBUG 14740 --- [pedido] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2026-06-05T21:28:14.583-04:00  INFO 14740 --- [pedido] [http-nio-8086-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-06-05T21:28:14.583-04:00 DEBUG 14740 --- [pedido] [http-nio-8086-exec-2] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2026-06-05T21:28:14.583-04:00 DEBUG 14740 --- [pedido] [http-nio-8086-exec-2] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2026-06-05T21:28:14.584-04:00 DEBUG 14740 --- [pedido] [http-nio-8086-exec-2] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@46d2be66
+2026-06-05T21:28:14.584-04:00 DEBUG 14740 --- [pedido] [http-nio-8086-exec-2] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@5f0c45ae
+2026-06-05T21:28:14.584-04:00 DEBUG 14740 --- [pedido] [http-nio-8086-exec-2] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2026-06-05T21:28:14.584-04:00  INFO 14740 --- [pedido] [http-nio-8086-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2026-06-05T21:28:14.595-04:00 DEBUG 14740 --- [pedido] [http-nio-8086-exec-2] o.s.web.servlet.DispatcherServlet        : POST "/pedidos", parameters={}
+2026-06-05T21:28:14.600-04:00 DEBUG 14740 --- [pedido] [http-nio-8086-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.marketplace.pedido.controller.PedidoController#crear(PedidoRequestDTO)
+2026-06-05T21:28:14.667-04:00 DEBUG 14740 --- [pedido] [http-nio-8086-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [PedidoRequestDTO(productoId=1, nomProducto=Audífonos Bluetooth, tipoProducto=Electrónica, precio=500 (truncated)...]
+2026-06-05T21:28:14.711-04:00 DEBUG 14740 --- [pedido] [http-nio-8086-exec-2] o.s.w.r.f.client.ExchangeFunctions       : [7b2c1eba] HTTP GET http://localhost:8084/api/producto/1
+2026-06-05T21:28:14.759-04:00 ERROR 14740 --- [pedido] [http-nio-8086-exec-2] i.n.r.d.DnsServerAddressStreamProviders  : Unable to load io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider, fallback to system defaults. This may result in incorrect DNS resolutions on MacOS. Check whether you have a dependency on 'io.netty:netty-resolver-dns-native-macos'. Use DEBUG level to see the full stack: java.lang.UnsatisfiedLinkError: failed to load the required native library
+2026-06-05T21:28:14.942-04:00 DEBUG 12886 --- [producto] [http-nio-8084-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/api/producto/1", parameters={}
+2026-06-05T21:28:14.943-04:00 DEBUG 12886 --- [producto] [http-nio-8084-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.marketplace.producto.controller.ProductoController#obtener(Long)
+2026-06-05T21:28:14.950-04:00  INFO 12886 --- [producto] [http-nio-8084-exec-5] c.m.p.controller.ProductoController      : GET /api/producto/1 - Solicitud para obtener producto
+2026-06-05T21:28:14.950-04:00  INFO 12886 --- [producto] [http-nio-8084-exec-5] c.m.producto.service.ProductoService     : Buscando producto con ID: 1
+2026-06-05T21:28:14.956-04:00  INFO 12886 --- [producto] [http-nio-8084-exec-5] c.m.producto.service.ProductoService     : Producto 'Zapatillas Nike' encontrado correctamente
+2026-06-05T21:28:14.957-04:00 DEBUG 12886 --- [producto] [http-nio-8084-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/yaml]
+2026-06-05T21:28:14.957-04:00 DEBUG 12886 --- [producto] [http-nio-8084-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ProductoResponseDTO(id=1, nombre=Zapatillas Nike, descripcion=Zapatillas deportivas, precio=50000.0, (truncated)...]
+2026-06-05T21:28:14.963-04:00 DEBUG 12886 --- [producto] [http-nio-8084-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2026-06-05T21:28:14.973-04:00 DEBUG 14740 --- [pedido] [reactor-http-nio-2] o.s.w.r.f.client.ExchangeFunctions       : [7b2c1eba] [22dad8ae-1] Response 200 OK
+2026-06-05T21:28:14.990-04:00 DEBUG 14740 --- [pedido] [reactor-http-nio-2] org.springframework.web.HttpLogging      : [7b2c1eba] [22dad8ae-1] Decoded [ProductoClientDTO(id=1, nombre=Zapatillas Nike, precio=50000.0, stock=10, activo=true)]
+2026-06-05T21:28:15.024-04:00 DEBUG 14740 --- [pedido] [http-nio-8086-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Using @ExceptionHandler com.marketplace.pedido.Exception.GlobalExceptionHandler#handleGenericException(Exception)
+2026-06-05T21:28:15.042-04:00 DEBUG 14740 --- [pedido] [http-nio-8086-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/yaml]
+2026-06-05T21:28:15.043-04:00 DEBUG 14740 --- [pedido] [http-nio-8086-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ExceptionDTO(code=500, type=Internal Server Error, date=Fri Jun 05 21:28:15 CLT 2026, message=Error  (truncated)...]
+2026-06-05T21:28:15.055-04:00 DEBUG 14740 --- [pedido] [http-nio-8086-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [jakarta.validation.ConstraintViolationException: Validation failed for classes [com.marketplace.pedido.model.Pedido] during persist time for groups [jakarta.validation.groups.Default, ]<EOL>List of constraint violations:[<EOL>?ConstraintViolationImpl{interpolatedMessage='Ingresa la direccion para el despacho', propertyPath=direccionEntrega, rootBeanClass=class com.marketplace.pedido.model.Pedido, messageTemplate='Ingresa la direccion para el despacho'}<EOL>]]
+2026-06-05T21:28:15.056-04:00 DEBUG 14740 --- [pedido] [http-nio-8086-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 500 INTERNAL_SERVER_ERROR
+2026-06-05T21:38:21.381-04:00  WARN 15507 --- [pedido] [main] org.hibernate.orm.core                   : HHH000511: The 5.5.5 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly.The minimum supported version is 8.0.0. Check the community dialects project for available legacy versions.
+2026-06-05T21:38:21.383-04:00  WARN 15507 --- [pedido] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-05T21:38:22.258-04:00  WARN 15507 --- [pedido] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-05T21:38:22.302-04:00  WARN 15507 --- [pedido] [main] .s.a.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: ef753d09-dafe-4874-bd4b-37c1d494492a
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-06-05T21:38:22.433-04:00 DEBUG 15507 --- [pedido] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 6 mappings in 'requestMappingHandlerMapping'
+2026-06-05T21:38:22.453-04:00 DEBUG 15507 --- [pedido] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2026-06-05T21:38:22.470-04:00 DEBUG 15507 --- [pedido] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 2 RequestBodyAdvice, 1 ResponseBodyAdvice
+2026-06-05T21:38:22.497-04:00 DEBUG 15507 --- [pedido] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2026-06-05T21:39:30.299-04:00  INFO 15507 --- [pedido] [http-nio-8086-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-06-05T21:39:30.301-04:00 DEBUG 15507 --- [pedido] [http-nio-8086-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2026-06-05T21:39:30.301-04:00 DEBUG 15507 --- [pedido] [http-nio-8086-exec-1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2026-06-05T21:39:30.304-04:00 DEBUG 15507 --- [pedido] [http-nio-8086-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@51c7d472
+2026-06-05T21:39:30.304-04:00 DEBUG 15507 --- [pedido] [http-nio-8086-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@6dacde96
+2026-06-05T21:39:30.304-04:00 DEBUG 15507 --- [pedido] [http-nio-8086-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2026-06-05T21:39:30.305-04:00  INFO 15507 --- [pedido] [http-nio-8086-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
+2026-06-05T21:39:30.318-04:00 DEBUG 15507 --- [pedido] [http-nio-8086-exec-1] o.s.web.servlet.DispatcherServlet        : POST "/pedidos", parameters={}
+2026-06-05T21:39:30.323-04:00 DEBUG 15507 --- [pedido] [http-nio-8086-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.marketplace.pedido.controller.PedidoController#crear(PedidoRequestDTO)
+2026-06-05T21:39:30.409-04:00 DEBUG 15507 --- [pedido] [http-nio-8086-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [PedidoRequestDTO(productoId=1, nomProducto=Audífonos Bluetooth, tipoProducto=Electrónica, precio=500 (truncated)...]
+2026-06-05T21:39:30.481-04:00 DEBUG 15507 --- [pedido] [http-nio-8086-exec-1] o.s.w.r.f.client.ExchangeFunctions       : [79aca37d] HTTP GET http://localhost:8084/api/producto/1
+2026-06-05T21:39:30.550-04:00 ERROR 15507 --- [pedido] [http-nio-8086-exec-1] i.n.r.d.DnsServerAddressStreamProviders  : Unable to load io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider, fallback to system defaults. This may result in incorrect DNS resolutions on MacOS. Check whether you have a dependency on 'io.netty:netty-resolver-dns-native-macos'. Use DEBUG level to see the full stack: java.lang.UnsatisfiedLinkError: failed to load the required native library
+2026-06-05T21:39:30.672-04:00 DEBUG 12886 --- [producto] [http-nio-8084-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/api/producto/1", parameters={}
+2026-06-05T21:39:30.674-04:00 DEBUG 12886 --- [producto] [http-nio-8084-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.marketplace.producto.controller.ProductoController#obtener(Long)
+2026-06-05T21:39:30.678-04:00  INFO 12886 --- [producto] [http-nio-8084-exec-7] c.m.p.controller.ProductoController      : GET /api/producto/1 - Solicitud para obtener producto
+2026-06-05T21:39:30.678-04:00  INFO 12886 --- [producto] [http-nio-8084-exec-7] c.m.producto.service.ProductoService     : Buscando producto con ID: 1
+2026-06-05T21:39:30.728-04:00  INFO 12886 --- [producto] [http-nio-8084-exec-7] c.m.producto.service.ProductoService     : Producto 'Zapatillas Nike' encontrado correctamente
+2026-06-05T21:39:30.730-04:00 DEBUG 12886 --- [producto] [http-nio-8084-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/yaml]
+2026-06-05T21:39:30.730-04:00 DEBUG 12886 --- [producto] [http-nio-8084-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ProductoResponseDTO(id=1, nombre=Zapatillas Nike, descripcion=Zapatillas deportivas, precio=50000.0, (truncated)...]
+2026-06-05T21:39:30.732-04:00 DEBUG 12886 --- [producto] [http-nio-8084-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2026-06-05T21:39:30.747-04:00 DEBUG 15507 --- [pedido] [reactor-http-nio-2] o.s.w.r.f.client.ExchangeFunctions       : [79aca37d] [e20b5815-1] Response 200 OK
+2026-06-05T21:39:30.770-04:00 DEBUG 15507 --- [pedido] [reactor-http-nio-2] org.springframework.web.HttpLogging      : [79aca37d] [e20b5815-1] Decoded [ProductoClientDTO(id=1, nombre=Zapatillas Nike, precio=50000.0, stock=10, activo=true)]
+2026-06-05T21:39:30.894-04:00 DEBUG 15507 --- [pedido] [http-nio-8086-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/hal+json', given [*/*] and supported [application/hal+json]
+2026-06-05T21:39:30.896-04:00 DEBUG 15507 --- [pedido] [http-nio-8086-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [EntityModel { content: PedidoResponseDTO(id=9, nomProducto=Audífonos Bluetooth, tipoProducto=Electró (truncated)...]
+2026-06-05T21:39:30.951-04:00 DEBUG 15507 --- [pedido] [http-nio-8086-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 201 CREATED
+2026-06-05T21:39:33.190-04:00 DEBUG 15507 --- [pedido] [http-nio-8086-exec-3] o.s.web.servlet.DispatcherServlet        : POST "/pedidos", parameters={}
+2026-06-05T21:39:33.195-04:00 DEBUG 15507 --- [pedido] [http-nio-8086-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.marketplace.pedido.controller.PedidoController#crear(PedidoRequestDTO)
+2026-06-05T21:39:33.201-04:00 DEBUG 15507 --- [pedido] [http-nio-8086-exec-3] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [PedidoRequestDTO(productoId=1, nomProducto=Audífonos Bluetooth, tipoProducto=Electrónica, precio=500 (truncated)...]
+2026-06-05T21:39:33.211-04:00 DEBUG 15507 --- [pedido] [http-nio-8086-exec-3] o.s.w.r.f.client.ExchangeFunctions       : [409df7be] HTTP GET http://localhost:8084/api/producto/1
+2026-06-05T21:39:33.219-04:00 DEBUG 12886 --- [producto] [http-nio-8084-exec-8] o.s.web.servlet.DispatcherServlet        : GET "/api/producto/1", parameters={}
+2026-06-05T21:39:33.221-04:00 DEBUG 12886 --- [producto] [http-nio-8084-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.marketplace.producto.controller.ProductoController#obtener(Long)
+2026-06-05T21:39:33.223-04:00  INFO 12886 --- [producto] [http-nio-8084-exec-8] c.m.p.controller.ProductoController      : GET /api/producto/1 - Solicitud para obtener producto
+2026-06-05T21:39:33.223-04:00  INFO 12886 --- [producto] [http-nio-8084-exec-8] c.m.producto.service.ProductoService     : Buscando producto con ID: 1
+2026-06-05T21:39:33.229-04:00  INFO 12886 --- [producto] [http-nio-8084-exec-8] c.m.producto.service.ProductoService     : Producto 'Zapatillas Nike' encontrado correctamente
+2026-06-05T21:39:33.230-04:00 DEBUG 12886 --- [producto] [http-nio-8084-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/yaml]
+2026-06-05T21:39:33.231-04:00 DEBUG 12886 --- [producto] [http-nio-8084-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ProductoResponseDTO(id=1, nombre=Zapatillas Nike, descripcion=Zapatillas deportivas, precio=50000.0, (truncated)...]
+2026-06-05T21:39:33.232-04:00 DEBUG 12886 --- [producto] [http-nio-8084-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2026-06-05T21:39:33.233-04:00 DEBUG 15507 --- [pedido] [reactor-http-nio-2] o.s.w.r.f.client.ExchangeFunctions       : [409df7be] [e20b5815-2] Response 200 OK
+2026-06-05T21:39:33.235-04:00 DEBUG 15507 --- [pedido] [reactor-http-nio-2] org.springframework.web.HttpLogging      : [409df7be] [e20b5815-2] Decoded [ProductoClientDTO(id=1, nombre=Zapatillas Nike, precio=50000.0, stock=10, activo=true)]
+2026-06-05T21:39:33.254-04:00 DEBUG 15507 --- [pedido] [http-nio-8086-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/hal+json', given [*/*] and supported [application/hal+json]
+2026-06-05T21:39:33.254-04:00 DEBUG 15507 --- [pedido] [http-nio-8086-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [EntityModel { content: PedidoResponseDTO(id=10, nomProducto=Audífonos Bluetooth, tipoProducto=Electr (truncated)...]
+2026-06-05T21:39:33.257-04:00 DEBUG 15507 --- [pedido] [http-nio-8086-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 201 CREATED
+2026-06-05T21:39:34.313-04:00 DEBUG 15507 --- [pedido] [http-nio-8086-exec-4] o.s.web.servlet.DispatcherServlet        : POST "/pedidos", parameters={}
+2026-06-05T21:39:34.314-04:00 DEBUG 15507 --- [pedido] [http-nio-8086-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.marketplace.pedido.controller.PedidoController#crear(PedidoRequestDTO)
+2026-06-05T21:39:34.316-04:00 DEBUG 15507 --- [pedido] [http-nio-8086-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [PedidoRequestDTO(productoId=1, nomProducto=Audífonos Bluetooth, tipoProducto=Electrónica, precio=500 (truncated)...]
+2026-06-05T21:39:34.319-04:00 DEBUG 15507 --- [pedido] [http-nio-8086-exec-4] o.s.w.r.f.client.ExchangeFunctions       : [71405163] HTTP GET http://localhost:8084/api/producto/1
+2026-06-05T21:39:34.322-04:00 DEBUG 12886 --- [producto] [http-nio-8084-exec-9] o.s.web.servlet.DispatcherServlet        : GET "/api/producto/1", parameters={}
+2026-06-05T21:39:34.322-04:00 DEBUG 12886 --- [producto] [http-nio-8084-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.marketplace.producto.controller.ProductoController#obtener(Long)
+2026-06-05T21:39:34.323-04:00  INFO 12886 --- [producto] [http-nio-8084-exec-9] c.m.p.controller.ProductoController      : GET /api/producto/1 - Solicitud para obtener producto
+2026-06-05T21:39:34.323-04:00  INFO 12886 --- [producto] [http-nio-8084-exec-9] c.m.producto.service.ProductoService     : Buscando producto con ID: 1
+2026-06-05T21:39:34.326-04:00  INFO 12886 --- [producto] [http-nio-8084-exec-9] c.m.producto.service.ProductoService     : Producto 'Zapatillas Nike' encontrado correctamente
+2026-06-05T21:39:34.326-04:00 DEBUG 12886 --- [producto] [http-nio-8084-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/yaml]
+2026-06-05T21:39:34.326-04:00 DEBUG 12886 --- [producto] [http-nio-8084-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ProductoResponseDTO(id=1, nombre=Zapatillas Nike, descripcion=Zapatillas deportivas, precio=50000.0, (truncated)...]
+2026-06-05T21:39:34.327-04:00 DEBUG 12886 --- [producto] [http-nio-8084-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2026-06-05T21:39:34.327-04:00 DEBUG 15507 --- [pedido] [reactor-http-nio-2] o.s.w.r.f.client.ExchangeFunctions       : [71405163] [e20b5815-3] Response 200 OK
+2026-06-05T21:39:34.329-04:00 DEBUG 15507 --- [pedido] [reactor-http-nio-2] org.springframework.web.HttpLogging      : [71405163] [e20b5815-3] Decoded [ProductoClientDTO(id=1, nombre=Zapatillas Nike, precio=50000.0, stock=10, activo=true)]
+2026-06-05T21:39:34.333-04:00 DEBUG 15507 --- [pedido] [http-nio-8086-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/hal+json', given [*/*] and supported [application/hal+json]
+2026-06-05T21:39:34.333-04:00 DEBUG 15507 --- [pedido] [http-nio-8086-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [EntityModel { content: PedidoResponseDTO(id=11, nomProducto=Audífonos Bluetooth, tipoProducto=Electr (truncated)...]
+2026-06-05T21:39:34.334-04:00 DEBUG 15507 --- [pedido] [http-nio-8086-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 201 CREATED
+2026-06-05T21:40:32.506-04:00 DEBUG 12430 --- [pago] [http-nio-8087-exec-4] o.s.web.servlet.DispatcherServlet        : POST "/pagos", parameters={}
+2026-06-05T21:40:32.509-04:00 DEBUG 12430 --- [pago] [http-nio-8087-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.marketplace.pago.controller.PagoController#crear(PagoRequestDTO)
+2026-06-05T21:40:32.583-04:00 DEBUG 12430 --- [pago] [http-nio-8087-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [PagoRequestDTO(pedidoId=11, metodoPago=Tarjeta de crédito)]
+2026-06-05T21:40:32.676-04:00 DEBUG 12430 --- [pago] [http-nio-8087-exec-4] o.s.w.r.f.client.ExchangeFunctions       : [77918119] HTTP GET http://localhost:8086/pedidos/11
+2026-06-05T21:40:32.753-04:00 ERROR 12430 --- [pago] [http-nio-8087-exec-4] i.n.r.d.DnsServerAddressStreamProviders  : Unable to load io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider, fallback to system defaults. This may result in incorrect DNS resolutions on MacOS. Check whether you have a dependency on 'io.netty:netty-resolver-dns-native-macos'. Use DEBUG level to see the full stack: java.lang.UnsatisfiedLinkError: failed to load the required native library
+2026-06-05T21:40:32.901-04:00 DEBUG 15507 --- [pedido] [http-nio-8086-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/pedidos/11", parameters={}
+2026-06-05T21:40:32.903-04:00 DEBUG 15507 --- [pedido] [http-nio-8086-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.marketplace.pedido.controller.PedidoController#obtener(long)
+2026-06-05T21:40:32.952-04:00 DEBUG 15507 --- [pedido] [http-nio-8086-exec-5] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/hal+json', given [*/*] and supported [application/hal+json]
+2026-06-05T21:40:32.952-04:00 DEBUG 15507 --- [pedido] [http-nio-8086-exec-5] m.m.a.RequestResponseBodyMethodProcessor : Writing [PedidoResponseDTO(id=11, nomProducto=Audífonos Bluetooth, tipoProducto=Electrónica, precio=50000)]
+2026-06-05T21:40:32.954-04:00 DEBUG 15507 --- [pedido] [http-nio-8086-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2026-06-05T21:40:32.968-04:00 DEBUG 12430 --- [pago] [reactor-http-nio-2] o.s.w.r.f.client.ExchangeFunctions       : [77918119] [05686ad0-1] Response 200 OK
+2026-06-05T21:40:32.985-04:00 DEBUG 12430 --- [pago] [reactor-http-nio-2] org.springframework.web.HttpLogging      : [77918119] [05686ad0-1] Decoded [PedidoClientDTO(id=11, nomProducto=Audífonos Bluetooth, tipoProducto=Electrónica, precio=50000)]
+2026-06-05T21:40:33.032-04:00 DEBUG 12430 --- [pago] [http-nio-8087-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/hal+json', given [*/*] and supported [application/hal+json]
+2026-06-05T21:40:33.033-04:00 DEBUG 12430 --- [pago] [http-nio-8087-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [EntityModel { content: PagoResponseDTO(id=6, metodoPago=Tarjeta de crédito, comprobante=COMP-7039526 (truncated)...]
+2026-06-05T21:40:33.036-04:00 DEBUG 12430 --- [pago] [http-nio-8087-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 201 CREATED
+2026-06-05T21:44:23.315-04:00 DEBUG 12430 --- [pago] [http-nio-8087-exec-8] o.s.web.servlet.DispatcherServlet        : POST "/pagos", parameters={}
+2026-06-05T21:44:23.322-04:00 DEBUG 12430 --- [pago] [http-nio-8087-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.marketplace.pago.controller.PagoController#crear(PagoRequestDTO)
+2026-06-05T21:44:23.336-04:00 DEBUG 12430 --- [pago] [http-nio-8087-exec-8] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [PagoRequestDTO(pedidoId=11, metodoPago=Tarjeta de crédito)]
+2026-06-05T21:44:23.356-04:00  WARN 12430 --- [pago] [http-nio-8087-exec-8] c.marketplace.pago.service.PagoService   : Intento de pagar dos veces el pedido con id: 11
+2026-06-05T21:44:23.371-04:00 DEBUG 12430 --- [pago] [http-nio-8087-exec-8] .m.m.a.ExceptionHandlerExceptionResolver : Using @ExceptionHandler com.marketplace.pago.Exception.GlobalExceptionHandler#handleIllegalArgument(IllegalArgumentException)
+2026-06-05T21:44:23.424-04:00 DEBUG 12430 --- [pago] [http-nio-8087-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/yaml]
+2026-06-05T21:44:23.426-04:00 DEBUG 12430 --- [pago] [http-nio-8087-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ExceptionDTO(code=400, type=Bad Request, date=Fri Jun 05 21:44:23 CLT 2026, message=El pedido con id (truncated)...]
+2026-06-05T21:44:23.430-04:00 DEBUG 12430 --- [pago] [http-nio-8087-exec-8] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.IllegalArgumentException: El pedido con id 11 ya tiene un pago registrado.]
+2026-06-05T21:44:23.430-04:00 DEBUG 12430 --- [pago] [http-nio-8087-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 400 BAD_REQUEST
+2026-06-05T21:48:35.123-04:00 DEBUG 12430 --- [pago] [http-nio-8087-exec-9] o.s.web.servlet.DispatcherServlet        : POST "/pagos", parameters={}
+2026-06-05T21:48:35.126-04:00 DEBUG 12430 --- [pago] [http-nio-8087-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.marketplace.pago.controller.PagoController#crear(PagoRequestDTO)
+2026-06-05T21:48:35.141-04:00 DEBUG 12430 --- [pago] [http-nio-8087-exec-9] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [PagoRequestDTO(pedidoId=null, metodoPago=null)]
+2026-06-05T21:48:35.155-04:00 DEBUG 12430 --- [pago] [http-nio-8087-exec-9] .m.m.a.ExceptionHandlerExceptionResolver : Using @ExceptionHandler com.marketplace.pago.Exception.GlobalExceptionHandler#handleValidation(MethodArgumentNotValidException)
+2026-06-05T21:48:35.158-04:00 DEBUG 12430 --- [pago] [http-nio-8087-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/yaml]
+2026-06-05T21:48:35.158-04:00 DEBUG 12430 --- [pago] [http-nio-8087-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ExceptionDTO(code=400, type=Bad Request, date=Fri Jun 05 21:48:35 CLT 2026, message=pedidoId: Debes  (truncated)...]
+2026-06-05T21:48:35.159-04:00 DEBUG 12430 --- [pago] [http-nio-8087-exec-9] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public org.springframework.http.ResponseEntity<org.springframework.hateoas.EntityModel<com.marketplace.pago.DTO.PagoResponseDTO>> com.marketplace.pago.controller.PagoController.crear(com.marketplace.pago.DTO.PagoRequestDTO) with 2 errors: [Field error in object 'pagoRequestDTO' on field 'pedidoId': rejected value [null]; codes [NotNull.pagoRequestDTO.pedidoId,NotNull.pedidoId,NotNull.java.lang.Long,NotNull]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [pagoRequestDTO.pedidoId,pedidoId]; arguments []; default message [pedidoId]]; default message [Debes indicar el ID del pedido a pagar]] [Field error in object 'pagoRequestDTO' on field 'metodoPago': rejected value [null]; codes [NotBlank.pagoRequestDTO.metodoPago,NotBlank.metodoPago,NotBlank.java.lang.String,NotBlank]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [pagoRequestDTO.metodoPago,metodoPago]; arguments []; default message [metodoPago]]; default message [Escribe el metodo de pago]] ]
+2026-06-05T21:48:35.160-04:00 DEBUG 12430 --- [pago] [http-nio-8087-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 400 BAD_REQUEST
+2026-06-05T21:49:43.903-04:00 DEBUG 12430 --- [pago] [http-nio-8087-exec-2] o.s.web.servlet.DispatcherServlet        : POST "/pagos", parameters={}
+2026-06-05T21:49:43.905-04:00 DEBUG 12430 --- [pago] [http-nio-8087-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.marketplace.pago.controller.PagoController#crear(PagoRequestDTO)
+2026-06-05T21:49:43.911-04:00 DEBUG 12430 --- [pago] [http-nio-8087-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [PagoRequestDTO(pedidoId=1, metodoPago=Tarjeta de crédito)]
+2026-06-05T21:49:43.943-04:00 DEBUG 12430 --- [pago] [http-nio-8087-exec-2] o.s.w.r.f.client.ExchangeFunctions       : [704f50e3] HTTP GET http://localhost:8086/pedidos/1
+2026-06-05T21:49:43.957-04:00 DEBUG 15507 --- [pedido] [http-nio-8086-exec-8] o.s.web.servlet.DispatcherServlet        : GET "/pedidos/1", parameters={}
+2026-06-05T21:49:43.959-04:00 DEBUG 15507 --- [pedido] [http-nio-8086-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.marketplace.pedido.controller.PedidoController#obtener(long)
+2026-06-05T21:49:43.974-04:00 DEBUG 15507 --- [pedido] [http-nio-8086-exec-8] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/hal+json', given [*/*] and supported [application/hal+json]
+2026-06-05T21:49:43.975-04:00 DEBUG 15507 --- [pedido] [http-nio-8086-exec-8] m.m.a.RequestResponseBodyMethodProcessor : Writing [PedidoResponseDTO(id=1, nomProducto=Zapatillas Nike, tipoProducto=Calzado, precio=50000)]
+2026-06-05T21:49:43.976-04:00 DEBUG 15507 --- [pedido] [http-nio-8086-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2026-06-05T21:49:43.979-04:00 DEBUG 12430 --- [pago] [reactor-http-nio-5] o.s.w.r.f.client.ExchangeFunctions       : [704f50e3] [3a6ffe14-1] Response 200 OK
+2026-06-05T21:49:43.986-04:00 DEBUG 12430 --- [pago] [reactor-http-nio-5] org.springframework.web.HttpLogging      : [704f50e3] [3a6ffe14-1] Decoded [PedidoClientDTO(id=1, nomProducto=Zapatillas Nike, tipoProducto=Calzado, precio=50000)]
+2026-06-05T21:49:44.009-04:00 DEBUG 12430 --- [pago] [http-nio-8087-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/hal+json', given [*/*] and supported [application/hal+json]
+2026-06-05T21:49:44.010-04:00 DEBUG 12430 --- [pago] [http-nio-8087-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [EntityModel { content: PagoResponseDTO(id=7, metodoPago=Tarjeta de crédito, comprobante=COMP-3E460B7 (truncated)...]
+2026-06-05T21:49:44.012-04:00 DEBUG 12430 --- [pago] [http-nio-8087-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 201 CREATED
+2026-06-05T21:50:06.541-04:00 DEBUG 15507 --- [pedido] [http-nio-8086-exec-10] o.s.web.servlet.DispatcherServlet        : POST "/pedidos", parameters={}
+2026-06-05T21:50:06.544-04:00 DEBUG 15507 --- [pedido] [http-nio-8086-exec-10] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.marketplace.pedido.controller.PedidoController#crear(PedidoRequestDTO)
+2026-06-05T21:50:06.554-04:00 DEBUG 15507 --- [pedido] [http-nio-8086-exec-10] o.s.web.method.HandlerMethod             : Could not resolve parameter [0] in public org.springframework.http.ResponseEntity<org.springframework.hateoas.EntityModel<com.marketplace.pedido.DTO.PedidoResponseDTO>> com.marketplace.pedido.controller.PedidoController.crear(com.marketplace.pedido.DTO.PedidoRequestDTO): JSON parse error: Cannot map `null` into type `int` (set `DeserializationFeature.FAIL_ON_NULL_FOR_PRIMITIVES` to 'false' to allow)
+2026-06-05T21:50:06.558-04:00 DEBUG 15507 --- [pedido] [http-nio-8086-exec-10] .m.m.a.ExceptionHandlerExceptionResolver : Using @ExceptionHandler com.marketplace.pedido.Exception.GlobalExceptionHandler#handleGenericException(Exception)
+2026-06-05T21:50:06.589-04:00 DEBUG 15507 --- [pedido] [http-nio-8086-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/yaml]
+2026-06-05T21:50:06.591-04:00 DEBUG 15507 --- [pedido] [http-nio-8086-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ExceptionDTO(code=500, type=Internal Server Error, date=Fri Jun 05 21:50:06 CLT 2026, message=Error  (truncated)...]
+2026-06-05T21:50:06.593-04:00 DEBUG 15507 --- [pedido] [http-nio-8086-exec-10] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot map `null` into type `int` (set `DeserializationFeature.FAIL_ON_NULL_FOR_PRIMITIVES` to 'false' to allow)]
+2026-06-05T21:50:06.594-04:00 DEBUG 15507 --- [pedido] [http-nio-8086-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 500 INTERNAL_SERVER_ERROR
+2026-06-05T22:15:43.983-04:00  WARN 12430 --- [pago] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=14m58s222ms).
+2026-06-05T22:15:44.799-04:00  WARN 12156 --- [notificacion] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=14m58s219ms).
+2026-06-05T22:15:48.271-04:00  WARN 12307 --- [reporte] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=14m58s218ms).
+2026-06-05T22:15:49.778-04:00  WARN 15507 --- [pedido] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=14m58s219ms).
+2026-06-05T22:16:03.963-04:00  WARN 12886 --- [producto] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=14m57s741ms).
+2026-06-05T22:16:04.264-04:00  WARN 12177 --- [valoracion] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=14m57s742ms).

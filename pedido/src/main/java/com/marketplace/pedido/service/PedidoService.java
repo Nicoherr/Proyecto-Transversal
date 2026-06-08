@@ -101,6 +101,7 @@ public class PedidoService {
         pedido.setNomProducto(dto.getNomProducto().trim());
         pedido.setTipoProducto(dto.getTipoProducto());
         pedido.setPrecio(dto.getPrecio());
+        pedido.setDireccionEntrega(dto.getDireccionEntrega());
         pedido = pedidoRepository.save(pedido);
 
         log.info("Pedido creado exitosamente con id: {} para producto '{}'", pedido.getId(), producto.getNombre());
