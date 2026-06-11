@@ -1,4 +1,4 @@
-package com.marketplace.usuario.security;
+package com.marketplace.producto.security;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -23,8 +23,8 @@ public class SecurityConfig {
                         .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/auth/**").permitAll()
-                        .requestMatchers(HttpMethod.GET, "/usuario/**").authenticated()
-                        .requestMatchers("/usuario/**").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.GET, "/producto/**").authenticated()
+                        .requestMatchers("/producto/**").hasRole("ADMIN")
                         .anyRequest().authenticated()
                 );
         return http.build();
@@ -35,6 +35,4 @@ public class SecurityConfig {
         return new BCryptPasswordEncoder();
     }
 }
-
-
 
