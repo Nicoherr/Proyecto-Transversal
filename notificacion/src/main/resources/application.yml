@@ -1,3 +1,8 @@
 spring:
-    profiles:
-         active: dev
+  application:
+    name: notificacion
+  profiles:
+    active: dev  # Cambia a 'prod' para producción o 'test' para tests
+
+server:
+  port: 8089
