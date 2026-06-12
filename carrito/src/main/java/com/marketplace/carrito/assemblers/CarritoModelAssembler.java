@@ -9,7 +9,7 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.*;
 
 // El assembler toma un CarritoResponseDTO y le agrega los links HATEOAS
 // Spring lo detecta automáticamente con @Component
-@Component
+@ Component
 public class CarritoModelAssembler implements RepresentationModelAssembler<CarritoResponseDTO, EntityModel<CarritoResponseDTO>> {
 
     @Override
