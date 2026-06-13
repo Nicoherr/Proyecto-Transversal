@@ -1234,3 +1234,22 @@ This generated password is for development use only. Your security configuration
 2026-06-05T13:12:58.790-04:00 DEBUG 20708 --- [notificacion] [http-nio-8089-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/hal+json', given [*/*] and supported [application/hal+json]
 2026-06-05T13:12:58.792-04:00 DEBUG 20708 --- [notificacion] [http-nio-8089-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Writing [CollectionModel { content: [EntityModel { content: NotificacionResponseDTO(id=1, asunto=Prueba, mens (truncated)...]
 2026-06-05T13:12:58.840-04:00 DEBUG 20708 --- [notificacion] [http-nio-8089-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2026-06-12T20:12:56.020-04:00  INFO 3300 --- [notificacion] [main] c.m.n.NotificacionApplication            : Starting NotificacionApplication using Java 21.0.11 with PID 3300 (/Users/nicolasherrera/Desktop/Proyecto-Transversal/notificacion/target/classes started by nicolasherrera in /Users/nicolasherrera/Desktop/Proyecto-Transversal)
+2026-06-12T20:12:56.022-04:00 DEBUG 3300 --- [notificacion] [main] c.m.n.NotificacionApplication            : Running with Spring Boot v4.0.6, Spring v7.0.7
+2026-06-12T20:12:56.022-04:00  INFO 3300 --- [notificacion] [main] c.m.n.NotificacionApplication            : The following 1 profile is active: "dev"
+2026-06-12T20:12:58.007-04:00  WARN 3300 --- [notificacion] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-12T20:12:58.816-04:00  WARN 3300 --- [notificacion] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-12T20:12:58.853-04:00  WARN 3300 --- [notificacion] [main] .s.a.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: afc185a6-e4cc-4c5f-94f2-bcacbcedcb1a
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-06-12T20:12:58.982-04:00 DEBUG 3300 --- [notificacion] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 10 mappings in 'requestMappingHandlerMapping'
+2026-06-12T20:12:59.000-04:00 DEBUG 3300 --- [notificacion] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui/**, /swagger-ui/*swagger-initializer.js, /webjars/*swagger-ui/**, /webjars/*swagger-ui/*swagger-initializer.js, /webjars/*swagger-ui/5.32.2/*swagger-initializer.js] in 'resourceHandlerMapping'
+2026-06-12T20:12:59.015-04:00 DEBUG 3300 --- [notificacion] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 2 RequestBodyAdvice, 1 ResponseBodyAdvice
+2026-06-12T20:12:59.042-04:00 DEBUG 3300 --- [notificacion] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2026-06-12T20:12:59.185-04:00  INFO 3300 --- [notificacion] [main] c.m.n.NotificacionApplication            : Started NotificacionApplication in 3.63 seconds (process running for 4.507)
+2026-06-12T20:12:59.288-04:00  WARN 3300 --- [notificacion] [main] o.s.core.events.SpringDocAppInitializer  : SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2026-06-12T20:12:59.288-04:00  WARN 3300 --- [notificacion] [main] o.s.core.events.SpringDocAppInitializer  : SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+2026-06-12T20:45:21.061-04:00  WARN 3300 --- [notificacion] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=3m22s847ms).

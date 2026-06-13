@@ -1,0 +1,2 @@
+INSERT INTO 'ecommerce_reporte'.'reporte'('tipo','descripcion','fecha')
+VALUES ('Ventas mensuales','Reporte generado para vizualisar ventas mesnuales para los fines que se estimen comvenientes','01/06/2026')

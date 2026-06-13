@@ -1,0 +1,6 @@
+CREATE TABLE IF NOT EXISTS notificacion (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    asunto VARCHAR(100) NOT NULL,
+    mensaje VARCHAR(512) NOT NULL,
+    fecha DATETIME NOT NULL
+    );

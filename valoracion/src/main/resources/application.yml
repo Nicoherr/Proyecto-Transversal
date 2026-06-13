@@ -1,4 +1,9 @@
 spring:
+  application:
+    name: valoracion
   profiles:
     active: dev
+
+server:
+  port: 8088
 

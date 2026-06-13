@@ -1,0 +1,7 @@
+CREATE TABLE IF NOT EXISTS reporte (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    tipo VARCHAR(100) NOT NULL,
+    descripcion VARCHAR(512) NOT NULL,
+    fecha DATETIME NOT NULL,
+    estado TINYINT(1) NOT NULL
+    );
