@@ -24,7 +24,7 @@ public class PedidoService {
 
     // ─── Mapper ───────────────────────────────────────────────────────────────
     private PedidoResponseDTO toDTO(Pedido pedido) {
-        return new PedidoResponseDTO(pedido.getId(), pedido.getNomProducto(), pedido.getTipoProducto(), pedido.getPrecio());
+        return new PedidoResponseDTO(pedido.getId(), pedido.getNomProducto(), pedido.getTipoProducto(), pedido.getPrecio(), pedido.getDireccionEntrega());
     }
 
     // ─── Comunicación con microservicio Producto ───────────────────────────────

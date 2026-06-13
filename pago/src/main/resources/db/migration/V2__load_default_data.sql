@@ -1,2 +1,2 @@
-INSERT INTO 'ecommerce_pago'.'pago'('metodoPago','comprobante','fecha')
-VALUES ('Tarjeta de credito','Tu pago ha sido procesado con exito','19/05/2026')
+INSERT INTO pago (metodo_pago, comprobante, fecha, pedido_id)
+VALUES ('Tarjeta de credito', 'COMP-A1B2C3D4', '2026-05-19', NULL);

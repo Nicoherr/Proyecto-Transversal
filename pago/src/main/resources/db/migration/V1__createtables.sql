@@ -1,6 +1,7 @@
 CREATE TABLE IF NOT EXISTS pago (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
-    metodo_pago VARCHAR(20) NOT NULL,
+    metodo_pago VARCHAR(50) NOT NULL,
     comprobante VARCHAR(255) NOT NULL,
-    fecha DATETIME NOT NULL
+    fecha DATETIME NOT NULL,
+    pedido_id BIGINT
     );

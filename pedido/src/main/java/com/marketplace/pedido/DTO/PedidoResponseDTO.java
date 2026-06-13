@@ -12,4 +12,5 @@ public class PedidoResponseDTO {
         private String nomProducto;
         private String tipoProducto;
         private int precio;
+        private String direccionEntrega;
 }

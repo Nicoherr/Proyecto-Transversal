@@ -1,6 +1,5 @@
 package com.marketplace.pedido.DTO;
 
-import jakarta.persistence.Column;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -27,6 +26,5 @@ public class PedidoRequestDTO {
     private int precio;
 
     @NotBlank(message = "Ingresa la direccion para el despacho")
-    @Column
     private String direccionEntrega;
 }
