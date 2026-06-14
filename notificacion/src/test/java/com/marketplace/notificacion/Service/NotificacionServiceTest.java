@@ -1,14 +1,14 @@
-package com.marketplace.notificacion.Controller;
+package com.marketplace.notificacion.Service;
 
 import com.marketplace.notificacion.DTO.NotificacionResponseDTO;
 import com.marketplace.notificacion.model.Notificacion;
 import com.marketplace.notificacion.repository.NotificacionRepository;
 import com.marketplace.notificacion.service.NotificacionService;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.test.context.ActiveProfiles;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.web.reactive.function.client.WebClient;
 
 import java.util.Date;
@@ -18,17 +18,16 @@ import java.util.Optional;
 import static org.mockito.Mockito.*;
 import static org.junit.jupiter.api.Assertions.*;
 
-@SpringBootTest
-@ActiveProfiles("test")
+@ExtendWith(MockitoExtension.class)
 public class NotificacionServiceTest {
 
-    @Autowired
+    @InjectMocks
     private NotificacionService notificacionService;
 
-    @MockBean
+    @Mock
     private NotificacionRepository notificacionRepository;
 
-    @MockBean
+    @Mock
     private WebClient pedidoWebClient;
 
     @Test
@@ -79,22 +78,24 @@ public class NotificacionServiceTest {
 
     @Test
     public void testMakeNotificacion_AsuntoCorto() {
+        com.marketplace.notificacion.DTO.NotificacionRequestDTO dto = new com.marketplace.notificacion.DTO.NotificacionRequestDTO();
+        dto.setPedidoId(1L);
+        dto.setAsunto("Hi");
+        dto.setMensaje("Mensaje válido para la prueba");
+
         assertThrows(IllegalArgumentException.class, () -> {
-            com.marketplace.notificacion.DTO.NotificacionRequestDTO dto = new com.marketplace.notificacion.DTO.NotificacionRequestDTO();
-            dto.setPedidoId(1L);
-            dto.setAsunto("Hi");
-            dto.setMensaje("Mensaje válido para la prueba");
             notificacionService.makeNotificacion(dto);
         });
     }
 
     @Test
     public void testMakeNotificacion_MensajeVacio() {
+        com.marketplace.notificacion.DTO.NotificacionRequestDTO dto = new com.marketplace.notificacion.DTO.NotificacionRequestDTO();
+        dto.setPedidoId(1L);
+        dto.setAsunto("Asunto válido");
+        dto.setMensaje("");
+
         assertThrows(IllegalArgumentException.class, () -> {
-            com.marketplace.notificacion.DTO.NotificacionRequestDTO dto = new com.marketplace.notificacion.DTO.NotificacionRequestDTO();
-            dto.setPedidoId(1L);
-            dto.setAsunto("Asunto válido");
-            dto.setMensaje("");
             notificacionService.makeNotificacion(dto);
         });
     }
