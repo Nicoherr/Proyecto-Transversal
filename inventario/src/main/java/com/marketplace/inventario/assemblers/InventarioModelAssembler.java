@@ -1,5 +1,5 @@
 package com.marketplace.inventario.assemblers;
-import com.marketplace.inventario.controller.InventarioControllerV2;
+import com.marketplace.inventario.controller.InventarioController;
 import com.marketplace.inventario.dto.InventarioResponseDTO;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.server.RepresentationModelAssembler;
@@ -13,8 +13,8 @@ public class InventarioModelAssembler implements RepresentationModelAssembler<In
     @Override
     public EntityModel<InventarioResponseDTO> toModel(InventarioResponseDTO dto) {
         return EntityModel.of(dto,
-                linkTo(methodOn(InventarioControllerV2.class).obtener(dto.getId())).withSelfRel(),
-                linkTo(methodOn(InventarioControllerV2.class).listar()).withRel("inventarios")
+                linkTo(methodOn(InventarioController.class).obtener(dto.getId())).withSelfRel(),
+                linkTo(methodOn(InventarioController.class).listar()).withRel("inventarios")
         );
     }
 }
