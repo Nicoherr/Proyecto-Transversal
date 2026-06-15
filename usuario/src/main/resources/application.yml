@@ -1,3 +1,15 @@
 spring:
   profiles:
     active: dev
+    spring:
+      application:
+        name: usuario-service  # <-- ESTE NOMBRE ES SAGRADO
+
+    eureka:
+      client:
+        service-url:
+          defaultZone: http://localhost:8761/eureka/  # La dirección donde corre el servidor Eureka
+        register-with-eureka: true
+        fetch-registry: true
+      instance:
+        prefer-ip-address: true  # Ayuda a que se comuniquen mejor en entornos locales
