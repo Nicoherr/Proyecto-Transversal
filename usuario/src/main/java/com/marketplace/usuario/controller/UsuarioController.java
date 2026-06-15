@@ -1,90 +1,81 @@
 package com.marketplace.usuario.controller;
+import com.marketplace.usuario.assemblers.UsuarioModelAssembler;
 import com.marketplace.usuario.dto.UsuarioRequestDTO;
 import com.marketplace.usuario.dto.UsuarioResponseDTO;
 import com.marketplace.usuario.service.UsuarioService;
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.responses.ApiResponse;
-import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.hateoas.CollectionModel;
+import org.springframework.hateoas.EntityModel;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
-// @Tag agrupa todos los endpoints de este controller bajo el nombre "Usuarios" en Swagger
-// Así en la UI aparece una sección llamada "Usuarios" con todos sus métodos adentro
-@Tag(name = "Usuarios", description = "Operaciones relacionadas con los usuarios")
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.*;
+
+// Esta es la versión 2 del controller — igual al original pero con HATEOAS
+// Devuelve EntityModel y CollectionModel en vez de ResponseEntity directo
+@Tag(name = "Usuarios V2", description = "Operaciones con HATEOAS")
 @Slf4j
 @RestController
 @RequestMapping("/api/usuario")
 public class UsuarioController {
 
     private final UsuarioService service;
+    private final UsuarioModelAssembler assembler;
 
-    public UsuarioController(UsuarioService service) {
+    public UsuarioController(UsuarioService service, UsuarioModelAssembler assembler) {
         this.service = service;
+        this.assembler = assembler;
     }
 
-    // @Operation describe qué hace este endpoint específico en Swagger
-    // summary: el título corto que aparece al lado del método POST en la UI
-    // description: el texto explicativo más largo cuando abres el endpoint
-    @Operation(summary = "Crear un nuevo usuario", description = "Registra un nuevo usuario en el sistema")
-    // @ApiResponses agrupa múltiples @ApiResponse para documentar los posibles códigos HTTP
-    // que puede retornar este endpoint — así el que usa la API sabe qué esperar
-    @ApiResponses(value = {
-            @ApiResponse(responseCode = "201", description = "Usuario creado exitosamente"),
-            @ApiResponse(responseCode = "400", description = "Datos inválidos")
-    })
-    @PostMapping
-    public ResponseEntity<UsuarioResponseDTO> crear(@Valid @RequestBody UsuarioRequestDTO dto) {
-        log.info("POST /api/usuario - Solicitud para crear usuario con email: {}", dto.getEmail());
-        return new ResponseEntity<>(service.crear(dto), HttpStatus.CREATED);
+    // CollectionModel envuelve la lista de usuarios y agrega un link "self" a la colección completa
+    @Operation(summary = "Listar todos los usuarios con HATEOAS")
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    public CollectionModel<EntityModel<UsuarioResponseDTO>> listar() {
+        log.info("GET /api/v2/usuario - Listar usuarios con HATEOAS");
+
+        List<EntityModel<UsuarioResponseDTO>> usuarios = service.listar().stream()
+                .map(assembler::toModel)
+                .collect(Collectors.toList());
+
+        return CollectionModel.of(usuarios,
+                linkTo(methodOn(UsuarioController.class).listar()).withSelfRel());
     }
 
-    @Operation(summary = "Listar todos los usuarios", description = "Obtiene una lista de todos los usuarios")
-    // Cuando solo hay una respuesta posible se puede usar @ApiResponse directo sin @ApiResponses
-    @ApiResponse(responseCode = "200", description = "Lista retornada con éxito")
-    @GetMapping
-    public ResponseEntity<List<UsuarioResponseDTO>> listar() {
-        log.info("GET /api/usuario - Solicitud para listar todos los usuarios");
-        return ResponseEntity.ok(service.listar());
+    // EntityModel envuelve un solo usuario y agrega los links definidos en el assembler
+    @Operation(summary = "Obtener usuario por ID con HATEOAS")
+    @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public EntityModel<UsuarioResponseDTO> obtener(@PathVariable Long id) {
+        log.info("GET /api/v2/usuario/{} - Obtener usuario con HATEOAS", id);
+        return assembler.toModel(service.obtener(id));
     }
 
-    @Operation(summary = "Obtener usuario por ID", description = "Retorna un usuario específico por su ID")
-    @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Usuario encontrado"),
-            // 400 porque nuestro GlobalExceptionHandler retorna BAD_REQUEST cuando no encuentra el usuario
-            @ApiResponse(responseCode = "400", description = "Usuario no encontrado")
-    })
-    @GetMapping("/{id}")
-    public ResponseEntity<UsuarioResponseDTO> obtener(@PathVariable Long id) {
-        log.info("GET /api/usuario/{} - Solicitud para obtener usuario", id);
-        return ResponseEntity.ok(service.obtener(id));
+    @Operation(summary = "Crear usuario con HATEOAS")
+    @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<EntityModel<UsuarioResponseDTO>> crear(@Valid @RequestBody UsuarioRequestDTO dto) {
+        log.info("POST /api/v2/usuario - Crear usuario con HATEOAS");
+        EntityModel<UsuarioResponseDTO> model = assembler.toModel(service.crear(dto));
+        return new ResponseEntity<>(model, HttpStatus.CREATED);
     }
 
-    @Operation(summary = "Actualizar usuario", description = "Actualiza los datos de un usuario existente")
-    @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Usuario actualizado exitosamente"),
-            @ApiResponse(responseCode = "400", description = "Usuario no encontrado")
-    })
-    @PutMapping("/{id}")
-    public ResponseEntity<UsuarioResponseDTO> actualizar(@PathVariable Long id, @RequestBody UsuarioRequestDTO dto) {
-        log.info("PUT /api/usuario/{} - Solicitud para actualizar usuario", id);
-        return ResponseEntity.ok(service.actualizar(id, dto));
+    @Operation(summary = "Actualizar usuario con HATEOAS")
+    @PutMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public EntityModel<UsuarioResponseDTO> actualizar(@PathVariable Long id, @RequestBody UsuarioRequestDTO dto) {
+        log.info("PUT /api/v2/usuario/{} - Actualizar usuario con HATEOAS", id);
+        return assembler.toModel(service.actualizar(id, dto));
     }
 
-    @Operation(summary = "Eliminar usuario", description = "Elimina un usuario por su ID")
-    @ApiResponses(value = {
-            // 204 significa "éxito pero sin contenido" — típico del DELETE
-            @ApiResponse(responseCode = "204", description = "Usuario eliminado exitosamente"),
-            @ApiResponse(responseCode = "400", description = "Usuario no encontrado")
-    })
+    @Operation(summary = "Eliminar usuario con HATEOAS")
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> eliminar(@PathVariable Long id) {
-        log.info("DELETE /api/usuario/{} - Solicitud para eliminar usuario", id);
+        log.info("DELETE /api/v2/usuario/{} - Eliminar usuario con HATEOAS", id);
         service.eliminar(id);
         return ResponseEntity.noContent().build();
     }

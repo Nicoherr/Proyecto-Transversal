@@ -1,5 +1,5 @@
 package com.marketplace.usuario.assemblers;
-import com.marketplace.usuario.controller.UsuarioControllerV2;
+import com.marketplace.usuario.controller.UsuarioController;
 import com.marketplace.usuario.dto.UsuarioResponseDTO;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.server.RepresentationModelAssembler;
@@ -16,9 +16,9 @@ public class UsuarioModelAssembler implements RepresentationModelAssembler<Usuar
     public EntityModel<UsuarioResponseDTO> toModel(UsuarioResponseDTO dto) {
         return EntityModel.of(dto,
                 // "self" es el link al usuario específico — apunta a GET /api/v2/usuario/{id}
-                linkTo(methodOn(UsuarioControllerV2.class).obtener(dto.getId())).withSelfRel(),
+                linkTo(methodOn(UsuarioController.class).obtener(dto.getId())).withSelfRel(),
                 // "usuarios" es el link para ver todos — apunta a GET /api/v2/usuario
-                linkTo(methodOn(UsuarioControllerV2.class).listar()).withRel("usuarios")
+                linkTo(methodOn(UsuarioController.class).listar()).withRel("usuarios")
         );
     }
 }
