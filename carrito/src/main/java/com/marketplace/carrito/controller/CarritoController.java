@@ -14,7 +14,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.*;
 
@@ -23,13 +22,13 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.*;
 @Tag(name = "Carrito V2", description = "Operaciones de carrito con HATEOAS")
 @Slf4j
 @RestController
-@RequestMapping("/api/v2/carritos")
-public class CarritoControllerV2 {
+@RequestMapping("/api/carritos")
+public class CarritoController {
 
     private final CarritoService service;
     private final CarritoModelAssembler assembler;
 
-    public CarritoControllerV2(CarritoService service, CarritoModelAssembler assembler) {
+    public CarritoController(CarritoService service, CarritoModelAssembler assembler) {
         this.service = service;
         this.assembler = assembler;
     }
@@ -61,7 +60,7 @@ public class CarritoControllerV2 {
 
         // CollectionModel envuelve la lista y le agrega un link self a la colección
         return CollectionModel.of(productos,
-                linkTo(methodOn(CarritoControllerV2.class).listarProductos(carritoId)).withSelfRel());
+                linkTo(methodOn(CarritoController.class).listarProductos(carritoId)).withSelfRel());
     }
 
     // Agrega producto con HATEOAS — retorna el producto creado

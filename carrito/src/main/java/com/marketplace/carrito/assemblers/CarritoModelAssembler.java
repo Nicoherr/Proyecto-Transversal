@@ -1,5 +1,5 @@
 package com.marketplace.carrito.assemblers;
-import com.marketplace.carrito.controller.CarritoControllerV2;
+import com.marketplace.carrito.controller.CarritoController;
 import com.marketplace.carrito.dto.CarritoResponseDTO;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.server.RepresentationModelAssembler;
@@ -16,9 +16,9 @@ public class CarritoModelAssembler implements RepresentationModelAssembler<Carri
     public EntityModel<CarritoResponseDTO> toModel(CarritoResponseDTO dto) {
         return EntityModel.of(dto,
                 // "self" apunta al carrito específico
-                linkTo(methodOn(CarritoControllerV2.class).obtener(dto.getId())).withSelfRel(),
+                linkTo(methodOn(CarritoController.class).obtener(dto.getId())).withSelfRel(),
                 // "carritos" apunta a... no hay listar en carrito, así que apuntamos a productos
-                linkTo(methodOn(CarritoControllerV2.class).listarProductos(dto.getId())).withRel("productos")
+                linkTo(methodOn(CarritoController.class).listarProductos(dto.getId())).withRel("productos")
         );
     }
 }
