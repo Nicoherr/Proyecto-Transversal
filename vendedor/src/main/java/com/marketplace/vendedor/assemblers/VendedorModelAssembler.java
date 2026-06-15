@@ -1,5 +1,5 @@
 package com.marketplace.vendedor.assemblers;
-import com.marketplace.vendedor.controller.VendedorControllerV2;
+import com.marketplace.vendedor.controller.VendedorController;
 import com.marketplace.vendedor.dto.VendedorResponseDTO;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.server.RepresentationModelAssembler;
@@ -13,8 +13,8 @@ public class VendedorModelAssembler implements RepresentationModelAssembler<Vend
     @Override
     public EntityModel<VendedorResponseDTO> toModel(VendedorResponseDTO dto) {
         return EntityModel.of(dto,
-                linkTo(methodOn(VendedorControllerV2.class).obtener(dto.getId())).withSelfRel(),
-                linkTo(methodOn(VendedorControllerV2.class).listar()).withRel("vendedores")
+                linkTo(methodOn(VendedorController.class).obtener(dto.getId())).withSelfRel(),
+                linkTo(methodOn(VendedorController.class).listar()).withRel("vendedores")
         );
     }
 }
