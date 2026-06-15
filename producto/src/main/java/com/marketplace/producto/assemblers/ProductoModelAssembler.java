@@ -1,6 +1,6 @@
 package com.marketplace.producto.assemblers;
 
-import com.marketplace.producto.controller.ProductoControllerV2;
+import com.marketplace.producto.controller.ProductoController;
 import com.marketplace.producto.dto.ProductoResponseDTO;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.server.RepresentationModelAssembler;
@@ -14,8 +14,8 @@ public class ProductoModelAssembler implements RepresentationModelAssembler<Prod
     @Override
     public EntityModel<ProductoResponseDTO> toModel(ProductoResponseDTO dto) {
         return EntityModel.of(dto,
-                linkTo(methodOn(ProductoControllerV2.class).obtener(dto.getId())).withSelfRel(),
-                linkTo(methodOn(ProductoControllerV2.class).listar()).withRel("productos")
+                linkTo(methodOn(ProductoController.class).obtener(dto.getId())).withSelfRel(),
+                linkTo(methodOn(ProductoController.class).listar()).withRel("productos")
         );
     }
 }
