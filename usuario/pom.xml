@@ -17,7 +17,7 @@
         <spring-cloud.version>2025.0.0</spring-cloud.version>
     </properties>
 
-    <!-- ✅ dependencyManagement va AQUÍ AFUERA, no dentro de dependencies -->
+    <!-- dependencyManagement va AQUÍ AFUERA, no dentro de dependencies -->
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -93,7 +93,7 @@
             <artifactId>jackson-databind</artifactId>
         </dependency>
 
-        <!-- ✅ Eureka Client — ahora sí funciona porque dependencyManagement está arriba -->
+        <!-- Eureka Client — ahora sí funciona porque dependencyManagement está arriba -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
