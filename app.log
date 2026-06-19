@@ -1408,3 +1408,763 @@ Caused by: java.lang.ClassNotFoundException: org.springframework.boot.web.contex
 	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526) ~[na:na]
 	... 31 common frames omitted
 
+2026-06-19T12:34:48.210-04:00  INFO 23732 --- [usuario] [main] c.m.usuario.UsuarioApplication           : Starting UsuarioApplication using Java 21.0.11 with PID 23732 (C:\Users\sj-alumno\IdeaProjects\Proyecto-Transversal\usuario\target\classes started by SJ-Alumno in C:\Users\sj-alumno\IdeaProjects\Proyecto-Transversal)
+2026-06-19T12:34:48.213-04:00 DEBUG 23732 --- [usuario] [main] c.m.usuario.UsuarioApplication           : Running with Spring Boot v4.0.6, Spring v7.0.7
+2026-06-19T12:34:48.214-04:00  INFO 23732 --- [usuario] [main] c.m.usuario.UsuarioApplication           : The following 1 profile is active: "dev"
+2026-06-19T12:34:49.227-04:00  WARN 23732 --- [usuario] [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: java.lang.IllegalStateException: Error processing condition on org.springframework.cloud.client.discovery.simple.SimpleDiscoveryClientAutoConfiguration.simpleDiscoveryProperties
+2026-06-19T12:34:49.248-04:00 ERROR 23732 --- [usuario] [main] o.s.boot.SpringApplication               : Application run failed
+
+java.lang.IllegalStateException: Error processing condition on org.springframework.cloud.client.discovery.simple.SimpleDiscoveryClientAutoConfiguration.simpleDiscoveryProperties
+	at org.springframework.boot.autoconfigure.condition.SpringBootCondition.matches(SpringBootCondition.java:60) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.context.annotation.ConditionEvaluator.shouldSkip(ConditionEvaluator.java:100) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForBeanMethod(ConfigurationClassBeanDefinitionReader.java:196) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForConfigurationClass(ConfigurationClassBeanDefinitionReader.java:148) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitions(ConfigurationClassBeanDefinitionReader.java:124) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:464) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:316) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:349) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:118) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:795) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:603) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.boot.web.server.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143) ~[spring-boot-web-server-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:756) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:445) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:321) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1365) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354) ~[spring-boot-4.0.6.jar:4.0.6]
+	at com.marketplace.usuario.UsuarioApplication.main(UsuarioApplication.java:10) ~[classes/:na]
+Caused by: java.lang.IllegalStateException: @ConditionalOnMissingBean did not specify a bean using type, name or annotation and the attempt to deduce the bean's type failed
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.validate(OnBeanCondition.java:657) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.<init>(OnBeanCondition.java:603) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getMatchOutcome(OnBeanCondition.java:147) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.SpringBootCondition.matches(SpringBootCondition.java:47) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	... 17 common frames omitted
+Caused by: org.springframework.boot.autoconfigure.condition.OnBeanCondition$BeanTypeDeductionException: Failed to deduce bean type for org.springframework.cloud.client.discovery.simple.SimpleDiscoveryClientAutoConfiguration.simpleDiscoveryProperties
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.deducedBeanTypeForBeanMethod(OnBeanCondition.java:686) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.deducedBeanType(OnBeanCondition.java:676) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.<init>(OnBeanCondition.java:596) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	... 19 common frames omitted
+Caused by: java.lang.IllegalStateException: Failed to introspect Class [org.springframework.cloud.client.discovery.simple.SimpleDiscoveryClientAutoConfiguration] from ClassLoader [jdk.internal.loader.ClassLoaders$AppClassLoader@4617c264]
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:483) ~[spring-core-7.0.7.jar:7.0.7]
+	at org.springframework.util.ReflectionUtils.findMethod(ReflectionUtils.java:240) ~[spring-core-7.0.7.jar:7.0.7]
+	at org.springframework.util.ReflectionUtils.findMethod(ReflectionUtils.java:221) ~[spring-core-7.0.7.jar:7.0.7]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.findBeanMethod(OnBeanCondition.java:715) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.getMethodReturnType(OnBeanCondition.java:710) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.getReturnType(OnBeanCondition.java:694) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.deducedBeanTypeForBeanMethod(OnBeanCondition.java:683) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	... 21 common frames omitted
+Caused by: java.lang.NoClassDefFoundError: org/springframework/boot/web/context/WebServerInitializedEvent
+	at java.base/java.lang.Class.getDeclaredMethods0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.privateGetDeclaredMethods(Class.java:3580) ~[na:na]
+	at java.base/java.lang.Class.getDeclaredMethods(Class.java:2678) ~[na:na]
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:465) ~[spring-core-7.0.7.jar:7.0.7]
+	... 27 common frames omitted
+Caused by: java.lang.ClassNotFoundException: org.springframework.boot.web.context.WebServerInitializedEvent
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641) ~[na:na]
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188) ~[na:na]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526) ~[na:na]
+	... 31 common frames omitted
+
+2026-06-19T12:40:28.986-04:00  INFO 20340 --- [usuario] [main] c.m.usuario.UsuarioApplication           : Starting UsuarioApplication using Java 21.0.11 with PID 20340 (C:\Users\sj-alumno\IdeaProjects\Proyecto-Transversal\usuario\target\classes started by SJ-Alumno in C:\Users\sj-alumno\IdeaProjects\Proyecto-Transversal)
+2026-06-19T12:40:28.989-04:00 DEBUG 20340 --- [usuario] [main] c.m.usuario.UsuarioApplication           : Running with Spring Boot v4.0.6, Spring v7.0.7
+2026-06-19T12:40:28.990-04:00  INFO 20340 --- [usuario] [main] c.m.usuario.UsuarioApplication           : The following 1 profile is active: "dev"
+2026-06-19T12:40:30.035-04:00  WARN 20340 --- [usuario] [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: java.lang.IllegalStateException: Error processing condition on org.springframework.cloud.client.discovery.simple.SimpleDiscoveryClientAutoConfiguration.simpleDiscoveryProperties
+2026-06-19T12:40:30.054-04:00 ERROR 20340 --- [usuario] [main] o.s.boot.SpringApplication               : Application run failed
+
+java.lang.IllegalStateException: Error processing condition on org.springframework.cloud.client.discovery.simple.SimpleDiscoveryClientAutoConfiguration.simpleDiscoveryProperties
+	at org.springframework.boot.autoconfigure.condition.SpringBootCondition.matches(SpringBootCondition.java:60) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.context.annotation.ConditionEvaluator.shouldSkip(ConditionEvaluator.java:100) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForBeanMethod(ConfigurationClassBeanDefinitionReader.java:196) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForConfigurationClass(ConfigurationClassBeanDefinitionReader.java:148) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitions(ConfigurationClassBeanDefinitionReader.java:124) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:464) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:316) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:349) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:118) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:795) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:603) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.boot.web.server.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143) ~[spring-boot-web-server-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:756) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:445) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:321) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1365) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354) ~[spring-boot-4.0.6.jar:4.0.6]
+	at com.marketplace.usuario.UsuarioApplication.main(UsuarioApplication.java:10) ~[classes/:na]
+Caused by: java.lang.IllegalStateException: @ConditionalOnMissingBean did not specify a bean using type, name or annotation and the attempt to deduce the bean's type failed
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.validate(OnBeanCondition.java:657) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.<init>(OnBeanCondition.java:603) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getMatchOutcome(OnBeanCondition.java:147) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.SpringBootCondition.matches(SpringBootCondition.java:47) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	... 17 common frames omitted
+Caused by: org.springframework.boot.autoconfigure.condition.OnBeanCondition$BeanTypeDeductionException: Failed to deduce bean type for org.springframework.cloud.client.discovery.simple.SimpleDiscoveryClientAutoConfiguration.simpleDiscoveryProperties
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.deducedBeanTypeForBeanMethod(OnBeanCondition.java:686) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.deducedBeanType(OnBeanCondition.java:676) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.<init>(OnBeanCondition.java:596) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	... 19 common frames omitted
+Caused by: java.lang.IllegalStateException: Failed to introspect Class [org.springframework.cloud.client.discovery.simple.SimpleDiscoveryClientAutoConfiguration] from ClassLoader [jdk.internal.loader.ClassLoaders$AppClassLoader@4617c264]
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:483) ~[spring-core-7.0.7.jar:7.0.7]
+	at org.springframework.util.ReflectionUtils.findMethod(ReflectionUtils.java:240) ~[spring-core-7.0.7.jar:7.0.7]
+	at org.springframework.util.ReflectionUtils.findMethod(ReflectionUtils.java:221) ~[spring-core-7.0.7.jar:7.0.7]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.findBeanMethod(OnBeanCondition.java:715) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.getMethodReturnType(OnBeanCondition.java:710) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.getReturnType(OnBeanCondition.java:694) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.deducedBeanTypeForBeanMethod(OnBeanCondition.java:683) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	... 21 common frames omitted
+Caused by: java.lang.NoClassDefFoundError: org/springframework/boot/web/context/WebServerInitializedEvent
+	at java.base/java.lang.Class.getDeclaredMethods0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.privateGetDeclaredMethods(Class.java:3580) ~[na:na]
+	at java.base/java.lang.Class.getDeclaredMethods(Class.java:2678) ~[na:na]
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:465) ~[spring-core-7.0.7.jar:7.0.7]
+	... 27 common frames omitted
+Caused by: java.lang.ClassNotFoundException: org.springframework.boot.web.context.WebServerInitializedEvent
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641) ~[na:na]
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188) ~[na:na]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526) ~[na:na]
+	... 31 common frames omitted
+
+2026-06-19T12:44:16.812-04:00  INFO 22256 --- [usuario] [main] c.m.usuario.UsuarioApplication           : Starting UsuarioApplication using Java 21.0.11 with PID 22256 (C:\Users\sj-alumno\IdeaProjects\Proyecto-Transversal\usuario\target\classes started by SJ-Alumno in C:\Users\sj-alumno\IdeaProjects\Proyecto-Transversal)
+2026-06-19T12:44:16.815-04:00 DEBUG 22256 --- [usuario] [main] c.m.usuario.UsuarioApplication           : Running with Spring Boot v4.0.6, Spring v7.0.7
+2026-06-19T12:44:16.815-04:00  INFO 22256 --- [usuario] [main] c.m.usuario.UsuarioApplication           : The following 1 profile is active: "dev"
+2026-06-19T12:44:17.767-04:00  WARN 22256 --- [usuario] [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: java.lang.IllegalStateException: Error processing condition on org.springframework.cloud.client.discovery.simple.SimpleDiscoveryClientAutoConfiguration.simpleDiscoveryProperties
+2026-06-19T12:44:17.787-04:00 ERROR 22256 --- [usuario] [main] o.s.boot.SpringApplication               : Application run failed
+
+java.lang.IllegalStateException: Error processing condition on org.springframework.cloud.client.discovery.simple.SimpleDiscoveryClientAutoConfiguration.simpleDiscoveryProperties
+	at org.springframework.boot.autoconfigure.condition.SpringBootCondition.matches(SpringBootCondition.java:60) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.context.annotation.ConditionEvaluator.shouldSkip(ConditionEvaluator.java:100) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForBeanMethod(ConfigurationClassBeanDefinitionReader.java:196) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForConfigurationClass(ConfigurationClassBeanDefinitionReader.java:148) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitions(ConfigurationClassBeanDefinitionReader.java:124) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:464) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:316) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:349) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:118) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:795) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:603) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.boot.web.server.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143) ~[spring-boot-web-server-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:756) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:445) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:321) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1365) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354) ~[spring-boot-4.0.6.jar:4.0.6]
+	at com.marketplace.usuario.UsuarioApplication.main(UsuarioApplication.java:10) ~[classes/:na]
+Caused by: java.lang.IllegalStateException: @ConditionalOnMissingBean did not specify a bean using type, name or annotation and the attempt to deduce the bean's type failed
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.validate(OnBeanCondition.java:657) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.<init>(OnBeanCondition.java:603) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getMatchOutcome(OnBeanCondition.java:147) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.SpringBootCondition.matches(SpringBootCondition.java:47) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	... 17 common frames omitted
+Caused by: org.springframework.boot.autoconfigure.condition.OnBeanCondition$BeanTypeDeductionException: Failed to deduce bean type for org.springframework.cloud.client.discovery.simple.SimpleDiscoveryClientAutoConfiguration.simpleDiscoveryProperties
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.deducedBeanTypeForBeanMethod(OnBeanCondition.java:686) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.deducedBeanType(OnBeanCondition.java:676) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.<init>(OnBeanCondition.java:596) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	... 19 common frames omitted
+Caused by: java.lang.IllegalStateException: Failed to introspect Class [org.springframework.cloud.client.discovery.simple.SimpleDiscoveryClientAutoConfiguration] from ClassLoader [jdk.internal.loader.ClassLoaders$AppClassLoader@4617c264]
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:483) ~[spring-core-7.0.7.jar:7.0.7]
+	at org.springframework.util.ReflectionUtils.findMethod(ReflectionUtils.java:240) ~[spring-core-7.0.7.jar:7.0.7]
+	at org.springframework.util.ReflectionUtils.findMethod(ReflectionUtils.java:221) ~[spring-core-7.0.7.jar:7.0.7]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.findBeanMethod(OnBeanCondition.java:715) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.getMethodReturnType(OnBeanCondition.java:710) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.getReturnType(OnBeanCondition.java:694) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.deducedBeanTypeForBeanMethod(OnBeanCondition.java:683) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	... 21 common frames omitted
+Caused by: java.lang.NoClassDefFoundError: org/springframework/boot/web/context/WebServerInitializedEvent
+	at java.base/java.lang.Class.getDeclaredMethods0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.privateGetDeclaredMethods(Class.java:3580) ~[na:na]
+	at java.base/java.lang.Class.getDeclaredMethods(Class.java:2678) ~[na:na]
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:465) ~[spring-core-7.0.7.jar:7.0.7]
+	... 27 common frames omitted
+Caused by: java.lang.ClassNotFoundException: org.springframework.boot.web.context.WebServerInitializedEvent
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641) ~[na:na]
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188) ~[na:na]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526) ~[na:na]
+	... 31 common frames omitted
+
+2026-06-19T12:45:03.322-04:00  INFO 12800 --- [usuario] [main] c.m.usuario.UsuarioApplication           : Starting UsuarioApplication using Java 21.0.11 with PID 12800 (C:\Users\sj-alumno\IdeaProjects\Proyecto-Transversal\usuario\target\classes started by SJ-Alumno in C:\Users\sj-alumno\IdeaProjects\Proyecto-Transversal)
+2026-06-19T12:45:03.325-04:00 DEBUG 12800 --- [usuario] [main] c.m.usuario.UsuarioApplication           : Running with Spring Boot v4.0.6, Spring v7.0.7
+2026-06-19T12:45:03.326-04:00  INFO 12800 --- [usuario] [main] c.m.usuario.UsuarioApplication           : The following 1 profile is active: "dev"
+2026-06-19T12:45:04.290-04:00  WARN 12800 --- [usuario] [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: java.lang.IllegalStateException: Error processing condition on org.springframework.cloud.client.discovery.simple.SimpleDiscoveryClientAutoConfiguration.simpleDiscoveryProperties
+2026-06-19T12:45:04.310-04:00 ERROR 12800 --- [usuario] [main] o.s.boot.SpringApplication               : Application run failed
+
+java.lang.IllegalStateException: Error processing condition on org.springframework.cloud.client.discovery.simple.SimpleDiscoveryClientAutoConfiguration.simpleDiscoveryProperties
+	at org.springframework.boot.autoconfigure.condition.SpringBootCondition.matches(SpringBootCondition.java:60) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.context.annotation.ConditionEvaluator.shouldSkip(ConditionEvaluator.java:100) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForBeanMethod(ConfigurationClassBeanDefinitionReader.java:196) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForConfigurationClass(ConfigurationClassBeanDefinitionReader.java:148) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitions(ConfigurationClassBeanDefinitionReader.java:124) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:464) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:316) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:349) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:118) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:795) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:603) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.boot.web.server.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143) ~[spring-boot-web-server-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:756) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:445) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:321) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1365) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354) ~[spring-boot-4.0.6.jar:4.0.6]
+	at com.marketplace.usuario.UsuarioApplication.main(UsuarioApplication.java:10) ~[classes/:na]
+Caused by: java.lang.IllegalStateException: @ConditionalOnMissingBean did not specify a bean using type, name or annotation and the attempt to deduce the bean's type failed
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.validate(OnBeanCondition.java:657) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.<init>(OnBeanCondition.java:603) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getMatchOutcome(OnBeanCondition.java:147) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.SpringBootCondition.matches(SpringBootCondition.java:47) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	... 17 common frames omitted
+Caused by: org.springframework.boot.autoconfigure.condition.OnBeanCondition$BeanTypeDeductionException: Failed to deduce bean type for org.springframework.cloud.client.discovery.simple.SimpleDiscoveryClientAutoConfiguration.simpleDiscoveryProperties
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.deducedBeanTypeForBeanMethod(OnBeanCondition.java:686) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.deducedBeanType(OnBeanCondition.java:676) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.<init>(OnBeanCondition.java:596) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	... 19 common frames omitted
+Caused by: java.lang.IllegalStateException: Failed to introspect Class [org.springframework.cloud.client.discovery.simple.SimpleDiscoveryClientAutoConfiguration] from ClassLoader [jdk.internal.loader.ClassLoaders$AppClassLoader@4617c264]
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:483) ~[spring-core-7.0.7.jar:7.0.7]
+	at org.springframework.util.ReflectionUtils.findMethod(ReflectionUtils.java:240) ~[spring-core-7.0.7.jar:7.0.7]
+	at org.springframework.util.ReflectionUtils.findMethod(ReflectionUtils.java:221) ~[spring-core-7.0.7.jar:7.0.7]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.findBeanMethod(OnBeanCondition.java:715) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.getMethodReturnType(OnBeanCondition.java:710) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.getReturnType(OnBeanCondition.java:694) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.deducedBeanTypeForBeanMethod(OnBeanCondition.java:683) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	... 21 common frames omitted
+Caused by: java.lang.NoClassDefFoundError: org/springframework/boot/web/context/WebServerInitializedEvent
+	at java.base/java.lang.Class.getDeclaredMethods0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.privateGetDeclaredMethods(Class.java:3580) ~[na:na]
+	at java.base/java.lang.Class.getDeclaredMethods(Class.java:2678) ~[na:na]
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:465) ~[spring-core-7.0.7.jar:7.0.7]
+	... 27 common frames omitted
+Caused by: java.lang.ClassNotFoundException: org.springframework.boot.web.context.WebServerInitializedEvent
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641) ~[na:na]
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188) ~[na:na]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526) ~[na:na]
+	... 31 common frames omitted
+
+2026-06-19T12:53:41.984-04:00  INFO 8108 --- [usuario] [main] c.m.usuario.UsuarioApplication           : Starting UsuarioApplication using Java 21.0.11 with PID 8108 (C:\Users\sj-alumno\IdeaProjects\Proyecto-Transversal\usuario\target\classes started by SJ-Alumno in C:\Users\sj-alumno\IdeaProjects\Proyecto-Transversal)
+2026-06-19T12:53:41.986-04:00 DEBUG 8108 --- [usuario] [main] c.m.usuario.UsuarioApplication           : Running with Spring Boot v4.0.6, Spring v7.0.7
+2026-06-19T12:53:41.987-04:00  INFO 8108 --- [usuario] [main] c.m.usuario.UsuarioApplication           : The following 1 profile is active: "dev"
+2026-06-19T12:53:42.996-04:00  WARN 8108 --- [usuario] [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: java.lang.IllegalStateException: Error processing condition on org.springframework.cloud.client.discovery.simple.SimpleDiscoveryClientAutoConfiguration.simpleDiscoveryProperties
+2026-06-19T12:53:43.015-04:00 ERROR 8108 --- [usuario] [main] o.s.boot.SpringApplication               : Application run failed
+
+java.lang.IllegalStateException: Error processing condition on org.springframework.cloud.client.discovery.simple.SimpleDiscoveryClientAutoConfiguration.simpleDiscoveryProperties
+	at org.springframework.boot.autoconfigure.condition.SpringBootCondition.matches(SpringBootCondition.java:60) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.context.annotation.ConditionEvaluator.shouldSkip(ConditionEvaluator.java:100) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForBeanMethod(ConfigurationClassBeanDefinitionReader.java:196) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForConfigurationClass(ConfigurationClassBeanDefinitionReader.java:148) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitions(ConfigurationClassBeanDefinitionReader.java:124) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:464) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:316) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:349) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:118) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:795) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:603) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.boot.web.server.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143) ~[spring-boot-web-server-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:756) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:445) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:321) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1365) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354) ~[spring-boot-4.0.6.jar:4.0.6]
+	at com.marketplace.usuario.UsuarioApplication.main(UsuarioApplication.java:10) ~[classes/:na]
+Caused by: java.lang.IllegalStateException: @ConditionalOnMissingBean did not specify a bean using type, name or annotation and the attempt to deduce the bean's type failed
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.validate(OnBeanCondition.java:657) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.<init>(OnBeanCondition.java:603) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getMatchOutcome(OnBeanCondition.java:147) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.SpringBootCondition.matches(SpringBootCondition.java:47) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	... 17 common frames omitted
+Caused by: org.springframework.boot.autoconfigure.condition.OnBeanCondition$BeanTypeDeductionException: Failed to deduce bean type for org.springframework.cloud.client.discovery.simple.SimpleDiscoveryClientAutoConfiguration.simpleDiscoveryProperties
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.deducedBeanTypeForBeanMethod(OnBeanCondition.java:686) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.deducedBeanType(OnBeanCondition.java:676) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.<init>(OnBeanCondition.java:596) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	... 19 common frames omitted
+Caused by: java.lang.IllegalStateException: Failed to introspect Class [org.springframework.cloud.client.discovery.simple.SimpleDiscoveryClientAutoConfiguration] from ClassLoader [jdk.internal.loader.ClassLoaders$AppClassLoader@4617c264]
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:483) ~[spring-core-7.0.7.jar:7.0.7]
+	at org.springframework.util.ReflectionUtils.findMethod(ReflectionUtils.java:240) ~[spring-core-7.0.7.jar:7.0.7]
+	at org.springframework.util.ReflectionUtils.findMethod(ReflectionUtils.java:221) ~[spring-core-7.0.7.jar:7.0.7]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.findBeanMethod(OnBeanCondition.java:715) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.getMethodReturnType(OnBeanCondition.java:710) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.getReturnType(OnBeanCondition.java:694) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.deducedBeanTypeForBeanMethod(OnBeanCondition.java:683) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	... 21 common frames omitted
+Caused by: java.lang.NoClassDefFoundError: org/springframework/boot/web/context/WebServerInitializedEvent
+	at java.base/java.lang.Class.getDeclaredMethods0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.privateGetDeclaredMethods(Class.java:3580) ~[na:na]
+	at java.base/java.lang.Class.getDeclaredMethods(Class.java:2678) ~[na:na]
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:465) ~[spring-core-7.0.7.jar:7.0.7]
+	... 27 common frames omitted
+Caused by: java.lang.ClassNotFoundException: org.springframework.boot.web.context.WebServerInitializedEvent
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641) ~[na:na]
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188) ~[na:na]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526) ~[na:na]
+	... 31 common frames omitted
+
+2026-06-19T12:56:12.335-04:00  INFO 2980 --- [usuario] [main] c.m.usuario.UsuarioApplication           : Starting UsuarioApplication using Java 21.0.11 with PID 2980 (C:\Users\sj-alumno\IdeaProjects\Proyecto-Transversal\usuario\target\classes started by SJ-Alumno in C:\Users\sj-alumno\IdeaProjects\Proyecto-Transversal)
+2026-06-19T12:56:12.338-04:00 DEBUG 2980 --- [usuario] [main] c.m.usuario.UsuarioApplication           : Running with Spring Boot v4.0.6, Spring v7.0.7
+2026-06-19T12:56:12.339-04:00  INFO 2980 --- [usuario] [main] c.m.usuario.UsuarioApplication           : The following 1 profile is active: "dev"
+2026-06-19T12:56:13.332-04:00  WARN 2980 --- [usuario] [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: java.lang.IllegalStateException: Error processing condition on org.springframework.cloud.client.discovery.simple.SimpleDiscoveryClientAutoConfiguration.simpleDiscoveryProperties
+2026-06-19T12:56:13.351-04:00 ERROR 2980 --- [usuario] [main] o.s.boot.SpringApplication               : Application run failed
+
+java.lang.IllegalStateException: Error processing condition on org.springframework.cloud.client.discovery.simple.SimpleDiscoveryClientAutoConfiguration.simpleDiscoveryProperties
+	at org.springframework.boot.autoconfigure.condition.SpringBootCondition.matches(SpringBootCondition.java:60) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.context.annotation.ConditionEvaluator.shouldSkip(ConditionEvaluator.java:100) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForBeanMethod(ConfigurationClassBeanDefinitionReader.java:196) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForConfigurationClass(ConfigurationClassBeanDefinitionReader.java:148) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitions(ConfigurationClassBeanDefinitionReader.java:124) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:464) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:316) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:349) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:118) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:795) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:603) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.boot.web.server.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143) ~[spring-boot-web-server-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:756) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:445) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:321) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1365) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354) ~[spring-boot-4.0.6.jar:4.0.6]
+	at com.marketplace.usuario.UsuarioApplication.main(UsuarioApplication.java:10) ~[classes/:na]
+Caused by: java.lang.IllegalStateException: @ConditionalOnMissingBean did not specify a bean using type, name or annotation and the attempt to deduce the bean's type failed
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.validate(OnBeanCondition.java:657) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.<init>(OnBeanCondition.java:603) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getMatchOutcome(OnBeanCondition.java:147) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.SpringBootCondition.matches(SpringBootCondition.java:47) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	... 17 common frames omitted
+Caused by: org.springframework.boot.autoconfigure.condition.OnBeanCondition$BeanTypeDeductionException: Failed to deduce bean type for org.springframework.cloud.client.discovery.simple.SimpleDiscoveryClientAutoConfiguration.simpleDiscoveryProperties
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.deducedBeanTypeForBeanMethod(OnBeanCondition.java:686) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.deducedBeanType(OnBeanCondition.java:676) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.<init>(OnBeanCondition.java:596) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	... 19 common frames omitted
+Caused by: java.lang.IllegalStateException: Failed to introspect Class [org.springframework.cloud.client.discovery.simple.SimpleDiscoveryClientAutoConfiguration] from ClassLoader [jdk.internal.loader.ClassLoaders$AppClassLoader@4617c264]
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:483) ~[spring-core-7.0.7.jar:7.0.7]
+	at org.springframework.util.ReflectionUtils.findMethod(ReflectionUtils.java:240) ~[spring-core-7.0.7.jar:7.0.7]
+	at org.springframework.util.ReflectionUtils.findMethod(ReflectionUtils.java:221) ~[spring-core-7.0.7.jar:7.0.7]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.findBeanMethod(OnBeanCondition.java:715) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.getMethodReturnType(OnBeanCondition.java:710) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.getReturnType(OnBeanCondition.java:694) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.deducedBeanTypeForBeanMethod(OnBeanCondition.java:683) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	... 21 common frames omitted
+Caused by: java.lang.NoClassDefFoundError: org/springframework/boot/web/context/WebServerInitializedEvent
+	at java.base/java.lang.Class.getDeclaredMethods0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.privateGetDeclaredMethods(Class.java:3580) ~[na:na]
+	at java.base/java.lang.Class.getDeclaredMethods(Class.java:2678) ~[na:na]
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:465) ~[spring-core-7.0.7.jar:7.0.7]
+	... 27 common frames omitted
+Caused by: java.lang.ClassNotFoundException: org.springframework.boot.web.context.WebServerInitializedEvent
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641) ~[na:na]
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188) ~[na:na]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526) ~[na:na]
+	... 31 common frames omitted
+
+2026-06-19T12:56:35.858-04:00  INFO 21452 --- [usuario] [main] c.m.usuario.UsuarioApplication           : Starting UsuarioApplication using Java 21.0.11 with PID 21452 (C:\Users\sj-alumno\IdeaProjects\Proyecto-Transversal\usuario\target\classes started by SJ-Alumno in C:\Users\sj-alumno\IdeaProjects\Proyecto-Transversal)
+2026-06-19T12:56:35.861-04:00 DEBUG 21452 --- [usuario] [main] c.m.usuario.UsuarioApplication           : Running with Spring Boot v4.0.6, Spring v7.0.7
+2026-06-19T12:56:35.862-04:00  INFO 21452 --- [usuario] [main] c.m.usuario.UsuarioApplication           : The following 1 profile is active: "dev"
+2026-06-19T12:56:36.833-04:00  WARN 21452 --- [usuario] [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: java.lang.IllegalStateException: Error processing condition on org.springframework.cloud.client.discovery.simple.SimpleDiscoveryClientAutoConfiguration.simpleDiscoveryProperties
+2026-06-19T12:56:36.853-04:00 ERROR 21452 --- [usuario] [main] o.s.boot.SpringApplication               : Application run failed
+
+java.lang.IllegalStateException: Error processing condition on org.springframework.cloud.client.discovery.simple.SimpleDiscoveryClientAutoConfiguration.simpleDiscoveryProperties
+	at org.springframework.boot.autoconfigure.condition.SpringBootCondition.matches(SpringBootCondition.java:60) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.context.annotation.ConditionEvaluator.shouldSkip(ConditionEvaluator.java:100) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForBeanMethod(ConfigurationClassBeanDefinitionReader.java:196) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForConfigurationClass(ConfigurationClassBeanDefinitionReader.java:148) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitions(ConfigurationClassBeanDefinitionReader.java:124) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:464) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:316) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:349) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:118) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:795) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:603) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.boot.web.server.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143) ~[spring-boot-web-server-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:756) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:445) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:321) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1365) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354) ~[spring-boot-4.0.6.jar:4.0.6]
+	at com.marketplace.usuario.UsuarioApplication.main(UsuarioApplication.java:10) ~[classes/:na]
+Caused by: java.lang.IllegalStateException: @ConditionalOnMissingBean did not specify a bean using type, name or annotation and the attempt to deduce the bean's type failed
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.validate(OnBeanCondition.java:657) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.<init>(OnBeanCondition.java:603) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getMatchOutcome(OnBeanCondition.java:147) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.SpringBootCondition.matches(SpringBootCondition.java:47) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	... 17 common frames omitted
+Caused by: org.springframework.boot.autoconfigure.condition.OnBeanCondition$BeanTypeDeductionException: Failed to deduce bean type for org.springframework.cloud.client.discovery.simple.SimpleDiscoveryClientAutoConfiguration.simpleDiscoveryProperties
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.deducedBeanTypeForBeanMethod(OnBeanCondition.java:686) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.deducedBeanType(OnBeanCondition.java:676) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.<init>(OnBeanCondition.java:596) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	... 19 common frames omitted
+Caused by: java.lang.IllegalStateException: Failed to introspect Class [org.springframework.cloud.client.discovery.simple.SimpleDiscoveryClientAutoConfiguration] from ClassLoader [jdk.internal.loader.ClassLoaders$AppClassLoader@4617c264]
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:483) ~[spring-core-7.0.7.jar:7.0.7]
+	at org.springframework.util.ReflectionUtils.findMethod(ReflectionUtils.java:240) ~[spring-core-7.0.7.jar:7.0.7]
+	at org.springframework.util.ReflectionUtils.findMethod(ReflectionUtils.java:221) ~[spring-core-7.0.7.jar:7.0.7]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.findBeanMethod(OnBeanCondition.java:715) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.getMethodReturnType(OnBeanCondition.java:710) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.getReturnType(OnBeanCondition.java:694) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.deducedBeanTypeForBeanMethod(OnBeanCondition.java:683) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	... 21 common frames omitted
+Caused by: java.lang.NoClassDefFoundError: org/springframework/boot/web/context/WebServerInitializedEvent
+	at java.base/java.lang.Class.getDeclaredMethods0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.privateGetDeclaredMethods(Class.java:3580) ~[na:na]
+	at java.base/java.lang.Class.getDeclaredMethods(Class.java:2678) ~[na:na]
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:465) ~[spring-core-7.0.7.jar:7.0.7]
+	... 27 common frames omitted
+Caused by: java.lang.ClassNotFoundException: org.springframework.boot.web.context.WebServerInitializedEvent
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641) ~[na:na]
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188) ~[na:na]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526) ~[na:na]
+	... 31 common frames omitted
+
+2026-06-19T12:57:54.597-04:00  INFO 9344 --- [main] c.m.usuario.UsuarioApplication           : Starting UsuarioApplication using Java 21.0.11 with PID 9344 (C:\Users\sj-alumno\IdeaProjects\Proyecto-Transversal\usuario\target\classes started by SJ-Alumno in C:\Users\sj-alumno\IdeaProjects\Proyecto-Transversal)
+2026-06-19T12:57:54.599-04:00 DEBUG 9344 --- [main] c.m.usuario.UsuarioApplication           : Running with Spring Boot v4.0.6, Spring v7.0.7
+2026-06-19T12:57:54.600-04:00  INFO 9344 --- [main] c.m.usuario.UsuarioApplication           : The following 1 profile is active: "dev"
+2026-06-19T12:57:55.568-04:00  WARN 9344 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: java.lang.IllegalStateException: Error processing condition on org.springframework.cloud.client.discovery.simple.SimpleDiscoveryClientAutoConfiguration.simpleDiscoveryProperties
+2026-06-19T12:57:55.588-04:00 ERROR 9344 --- [main] o.s.boot.SpringApplication               : Application run failed
+
+java.lang.IllegalStateException: Error processing condition on org.springframework.cloud.client.discovery.simple.SimpleDiscoveryClientAutoConfiguration.simpleDiscoveryProperties
+	at org.springframework.boot.autoconfigure.condition.SpringBootCondition.matches(SpringBootCondition.java:60) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.context.annotation.ConditionEvaluator.shouldSkip(ConditionEvaluator.java:100) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForBeanMethod(ConfigurationClassBeanDefinitionReader.java:196) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForConfigurationClass(ConfigurationClassBeanDefinitionReader.java:148) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitions(ConfigurationClassBeanDefinitionReader.java:124) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:464) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:316) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:349) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:118) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:795) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:603) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.boot.web.server.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143) ~[spring-boot-web-server-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:756) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:445) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:321) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1365) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354) ~[spring-boot-4.0.6.jar:4.0.6]
+	at com.marketplace.usuario.UsuarioApplication.main(UsuarioApplication.java:10) ~[classes/:na]
+Caused by: java.lang.IllegalStateException: @ConditionalOnMissingBean did not specify a bean using type, name or annotation and the attempt to deduce the bean's type failed
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.validate(OnBeanCondition.java:657) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.<init>(OnBeanCondition.java:603) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getMatchOutcome(OnBeanCondition.java:147) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.SpringBootCondition.matches(SpringBootCondition.java:47) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	... 17 common frames omitted
+Caused by: org.springframework.boot.autoconfigure.condition.OnBeanCondition$BeanTypeDeductionException: Failed to deduce bean type for org.springframework.cloud.client.discovery.simple.SimpleDiscoveryClientAutoConfiguration.simpleDiscoveryProperties
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.deducedBeanTypeForBeanMethod(OnBeanCondition.java:686) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.deducedBeanType(OnBeanCondition.java:676) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.<init>(OnBeanCondition.java:596) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	... 19 common frames omitted
+Caused by: java.lang.IllegalStateException: Failed to introspect Class [org.springframework.cloud.client.discovery.simple.SimpleDiscoveryClientAutoConfiguration] from ClassLoader [jdk.internal.loader.ClassLoaders$AppClassLoader@4617c264]
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:483) ~[spring-core-7.0.7.jar:7.0.7]
+	at org.springframework.util.ReflectionUtils.findMethod(ReflectionUtils.java:240) ~[spring-core-7.0.7.jar:7.0.7]
+	at org.springframework.util.ReflectionUtils.findMethod(ReflectionUtils.java:221) ~[spring-core-7.0.7.jar:7.0.7]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.findBeanMethod(OnBeanCondition.java:715) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.getMethodReturnType(OnBeanCondition.java:710) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.getReturnType(OnBeanCondition.java:694) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.deducedBeanTypeForBeanMethod(OnBeanCondition.java:683) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	... 21 common frames omitted
+Caused by: java.lang.NoClassDefFoundError: org/springframework/boot/web/context/WebServerInitializedEvent
+	at java.base/java.lang.Class.getDeclaredMethods0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.privateGetDeclaredMethods(Class.java:3580) ~[na:na]
+	at java.base/java.lang.Class.getDeclaredMethods(Class.java:2678) ~[na:na]
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:465) ~[spring-core-7.0.7.jar:7.0.7]
+	... 27 common frames omitted
+Caused by: java.lang.ClassNotFoundException: org.springframework.boot.web.context.WebServerInitializedEvent
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641) ~[na:na]
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188) ~[na:na]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526) ~[na:na]
+	... 31 common frames omitted
+
+2026-06-19T12:58:24.786-04:00  INFO 16648 --- [main] c.m.usuario.UsuarioApplication           : Starting UsuarioApplication using Java 21.0.11 with PID 16648 (C:\Users\sj-alumno\IdeaProjects\Proyecto-Transversal\usuario\target\classes started by SJ-Alumno in C:\Users\sj-alumno\IdeaProjects\Proyecto-Transversal)
+2026-06-19T12:58:24.789-04:00 DEBUG 16648 --- [main] c.m.usuario.UsuarioApplication           : Running with Spring Boot v4.0.6, Spring v7.0.7
+2026-06-19T12:58:24.790-04:00  INFO 16648 --- [main] c.m.usuario.UsuarioApplication           : The following 1 profile is active: "dev"
+2026-06-19T12:58:25.743-04:00  WARN 16648 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: java.lang.IllegalStateException: Error processing condition on org.springframework.cloud.client.discovery.simple.SimpleDiscoveryClientAutoConfiguration.simpleDiscoveryProperties
+2026-06-19T12:58:25.762-04:00 ERROR 16648 --- [main] o.s.boot.SpringApplication               : Application run failed
+
+java.lang.IllegalStateException: Error processing condition on org.springframework.cloud.client.discovery.simple.SimpleDiscoveryClientAutoConfiguration.simpleDiscoveryProperties
+	at org.springframework.boot.autoconfigure.condition.SpringBootCondition.matches(SpringBootCondition.java:60) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.context.annotation.ConditionEvaluator.shouldSkip(ConditionEvaluator.java:100) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForBeanMethod(ConfigurationClassBeanDefinitionReader.java:196) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForConfigurationClass(ConfigurationClassBeanDefinitionReader.java:148) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitions(ConfigurationClassBeanDefinitionReader.java:124) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:464) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:316) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:349) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:118) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:795) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:603) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.boot.web.server.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143) ~[spring-boot-web-server-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:756) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:445) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:321) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1365) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354) ~[spring-boot-4.0.6.jar:4.0.6]
+	at com.marketplace.usuario.UsuarioApplication.main(UsuarioApplication.java:10) ~[classes/:na]
+Caused by: java.lang.IllegalStateException: @ConditionalOnMissingBean did not specify a bean using type, name or annotation and the attempt to deduce the bean's type failed
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.validate(OnBeanCondition.java:657) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.<init>(OnBeanCondition.java:603) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getMatchOutcome(OnBeanCondition.java:147) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.SpringBootCondition.matches(SpringBootCondition.java:47) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	... 17 common frames omitted
+Caused by: org.springframework.boot.autoconfigure.condition.OnBeanCondition$BeanTypeDeductionException: Failed to deduce bean type for org.springframework.cloud.client.discovery.simple.SimpleDiscoveryClientAutoConfiguration.simpleDiscoveryProperties
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.deducedBeanTypeForBeanMethod(OnBeanCondition.java:686) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.deducedBeanType(OnBeanCondition.java:676) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.<init>(OnBeanCondition.java:596) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	... 19 common frames omitted
+Caused by: java.lang.IllegalStateException: Failed to introspect Class [org.springframework.cloud.client.discovery.simple.SimpleDiscoveryClientAutoConfiguration] from ClassLoader [jdk.internal.loader.ClassLoaders$AppClassLoader@4617c264]
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:483) ~[spring-core-7.0.7.jar:7.0.7]
+	at org.springframework.util.ReflectionUtils.findMethod(ReflectionUtils.java:240) ~[spring-core-7.0.7.jar:7.0.7]
+	at org.springframework.util.ReflectionUtils.findMethod(ReflectionUtils.java:221) ~[spring-core-7.0.7.jar:7.0.7]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.findBeanMethod(OnBeanCondition.java:715) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.getMethodReturnType(OnBeanCondition.java:710) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.getReturnType(OnBeanCondition.java:694) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.deducedBeanTypeForBeanMethod(OnBeanCondition.java:683) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	... 21 common frames omitted
+Caused by: java.lang.NoClassDefFoundError: org/springframework/boot/web/context/WebServerInitializedEvent
+	at java.base/java.lang.Class.getDeclaredMethods0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.privateGetDeclaredMethods(Class.java:3580) ~[na:na]
+	at java.base/java.lang.Class.getDeclaredMethods(Class.java:2678) ~[na:na]
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:465) ~[spring-core-7.0.7.jar:7.0.7]
+	... 27 common frames omitted
+Caused by: java.lang.ClassNotFoundException: org.springframework.boot.web.context.WebServerInitializedEvent
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641) ~[na:na]
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188) ~[na:na]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526) ~[na:na]
+	... 31 common frames omitted
+
+2026-06-19T12:59:37.970-04:00  INFO 18384 --- [main] c.m.usuario.UsuarioApplication           : Starting UsuarioApplication using Java 21.0.11 with PID 18384 (C:\Users\sj-alumno\IdeaProjects\Proyecto-Transversal\usuario\target\classes started by SJ-Alumno in C:\Users\sj-alumno\IdeaProjects\Proyecto-Transversal)
+2026-06-19T12:59:37.973-04:00 DEBUG 18384 --- [main] c.m.usuario.UsuarioApplication           : Running with Spring Boot v4.0.6, Spring v7.0.7
+2026-06-19T12:59:37.974-04:00  INFO 18384 --- [main] c.m.usuario.UsuarioApplication           : The following 1 profile is active: "dev"
+2026-06-19T12:59:38.944-04:00  WARN 18384 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: java.lang.IllegalStateException: Error processing condition on org.springframework.cloud.client.discovery.simple.SimpleDiscoveryClientAutoConfiguration.simpleDiscoveryProperties
+2026-06-19T12:59:38.964-04:00 ERROR 18384 --- [main] o.s.boot.SpringApplication               : Application run failed
+
+java.lang.IllegalStateException: Error processing condition on org.springframework.cloud.client.discovery.simple.SimpleDiscoveryClientAutoConfiguration.simpleDiscoveryProperties
+	at org.springframework.boot.autoconfigure.condition.SpringBootCondition.matches(SpringBootCondition.java:60) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.context.annotation.ConditionEvaluator.shouldSkip(ConditionEvaluator.java:100) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForBeanMethod(ConfigurationClassBeanDefinitionReader.java:196) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForConfigurationClass(ConfigurationClassBeanDefinitionReader.java:148) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitions(ConfigurationClassBeanDefinitionReader.java:124) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:464) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:316) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:349) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:118) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:795) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:603) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.boot.web.server.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143) ~[spring-boot-web-server-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:756) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:445) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:321) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1365) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354) ~[spring-boot-4.0.6.jar:4.0.6]
+	at com.marketplace.usuario.UsuarioApplication.main(UsuarioApplication.java:10) ~[classes/:na]
+Caused by: java.lang.IllegalStateException: @ConditionalOnMissingBean did not specify a bean using type, name or annotation and the attempt to deduce the bean's type failed
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.validate(OnBeanCondition.java:657) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.<init>(OnBeanCondition.java:603) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getMatchOutcome(OnBeanCondition.java:147) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.SpringBootCondition.matches(SpringBootCondition.java:47) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	... 17 common frames omitted
+Caused by: org.springframework.boot.autoconfigure.condition.OnBeanCondition$BeanTypeDeductionException: Failed to deduce bean type for org.springframework.cloud.client.discovery.simple.SimpleDiscoveryClientAutoConfiguration.simpleDiscoveryProperties
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.deducedBeanTypeForBeanMethod(OnBeanCondition.java:686) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.deducedBeanType(OnBeanCondition.java:676) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.<init>(OnBeanCondition.java:596) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	... 19 common frames omitted
+Caused by: java.lang.IllegalStateException: Failed to introspect Class [org.springframework.cloud.client.discovery.simple.SimpleDiscoveryClientAutoConfiguration] from ClassLoader [jdk.internal.loader.ClassLoaders$AppClassLoader@4617c264]
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:483) ~[spring-core-7.0.7.jar:7.0.7]
+	at org.springframework.util.ReflectionUtils.findMethod(ReflectionUtils.java:240) ~[spring-core-7.0.7.jar:7.0.7]
+	at org.springframework.util.ReflectionUtils.findMethod(ReflectionUtils.java:221) ~[spring-core-7.0.7.jar:7.0.7]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.findBeanMethod(OnBeanCondition.java:715) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.getMethodReturnType(OnBeanCondition.java:710) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.getReturnType(OnBeanCondition.java:694) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.deducedBeanTypeForBeanMethod(OnBeanCondition.java:683) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	... 21 common frames omitted
+Caused by: java.lang.NoClassDefFoundError: org/springframework/boot/web/context/WebServerInitializedEvent
+	at java.base/java.lang.Class.getDeclaredMethods0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.privateGetDeclaredMethods(Class.java:3580) ~[na:na]
+	at java.base/java.lang.Class.getDeclaredMethods(Class.java:2678) ~[na:na]
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:465) ~[spring-core-7.0.7.jar:7.0.7]
+	... 27 common frames omitted
+Caused by: java.lang.ClassNotFoundException: org.springframework.boot.web.context.WebServerInitializedEvent
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641) ~[na:na]
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188) ~[na:na]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526) ~[na:na]
+	... 31 common frames omitted
+
+2026-06-19T13:00:16.633-04:00  INFO 17856 --- [main] c.m.usuario.UsuarioApplication           : Starting UsuarioApplication using Java 21.0.11 with PID 17856 (C:\Users\sj-alumno\IdeaProjects\Proyecto-Transversal\usuario\target\classes started by SJ-Alumno in C:\Users\sj-alumno\IdeaProjects\Proyecto-Transversal)
+2026-06-19T13:00:16.636-04:00 DEBUG 17856 --- [main] c.m.usuario.UsuarioApplication           : Running with Spring Boot v4.0.6, Spring v7.0.7
+2026-06-19T13:00:16.637-04:00  INFO 17856 --- [main] c.m.usuario.UsuarioApplication           : The following 1 profile is active: "dev"
+2026-06-19T13:00:17.644-04:00  WARN 17856 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: java.lang.IllegalStateException: Error processing condition on org.springframework.cloud.client.discovery.simple.SimpleDiscoveryClientAutoConfiguration.simpleDiscoveryProperties
+2026-06-19T13:00:17.664-04:00 ERROR 17856 --- [main] o.s.boot.SpringApplication               : Application run failed
+
+java.lang.IllegalStateException: Error processing condition on org.springframework.cloud.client.discovery.simple.SimpleDiscoveryClientAutoConfiguration.simpleDiscoveryProperties
+	at org.springframework.boot.autoconfigure.condition.SpringBootCondition.matches(SpringBootCondition.java:60) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.context.annotation.ConditionEvaluator.shouldSkip(ConditionEvaluator.java:100) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForBeanMethod(ConfigurationClassBeanDefinitionReader.java:196) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForConfigurationClass(ConfigurationClassBeanDefinitionReader.java:148) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitions(ConfigurationClassBeanDefinitionReader.java:124) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:464) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:316) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:349) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:118) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:795) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:603) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.boot.web.server.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143) ~[spring-boot-web-server-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:756) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:445) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:321) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1365) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354) ~[spring-boot-4.0.6.jar:4.0.6]
+	at com.marketplace.usuario.UsuarioApplication.main(UsuarioApplication.java:10) ~[classes/:na]
+Caused by: java.lang.IllegalStateException: @ConditionalOnMissingBean did not specify a bean using type, name or annotation and the attempt to deduce the bean's type failed
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.validate(OnBeanCondition.java:657) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.<init>(OnBeanCondition.java:603) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getMatchOutcome(OnBeanCondition.java:147) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.SpringBootCondition.matches(SpringBootCondition.java:47) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	... 17 common frames omitted
+Caused by: org.springframework.boot.autoconfigure.condition.OnBeanCondition$BeanTypeDeductionException: Failed to deduce bean type for org.springframework.cloud.client.discovery.simple.SimpleDiscoveryClientAutoConfiguration.simpleDiscoveryProperties
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.deducedBeanTypeForBeanMethod(OnBeanCondition.java:686) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.deducedBeanType(OnBeanCondition.java:676) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.<init>(OnBeanCondition.java:596) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	... 19 common frames omitted
+Caused by: java.lang.IllegalStateException: Failed to introspect Class [org.springframework.cloud.client.discovery.simple.SimpleDiscoveryClientAutoConfiguration] from ClassLoader [jdk.internal.loader.ClassLoaders$AppClassLoader@4617c264]
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:483) ~[spring-core-7.0.7.jar:7.0.7]
+	at org.springframework.util.ReflectionUtils.findMethod(ReflectionUtils.java:240) ~[spring-core-7.0.7.jar:7.0.7]
+	at org.springframework.util.ReflectionUtils.findMethod(ReflectionUtils.java:221) ~[spring-core-7.0.7.jar:7.0.7]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.findBeanMethod(OnBeanCondition.java:715) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.getMethodReturnType(OnBeanCondition.java:710) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.getReturnType(OnBeanCondition.java:694) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.deducedBeanTypeForBeanMethod(OnBeanCondition.java:683) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	... 21 common frames omitted
+Caused by: java.lang.NoClassDefFoundError: org/springframework/boot/web/context/WebServerInitializedEvent
+	at java.base/java.lang.Class.getDeclaredMethods0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.privateGetDeclaredMethods(Class.java:3580) ~[na:na]
+	at java.base/java.lang.Class.getDeclaredMethods(Class.java:2678) ~[na:na]
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:465) ~[spring-core-7.0.7.jar:7.0.7]
+	... 27 common frames omitted
+Caused by: java.lang.ClassNotFoundException: org.springframework.boot.web.context.WebServerInitializedEvent
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641) ~[na:na]
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188) ~[na:na]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526) ~[na:na]
+	... 31 common frames omitted
+
+2026-06-19T13:00:53.278-04:00  INFO 10980 --- [main] c.m.usuario.UsuarioApplication           : Starting UsuarioApplication using Java 21.0.11 with PID 10980 (C:\Users\sj-alumno\IdeaProjects\Proyecto-Transversal\usuario\target\classes started by SJ-Alumno in C:\Users\sj-alumno\IdeaProjects\Proyecto-Transversal)
+2026-06-19T13:00:53.281-04:00 DEBUG 10980 --- [main] c.m.usuario.UsuarioApplication           : Running with Spring Boot v4.0.6, Spring v7.0.7
+2026-06-19T13:00:53.282-04:00  INFO 10980 --- [main] c.m.usuario.UsuarioApplication           : The following 1 profile is active: "dev"
+2026-06-19T13:00:54.270-04:00  WARN 10980 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: java.lang.IllegalStateException: Error processing condition on org.springframework.cloud.client.discovery.simple.SimpleDiscoveryClientAutoConfiguration.simpleDiscoveryProperties
+2026-06-19T13:00:54.290-04:00 ERROR 10980 --- [main] o.s.boot.SpringApplication               : Application run failed
+
+java.lang.IllegalStateException: Error processing condition on org.springframework.cloud.client.discovery.simple.SimpleDiscoveryClientAutoConfiguration.simpleDiscoveryProperties
+	at org.springframework.boot.autoconfigure.condition.SpringBootCondition.matches(SpringBootCondition.java:60) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.context.annotation.ConditionEvaluator.shouldSkip(ConditionEvaluator.java:100) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForBeanMethod(ConfigurationClassBeanDefinitionReader.java:196) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForConfigurationClass(ConfigurationClassBeanDefinitionReader.java:148) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitions(ConfigurationClassBeanDefinitionReader.java:124) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:464) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:316) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:349) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:118) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:795) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:603) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.boot.web.server.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143) ~[spring-boot-web-server-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:756) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:445) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:321) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1365) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354) ~[spring-boot-4.0.6.jar:4.0.6]
+	at com.marketplace.usuario.UsuarioApplication.main(UsuarioApplication.java:10) ~[classes/:na]
+Caused by: java.lang.IllegalStateException: @ConditionalOnMissingBean did not specify a bean using type, name or annotation and the attempt to deduce the bean's type failed
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.validate(OnBeanCondition.java:657) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.<init>(OnBeanCondition.java:603) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getMatchOutcome(OnBeanCondition.java:147) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.SpringBootCondition.matches(SpringBootCondition.java:47) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	... 17 common frames omitted
+Caused by: org.springframework.boot.autoconfigure.condition.OnBeanCondition$BeanTypeDeductionException: Failed to deduce bean type for org.springframework.cloud.client.discovery.simple.SimpleDiscoveryClientAutoConfiguration.simpleDiscoveryProperties
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.deducedBeanTypeForBeanMethod(OnBeanCondition.java:686) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.deducedBeanType(OnBeanCondition.java:676) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.<init>(OnBeanCondition.java:596) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	... 19 common frames omitted
+Caused by: java.lang.IllegalStateException: Failed to introspect Class [org.springframework.cloud.client.discovery.simple.SimpleDiscoveryClientAutoConfiguration] from ClassLoader [jdk.internal.loader.ClassLoaders$AppClassLoader@4617c264]
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:483) ~[spring-core-7.0.7.jar:7.0.7]
+	at org.springframework.util.ReflectionUtils.findMethod(ReflectionUtils.java:240) ~[spring-core-7.0.7.jar:7.0.7]
+	at org.springframework.util.ReflectionUtils.findMethod(ReflectionUtils.java:221) ~[spring-core-7.0.7.jar:7.0.7]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.findBeanMethod(OnBeanCondition.java:715) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.getMethodReturnType(OnBeanCondition.java:710) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.getReturnType(OnBeanCondition.java:694) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.deducedBeanTypeForBeanMethod(OnBeanCondition.java:683) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	... 21 common frames omitted
+Caused by: java.lang.NoClassDefFoundError: org/springframework/boot/web/context/WebServerInitializedEvent
+	at java.base/java.lang.Class.getDeclaredMethods0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.privateGetDeclaredMethods(Class.java:3580) ~[na:na]
+	at java.base/java.lang.Class.getDeclaredMethods(Class.java:2678) ~[na:na]
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:465) ~[spring-core-7.0.7.jar:7.0.7]
+	... 27 common frames omitted
+Caused by: java.lang.ClassNotFoundException: org.springframework.boot.web.context.WebServerInitializedEvent
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641) ~[na:na]
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188) ~[na:na]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526) ~[na:na]
+	... 31 common frames omitted
+
+2026-06-19T13:04:00.309-04:00  INFO 20596 --- [main] c.m.usuario.UsuarioApplication           : Starting UsuarioApplication using Java 21.0.11 with PID 20596 (C:\Users\sj-alumno\IdeaProjects\Proyecto-Transversal\usuario\target\classes started by SJ-Alumno in C:\Users\sj-alumno\IdeaProjects\Proyecto-Transversal)
+2026-06-19T13:04:00.312-04:00 DEBUG 20596 --- [main] c.m.usuario.UsuarioApplication           : Running with Spring Boot v4.0.6, Spring v7.0.7
+2026-06-19T13:04:00.312-04:00  INFO 20596 --- [main] c.m.usuario.UsuarioApplication           : The following 1 profile is active: "dev"
+2026-06-19T13:04:01.337-04:00  WARN 20596 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: java.lang.IllegalStateException: Error processing condition on org.springframework.cloud.client.discovery.simple.SimpleDiscoveryClientAutoConfiguration.simpleDiscoveryProperties
+2026-06-19T13:04:01.357-04:00 ERROR 20596 --- [main] o.s.boot.SpringApplication               : Application run failed
+
+java.lang.IllegalStateException: Error processing condition on org.springframework.cloud.client.discovery.simple.SimpleDiscoveryClientAutoConfiguration.simpleDiscoveryProperties
+	at org.springframework.boot.autoconfigure.condition.SpringBootCondition.matches(SpringBootCondition.java:60) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.context.annotation.ConditionEvaluator.shouldSkip(ConditionEvaluator.java:100) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForBeanMethod(ConfigurationClassBeanDefinitionReader.java:196) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForConfigurationClass(ConfigurationClassBeanDefinitionReader.java:148) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitions(ConfigurationClassBeanDefinitionReader.java:124) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:464) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:316) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:349) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:118) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:795) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:603) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.boot.web.server.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143) ~[spring-boot-web-server-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:756) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:445) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:321) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1365) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354) ~[spring-boot-4.0.6.jar:4.0.6]
+	at com.marketplace.usuario.UsuarioApplication.main(UsuarioApplication.java:10) ~[classes/:na]
+Caused by: java.lang.IllegalStateException: @ConditionalOnMissingBean did not specify a bean using type, name or annotation and the attempt to deduce the bean's type failed
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.validate(OnBeanCondition.java:657) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.<init>(OnBeanCondition.java:603) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getMatchOutcome(OnBeanCondition.java:147) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.SpringBootCondition.matches(SpringBootCondition.java:47) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	... 17 common frames omitted
+Caused by: org.springframework.boot.autoconfigure.condition.OnBeanCondition$BeanTypeDeductionException: Failed to deduce bean type for org.springframework.cloud.client.discovery.simple.SimpleDiscoveryClientAutoConfiguration.simpleDiscoveryProperties
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.deducedBeanTypeForBeanMethod(OnBeanCondition.java:686) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.deducedBeanType(OnBeanCondition.java:676) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.<init>(OnBeanCondition.java:596) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	... 19 common frames omitted
+Caused by: java.lang.IllegalStateException: Failed to introspect Class [org.springframework.cloud.client.discovery.simple.SimpleDiscoveryClientAutoConfiguration] from ClassLoader [jdk.internal.loader.ClassLoaders$AppClassLoader@4617c264]
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:483) ~[spring-core-7.0.7.jar:7.0.7]
+	at org.springframework.util.ReflectionUtils.findMethod(ReflectionUtils.java:240) ~[spring-core-7.0.7.jar:7.0.7]
+	at org.springframework.util.ReflectionUtils.findMethod(ReflectionUtils.java:221) ~[spring-core-7.0.7.jar:7.0.7]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.findBeanMethod(OnBeanCondition.java:715) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.getMethodReturnType(OnBeanCondition.java:710) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.getReturnType(OnBeanCondition.java:694) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.deducedBeanTypeForBeanMethod(OnBeanCondition.java:683) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	... 21 common frames omitted
+Caused by: java.lang.NoClassDefFoundError: org/springframework/boot/web/context/WebServerInitializedEvent
+	at java.base/java.lang.Class.getDeclaredMethods0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.privateGetDeclaredMethods(Class.java:3580) ~[na:na]
+	at java.base/java.lang.Class.getDeclaredMethods(Class.java:2678) ~[na:na]
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:465) ~[spring-core-7.0.7.jar:7.0.7]
+	... 27 common frames omitted
+Caused by: java.lang.ClassNotFoundException: org.springframework.boot.web.context.WebServerInitializedEvent
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641) ~[na:na]
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188) ~[na:na]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526) ~[na:na]
+	... 31 common frames omitted
+
+2026-06-19T13:11:34.739-04:00  INFO 13104 --- [main] c.m.usuario.UsuarioApplication           : Starting UsuarioApplication using Java 21.0.11 with PID 13104 (C:\Users\sj-alumno\IdeaProjects\Proyecto-Transversal\usuario\target\classes started by SJ-Alumno in C:\Users\sj-alumno\IdeaProjects\Proyecto-Transversal)
+2026-06-19T13:11:34.742-04:00 DEBUG 13104 --- [main] c.m.usuario.UsuarioApplication           : Running with Spring Boot v4.0.6, Spring v7.0.7
+2026-06-19T13:11:34.743-04:00  INFO 13104 --- [main] c.m.usuario.UsuarioApplication           : The following 1 profile is active: "dev"
+2026-06-19T13:11:37.410-04:00  WARN 13104 --- [main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-19T13:11:38.476-04:00  WARN 13104 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-19T13:11:38.651-04:00  WARN 13104 --- [main] .s.a.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 5a8d92a4-9b04-4adc-a956-7b4ccd58b7b9
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-06-19T13:11:38.851-04:00 DEBUG 13104 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 11 mappings in 'requestMappingHandlerMapping'
+2026-06-19T13:11:38.889-04:00 DEBUG 13104 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /doc/swagger-ui/**, /doc/swagger-ui/*swagger-initializer.js, /webjars/*swagger-ui/**, /webjars/*swagger-ui/*swagger-initializer.js, /webjars/*swagger-ui/5.32.2/*swagger-initializer.js] in 'resourceHandlerMapping'
+2026-06-19T13:11:38.946-04:00 DEBUG 13104 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 2 RequestBodyAdvice, 1 ResponseBodyAdvice
+2026-06-19T13:11:38.989-04:00 DEBUG 13104 --- [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2026-06-19T13:11:39.349-04:00  WARN 13104 --- [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-06-19T13:11:39.659-04:00 DEBUG 13104 --- [main] o.s.web.client.DefaultRestClient         : Reading to [com.netflix.discovery.shared.Applications]
+2026-06-19T13:11:39.712-04:00 DEBUG 13104 --- [DiscoveryClient-InstanceInfoReplicator-%d] o.s.web.client.DefaultRestClient         : Writing [InstanceInfo [instanceId = SJAPCS08LR0010.duoc.acad:8080, appName = UNKNOWN, hostName = SJAPCS08LR0010.duoc.acad, status = UP, ipAddr = 10.209.2.134, port = 8080, securePort = 443, dataCenterInfo = com.netflix.appinfo.MyDataCenterInfo@5259469d] as "application/json" with org.springframework.http.converter.json.MappingJackson2HttpMessageConverter
+2026-06-19T13:11:39.739-04:00  INFO 13104 --- [main] c.m.usuario.UsuarioApplication           : Started UsuarioApplication in 5.552 seconds (process running for 6.39)
