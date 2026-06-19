@@ -1,13 +1,13 @@
 spring:
   application:
-    name: carrito
+    name: carrito-service
   datasource:
     url: jdbc:mysql://localhost:3306/marketplace-carrito?createDatabaseIfNotExist=true
     username: root
     password: system
   jpa:
     hibernate:
-      ddl-auto: none
+      ddl-auto: update
     show-sql: true
     properties:
       hibernate:
