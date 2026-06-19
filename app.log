@@ -784,3 +784,627 @@ Caused by: java.sql.SQLSyntaxErrorException: Unknown database 'db_pago'
 	at org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl.getIsolatedConnection(DdlTransactionIsolatorNonJtaImpl.java:44) ~[hibernate-core-7.2.7.Final.jar:7.2.7.Final]
 	... 43 common frames omitted
 
+2026-06-19T12:03:03.570-04:00  INFO 14060 --- [usuario] [main] c.m.usuario.UsuarioApplication           : Starting UsuarioApplication using Java 21.0.11 with PID 14060 (C:\Users\sj-alumno\IdeaProjects\Proyecto-Transversal\usuario\target\classes started by SJ-Alumno in C:\Users\sj-alumno\IdeaProjects\Proyecto-Transversal)
+2026-06-19T12:03:03.573-04:00 DEBUG 14060 --- [usuario] [main] c.m.usuario.UsuarioApplication           : Running with Spring Boot v4.0.6, Spring v7.0.7
+2026-06-19T12:03:03.574-04:00  INFO 14060 --- [usuario] [main] c.m.usuario.UsuarioApplication           : The following 1 profile is active: "dev"
+2026-06-19T12:03:04.293-04:00  WARN 14060 --- [usuario] [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: java.lang.IllegalStateException: Error processing condition on org.springdoc.webmvc.ui.SwaggerConfig.swaggerWelcome
+2026-06-19T12:03:04.311-04:00 ERROR 14060 --- [usuario] [main] o.s.boot.SpringApplication               : Application run failed
+
+java.lang.IllegalStateException: Error processing condition on org.springdoc.webmvc.ui.SwaggerConfig.swaggerWelcome
+	at org.springframework.boot.autoconfigure.condition.SpringBootCondition.matches(SpringBootCondition.java:60) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.context.annotation.ConditionEvaluator.shouldSkip(ConditionEvaluator.java:100) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForBeanMethod(ConfigurationClassBeanDefinitionReader.java:196) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForConfigurationClass(ConfigurationClassBeanDefinitionReader.java:148) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitions(ConfigurationClassBeanDefinitionReader.java:124) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:464) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:316) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:349) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:118) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:795) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:603) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.boot.web.server.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143) ~[spring-boot-web-server-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:756) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:445) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:321) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1365) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354) ~[spring-boot-4.0.6.jar:4.0.6]
+	at com.marketplace.usuario.UsuarioApplication.main(UsuarioApplication.java:10) ~[classes/:na]
+Caused by: java.lang.IllegalStateException: @ConditionalOnMissingBean did not specify a bean using type, name or annotation and the attempt to deduce the bean's type failed
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.validate(OnBeanCondition.java:657) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.<init>(OnBeanCondition.java:603) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getMatchOutcome(OnBeanCondition.java:147) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.SpringBootCondition.matches(SpringBootCondition.java:47) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	... 17 common frames omitted
+Caused by: org.springframework.boot.autoconfigure.condition.OnBeanCondition$BeanTypeDeductionException: Failed to deduce bean type for org.springdoc.webmvc.ui.SwaggerConfig.swaggerWelcome
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.deducedBeanTypeForBeanMethod(OnBeanCondition.java:686) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.deducedBeanType(OnBeanCondition.java:676) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.<init>(OnBeanCondition.java:596) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	... 19 common frames omitted
+Caused by: java.lang.IllegalStateException: Failed to introspect Class [org.springdoc.webmvc.ui.SwaggerConfig] from ClassLoader [jdk.internal.loader.ClassLoaders$AppClassLoader@4617c264]
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:483) ~[spring-core-7.0.7.jar:7.0.7]
+	at org.springframework.util.ReflectionUtils.findMethod(ReflectionUtils.java:240) ~[spring-core-7.0.7.jar:7.0.7]
+	at org.springframework.util.ReflectionUtils.findMethod(ReflectionUtils.java:221) ~[spring-core-7.0.7.jar:7.0.7]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.findBeanMethod(OnBeanCondition.java:715) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.getMethodReturnType(OnBeanCondition.java:710) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.getReturnType(OnBeanCondition.java:694) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.deducedBeanTypeForBeanMethod(OnBeanCondition.java:683) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	... 21 common frames omitted
+Caused by: java.lang.NoClassDefFoundError: org/springframework/boot/autoconfigure/web/servlet/WebMvcProperties
+	at java.base/java.lang.Class.getDeclaredMethods0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.privateGetDeclaredMethods(Class.java:3580) ~[na:na]
+	at java.base/java.lang.Class.getDeclaredMethods(Class.java:2678) ~[na:na]
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:465) ~[spring-core-7.0.7.jar:7.0.7]
+	... 27 common frames omitted
+Caused by: java.lang.ClassNotFoundException: org.springframework.boot.autoconfigure.web.servlet.WebMvcProperties
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641) ~[na:na]
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188) ~[na:na]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526) ~[na:na]
+	... 31 common frames omitted
+
+2026-06-19T12:05:00.566-04:00  INFO 13216 --- [inventario] [main] c.m.inventario.InventarioApplication     : Starting InventarioApplication using Java 21.0.11 with PID 13216 (C:\Users\sj-alumno\IdeaProjects\Proyecto-Transversal\inventario\target\classes started by SJ-Alumno in C:\Users\sj-alumno\IdeaProjects\Proyecto-Transversal)
+2026-06-19T12:05:00.569-04:00 DEBUG 13216 --- [inventario] [main] c.m.inventario.InventarioApplication     : Running with Spring Boot v4.0.6, Spring v7.0.7
+2026-06-19T12:05:00.570-04:00  INFO 13216 --- [inventario] [main] c.m.inventario.InventarioApplication     : The following 1 profile is active: "dev"
+2026-06-19T12:05:02.972-04:00  WARN 13216 --- [inventario] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-19T12:05:03.984-04:00  WARN 13216 --- [inventario] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-19T12:05:04.114-04:00  WARN 13216 --- [inventario] [main] .s.a.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: e596e07a-cde8-428c-a293-0cf98855a955
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-06-19T12:05:04.306-04:00 DEBUG 13216 --- [inventario] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 9 mappings in 'requestMappingHandlerMapping'
+2026-06-19T12:05:04.336-04:00 DEBUG 13216 --- [inventario] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /doc/swagger-ui*/*swagger-initializer.js, /doc/swagger-ui*/**] in 'resourceHandlerMapping'
+2026-06-19T12:05:04.392-04:00 DEBUG 13216 --- [inventario] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 2 RequestBodyAdvice, 1 ResponseBodyAdvice
+2026-06-19T12:05:04.434-04:00 DEBUG 13216 --- [inventario] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2026-06-19T12:05:04.451-04:00  WARN 13216 --- [inventario] [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'modelConverterRegistrar' defined in class path resource [org/springdoc/core/configuration/SpringDocConfiguration.class]: Unsatisfied dependency expressed through method 'modelConverterRegistrar' parameter 0: Error creating bean with name 'collectionModelContentConverter' defined in class path resource [org/springdoc/core/configuration/SpringDocHateoasConfiguration.class]: Unsatisfied dependency expressed through method 'collectionModelContentConverter' parameter 0: Error creating bean with name 'hateoasHalProvider' defined in class path resource [org/springdoc/core/configuration/SpringDocHateoasConfiguration.class]: Unexpected exception during bean creation
+2026-06-19T12:05:04.481-04:00 ERROR 13216 --- [inventario] [main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'modelConverterRegistrar' defined in class path resource [org/springdoc/core/configuration/SpringDocConfiguration.class]: Unsatisfied dependency expressed through method 'modelConverterRegistrar' parameter 0: Error creating bean with name 'collectionModelContentConverter' defined in class path resource [org/springdoc/core/configuration/SpringDocHateoasConfiguration.class]: Unsatisfied dependency expressed through method 'collectionModelContentConverter' parameter 0: Error creating bean with name 'hateoasHalProvider' defined in class path resource [org/springdoc/core/configuration/SpringDocHateoasConfiguration.class]: Unexpected exception during bean creation
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:804) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:546) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1362) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1194) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:565) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:525) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:333) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:371) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:331) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:196) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.instantiateSingleton(DefaultListableBeanFactory.java:1218) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingleton(DefaultListableBeanFactory.java:1184) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:1121) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:994) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:621) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.boot.web.server.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143) ~[spring-boot-web-server-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:756) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:445) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:321) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1365) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354) ~[spring-boot-4.0.6.jar:4.0.6]
+	at com.marketplace.inventario.InventarioApplication.main(InventarioApplication.java:10) ~[classes/:na]
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'collectionModelContentConverter' defined in class path resource [org/springdoc/core/configuration/SpringDocHateoasConfiguration.class]: Unsatisfied dependency expressed through method 'collectionModelContentConverter' parameter 0: Error creating bean with name 'hateoasHalProvider' defined in class path resource [org/springdoc/core/configuration/SpringDocHateoasConfiguration.class]: Unexpected exception during bean creation
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:804) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:546) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1362) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1194) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:565) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:525) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:333) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:371) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:331) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:201) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:229) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.addCandidateEntry(DefaultListableBeanFactory.java:2008) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.findAutowireCandidates(DefaultListableBeanFactory.java:1971) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveMultipleBeanCollection(DefaultListableBeanFactory.java:1863) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveMultipleBeans(DefaultListableBeanFactory.java:1833) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1711) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.createOptionalDependency(DefaultListableBeanFactory.java:2351) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1635) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:912) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791) ~[spring-beans-7.0.7.jar:7.0.7]
+	... 21 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'hateoasHalProvider' defined in class path resource [org/springdoc/core/configuration/SpringDocHateoasConfiguration.class]: Unexpected exception during bean creation
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:538) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:333) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:371) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:331) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:201) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:229) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1762) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1651) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:912) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791) ~[spring-beans-7.0.7.jar:7.0.7]
+	... 40 common frames omitted
+Caused by: java.lang.TypeNotPresentException: Type org.springframework.boot.autoconfigure.hateoas.HateoasProperties not present
+	at java.base/sun.reflect.generics.factory.CoreReflectionFactory.makeNamedType(CoreReflectionFactory.java:117) ~[na:na]
+	at java.base/sun.reflect.generics.visitor.Reifier.visitClassTypeSignature(Reifier.java:125) ~[na:na]
+	at java.base/sun.reflect.generics.tree.ClassTypeSignature.accept(ClassTypeSignature.java:49) ~[na:na]
+	at java.base/sun.reflect.generics.visitor.Reifier.reifyTypeArguments(Reifier.java:68) ~[na:na]
+	at java.base/sun.reflect.generics.visitor.Reifier.visitClassTypeSignature(Reifier.java:138) ~[na:na]
+	at java.base/sun.reflect.generics.tree.ClassTypeSignature.accept(ClassTypeSignature.java:49) ~[na:na]
+	at java.base/sun.reflect.generics.repository.ConstructorRepository.computeParameterTypes(ConstructorRepository.java:111) ~[na:na]
+	at java.base/sun.reflect.generics.repository.ConstructorRepository.getParameterTypes(ConstructorRepository.java:87) ~[na:na]
+	at java.base/java.lang.reflect.Executable.getGenericParameterTypes(Executable.java:313) ~[na:na]
+	at java.base/java.lang.reflect.Method.getGenericParameterTypes(Method.java:337) ~[na:na]
+	at org.springframework.core.MethodParameter.getGenericParameterType(MethodParameter.java:499) ~[spring-core-7.0.7.jar:7.0.7]
+	at org.springframework.core.MethodParameter.getNestedParameterType(MethodParameter.java:539) ~[spring-core-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.config.DependencyDescriptor.getDependencyType(DependencyDescriptor.java:357) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1666) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.createOptionalDependency(DefaultListableBeanFactory.java:2351) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1635) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:912) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:546) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1362) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1194) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:565) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:525) ~[spring-beans-7.0.7.jar:7.0.7]
+	... 49 common frames omitted
+Caused by: java.lang.ClassNotFoundException: org.springframework.boot.autoconfigure.hateoas.HateoasProperties
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641) ~[na:na]
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188) ~[na:na]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526) ~[na:na]
+	at java.base/java.lang.Class.forName0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.forName(Class.java:536) ~[na:na]
+	at java.base/java.lang.Class.forName(Class.java:515) ~[na:na]
+	at java.base/sun.reflect.generics.factory.CoreReflectionFactory.makeNamedType(CoreReflectionFactory.java:114) ~[na:na]
+	... 71 common frames omitted
+
+2026-06-19T12:05:39.491-04:00  INFO 5724 --- [carrito] [main] c.m.carrito.CarritoApplication           : Starting CarritoApplication using Java 21.0.11 with PID 5724 (C:\Users\sj-alumno\IdeaProjects\Proyecto-Transversal\carrito\target\classes started by SJ-Alumno in C:\Users\sj-alumno\IdeaProjects\Proyecto-Transversal)
+2026-06-19T12:05:39.493-04:00 DEBUG 5724 --- [carrito] [main] c.m.carrito.CarritoApplication           : Running with Spring Boot v4.0.6, Spring v7.0.7
+2026-06-19T12:05:39.494-04:00  INFO 5724 --- [carrito] [main] c.m.carrito.CarritoApplication           : The following 1 profile is active: "dev"
+2026-06-19T12:05:40.505-04:00  WARN 5724 --- [carrito] [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: java.lang.IllegalStateException: Error processing condition on org.springframework.cloud.client.discovery.simple.SimpleDiscoveryClientAutoConfiguration.simpleDiscoveryProperties
+2026-06-19T12:05:40.526-04:00 ERROR 5724 --- [carrito] [main] o.s.boot.SpringApplication               : Application run failed
+
+java.lang.IllegalStateException: Error processing condition on org.springframework.cloud.client.discovery.simple.SimpleDiscoveryClientAutoConfiguration.simpleDiscoveryProperties
+	at org.springframework.boot.autoconfigure.condition.SpringBootCondition.matches(SpringBootCondition.java:60) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.context.annotation.ConditionEvaluator.shouldSkip(ConditionEvaluator.java:100) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForBeanMethod(ConfigurationClassBeanDefinitionReader.java:196) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForConfigurationClass(ConfigurationClassBeanDefinitionReader.java:148) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitions(ConfigurationClassBeanDefinitionReader.java:124) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:464) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:316) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:349) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:118) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:795) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:603) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.boot.web.server.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143) ~[spring-boot-web-server-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:756) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:445) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:321) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1365) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354) ~[spring-boot-4.0.6.jar:4.0.6]
+	at com.marketplace.carrito.CarritoApplication.main(CarritoApplication.java:10) ~[classes/:na]
+Caused by: java.lang.IllegalStateException: @ConditionalOnMissingBean did not specify a bean using type, name or annotation and the attempt to deduce the bean's type failed
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.validate(OnBeanCondition.java:657) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.<init>(OnBeanCondition.java:603) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getMatchOutcome(OnBeanCondition.java:147) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.SpringBootCondition.matches(SpringBootCondition.java:47) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	... 17 common frames omitted
+Caused by: org.springframework.boot.autoconfigure.condition.OnBeanCondition$BeanTypeDeductionException: Failed to deduce bean type for org.springframework.cloud.client.discovery.simple.SimpleDiscoveryClientAutoConfiguration.simpleDiscoveryProperties
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.deducedBeanTypeForBeanMethod(OnBeanCondition.java:686) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.deducedBeanType(OnBeanCondition.java:676) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.<init>(OnBeanCondition.java:596) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	... 19 common frames omitted
+Caused by: java.lang.IllegalStateException: Failed to introspect Class [org.springframework.cloud.client.discovery.simple.SimpleDiscoveryClientAutoConfiguration] from ClassLoader [jdk.internal.loader.ClassLoaders$AppClassLoader@4617c264]
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:483) ~[spring-core-7.0.7.jar:7.0.7]
+	at org.springframework.util.ReflectionUtils.findMethod(ReflectionUtils.java:240) ~[spring-core-7.0.7.jar:7.0.7]
+	at org.springframework.util.ReflectionUtils.findMethod(ReflectionUtils.java:221) ~[spring-core-7.0.7.jar:7.0.7]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.findBeanMethod(OnBeanCondition.java:715) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.getMethodReturnType(OnBeanCondition.java:710) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.getReturnType(OnBeanCondition.java:694) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.deducedBeanTypeForBeanMethod(OnBeanCondition.java:683) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	... 21 common frames omitted
+Caused by: java.lang.NoClassDefFoundError: org/springframework/boot/web/context/WebServerInitializedEvent
+	at java.base/java.lang.Class.getDeclaredMethods0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.privateGetDeclaredMethods(Class.java:3580) ~[na:na]
+	at java.base/java.lang.Class.getDeclaredMethods(Class.java:2678) ~[na:na]
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:465) ~[spring-core-7.0.7.jar:7.0.7]
+	... 27 common frames omitted
+Caused by: java.lang.ClassNotFoundException: org.springframework.boot.web.context.WebServerInitializedEvent
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641) ~[na:na]
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188) ~[na:na]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526) ~[na:na]
+	... 31 common frames omitted
+
+2026-06-19T12:06:16.350-04:00  INFO 6268 --- [producto] [main] c.m.producto.ProductoApplication         : Starting ProductoApplication using Java 21.0.11 with PID 6268 (C:\Users\sj-alumno\IdeaProjects\Proyecto-Transversal\producto\target\classes started by SJ-Alumno in C:\Users\sj-alumno\IdeaProjects\Proyecto-Transversal)
+2026-06-19T12:06:16.353-04:00 DEBUG 6268 --- [producto] [main] c.m.producto.ProductoApplication         : Running with Spring Boot v4.0.6, Spring v7.0.7
+2026-06-19T12:06:16.354-04:00  INFO 6268 --- [producto] [main] c.m.producto.ProductoApplication         : The following 1 profile is active: "dev"
+2026-06-19T12:06:19.702-04:00  WARN 6268 --- [producto] [main] org.hibernate.orm.jdbc.error             : HHH000247: ErrorCode: 1045, SQLState: 28000
+2026-06-19T12:06:19.702-04:00  WARN 6268 --- [producto] [main] org.hibernate.orm.jdbc.error             : Access denied for user 'root'@'localhost' (using password: NO)
+2026-06-19T12:06:19.703-04:00  WARN 6268 --- [producto] [main] org.hibernate.orm.jdbc                   : HHH100046: Could not obtain connection to query JDBC database metadata
+
+org.hibernate.exception.AuthException: Unable to obtain isolated JDBC connection [Access denied for user 'root'@'localhost' (using password: NO)] [n/a]
+	at org.hibernate.exception.internal.SQLStateConversionDelegate.convert(SQLStateConversionDelegate.java:87) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:34) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:115) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:101) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.delegateWork(JdbcIsolationDelegate.java:51) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:366) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironment(JdbcEnvironmentInitiator.java:143) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:120) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:80) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:133) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:260) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:235) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:212) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.boot.model.relational.Database.<init>(Database.java:44) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.getDatabase(InFlightMetadataCollectorImpl.java:251) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:203) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:172) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1392) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.populateSessionFactoryBuilder(EntityManagerFactoryBuilderImpl.java:1472) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1454) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:93) ~[spring-orm-7.0.7.jar:7.0.7]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:443) ~[spring-orm-7.0.7.jar:7.0.7]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:436) ~[spring-orm-7.0.7.jar:7.0.7]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:411) ~[spring-orm-7.0.7.jar:7.0.7]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:419) ~[spring-orm-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1864) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1813) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:603) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:525) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:333) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:371) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:331) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:201) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:977) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:621) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.boot.web.server.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143) ~[spring-boot-web-server-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:756) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:445) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:321) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1365) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354) ~[spring-boot-4.0.6.jar:4.0.6]
+	at com.marketplace.producto.ProductoApplication.main(ProductoApplication.java:10) ~[classes/:na]
+Caused by: java.sql.SQLException: Access denied for user 'root'@'localhost' (using password: NO)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:121) ~[mysql-connector-j-9.7.0.jar:9.7.0]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114) ~[mysql-connector-j-9.7.0.jar:9.7.0]
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:840) ~[mysql-connector-j-9.7.0.jar:9.7.0]
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:416) ~[mysql-connector-j-9.7.0.jar:9.7.0]
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:237) ~[mysql-connector-j-9.7.0.jar:9.7.0]
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:180) ~[mysql-connector-j-9.7.0.jar:9.7.0]
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:144) ~[HikariCP-7.0.2.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:373) ~[HikariCP-7.0.2.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:210) ~[HikariCP-7.0.2.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:488) ~[HikariCP-7.0.2.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:576) ~[HikariCP-7.0.2.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:97) ~[HikariCP-7.0.2.jar:na]
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:111) ~[HikariCP-7.0.2.jar:na]
+	at org.hibernate.engine.jdbc.connections.internal.DataSourceConnectionProvider.getConnection(DataSourceConnectionProvider.java:137) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:508) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.delegateWork(JdbcIsolationDelegate.java:48) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	... 37 common frames omitted
+
+2026-06-19T12:06:19.722-04:00  WARN 6268 --- [producto] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-19T12:06:20.737-04:00  WARN 6268 --- [producto] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-19T12:06:20.869-04:00  WARN 6268 --- [producto] [main] .s.a.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 7c3e4fdd-ceb2-4e31-aaf4-0696f90f1d5b
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-06-19T12:06:21.053-04:00 DEBUG 6268 --- [producto] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 9 mappings in 'requestMappingHandlerMapping'
+2026-06-19T12:06:21.085-04:00 DEBUG 6268 --- [producto] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /doc/swagger-ui*/*swagger-initializer.js, /doc/swagger-ui*/**] in 'resourceHandlerMapping'
+2026-06-19T12:06:21.139-04:00 DEBUG 6268 --- [producto] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 2 RequestBodyAdvice, 1 ResponseBodyAdvice
+2026-06-19T12:06:21.182-04:00 DEBUG 6268 --- [producto] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2026-06-19T12:06:21.199-04:00  WARN 6268 --- [producto] [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'modelConverterRegistrar' defined in class path resource [org/springdoc/core/configuration/SpringDocConfiguration.class]: Unsatisfied dependency expressed through method 'modelConverterRegistrar' parameter 0: Error creating bean with name 'collectionModelContentConverter' defined in class path resource [org/springdoc/core/configuration/SpringDocHateoasConfiguration.class]: Unsatisfied dependency expressed through method 'collectionModelContentConverter' parameter 0: Error creating bean with name 'hateoasHalProvider' defined in class path resource [org/springdoc/core/configuration/SpringDocHateoasConfiguration.class]: Unexpected exception during bean creation
+2026-06-19T12:06:21.220-04:00 ERROR 6268 --- [producto] [main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'modelConverterRegistrar' defined in class path resource [org/springdoc/core/configuration/SpringDocConfiguration.class]: Unsatisfied dependency expressed through method 'modelConverterRegistrar' parameter 0: Error creating bean with name 'collectionModelContentConverter' defined in class path resource [org/springdoc/core/configuration/SpringDocHateoasConfiguration.class]: Unsatisfied dependency expressed through method 'collectionModelContentConverter' parameter 0: Error creating bean with name 'hateoasHalProvider' defined in class path resource [org/springdoc/core/configuration/SpringDocHateoasConfiguration.class]: Unexpected exception during bean creation
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:804) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:546) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1362) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1194) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:565) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:525) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:333) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:371) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:331) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:196) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.instantiateSingleton(DefaultListableBeanFactory.java:1218) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingleton(DefaultListableBeanFactory.java:1184) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:1121) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:994) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:621) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.boot.web.server.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143) ~[spring-boot-web-server-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:756) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:445) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:321) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1365) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354) ~[spring-boot-4.0.6.jar:4.0.6]
+	at com.marketplace.producto.ProductoApplication.main(ProductoApplication.java:10) ~[classes/:na]
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'collectionModelContentConverter' defined in class path resource [org/springdoc/core/configuration/SpringDocHateoasConfiguration.class]: Unsatisfied dependency expressed through method 'collectionModelContentConverter' parameter 0: Error creating bean with name 'hateoasHalProvider' defined in class path resource [org/springdoc/core/configuration/SpringDocHateoasConfiguration.class]: Unexpected exception during bean creation
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:804) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:546) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1362) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1194) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:565) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:525) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:333) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:371) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:331) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:201) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:229) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.addCandidateEntry(DefaultListableBeanFactory.java:2008) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.findAutowireCandidates(DefaultListableBeanFactory.java:1971) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveMultipleBeanCollection(DefaultListableBeanFactory.java:1863) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveMultipleBeans(DefaultListableBeanFactory.java:1833) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1711) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.createOptionalDependency(DefaultListableBeanFactory.java:2351) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1635) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:912) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791) ~[spring-beans-7.0.7.jar:7.0.7]
+	... 21 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'hateoasHalProvider' defined in class path resource [org/springdoc/core/configuration/SpringDocHateoasConfiguration.class]: Unexpected exception during bean creation
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:538) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:333) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:371) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:331) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:201) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:229) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1762) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1651) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:912) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791) ~[spring-beans-7.0.7.jar:7.0.7]
+	... 40 common frames omitted
+Caused by: java.lang.TypeNotPresentException: Type org.springframework.boot.autoconfigure.hateoas.HateoasProperties not present
+	at java.base/sun.reflect.generics.factory.CoreReflectionFactory.makeNamedType(CoreReflectionFactory.java:117) ~[na:na]
+	at java.base/sun.reflect.generics.visitor.Reifier.visitClassTypeSignature(Reifier.java:125) ~[na:na]
+	at java.base/sun.reflect.generics.tree.ClassTypeSignature.accept(ClassTypeSignature.java:49) ~[na:na]
+	at java.base/sun.reflect.generics.visitor.Reifier.reifyTypeArguments(Reifier.java:68) ~[na:na]
+	at java.base/sun.reflect.generics.visitor.Reifier.visitClassTypeSignature(Reifier.java:138) ~[na:na]
+	at java.base/sun.reflect.generics.tree.ClassTypeSignature.accept(ClassTypeSignature.java:49) ~[na:na]
+	at java.base/sun.reflect.generics.repository.ConstructorRepository.computeParameterTypes(ConstructorRepository.java:111) ~[na:na]
+	at java.base/sun.reflect.generics.repository.ConstructorRepository.getParameterTypes(ConstructorRepository.java:87) ~[na:na]
+	at java.base/java.lang.reflect.Executable.getGenericParameterTypes(Executable.java:313) ~[na:na]
+	at java.base/java.lang.reflect.Method.getGenericParameterTypes(Method.java:337) ~[na:na]
+	at org.springframework.core.MethodParameter.getGenericParameterType(MethodParameter.java:499) ~[spring-core-7.0.7.jar:7.0.7]
+	at org.springframework.core.MethodParameter.getNestedParameterType(MethodParameter.java:539) ~[spring-core-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.config.DependencyDescriptor.getDependencyType(DependencyDescriptor.java:357) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1666) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.createOptionalDependency(DefaultListableBeanFactory.java:2351) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1635) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:912) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:546) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1362) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1194) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:565) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:525) ~[spring-beans-7.0.7.jar:7.0.7]
+	... 49 common frames omitted
+Caused by: java.lang.ClassNotFoundException: org.springframework.boot.autoconfigure.hateoas.HateoasProperties
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641) ~[na:na]
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188) ~[na:na]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526) ~[na:na]
+	at java.base/java.lang.Class.forName0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.forName(Class.java:536) ~[na:na]
+	at java.base/java.lang.Class.forName(Class.java:515) ~[na:na]
+	at java.base/sun.reflect.generics.factory.CoreReflectionFactory.makeNamedType(CoreReflectionFactory.java:114) ~[na:na]
+	... 71 common frames omitted
+
+2026-06-19T12:06:55.698-04:00  INFO 23700 --- [vendedor] [main] c.m.vendedor.VendedorApplication         : Starting VendedorApplication using Java 21.0.11 with PID 23700 (C:\Users\sj-alumno\IdeaProjects\Proyecto-Transversal\vendedor\target\classes started by SJ-Alumno in C:\Users\sj-alumno\IdeaProjects\Proyecto-Transversal)
+2026-06-19T12:06:55.701-04:00 DEBUG 23700 --- [vendedor] [main] c.m.vendedor.VendedorApplication         : Running with Spring Boot v4.0.6, Spring v7.0.7
+2026-06-19T12:06:55.702-04:00  INFO 23700 --- [vendedor] [main] c.m.vendedor.VendedorApplication         : The following 1 profile is active: "dev"
+2026-06-19T12:06:58.114-04:00  WARN 23700 --- [vendedor] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-19T12:06:59.142-04:00  WARN 23700 --- [vendedor] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-19T12:06:59.275-04:00  WARN 23700 --- [vendedor] [main] .s.a.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 39fccfed-2f78-452d-88fa-378c50521bc3
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-06-19T12:06:59.470-04:00 DEBUG 23700 --- [vendedor] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 9 mappings in 'requestMappingHandlerMapping'
+2026-06-19T12:06:59.501-04:00 DEBUG 23700 --- [vendedor] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /doc/swagger-ui*/*swagger-initializer.js, /doc/swagger-ui*/**] in 'resourceHandlerMapping'
+2026-06-19T12:06:59.558-04:00 DEBUG 23700 --- [vendedor] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 2 RequestBodyAdvice, 1 ResponseBodyAdvice
+2026-06-19T12:06:59.600-04:00 DEBUG 23700 --- [vendedor] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2026-06-19T12:06:59.617-04:00  WARN 23700 --- [vendedor] [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'modelConverterRegistrar' defined in class path resource [org/springdoc/core/configuration/SpringDocConfiguration.class]: Unsatisfied dependency expressed through method 'modelConverterRegistrar' parameter 0: Error creating bean with name 'collectionModelContentConverter' defined in class path resource [org/springdoc/core/configuration/SpringDocHateoasConfiguration.class]: Unsatisfied dependency expressed through method 'collectionModelContentConverter' parameter 0: Error creating bean with name 'hateoasHalProvider' defined in class path resource [org/springdoc/core/configuration/SpringDocHateoasConfiguration.class]: Unexpected exception during bean creation
+2026-06-19T12:06:59.649-04:00 ERROR 23700 --- [vendedor] [main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'modelConverterRegistrar' defined in class path resource [org/springdoc/core/configuration/SpringDocConfiguration.class]: Unsatisfied dependency expressed through method 'modelConverterRegistrar' parameter 0: Error creating bean with name 'collectionModelContentConverter' defined in class path resource [org/springdoc/core/configuration/SpringDocHateoasConfiguration.class]: Unsatisfied dependency expressed through method 'collectionModelContentConverter' parameter 0: Error creating bean with name 'hateoasHalProvider' defined in class path resource [org/springdoc/core/configuration/SpringDocHateoasConfiguration.class]: Unexpected exception during bean creation
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:804) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:546) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1362) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1194) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:565) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:525) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:333) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:371) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:331) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:196) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.instantiateSingleton(DefaultListableBeanFactory.java:1218) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingleton(DefaultListableBeanFactory.java:1184) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:1121) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:994) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:621) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.boot.web.server.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143) ~[spring-boot-web-server-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:756) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:445) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:321) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1365) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354) ~[spring-boot-4.0.6.jar:4.0.6]
+	at com.marketplace.vendedor.VendedorApplication.main(VendedorApplication.java:10) ~[classes/:na]
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'collectionModelContentConverter' defined in class path resource [org/springdoc/core/configuration/SpringDocHateoasConfiguration.class]: Unsatisfied dependency expressed through method 'collectionModelContentConverter' parameter 0: Error creating bean with name 'hateoasHalProvider' defined in class path resource [org/springdoc/core/configuration/SpringDocHateoasConfiguration.class]: Unexpected exception during bean creation
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:804) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:546) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1362) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1194) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:565) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:525) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:333) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:371) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:331) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:201) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:229) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.addCandidateEntry(DefaultListableBeanFactory.java:2008) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.findAutowireCandidates(DefaultListableBeanFactory.java:1971) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveMultipleBeanCollection(DefaultListableBeanFactory.java:1863) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveMultipleBeans(DefaultListableBeanFactory.java:1833) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1711) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.createOptionalDependency(DefaultListableBeanFactory.java:2351) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1635) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:912) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791) ~[spring-beans-7.0.7.jar:7.0.7]
+	... 21 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'hateoasHalProvider' defined in class path resource [org/springdoc/core/configuration/SpringDocHateoasConfiguration.class]: Unexpected exception during bean creation
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:538) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:333) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:371) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:331) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:201) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:229) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1762) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1651) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:912) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791) ~[spring-beans-7.0.7.jar:7.0.7]
+	... 40 common frames omitted
+Caused by: java.lang.TypeNotPresentException: Type org.springframework.boot.autoconfigure.hateoas.HateoasProperties not present
+	at java.base/sun.reflect.generics.factory.CoreReflectionFactory.makeNamedType(CoreReflectionFactory.java:117) ~[na:na]
+	at java.base/sun.reflect.generics.visitor.Reifier.visitClassTypeSignature(Reifier.java:125) ~[na:na]
+	at java.base/sun.reflect.generics.tree.ClassTypeSignature.accept(ClassTypeSignature.java:49) ~[na:na]
+	at java.base/sun.reflect.generics.visitor.Reifier.reifyTypeArguments(Reifier.java:68) ~[na:na]
+	at java.base/sun.reflect.generics.visitor.Reifier.visitClassTypeSignature(Reifier.java:138) ~[na:na]
+	at java.base/sun.reflect.generics.tree.ClassTypeSignature.accept(ClassTypeSignature.java:49) ~[na:na]
+	at java.base/sun.reflect.generics.repository.ConstructorRepository.computeParameterTypes(ConstructorRepository.java:111) ~[na:na]
+	at java.base/sun.reflect.generics.repository.ConstructorRepository.getParameterTypes(ConstructorRepository.java:87) ~[na:na]
+	at java.base/java.lang.reflect.Executable.getGenericParameterTypes(Executable.java:313) ~[na:na]
+	at java.base/java.lang.reflect.Method.getGenericParameterTypes(Method.java:337) ~[na:na]
+	at org.springframework.core.MethodParameter.getGenericParameterType(MethodParameter.java:499) ~[spring-core-7.0.7.jar:7.0.7]
+	at org.springframework.core.MethodParameter.getNestedParameterType(MethodParameter.java:539) ~[spring-core-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.config.DependencyDescriptor.getDependencyType(DependencyDescriptor.java:357) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1666) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.createOptionalDependency(DefaultListableBeanFactory.java:2351) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1635) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:912) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:546) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1362) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1194) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:565) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:525) ~[spring-beans-7.0.7.jar:7.0.7]
+	... 49 common frames omitted
+Caused by: java.lang.ClassNotFoundException: org.springframework.boot.autoconfigure.hateoas.HateoasProperties
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641) ~[na:na]
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188) ~[na:na]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526) ~[na:na]
+	at java.base/java.lang.Class.forName0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.forName(Class.java:536) ~[na:na]
+	at java.base/java.lang.Class.forName(Class.java:515) ~[na:na]
+	at java.base/sun.reflect.generics.factory.CoreReflectionFactory.makeNamedType(CoreReflectionFactory.java:114) ~[na:na]
+	... 71 common frames omitted
+
+2026-06-19T12:11:00.373-04:00  INFO 2316 --- [carrito] [main] c.m.carrito.CarritoApplication           : Starting CarritoApplication using Java 21.0.11 with PID 2316 (C:\Users\sj-alumno\IdeaProjects\Proyecto-Transversal\carrito\target\classes started by SJ-Alumno in C:\Users\sj-alumno\IdeaProjects\Proyecto-Transversal)
+2026-06-19T12:11:00.375-04:00 DEBUG 2316 --- [carrito] [main] c.m.carrito.CarritoApplication           : Running with Spring Boot v4.0.6, Spring v7.0.7
+2026-06-19T12:11:00.376-04:00  INFO 2316 --- [carrito] [main] c.m.carrito.CarritoApplication           : The following 1 profile is active: "dev"
+2026-06-19T12:11:01.378-04:00  WARN 2316 --- [carrito] [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: java.lang.IllegalStateException: Error processing condition on org.springframework.cloud.client.discovery.simple.SimpleDiscoveryClientAutoConfiguration.simpleDiscoveryProperties
+2026-06-19T12:11:01.398-04:00 ERROR 2316 --- [carrito] [main] o.s.boot.SpringApplication               : Application run failed
+
+java.lang.IllegalStateException: Error processing condition on org.springframework.cloud.client.discovery.simple.SimpleDiscoveryClientAutoConfiguration.simpleDiscoveryProperties
+	at org.springframework.boot.autoconfigure.condition.SpringBootCondition.matches(SpringBootCondition.java:60) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.context.annotation.ConditionEvaluator.shouldSkip(ConditionEvaluator.java:100) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForBeanMethod(ConfigurationClassBeanDefinitionReader.java:196) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForConfigurationClass(ConfigurationClassBeanDefinitionReader.java:148) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitions(ConfigurationClassBeanDefinitionReader.java:124) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:464) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:316) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:349) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:118) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:795) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:603) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.boot.web.server.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143) ~[spring-boot-web-server-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:756) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:445) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:321) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1365) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354) ~[spring-boot-4.0.6.jar:4.0.6]
+	at com.marketplace.carrito.CarritoApplication.main(CarritoApplication.java:10) ~[classes/:na]
+Caused by: java.lang.IllegalStateException: @ConditionalOnMissingBean did not specify a bean using type, name or annotation and the attempt to deduce the bean's type failed
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.validate(OnBeanCondition.java:657) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.<init>(OnBeanCondition.java:603) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getMatchOutcome(OnBeanCondition.java:147) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.SpringBootCondition.matches(SpringBootCondition.java:47) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	... 17 common frames omitted
+Caused by: org.springframework.boot.autoconfigure.condition.OnBeanCondition$BeanTypeDeductionException: Failed to deduce bean type for org.springframework.cloud.client.discovery.simple.SimpleDiscoveryClientAutoConfiguration.simpleDiscoveryProperties
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.deducedBeanTypeForBeanMethod(OnBeanCondition.java:686) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.deducedBeanType(OnBeanCondition.java:676) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.<init>(OnBeanCondition.java:596) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	... 19 common frames omitted
+Caused by: java.lang.IllegalStateException: Failed to introspect Class [org.springframework.cloud.client.discovery.simple.SimpleDiscoveryClientAutoConfiguration] from ClassLoader [jdk.internal.loader.ClassLoaders$AppClassLoader@4617c264]
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:483) ~[spring-core-7.0.7.jar:7.0.7]
+	at org.springframework.util.ReflectionUtils.findMethod(ReflectionUtils.java:240) ~[spring-core-7.0.7.jar:7.0.7]
+	at org.springframework.util.ReflectionUtils.findMethod(ReflectionUtils.java:221) ~[spring-core-7.0.7.jar:7.0.7]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.findBeanMethod(OnBeanCondition.java:715) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.getMethodReturnType(OnBeanCondition.java:710) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.getReturnType(OnBeanCondition.java:694) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.deducedBeanTypeForBeanMethod(OnBeanCondition.java:683) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	... 21 common frames omitted
+Caused by: java.lang.NoClassDefFoundError: org/springframework/boot/web/context/WebServerInitializedEvent
+	at java.base/java.lang.Class.getDeclaredMethods0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.privateGetDeclaredMethods(Class.java:3580) ~[na:na]
+	at java.base/java.lang.Class.getDeclaredMethods(Class.java:2678) ~[na:na]
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:465) ~[spring-core-7.0.7.jar:7.0.7]
+	... 27 common frames omitted
+Caused by: java.lang.ClassNotFoundException: org.springframework.boot.web.context.WebServerInitializedEvent
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641) ~[na:na]
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188) ~[na:na]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526) ~[na:na]
+	... 31 common frames omitted
+
+2026-06-19T12:24:17.914-04:00  INFO 5720 --- [carrito] [main] c.m.carrito.CarritoApplication           : Starting CarritoApplication using Java 21.0.11 with PID 5720 (C:\Users\sj-alumno\IdeaProjects\Proyecto-Transversal\carrito\target\classes started by SJ-Alumno in C:\Users\sj-alumno\IdeaProjects\Proyecto-Transversal)
+2026-06-19T12:24:17.916-04:00 DEBUG 5720 --- [carrito] [main] c.m.carrito.CarritoApplication           : Running with Spring Boot v4.0.6, Spring v7.0.7
+2026-06-19T12:24:17.917-04:00  INFO 5720 --- [carrito] [main] c.m.carrito.CarritoApplication           : The following 1 profile is active: "dev"
+2026-06-19T12:24:18.938-04:00  WARN 5720 --- [carrito] [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: java.lang.IllegalStateException: Error processing condition on org.springframework.cloud.client.discovery.simple.SimpleDiscoveryClientAutoConfiguration.simpleDiscoveryProperties
+2026-06-19T12:24:18.959-04:00 ERROR 5720 --- [carrito] [main] o.s.boot.SpringApplication               : Application run failed
+
+java.lang.IllegalStateException: Error processing condition on org.springframework.cloud.client.discovery.simple.SimpleDiscoveryClientAutoConfiguration.simpleDiscoveryProperties
+	at org.springframework.boot.autoconfigure.condition.SpringBootCondition.matches(SpringBootCondition.java:60) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.context.annotation.ConditionEvaluator.shouldSkip(ConditionEvaluator.java:100) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForBeanMethod(ConfigurationClassBeanDefinitionReader.java:196) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForConfigurationClass(ConfigurationClassBeanDefinitionReader.java:148) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitions(ConfigurationClassBeanDefinitionReader.java:124) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:464) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:316) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:349) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:118) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:795) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:603) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.boot.web.server.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143) ~[spring-boot-web-server-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:756) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:445) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:321) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1365) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354) ~[spring-boot-4.0.6.jar:4.0.6]
+	at com.marketplace.carrito.CarritoApplication.main(CarritoApplication.java:10) ~[classes/:na]
+Caused by: java.lang.IllegalStateException: @ConditionalOnMissingBean did not specify a bean using type, name or annotation and the attempt to deduce the bean's type failed
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.validate(OnBeanCondition.java:657) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.<init>(OnBeanCondition.java:603) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getMatchOutcome(OnBeanCondition.java:147) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.SpringBootCondition.matches(SpringBootCondition.java:47) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	... 17 common frames omitted
+Caused by: org.springframework.boot.autoconfigure.condition.OnBeanCondition$BeanTypeDeductionException: Failed to deduce bean type for org.springframework.cloud.client.discovery.simple.SimpleDiscoveryClientAutoConfiguration.simpleDiscoveryProperties
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.deducedBeanTypeForBeanMethod(OnBeanCondition.java:686) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.deducedBeanType(OnBeanCondition.java:676) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.<init>(OnBeanCondition.java:596) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	... 19 common frames omitted
+Caused by: java.lang.IllegalStateException: Failed to introspect Class [org.springframework.cloud.client.discovery.simple.SimpleDiscoveryClientAutoConfiguration] from ClassLoader [jdk.internal.loader.ClassLoaders$AppClassLoader@4617c264]
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:483) ~[spring-core-7.0.7.jar:7.0.7]
+	at org.springframework.util.ReflectionUtils.findMethod(ReflectionUtils.java:240) ~[spring-core-7.0.7.jar:7.0.7]
+	at org.springframework.util.ReflectionUtils.findMethod(ReflectionUtils.java:221) ~[spring-core-7.0.7.jar:7.0.7]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.findBeanMethod(OnBeanCondition.java:715) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.getMethodReturnType(OnBeanCondition.java:710) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.getReturnType(OnBeanCondition.java:694) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.deducedBeanTypeForBeanMethod(OnBeanCondition.java:683) ~[spring-boot-autoconfigure-4.0.6.jar:4.0.6]
+	... 21 common frames omitted
+Caused by: java.lang.NoClassDefFoundError: org/springframework/boot/web/context/WebServerInitializedEvent
+	at java.base/java.lang.Class.getDeclaredMethods0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.privateGetDeclaredMethods(Class.java:3580) ~[na:na]
+	at java.base/java.lang.Class.getDeclaredMethods(Class.java:2678) ~[na:na]
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:465) ~[spring-core-7.0.7.jar:7.0.7]
+	... 27 common frames omitted
+Caused by: java.lang.ClassNotFoundException: org.springframework.boot.web.context.WebServerInitializedEvent
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641) ~[na:na]
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188) ~[na:na]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526) ~[na:na]
+	... 31 common frames omitted
+
