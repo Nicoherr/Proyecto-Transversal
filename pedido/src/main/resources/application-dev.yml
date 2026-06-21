@@ -18,6 +18,8 @@ spring:
     enabled: false
 
 app:
+  producto:
+    url: http://localhost:8084
   jwt:
     secret: dev-secret-key-dev-secret-key-dev-secret-key-123456
     expiration-ms: 86400000

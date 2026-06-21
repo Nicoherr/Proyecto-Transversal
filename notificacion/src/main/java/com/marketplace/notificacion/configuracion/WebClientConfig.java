@@ -1,5 +1,6 @@
 package com.marketplace.notificacion.configuracion;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.reactive.function.client.WebClient;
@@ -7,10 +8,13 @@ import org.springframework.web.reactive.function.client.WebClient;
 @Configuration
 public class WebClientConfig {
 
+    @Value("${app.pedido.url}")
+    private String pedidoUrl;
+
     @Bean
-    public WebClient pagoWebClient() {
+    public WebClient pedidoWebClient() {
         return WebClient.builder()
-                .baseUrl("http://localhost:8086")
+                .baseUrl(pedidoUrl)
                 .build();
     }
 }

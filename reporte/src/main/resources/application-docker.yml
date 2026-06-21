@@ -1,0 +1,31 @@
+spring:
+  datasource:
+    url: jdbc:mysql://mysql-reporte:3306/db_reporte
+    username: dev
+    password: dev123
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: false
+        dialect: org.hibernate.dialect.MySQLDialect
+  flyway:
+    enabled: false
+
+app:
+  pago:
+    url: http://pago:8087
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eurekaserver:8761/eureka/
+
+logging:
+  level:
+    root: WARN
+    org.springframework.web: WARN
+    com.marketplace.reporte: INFO

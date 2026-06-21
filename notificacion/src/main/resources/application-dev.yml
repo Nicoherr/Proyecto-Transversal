@@ -19,6 +19,8 @@ spring:
     locations: classpath:db/migration
 
 app:
+  pedido:
+    url: http://localhost:8086
   jwt:
     secret: dev-secret-key-dev-secret-key-dev-secret-key-123456
     expiration-ms: 86400000

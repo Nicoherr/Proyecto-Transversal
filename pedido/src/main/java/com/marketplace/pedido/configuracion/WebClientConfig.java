@@ -1,17 +1,20 @@
 package com.marketplace.pedido.configuracion;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.reactive.function.client.WebClient;
 
-@Configuration // Indica que esta clase provee configuraciones para Spring
+@Configuration
 public class WebClientConfig {
 
-    // Bean de WebClient apuntando al microservicio de Producto (puerto 8084)
+    @Value("${app.producto.url}")
+    private String productoUrl;
+
     @Bean
     public WebClient productoWebClient() {
         return WebClient.builder()
-                .baseUrl("http://localhost:8084") // URL base del microservicio producto
+                .baseUrl(productoUrl)
                 .build();
     }
 }

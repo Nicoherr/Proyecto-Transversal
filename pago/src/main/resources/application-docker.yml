@@ -1,0 +1,31 @@
+spring:
+  datasource:
+    url: jdbc:mysql://mysql-pago:3306/db_pago
+    username: dev
+    password: dev123
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: false
+        dialect: org.hibernate.dialect.MySQLDialect
+  flyway:
+    enabled: false
+
+app:
+  pedido:
+    url: http://pedido:8086
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eurekaserver:8761/eureka/
+
+logging:
+  level:
+    root: WARN
+    org.springframework.web: WARN
+    com.marketplace.pago: INFO
