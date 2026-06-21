@@ -1,0 +1,49 @@
+spring:
+  cloud:
+    gateway:
+      mvc:
+        routes:
+          - id: valoracion
+            uri: http://valoracion:8088
+            predicates:
+              - Path=/api/valoracion/**
+            filters:
+              - StripPrefix=1
+
+          - id: notificacion
+            uri: http://notificacion:8089
+            predicates:
+              - Path=/api/notificaciones/**
+            filters:
+              - StripPrefix=1
+
+          - id: pago
+            uri: http://pago:8087
+            predicates:
+              - Path=/api/pagos/**
+            filters:
+              - StripPrefix=1
+
+          - id: pedido
+            uri: http://pedido:8086
+            predicates:
+              - Path=/api/pedidos/**
+            filters:
+              - StripPrefix=1
+
+          - id: reporte
+            uri: http://reporte:8090
+            predicates:
+              - Path=/api/reportes/**
+            filters:
+              - StripPrefix=1
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eurekaserver:8761/eureka/
+
+logging:
+  level:
+    root: WARN
+    org.springframework.cloud.gateway: INFO
