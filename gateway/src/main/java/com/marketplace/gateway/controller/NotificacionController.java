@@ -16,22 +16,22 @@ public class NotificacionController {
 
     @GetMapping
     public ResponseEntity<Object> getAll() {
-        return ResponseEntity.ok(restTemplate.getForObject(notificacionUrl + "/api/v1/notificaciones", Object.class));
+        return ResponseEntity.ok(restTemplate.getForObject(notificacionUrl + "/notificaciones", Object.class));
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<Object> getById(@PathVariable long id) {
-        return ResponseEntity.ok(restTemplate.getForObject(notificacionUrl + "/api/v1/notificaciones/" + id, Object.class));
+        return ResponseEntity.ok(restTemplate.getForObject(notificacionUrl + "/notificaciones/" + id, Object.class));
     }
 
     @PostMapping
     public ResponseEntity<Object> create(@RequestBody Object body) {
-        return ResponseEntity.ok(restTemplate.postForObject(notificacionUrl + "/api/v1/notificaciones", body, Object.class));
+        return ResponseEntity.ok(restTemplate.postForObject(notificacionUrl + "/notificaciones", body, Object.class));
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable long id) {
-        restTemplate.delete(notificacionUrl + "/api/v1/notificaciones/" + id);
+        restTemplate.delete(notificacionUrl + "/notificaciones/" + id);
         return ResponseEntity.noContent().build();
     }
 }
