@@ -4,19 +4,19 @@ services:
 
   mysql:
     image: mysql:8.4
-    container_name: usuario-mysql
+    container_name: vendedor-mysql
     restart: always
     environment:
-      MYSQL_DATABASE: dev_usuario
+      MYSQL_DATABASE: dev_vendedor
       MYSQL_USER: dev
       MYSQL_PASSWORD: dev123
       MYSQL_ROOT_PASSWORD: root123
     ports:
-      - "3310:3306"
+      - "3311:3306"
     volumes:
       - ../docker/mysql/init:/docker-entrypoint-initdb.d
     networks:
-      - usuario-network
+      - vendedor-network
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
       timeout: 20s
@@ -27,37 +27,37 @@ services:
     build:
       context: ../eurekaserver
     image: eurekaserver:1.0
-    container_name: usuario-eurekaserver
+    container_name: vendedor-eurekaserver
     ports:
       - "8761:8761"
     networks:
-      - usuario-network
+      - vendedor-network
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8761/actuator/health"]
       timeout: 10s
       retries: 5
       interval: 10s
 
-  usuario:
+  vendedor:
     build:
       context: .
-    image: usuario:1.0
-    container_name: usuario-service
+    image: vendedor:1.0
+    container_name: vendedor-service
     depends_on:
       mysql:
         condition: service_healthy
       eurekaserver:
         condition: service_healthy
     ports:
-      - "8080:8080"
+      - "8083:8083"
     networks:
-      - usuario-network
+      - vendedor-network
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8080/actuator/health"]
+      test: ["CMD", "curl", "-f", "http://localhost:8083/actuator/health"]
       timeout: 10s
       retries: 5
       interval: 10s
 
 networks:
-  usuario-network:
+  vendedor-network:
     driver: bridge
