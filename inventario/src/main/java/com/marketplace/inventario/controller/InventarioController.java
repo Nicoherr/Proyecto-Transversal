@@ -20,7 +20,7 @@ import java.util.stream.Collectors;
 
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.*;
 
-@Tag(name = "Inventario V2", description = "Operaciones de inventario con HATEOAS")
+@Tag(name = "Inventario", description = "Operaciones de inventario con HATEOAS")
 @Slf4j
 @RestController
 @RequestMapping("/api/inventarios")
