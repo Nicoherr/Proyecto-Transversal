@@ -100,7 +100,100 @@ services:
       timeout: 20s
       retries: 10
       interval: 10s
+  mysql-carrito:
+    image: mysql:8.4
+    container_name: mysql-carrito
+    restart: always
+    environment:
+       MYSQL_DATABASE: db_carrito
+       MYSQL_USER: dev
+       MYSQL_PASSWORD: dev123
+       MYSQL_ROOT_PASSWORD: root123
+    ports:
+       - "3312:3306"
+    networks:
+      - marketplace-network
+    healthcheck:
+       test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+       timeout: 20s
+       retries: 10
+       interval: 10s
 
+  mysql-inventario:
+    image: mysql:8.4
+    container_name: mysql-inventario
+    restart: always
+    environment:
+      MYSQL_DATABASE: db_inventario
+      MYSQL_USER: dev
+      MYSQL_PASSWORD: dev123
+      MYSQL_ROOT_PASSWORD: root123
+    ports:
+      - "3313:3306"
+    networks:
+      - marketplace-network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      timeout: 20s
+      retries: 10
+      interval: 10s
+
+  mysql-producto:
+    image: mysql:8.4
+    container_name: mysql-producto
+    restart: always
+    environment:
+      MYSQL_DATABASE: db_producto
+      MYSQL_USER: dev
+      MYSQL_PASSWORD: dev123
+      MYSQL_ROOT_PASSWORD: root123
+    ports:
+      - "3314:3306"
+    networks:
+      - marketplace-network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      timeout: 20s
+      retries: 10
+      interval: 10s
+
+  mysql-usuario:
+    image: mysql:8.4
+    container_name: mysql-usuario
+    restart: always
+    environment:
+      MYSQL_DATABASE: db_usuario
+      MYSQL_USER: dev
+      MYSQL_PASSWORD: dev123
+      MYSQL_ROOT_PASSWORD: root123
+    ports:
+      - "3315:3306"
+    networks:
+      - marketplace-network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      timeout: 20s
+      retries: 10
+      interval: 10s
+
+  mysql-vendedor:
+    image: mysql:8.4
+    container_name: mysql-vendedor
+    restart: always
+    environment:
+      MYSQL_DATABASE: db_vendedor
+      MYSQL_USER: dev
+      MYSQL_PASSWORD: dev123
+      MYSQL_ROOT_PASSWORD: root123
+    ports:
+      - "3316:3306"
+    networks:
+      - marketplace-network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      timeout: 20s
+      retries: 10
+      interval: 10s
   # ===================================================================
   # EUREKA SERVER
   # ===================================================================
@@ -234,7 +327,115 @@ services:
       timeout: 10s
       retries: 5
       interval: 10s
+  carrito:
+     build:
+        context: ./carrito
+     image: carrito:1.0
+     container_name: carrito
+     environment:
+       SPRING_PROFILES_ACTIVE: docker
+     depends_on:
+       mysql-carrito:
+         condition: service_healthy
+       eurekaserver:
+        condition: service_healthy
+     ports:
+     - "8081:8081"
+     networks:
+      - marketplace-network
+     healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8081/actuator/health"]
+      timeout: 10s
+      retries: 5
+      interval: 10s
 
+  inventario:
+    build:
+      context: ./inventario
+    image: inventario:1.0
+    container_name: inventario
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+    depends_on:
+      mysql-inventario:
+        condition: service_healthy
+      eurekaserver:
+        condition: service_healthy
+    ports:
+      - "8082:8082"
+    networks:
+      - marketplace-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8082/actuator/health"]
+      timeout: 10s
+      retries: 5
+      interval: 10s
+
+  producto:
+    build:
+      context: ./producto
+    image: producto:1.0
+    container_name: producto
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+    depends_on:
+      mysql-producto:
+        condition: service_healthy
+      eurekaserver:
+        condition: service_healthy
+    ports:
+      - "8084:8084"
+    networks:
+      - marketplace-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8084/actuator/health"]
+      timeout: 10s
+      retries: 5
+      interval: 10s
+
+  usuario:
+    build:
+      context: ./usuario
+    image: usuario:1.0
+    container_name: usuario
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+    depends_on:
+      mysql-usuario:
+        condition: service_healthy
+      eurekaserver:
+        condition: service_healthy
+    ports:
+      - "8080:8080"
+    networks:
+      - marketplace-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/actuator/health"]
+      timeout: 10s
+      retries: 5
+      interval: 10s
+
+  vendedor:
+    build:
+      context: ./vendedor
+    image: vendedor:1.0
+    container_name: vendedor
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+    depends_on:
+      mysql-vendedor:
+        condition: service_healthy
+      eurekaserver:
+        condition: service_healthy
+    ports:
+      - "8083:8083"
+    networks:
+      - marketplace-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8083/actuator/health"]
+      timeout: 10s
+      retries: 5
+      interval: 10s
   # ===================================================================
   # API GATEWAY
   # ===================================================================
@@ -247,6 +448,16 @@ services:
     environment:
       SPRING_PROFILES_ACTIVE: docker
     depends_on:
+      carrito:
+        condition: service_healthy
+      inventario:
+          condition: service_healthy
+      producto:
+          condition: service_healthy
+      usuario:
+          condition: service_healthy
+      vendedor:
+          condition: service_healthy
       valoracion:
         condition: service_healthy
       notificacion:
