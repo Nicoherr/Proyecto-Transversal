@@ -447,6 +447,16 @@ services:
     container_name: gateway
     environment:
       SPRING_PROFILES_ACTIVE: docker
+      SERVICES_CARRITO_URL: http://carrito:8081
+      SERVICES_INVENTARIO_URL: http://inventario:8082
+      SERVICES_PRODUCTO_URL: http://producto:8084
+      SERVICES_USUARIO_URL: http://usuario:8080
+      SERVICES_VENDEDOR_URL: http://vendedor:8083
+      SERVICES_VALORACION_URL: http://valoracion:8088
+      SERVICES_NOTIFICACION_URL: http://notificacion:8089
+      SERVICES_PAGO_URL: http://pago:8087
+      SERVICES_PEDIDO_URL: http://pedido:8086
+      SERVICES_REPORTE_URL: http://reporte:8090
     depends_on:
       carrito:
         condition: service_healthy
