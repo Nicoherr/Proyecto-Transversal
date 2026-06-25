@@ -1,0 +1,25 @@
+2026-06-25T00:13:12.680-04:00  INFO 7085 --- [notificacion-service] [main] c.m.n.NotificacionApplicationTests       : Starting NotificacionApplicationTests using Java 25.0.2 with PID 7085 (started by nicolasherrera in /Users/nicolasherrera/Desktop/Proyecto-Transversal/notificacion)
+2026-06-25T00:13:12.680-04:00 DEBUG 7085 --- [notificacion-service] [main] c.m.n.NotificacionApplicationTests       : Running with Spring Boot v4.0.6, Spring v7.0.7
+2026-06-25T00:13:12.681-04:00  INFO 7085 --- [notificacion-service] [main] c.m.n.NotificacionApplicationTests       : The following 1 profile is active: "dev"
+2026-06-25T00:13:12.749-04:00 DEBUG 7085 --- [notificacion-service] [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@280d5a82
+2026-06-25T00:13:15.365-04:00  WARN 7085 --- [notificacion-service] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-25T00:13:16.907-04:00  WARN 7085 --- [notificacion-service] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-25T00:13:16.975-04:00  WARN 7085 --- [notificacion-service] [main] .s.a.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: cbbd63ba-f615-4334-98bc-70ee69e9e87f
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-06-25T00:13:17.229-04:00 DEBUG 7085 --- [notificacion-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 10 mappings in 'requestMappingHandlerMapping'
+2026-06-25T00:13:17.258-04:00 DEBUG 7085 --- [notificacion-service] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /doc/swagger-ui/**, /doc/swagger-ui/*swagger-initializer.js, /webjars/*swagger-ui/**, /webjars/*swagger-ui/*swagger-initializer.js, /webjars/*swagger-ui/5.32.2/*swagger-initializer.js] in 'resourceHandlerMapping'
+2026-06-25T00:13:17.298-04:00 DEBUG 7085 --- [notificacion-service] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 2 RequestBodyAdvice, 1 ResponseBodyAdvice
+2026-06-25T00:13:17.351-04:00 DEBUG 7085 --- [notificacion-service] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2026-06-25T00:13:17.740-04:00  INFO 7085 --- [notificacion-service] [main] c.m.n.NotificacionApplicationTests       : Started NotificacionApplicationTests in 5.468 seconds (process running for 6.466)
+2026-06-25T00:13:18.770-04:00  INFO 7085 --- [notificacion-service] [main] c.m.n.service.NotificacionService        : Se listan todas las notificaciones
+2026-06-25T00:13:18.772-04:00  INFO 7085 --- [notificacion-service] [main] c.m.n.service.NotificacionService        : Se busca notificación con id: 1
+2026-06-25T00:13:18.775-04:00  INFO 7085 --- [notificacion-service] [main] c.m.n.service.NotificacionService        : Se inicia la creación de notificación para pedidoId: 1
+2026-06-25T00:13:18.780-04:00  INFO 7085 --- [notificacion-service] [main] c.m.n.service.NotificacionService        : Se busca notificación con id: 99
+2026-06-25T00:13:18.785-04:00  INFO 7085 --- [notificacion-service] [main] c.m.n.service.NotificacionService        : Se inicia la creación de notificación para pedidoId: 1
+2026-06-25T00:13:18.788-04:00  INFO 7085 --- [notificacion-service] [main] c.m.n.service.NotificacionService        : Se elimina notificación con id: 1
+2026-06-25T00:13:18.789-04:00  INFO 7085 --- [notificacion-service] [main] c.m.n.service.NotificacionService        : Notificación con id: 1 eliminada exitosamente
+2026-06-25T00:13:18.808-04:00 DEBUG 7085 --- [notificacion-service] [SpringApplicationShutdownHook] o.s.w.c.s.GenericWebApplicationContext   : Closing org.springframework.web.context.support.GenericWebApplicationContext@280d5a82, started on Thu Jun 25 00:13:12 GMT-04:00 2026

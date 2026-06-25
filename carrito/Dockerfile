@@ -1,14 +1,11 @@
-FROM eclipse-temurin:21-jre-alpine
-
-# Carpeta de trabajo dentro del contenedor
+FROM maven:3.9.6-eclipse-temurin-21 AS build
 WORKDIR /app
+COPY pom.xml .
+COPY src ./src
+RUN mvn clean package -DskipTests
 
-# Copia el jar compilado al contenedor
-# El * agarra el jar sin importar el nombre exacto
-COPY target/*.jar app.jar
-
-# Puerto que expone el contenedor — mismo que tiene carrito
+FROM eclipse-temurin:21-jre-alpine
+WORKDIR /app
+COPY --from=build /app/target/*.jar app.jar
 EXPOSE 8081
-
-# Comando para correr la app con perfil dev
-ENTRYPOINT ["java", "-Dspring.profiles.active=dev", "-jar", "app.jar"]
+ENTRYPOINT ["java", "-jar", "app.jar"]
