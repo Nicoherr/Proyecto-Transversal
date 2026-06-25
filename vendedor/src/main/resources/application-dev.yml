@@ -3,8 +3,8 @@ spring:
     name: vendedor
   datasource:
     url: jdbc:mysql://localhost:3306/db_vendedores?createDatabaseIfNotExist=true
-    username: root
-    password: system
+    username: ${MYSQL_USER:root}
+    password: ${MYSQL_PASSWORD:system}
   jpa:
     hibernate:
       ddl-auto: none
