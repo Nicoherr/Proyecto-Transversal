@@ -1,0 +1,48 @@
+2026-06-25T10:50:20.985-04:00  INFO 3425 --- [valoracion-service] [main] c.m.v.ValoracionApplicationTests         : Starting ValoracionApplicationTests using Java 25.0.2 with PID 3425 (started by nicolasherrera in /Users/nicolasherrera/Desktop/Proyecto-Transversal/valoracion)
+2026-06-25T10:50:20.986-04:00 DEBUG 3425 --- [valoracion-service] [main] c.m.v.ValoracionApplicationTests         : Running with Spring Boot v4.0.6, Spring v7.0.7
+2026-06-25T10:50:20.986-04:00  INFO 3425 --- [valoracion-service] [main] c.m.v.ValoracionApplicationTests         : The following 1 profile is active: "dev"
+2026-06-25T10:50:21.183-04:00 DEBUG 3425 --- [valoracion-service] [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@120411ec
+2026-06-25T10:50:31.371-04:00  WARN 3425 --- [valoracion-service] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-25T10:50:36.684-04:00  WARN 3425 --- [valoracion-service] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-25T10:50:36.953-04:00  WARN 3425 --- [valoracion-service] [main] .s.a.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 009bc1b1-6492-475b-82e6-5158c5f32ea1
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-06-25T10:50:37.861-04:00 DEBUG 3425 --- [valoracion-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 11 mappings in 'requestMappingHandlerMapping'
+2026-06-25T10:50:37.981-04:00 DEBUG 3425 --- [valoracion-service] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /doc/swagger-ui/**, /doc/swagger-ui/*swagger-initializer.js, /webjars/*swagger-ui/**, /webjars/*swagger-ui/*swagger-initializer.js, /webjars/*swagger-ui/5.32.2/*swagger-initializer.js] in 'resourceHandlerMapping'
+2026-06-25T10:50:38.216-04:00 DEBUG 3425 --- [valoracion-service] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 2 RequestBodyAdvice, 1 ResponseBodyAdvice
+2026-06-25T10:50:38.443-04:00 DEBUG 3425 --- [valoracion-service] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2026-06-25T10:50:40.599-04:00  INFO 3425 --- [valoracion-service] [main] c.m.v.ValoracionApplicationTests         : Started ValoracionApplicationTests in 21.32 seconds (process running for 25.184)
+2026-06-25T10:50:42.775-04:00  INFO 3425 --- [valoracion-service] [main] c.m.v.service.ValoracionService          : Se listan todas las valoraciones
+2026-06-25T10:50:42.782-04:00  INFO 3425 --- [valoracion-service] [main] c.m.v.service.ValoracionService          : Se elimina valoración con id: 1
+2026-06-25T10:50:42.783-04:00  INFO 3425 --- [valoracion-service] [main] c.m.v.service.ValoracionService          : Valoración con id: 1 eliminada exitosamente
+2026-06-25T10:50:42.789-04:00  INFO 3425 --- [valoracion-service] [main] c.m.v.service.ValoracionService          : Se busca valoración con id: 1
+2026-06-25T10:50:42.802-04:00  INFO 3425 --- [valoracion-service] [main] c.m.v.service.ValoracionService          : Se busca valoración con id: 99
+2026-06-25T10:50:42.826-04:00 DEBUG 3425 --- [valoracion-service] [SpringApplicationShutdownHook] o.s.w.c.s.GenericWebApplicationContext   : Closing org.springframework.web.context.support.GenericWebApplicationContext@120411ec, started on Thu Jun 25 10:50:21 GMT-04:00 2026
+2026-06-25T10:54:36.948-04:00  INFO 3730 --- [valoracion-service] [main] c.m.v.ValoracionApplicationTests         : Starting ValoracionApplicationTests using Java 25.0.2 with PID 3730 (started by nicolasherrera in /Users/nicolasherrera/Desktop/Proyecto-Transversal/valoracion)
+2026-06-25T10:54:36.950-04:00 DEBUG 3730 --- [valoracion-service] [main] c.m.v.ValoracionApplicationTests         : Running with Spring Boot v4.0.6, Spring v7.0.7
+2026-06-25T10:54:36.950-04:00  INFO 3730 --- [valoracion-service] [main] c.m.v.ValoracionApplicationTests         : The following 1 profile is active: "dev"
+2026-06-25T10:54:36.993-04:00 DEBUG 3730 --- [valoracion-service] [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@333a44f2
+2026-06-25T10:54:39.309-04:00  WARN 3730 --- [valoracion-service] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-25T10:54:40.764-04:00  WARN 3730 --- [valoracion-service] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-25T10:54:40.826-04:00  WARN 3730 --- [valoracion-service] [main] .s.a.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: e4e9ca64-a710-48a3-adb0-205a4325cacd
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-06-25T10:54:41.048-04:00 DEBUG 3730 --- [valoracion-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 11 mappings in 'requestMappingHandlerMapping'
+2026-06-25T10:54:41.085-04:00 DEBUG 3730 --- [valoracion-service] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /doc/swagger-ui/**, /doc/swagger-ui/*swagger-initializer.js, /webjars/*swagger-ui/**, /webjars/*swagger-ui/*swagger-initializer.js, /webjars/*swagger-ui/5.32.2/*swagger-initializer.js] in 'resourceHandlerMapping'
+2026-06-25T10:54:41.113-04:00 DEBUG 3730 --- [valoracion-service] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 2 RequestBodyAdvice, 1 ResponseBodyAdvice
+2026-06-25T10:54:41.154-04:00 DEBUG 3730 --- [valoracion-service] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2026-06-25T10:54:41.569-04:00  INFO 3730 --- [valoracion-service] [main] c.m.v.ValoracionApplicationTests         : Started ValoracionApplicationTests in 5.05 seconds (process running for 6.166)
+2026-06-25T10:54:42.649-04:00  INFO 3730 --- [valoracion-service] [main] c.m.v.service.ValoracionService          : Se inicia la creación de valoración para productoId: 1
+2026-06-25T10:54:42.653-04:00  INFO 3730 --- [valoracion-service] [main] c.m.v.service.ValoracionService          : Se listan todas las valoraciones
+2026-06-25T10:54:42.656-04:00  INFO 3730 --- [valoracion-service] [main] c.m.v.service.ValoracionService          : Se elimina valoración con id: 1
+2026-06-25T10:54:42.656-04:00  INFO 3730 --- [valoracion-service] [main] c.m.v.service.ValoracionService          : Valoración con id: 1 eliminada exitosamente
+2026-06-25T10:54:42.659-04:00  INFO 3730 --- [valoracion-service] [main] c.m.v.service.ValoracionService          : Se busca valoración con id: 1
+2026-06-25T10:54:42.664-04:00  INFO 3730 --- [valoracion-service] [main] c.m.v.service.ValoracionService          : Se inicia la creación de valoración para productoId: 1
+2026-06-25T10:54:42.669-04:00  INFO 3730 --- [valoracion-service] [main] c.m.v.service.ValoracionService          : Se busca valoración con id: 99
+2026-06-25T10:54:42.690-04:00 DEBUG 3730 --- [valoracion-service] [SpringApplicationShutdownHook] o.s.w.c.s.GenericWebApplicationContext   : Closing org.springframework.web.context.support.GenericWebApplicationContext@333a44f2, started on Thu Jun 25 10:54:36 GMT-04:00 2026

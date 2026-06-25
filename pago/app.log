@@ -1,0 +1,72 @@
+2026-06-25T10:50:25.158-04:00  INFO 3429 --- [pago-service] [main] c.marketplace.pago.PagoApplicationTests  : Starting PagoApplicationTests using Java 25.0.2 with PID 3429 (started by nicolasherrera in /Users/nicolasherrera/Desktop/Proyecto-Transversal/pago)
+2026-06-25T10:50:25.159-04:00 DEBUG 3429 --- [pago-service] [main] c.marketplace.pago.PagoApplicationTests  : Running with Spring Boot v4.0.6, Spring v7.0.7
+2026-06-25T10:50:25.159-04:00  INFO 3429 --- [pago-service] [main] c.marketplace.pago.PagoApplicationTests  : The following 1 profile is active: "dev"
+2026-06-25T10:50:25.357-04:00 DEBUG 3429 --- [pago-service] [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@62129f97
+2026-06-25T10:50:35.084-04:00  WARN 3429 --- [pago-service] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-25T10:50:40.195-04:00  WARN 3429 --- [pago-service] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-25T10:50:40.407-04:00  WARN 3429 --- [pago-service] [main] .s.a.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 418ce523-423d-4dbf-a9f4-631080ab65ce
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-06-25T10:50:41.178-04:00 DEBUG 3429 --- [pago-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 10 mappings in 'requestMappingHandlerMapping'
+2026-06-25T10:50:41.213-04:00 DEBUG 3429 --- [pago-service] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /doc/swagger-ui/**, /doc/swagger-ui/*swagger-initializer.js, /webjars/*swagger-ui/**, /webjars/*swagger-ui/*swagger-initializer.js, /webjars/*swagger-ui/5.32.2/*swagger-initializer.js] in 'resourceHandlerMapping'
+2026-06-25T10:50:41.258-04:00 DEBUG 3429 --- [pago-service] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 2 RequestBodyAdvice, 1 ResponseBodyAdvice
+2026-06-25T10:50:41.331-04:00 DEBUG 3429 --- [pago-service] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2026-06-25T10:50:42.308-04:00  INFO 3429 --- [pago-service] [main] c.marketplace.pago.PagoApplicationTests  : Started PagoApplicationTests in 18.314 seconds (process running for 26.662)
+2026-06-25T10:50:42.860-04:00 DEBUG 3429 --- [pago-service] [SpringApplicationShutdownHook] o.s.w.c.s.GenericWebApplicationContext   : Closing org.springframework.web.context.support.GenericWebApplicationContext@62129f97, started on Thu Jun 25 10:50:25 GMT-04:00 2026
+2026-06-25T10:52:42.063-04:00  INFO 3572 --- [pago-service] [main] c.marketplace.pago.PagoApplicationTests  : Starting PagoApplicationTests using Java 25.0.2 with PID 3572 (started by nicolasherrera in /Users/nicolasherrera/Desktop/Proyecto-Transversal/pago)
+2026-06-25T10:52:42.065-04:00 DEBUG 3572 --- [pago-service] [main] c.marketplace.pago.PagoApplicationTests  : Running with Spring Boot v4.0.6, Spring v7.0.7
+2026-06-25T10:52:42.066-04:00  INFO 3572 --- [pago-service] [main] c.marketplace.pago.PagoApplicationTests  : The following 1 profile is active: "dev"
+2026-06-25T10:52:42.100-04:00 DEBUG 3572 --- [pago-service] [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@71eead09
+2026-06-25T10:52:44.426-04:00  WARN 3572 --- [pago-service] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-25T10:52:45.626-04:00  WARN 3572 --- [pago-service] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-25T10:52:45.684-04:00  WARN 3572 --- [pago-service] [main] .s.a.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 775e3f5d-44be-44ed-83ad-84953f4008cf
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-06-25T10:52:45.923-04:00 DEBUG 3572 --- [pago-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 10 mappings in 'requestMappingHandlerMapping'
+2026-06-25T10:52:45.949-04:00 DEBUG 3572 --- [pago-service] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /doc/swagger-ui/**, /doc/swagger-ui/*swagger-initializer.js, /webjars/*swagger-ui/**, /webjars/*swagger-ui/*swagger-initializer.js, /webjars/*swagger-ui/5.32.2/*swagger-initializer.js] in 'resourceHandlerMapping'
+2026-06-25T10:52:45.971-04:00 DEBUG 3572 --- [pago-service] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 2 RequestBodyAdvice, 1 ResponseBodyAdvice
+2026-06-25T10:52:46.006-04:00 DEBUG 3572 --- [pago-service] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2026-06-25T10:52:46.379-04:00  INFO 3572 --- [pago-service] [main] c.marketplace.pago.PagoApplicationTests  : Started PagoApplicationTests in 4.616 seconds (process running for 6.907)
+2026-06-25T10:52:46.623-04:00 DEBUG 3572 --- [pago-service] [SpringApplicationShutdownHook] o.s.w.c.s.GenericWebApplicationContext   : Closing org.springframework.web.context.support.GenericWebApplicationContext@71eead09, started on Thu Jun 25 10:52:42 GMT-04:00 2026
+2026-06-25T10:55:23.574-04:00  INFO 3817 --- [pago-service] [main] c.marketplace.pago.PagoApplicationTests  : Starting PagoApplicationTests using Java 25.0.2 with PID 3817 (started by nicolasherrera in /Users/nicolasherrera/Desktop/Proyecto-Transversal/pago)
+2026-06-25T10:55:23.575-04:00 DEBUG 3817 --- [pago-service] [main] c.marketplace.pago.PagoApplicationTests  : Running with Spring Boot v4.0.6, Spring v7.0.7
+2026-06-25T10:55:23.576-04:00  INFO 3817 --- [pago-service] [main] c.marketplace.pago.PagoApplicationTests  : The following 1 profile is active: "dev"
+2026-06-25T10:55:23.779-04:00 DEBUG 3817 --- [pago-service] [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@71eead09
+2026-06-25T10:55:26.966-04:00  WARN 3817 --- [pago-service] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-25T10:55:28.204-04:00  WARN 3817 --- [pago-service] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-25T10:55:28.299-04:00  WARN 3817 --- [pago-service] [main] .s.a.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 594d8e25-757a-49b9-8128-df4f1018eb8f
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-06-25T10:55:28.604-04:00 DEBUG 3817 --- [pago-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 10 mappings in 'requestMappingHandlerMapping'
+2026-06-25T10:55:28.641-04:00 DEBUG 3817 --- [pago-service] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /doc/swagger-ui/**, /doc/swagger-ui/*swagger-initializer.js, /webjars/*swagger-ui/**, /webjars/*swagger-ui/*swagger-initializer.js, /webjars/*swagger-ui/5.32.2/*swagger-initializer.js] in 'resourceHandlerMapping'
+2026-06-25T10:55:28.670-04:00 DEBUG 3817 --- [pago-service] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 2 RequestBodyAdvice, 1 ResponseBodyAdvice
+2026-06-25T10:55:28.726-04:00 DEBUG 3817 --- [pago-service] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2026-06-25T10:55:29.260-04:00  INFO 3817 --- [pago-service] [main] c.marketplace.pago.PagoApplicationTests  : Started PagoApplicationTests in 7.076 seconds (process running for 13.238)
+2026-06-25T10:55:29.666-04:00 DEBUG 3817 --- [pago-service] [SpringApplicationShutdownHook] o.s.w.c.s.GenericWebApplicationContext   : Closing org.springframework.web.context.support.GenericWebApplicationContext@71eead09, started on Thu Jun 25 10:55:23 GMT-04:00 2026
+2026-06-25T10:57:37.812-04:00  INFO 3959 --- [pago-service] [main] c.marketplace.pago.PagoApplicationTests  : Starting PagoApplicationTests using Java 25.0.2 with PID 3959 (started by nicolasherrera in /Users/nicolasherrera/Desktop/Proyecto-Transversal/pago)
+2026-06-25T10:57:37.813-04:00 DEBUG 3959 --- [pago-service] [main] c.marketplace.pago.PagoApplicationTests  : Running with Spring Boot v4.0.6, Spring v7.0.7
+2026-06-25T10:57:37.813-04:00  INFO 3959 --- [pago-service] [main] c.marketplace.pago.PagoApplicationTests  : The following 1 profile is active: "dev"
+2026-06-25T10:57:37.848-04:00 DEBUG 3959 --- [pago-service] [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@71eead09
+2026-06-25T10:57:40.235-04:00  WARN 3959 --- [pago-service] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-25T10:57:41.646-04:00  WARN 3959 --- [pago-service] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-25T10:57:41.710-04:00  WARN 3959 --- [pago-service] [main] .s.a.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 4875945d-1aed-4714-b234-2eb79a351ca2
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-06-25T10:57:42.023-04:00 DEBUG 3959 --- [pago-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 10 mappings in 'requestMappingHandlerMapping'
+2026-06-25T10:57:42.051-04:00 DEBUG 3959 --- [pago-service] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /doc/swagger-ui/**, /doc/swagger-ui/*swagger-initializer.js, /webjars/*swagger-ui/**, /webjars/*swagger-ui/*swagger-initializer.js, /webjars/*swagger-ui/5.32.2/*swagger-initializer.js] in 'resourceHandlerMapping'
+2026-06-25T10:57:42.080-04:00 DEBUG 3959 --- [pago-service] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 2 RequestBodyAdvice, 1 ResponseBodyAdvice
+2026-06-25T10:57:42.127-04:00 DEBUG 3959 --- [pago-service] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2026-06-25T10:57:42.558-04:00  INFO 3959 --- [pago-service] [main] c.marketplace.pago.PagoApplicationTests  : Started PagoApplicationTests in 5.059 seconds (process running for 7.264)
+2026-06-25T10:57:42.845-04:00 DEBUG 3959 --- [pago-service] [SpringApplicationShutdownHook] o.s.w.c.s.GenericWebApplicationContext   : Closing org.springframework.web.context.support.GenericWebApplicationContext@71eead09, started on Thu Jun 25 10:57:37 GMT-04:00 2026

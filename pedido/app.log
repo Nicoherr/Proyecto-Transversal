@@ -1,0 +1,36 @@
+2026-06-25T10:50:21.473-04:00  INFO 3419 --- [pedido-service] [main] c.m.pedido.PedidoApplicationTests        : Starting PedidoApplicationTests using Java 25.0.2 with PID 3419 (started by nicolasherrera in /Users/nicolasherrera/Desktop/Proyecto-Transversal/pedido)
+2026-06-25T10:50:21.474-04:00 DEBUG 3419 --- [pedido-service] [main] c.m.pedido.PedidoApplicationTests        : Running with Spring Boot v4.0.6, Spring v7.0.7
+2026-06-25T10:50:21.474-04:00  INFO 3419 --- [pedido-service] [main] c.m.pedido.PedidoApplicationTests        : The following 1 profile is active: "dev"
+2026-06-25T10:50:21.545-04:00 DEBUG 3419 --- [pedido-service] [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@653a5a
+2026-06-25T10:50:31.151-04:00  WARN 3419 --- [pedido-service] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-25T10:50:35.869-04:00  WARN 3419 --- [pedido-service] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-25T10:50:35.991-04:00  WARN 3419 --- [pedido-service] [main] .s.a.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 58d248f5-dfe2-442d-b725-e73bd5f09b03
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-06-25T10:50:36.781-04:00 DEBUG 3419 --- [pedido-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 10 mappings in 'requestMappingHandlerMapping'
+2026-06-25T10:50:36.824-04:00 DEBUG 3419 --- [pedido-service] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /doc/swagger-ui/**, /doc/swagger-ui/*swagger-initializer.js, /webjars/*swagger-ui/**, /webjars/*swagger-ui/*swagger-initializer.js, /webjars/*swagger-ui/5.32.2/*swagger-initializer.js] in 'resourceHandlerMapping'
+2026-06-25T10:50:36.858-04:00 DEBUG 3419 --- [pedido-service] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 2 RequestBodyAdvice, 1 ResponseBodyAdvice
+2026-06-25T10:50:37.075-04:00 DEBUG 3419 --- [pedido-service] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2026-06-25T10:50:38.814-04:00  INFO 3419 --- [pedido-service] [main] c.m.pedido.PedidoApplicationTests        : Started PedidoApplicationTests in 18.982 seconds (process running for 25.308)
+2026-06-25T10:50:40.555-04:00 DEBUG 3419 --- [pedido-service] [SpringApplicationShutdownHook] o.s.w.c.s.GenericWebApplicationContext   : Closing org.springframework.web.context.support.GenericWebApplicationContext@653a5a, started on Thu Jun 25 10:50:21 GMT-04:00 2026
+2026-06-25T11:12:27.919-04:00  INFO 4605 --- [pedido-service] [main] c.m.pedido.PedidoApplicationTests        : Starting PedidoApplicationTests using Java 25.0.2 with PID 4605 (started by nicolasherrera in /Users/nicolasherrera/Desktop/Proyecto-Transversal/pedido)
+2026-06-25T11:12:27.920-04:00 DEBUG 4605 --- [pedido-service] [main] c.m.pedido.PedidoApplicationTests        : Running with Spring Boot v4.0.6, Spring v7.0.7
+2026-06-25T11:12:27.921-04:00  INFO 4605 --- [pedido-service] [main] c.m.pedido.PedidoApplicationTests        : The following 1 profile is active: "dev"
+2026-06-25T11:12:27.996-04:00 DEBUG 4605 --- [pedido-service] [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@4b718c45
+2026-06-25T11:12:31.295-04:00  WARN 4605 --- [pedido-service] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-25T11:12:32.556-04:00  WARN 4605 --- [pedido-service] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-25T11:12:32.615-04:00  WARN 4605 --- [pedido-service] [main] .s.a.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: bcf0316b-7cda-4466-9e8f-b345722ca1c2
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-06-25T11:12:32.858-04:00 DEBUG 4605 --- [pedido-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 10 mappings in 'requestMappingHandlerMapping'
+2026-06-25T11:12:32.883-04:00 DEBUG 4605 --- [pedido-service] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /doc/swagger-ui/**, /doc/swagger-ui/*swagger-initializer.js, /webjars/*swagger-ui/**, /webjars/*swagger-ui/*swagger-initializer.js, /webjars/*swagger-ui/5.32.2/*swagger-initializer.js] in 'resourceHandlerMapping'
+2026-06-25T11:12:32.906-04:00 DEBUG 4605 --- [pedido-service] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 2 RequestBodyAdvice, 1 ResponseBodyAdvice
+2026-06-25T11:12:32.940-04:00 DEBUG 4605 --- [pedido-service] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2026-06-25T11:12:33.324-04:00  INFO 4605 --- [pedido-service] [main] c.m.pedido.PedidoApplicationTests        : Started PedidoApplicationTests in 5.802 seconds (process running for 8.119)
+2026-06-25T11:12:33.911-04:00 DEBUG 4605 --- [pedido-service] [SpringApplicationShutdownHook] o.s.w.c.s.GenericWebApplicationContext   : Closing org.springframework.web.context.support.GenericWebApplicationContext@4b718c45, started on Thu Jun 25 11:12:27 GMT-04:00 2026

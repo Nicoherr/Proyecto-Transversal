@@ -1,0 +1,36 @@
+2026-06-25T10:50:23.536-04:00  INFO 3422 --- [reporte-service] [main] c.m.reporte.ReporteApplicationTests      : Starting ReporteApplicationTests using Java 25.0.2 with PID 3422 (started by nicolasherrera in /Users/nicolasherrera/Desktop/Proyecto-Transversal/reporte)
+2026-06-25T10:50:23.538-04:00 DEBUG 3422 --- [reporte-service] [main] c.m.reporte.ReporteApplicationTests      : Running with Spring Boot v4.0.6, Spring v7.0.7
+2026-06-25T10:50:23.544-04:00  INFO 3422 --- [reporte-service] [main] c.m.reporte.ReporteApplicationTests      : The following 1 profile is active: "dev"
+2026-06-25T10:50:23.701-04:00 DEBUG 3422 --- [reporte-service] [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@19ce597a
+2026-06-25T10:50:33.853-04:00  WARN 3422 --- [reporte-service] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-25T10:50:39.101-04:00  WARN 3422 --- [reporte-service] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-25T10:50:39.535-04:00  WARN 3422 --- [reporte-service] [main] .s.a.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 741f5be3-528f-4452-a602-04428be85626
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-06-25T10:50:40.627-04:00 DEBUG 3422 --- [reporte-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 13 mappings in 'requestMappingHandlerMapping'
+2026-06-25T10:50:40.765-04:00 DEBUG 3422 --- [reporte-service] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /doc/swagger-ui/**, /doc/swagger-ui/*swagger-initializer.js, /webjars/*swagger-ui/**, /webjars/*swagger-ui/*swagger-initializer.js, /webjars/*swagger-ui/5.32.2/*swagger-initializer.js] in 'resourceHandlerMapping'
+2026-06-25T10:50:40.805-04:00 DEBUG 3422 --- [reporte-service] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 2 RequestBodyAdvice, 1 ResponseBodyAdvice
+2026-06-25T10:50:40.921-04:00 DEBUG 3422 --- [reporte-service] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2026-06-25T10:50:41.755-04:00  INFO 3422 --- [reporte-service] [main] c.m.reporte.ReporteApplicationTests      : Started ReporteApplicationTests in 19.66 seconds (process running for 27.334)
+2026-06-25T10:50:42.498-04:00 DEBUG 3422 --- [reporte-service] [SpringApplicationShutdownHook] o.s.w.c.s.GenericWebApplicationContext   : Closing org.springframework.web.context.support.GenericWebApplicationContext@19ce597a, started on Thu Jun 25 10:50:23 GMT-04:00 2026
+2026-06-25T11:17:57.120-04:00  INFO 4857 --- [reporte-service] [main] c.m.reporte.ReporteApplicationTests      : Starting ReporteApplicationTests using Java 25.0.2 with PID 4857 (started by nicolasherrera in /Users/nicolasherrera/Desktop/Proyecto-Transversal/reporte)
+2026-06-25T11:17:57.121-04:00 DEBUG 4857 --- [reporte-service] [main] c.m.reporte.ReporteApplicationTests      : Running with Spring Boot v4.0.6, Spring v7.0.7
+2026-06-25T11:17:57.122-04:00  INFO 4857 --- [reporte-service] [main] c.m.reporte.ReporteApplicationTests      : The following 1 profile is active: "dev"
+2026-06-25T11:17:57.159-04:00 DEBUG 4857 --- [reporte-service] [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@4807b2b7
+2026-06-25T11:17:59.967-04:00  WARN 4857 --- [reporte-service] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-25T11:18:01.402-04:00  WARN 4857 --- [reporte-service] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-25T11:18:01.460-04:00  WARN 4857 --- [reporte-service] [main] .s.a.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: df0f5bfb-1fac-4ea4-8e1e-6d5ae8a19e6d
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-06-25T11:18:01.689-04:00 DEBUG 4857 --- [reporte-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 13 mappings in 'requestMappingHandlerMapping'
+2026-06-25T11:18:01.715-04:00 DEBUG 4857 --- [reporte-service] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /doc/swagger-ui/**, /doc/swagger-ui/*swagger-initializer.js, /webjars/*swagger-ui/**, /webjars/*swagger-ui/*swagger-initializer.js, /webjars/*swagger-ui/5.32.2/*swagger-initializer.js] in 'resourceHandlerMapping'
+2026-06-25T11:18:01.739-04:00 DEBUG 4857 --- [reporte-service] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 2 RequestBodyAdvice, 1 ResponseBodyAdvice
+2026-06-25T11:18:01.775-04:00 DEBUG 4857 --- [reporte-service] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2026-06-25T11:18:02.155-04:00  INFO 4857 --- [reporte-service] [main] c.m.reporte.ReporteApplicationTests      : Started ReporteApplicationTests in 5.404 seconds (process running for 7.835)
+2026-06-25T11:18:02.650-04:00 DEBUG 4857 --- [reporte-service] [SpringApplicationShutdownHook] o.s.w.c.s.GenericWebApplicationContext   : Closing org.springframework.web.context.support.GenericWebApplicationContext@4807b2b7, started on Thu Jun 25 11:17:57 GMT-04:00 2026
