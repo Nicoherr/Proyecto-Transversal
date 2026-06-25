@@ -235,7 +235,7 @@ services:
     networks:
       - marketplace-network
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8088/actuator/health"]
+      test: [ "CMD", "wget", "-q", "--spider", "http://localhost:8088/actuator/health" ]
       timeout: 10s
       retries: 5
       interval: 10s
@@ -257,7 +257,7 @@ services:
     networks:
       - marketplace-network
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8089/actuator/health"]
+      test: [ "CMD", "wget", "-q", "--spider", "http://localhost:8089/actuator/health" ]
       timeout: 10s
       retries: 5
       interval: 10s
@@ -279,7 +279,7 @@ services:
     networks:
       - marketplace-network
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8087/actuator/health"]
+      test: [ "CMD", "wget", "-q", "--spider", "http://localhost:8087/actuator/health" ]
       timeout: 10s
       retries: 5
       interval: 10s
@@ -301,7 +301,7 @@ services:
     networks:
       - marketplace-network
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8086/actuator/health"]
+      test: [ "CMD", "wget", "-q", "--spider", "http://localhost:8086/actuator/health" ]
       timeout: 10s
       retries: 5
       interval: 10s
@@ -323,7 +323,7 @@ services:
     networks:
       - marketplace-network
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8090/actuator/health"]
+      test: [ "CMD", "wget", "-q", "--spider", "http://localhost:8090/actuator/health" ]
       timeout: 10s
       retries: 5
       interval: 10s
@@ -344,7 +344,7 @@ services:
      networks:
       - marketplace-network
      healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8081/actuator/health"]
+      test: [ "CMD", "wget", "-q", "--spider", "http://localhost:8081/actuator/health" ]
       timeout: 10s
       retries: 5
       interval: 10s
@@ -366,7 +366,7 @@ services:
     networks:
       - marketplace-network
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8082/actuator/health"]
+      test: [ "CMD", "wget", "-q", "--spider", "http://localhost:8082/actuator/health" ]
       timeout: 10s
       retries: 5
       interval: 10s
@@ -388,7 +388,7 @@ services:
     networks:
       - marketplace-network
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8084/actuator/health"]
+      test: [ "CMD", "wget", "-q", "--spider", "http://localhost:8084/actuator/health" ]
       timeout: 10s
       retries: 5
       interval: 10s
@@ -406,11 +406,11 @@ services:
       eurekaserver:
         condition: service_healthy
     ports:
-      - "8080:8080"
+      - "8085:8080"
     networks:
       - marketplace-network
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8080/actuator/health"]
+      test: [ "CMD", "wget", "-q", "--spider", "http://localhost:8080/actuator/health" ]
       timeout: 10s
       retries: 5
       interval: 10s
@@ -432,7 +432,7 @@ services:
     networks:
       - marketplace-network
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8083/actuator/health"]
+      test: [ "CMD", "wget", "-q", "--spider", "http://localhost:8083/actuator/health" ]
       timeout: 10s
       retries: 5
       interval: 10s
@@ -485,7 +485,7 @@ services:
     networks:
       - marketplace-network
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8080/actuator/health"]
+      test: [ "CMD", "wget", "-q", "--spider", "http://localhost:8080/actuator/health" ]
       timeout: 10s
       retries: 5
       interval: 10s
