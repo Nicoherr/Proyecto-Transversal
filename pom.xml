@@ -23,6 +23,7 @@
     <modules>
         <module>carrito</module>
         <module>inventario</module>
+        <module>gateway</module>
         <module>notificacion</module>
         <module>pago</module>
         <module>pedido</module>
