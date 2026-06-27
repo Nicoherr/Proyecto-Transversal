@@ -2,9 +2,9 @@ spring:
   application:
     name: pago-service
   datasource:
-    url: jdbc:mysql://localhost:3306/db_pago?createDatabaseIfNotExist=true
-    username: root
-    password: admin2026
+    url: ${DB_URL:jdbc:mysql://localhost:3306/db_pago?createDatabaseIfNotExist=true}
+    username: ${DB_USERNAME:root}
+    password: ${DB_PASSWORD:}
   jpa:
     hibernate:
       ddl-auto: update
@@ -39,10 +39,10 @@ springdoc:
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8761/eureka/
+      defaultZone: ${EUREKA_URL:http://localhost:8761/eureka/}
   instance:
     prefer-ip-address: true
 
 app:
   pedido:
-    url: http://localhost:8086
+    url: ${PEDIDO_URL:http://localhost:8086}

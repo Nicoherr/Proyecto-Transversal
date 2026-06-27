@@ -24,7 +24,7 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.*;
 
 @Tag(name = "Valoraciones", description = "Operaciones relacionadas con las valoraciones de productos")
 @RestController
-@RequestMapping("/valoracion")
+@RequestMapping("/valoraciones")
 public class ValoracionController {
 
     @Autowired

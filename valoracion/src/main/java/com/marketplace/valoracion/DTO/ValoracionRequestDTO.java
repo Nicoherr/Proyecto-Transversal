@@ -20,4 +20,5 @@ public class ValoracionRequestDTO {
 
     @NotBlank(message = "Ingresa una recomendacion del producto")
     private String recomendacion;
+
 }

@@ -29,6 +29,9 @@
         <module name="reporte" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="practica" target="17" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
@@ -39,6 +42,9 @@
       <module name="notificacion" options="-parameters" />
       <module name="pago" options="-parameters" />
       <module name="pedido" options="-parameters" />
+      <module name="practica" options="-parameters" />
+      <module name="practica.main" options="-parameters" />
+      <module name="practica.test" options="-parameters" />
       <module name="producto" options="-parameters" />
       <module name="reporte" options="-parameters" />
       <module name="usuario" options="-parameters" />
