@@ -25,9 +25,9 @@ public class DataLoader implements CommandLineRunner {
                 "Electrónica", "Ropa", "Alimentos", "Hogar", "Deportes"
         );
 
-        // Genera 10 pedidos de prueba
         for (int i = 1; i <= 10; i++) {
             Pedido pedido = new Pedido();
+            pedido.setProductoId((long) i);
             pedido.setNomProducto(faker.commerce().productName());
             pedido.setTipoProducto(tipos.get(faker.number().numberBetween(0, tipos.size())));
             pedido.setPrecio(faker.number().numberBetween(1000, 100000));

@@ -27,16 +27,16 @@ public class DataLoader implements CommandLineRunner {
                 "Tarjeta de crédito", "Tarjeta de débito", "Transferencia bancaria", "PayPal"
         );
 
-        // Genera 10 pagos de prueba
         for (int i = 1; i <= 10; i++) {
             Pago pago = new Pago();
+            pago.setPedidoId((long) i);
             pago.setMetodoPago(metodos.get(faker.number().numberBetween(0, metodos.size())));
             pago.setComprobante("COMP-" + UUID.randomUUID().toString().substring(0, 8).toUpperCase());
             pago.setFecha(new Date());
-            pago.setPedidoId((long) i); // pedidoId del 1 al 10
             pagoRepository.save(pago);
         }
 
         System.out.println("Pagos generados con DataFaker");
     }
 }
+
