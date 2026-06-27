@@ -12,4 +12,5 @@ public class ValoracionResponseDTO {
     private Long productoId;
     private int numEstrella;
     private String recomendacion;
+    private String sugerencia;
 }

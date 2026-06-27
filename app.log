@@ -243,3 +243,431 @@ List of constraint violations:[
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354) ~[spring-boot-4.0.6.jar:4.0.6]
 	at com.marketplace.pedido.PedidoApplication.main(PedidoApplication.java:10) ~[classes/:na]
 
+2026-06-27T18:57:51.663-04:00  INFO 20481 --- [pedido-service] [main] c.marketplace.pedido.PedidoApplication   : Starting PedidoApplication using Java 21.0.11 with PID 20481 (/Users/nicolasherrera/Desktop/Proyecto-Transversal/pedido/target/classes started by nicolasherrera in /Users/nicolasherrera/Desktop/Proyecto-Transversal)
+2026-06-27T18:57:51.664-04:00 DEBUG 20481 --- [pedido-service] [main] c.marketplace.pedido.PedidoApplication   : Running with Spring Boot v4.0.6, Spring v7.0.7
+2026-06-27T18:57:51.665-04:00  INFO 20481 --- [pedido-service] [main] c.marketplace.pedido.PedidoApplication   : The following 1 profile is active: "dev"
+2026-06-27T18:57:52.652-04:00 DEBUG 20481 --- [pedido-service] [main] o.s.w.f.ServerHttpObservationFilter      : Filter 'webMvcObservationFilter' configured for use
+2026-06-27T18:57:53.201-04:00  WARN 20481 --- [pedido-service] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-27T18:57:53.946-04:00  WARN 20481 --- [pedido-service] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-27T18:57:53.985-04:00  WARN 20481 --- [pedido-service] [main] .s.a.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 48cd71ba-3911-44c5-ac0d-52922c84bbad
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-06-27T18:57:54.108-04:00 DEBUG 20481 --- [pedido-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 10 mappings in 'requestMappingHandlerMapping'
+2026-06-27T18:57:54.126-04:00 DEBUG 20481 --- [pedido-service] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /doc/swagger-ui/**, /doc/swagger-ui/*swagger-initializer.js, /webjars/*swagger-ui/**, /webjars/*swagger-ui/*swagger-initializer.js, /webjars/*swagger-ui/5.32.2/*swagger-initializer.js] in 'resourceHandlerMapping'
+2026-06-27T18:57:54.141-04:00 DEBUG 20481 --- [pedido-service] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 2 RequestBodyAdvice, 1 ResponseBodyAdvice
+2026-06-27T18:57:54.167-04:00 DEBUG 20481 --- [pedido-service] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2026-06-27T18:57:54.417-04:00  INFO 20481 --- [pedido-service] [main] c.marketplace.pedido.PedidoApplication   : Started PedidoApplication in 2.984 seconds (process running for 3.405)
+2026-06-27T18:57:54.703-04:00  INFO 20481 --- [pedido-service] [RMI TCP Connection(1)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-06-27T18:57:54.703-04:00 DEBUG 20481 --- [pedido-service] [RMI TCP Connection(1)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2026-06-27T18:57:54.704-04:00 DEBUG 20481 --- [pedido-service] [RMI TCP Connection(1)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2026-06-27T18:57:54.705-04:00 DEBUG 20481 --- [pedido-service] [RMI TCP Connection(1)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@5753e0c4
+2026-06-27T18:57:54.706-04:00 DEBUG 20481 --- [pedido-service] [RMI TCP Connection(1)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@40b2aae9
+2026-06-27T18:57:54.706-04:00 DEBUG 20481 --- [pedido-service] [RMI TCP Connection(1)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2026-06-27T18:57:54.706-04:00  INFO 20481 --- [pedido-service] [RMI TCP Connection(1)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2026-06-27T18:58:04.837-04:00  INFO 20493 --- [valoracion-service] [main] c.m.valoracion.ValoracionApplication     : Starting ValoracionApplication using Java 21.0.11 with PID 20493 (/Users/nicolasherrera/Desktop/Proyecto-Transversal/valoracion/target/classes started by nicolasherrera in /Users/nicolasherrera/Desktop/Proyecto-Transversal)
+2026-06-27T18:58:04.839-04:00 DEBUG 20493 --- [valoracion-service] [main] c.m.valoracion.ValoracionApplication     : Running with Spring Boot v4.0.6, Spring v7.0.7
+2026-06-27T18:58:04.839-04:00  INFO 20493 --- [valoracion-service] [main] c.m.valoracion.ValoracionApplication     : The following 1 profile is active: "dev"
+2026-06-27T18:58:05.798-04:00 DEBUG 20493 --- [valoracion-service] [main] o.s.w.f.ServerHttpObservationFilter      : Filter 'webMvcObservationFilter' configured for use
+2026-06-27T18:58:06.318-04:00  WARN 20493 --- [valoracion-service] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-27T18:58:07.065-04:00  WARN 20493 --- [valoracion-service] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-27T18:58:07.101-04:00  WARN 20493 --- [valoracion-service] [main] .s.a.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 5a6e865d-5ba9-4d5b-b741-6e8bf48574d1
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-06-27T18:58:07.227-04:00 DEBUG 20493 --- [valoracion-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 11 mappings in 'requestMappingHandlerMapping'
+2026-06-27T18:58:07.245-04:00 DEBUG 20493 --- [valoracion-service] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /doc/swagger-ui/**, /doc/swagger-ui/*swagger-initializer.js, /webjars/*swagger-ui/**, /webjars/*swagger-ui/*swagger-initializer.js, /webjars/*swagger-ui/5.32.2/*swagger-initializer.js] in 'resourceHandlerMapping'
+2026-06-27T18:58:07.261-04:00 DEBUG 20493 --- [valoracion-service] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 2 RequestBodyAdvice, 1 ResponseBodyAdvice
+2026-06-27T18:58:07.286-04:00 DEBUG 20493 --- [valoracion-service] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2026-06-27T18:58:07.539-04:00  INFO 20493 --- [valoracion-service] [main] c.m.valoracion.ValoracionApplication     : Started ValoracionApplication in 2.935 seconds (process running for 3.296)
+2026-06-27T18:58:07.665-04:00  WARN 20493 --- [valoracion-service] [main] org.hibernate.orm.jdbc.error             : HHH000247: ErrorCode: 1364, SQLState: HY000
+2026-06-27T18:58:07.665-04:00  WARN 20493 --- [valoracion-service] [main] org.hibernate.orm.jdbc.error             : Field 'sugerencia' doesn't have a default value
+2026-06-27T18:58:07.677-04:00 ERROR 20493 --- [valoracion-service] [main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.dao.DataIntegrityViolationException: could not execute statement [Field 'sugerencia' doesn't have a default value] [insert into valoracion (num_estrella,producto_id,recomendacion) values (?,?,?)]; SQL [insert into valoracion (num_estrella,producto_id,recomendacion) values (?,?,?)]; constraint [sugerencia]
+	at org.springframework.orm.jpa.hibernate.HibernateExceptionTranslator.convertHibernateAccessException(HibernateExceptionTranslator.java:169) ~[spring-orm-7.0.7.jar:7.0.7]
+	at org.springframework.orm.jpa.hibernate.HibernateExceptionTranslator.convertHibernateAccessException(HibernateExceptionTranslator.java:131) ~[spring-orm-7.0.7.jar:7.0.7]
+	at org.springframework.orm.jpa.hibernate.HibernateExceptionTranslator.translateExceptionIfPossible(HibernateExceptionTranslator.java:105) ~[spring-orm-7.0.7.jar:7.0.7]
+	at org.springframework.orm.jpa.vendor.HibernateJpaDialect.translateExceptionIfPossible(HibernateJpaDialect.java:223) ~[spring-orm-7.0.7.jar:7.0.7]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.translateExceptionIfPossible(AbstractEntityManagerFactoryBean.java:576) ~[spring-orm-7.0.7.jar:7.0.7]
+	at org.springframework.dao.support.ChainedPersistenceExceptionTranslator.translateExceptionIfPossible(ChainedPersistenceExceptionTranslator.java:61) ~[spring-tx-7.0.7.jar:7.0.7]
+	at org.springframework.dao.support.DataAccessUtils.translateIfNecessary(DataAccessUtils.java:346) ~[spring-tx-7.0.7.jar:7.0.7]
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:157) ~[spring-tx-7.0.7.jar:7.0.7]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) ~[spring-aop-7.0.7.jar:7.0.7]
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:166) ~[spring-data-jpa-4.0.5.jar:4.0.5]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) ~[spring-aop-7.0.7.jar:7.0.7]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:222) ~[spring-aop-7.0.7.jar:7.0.7]
+	at jdk.proxy2/jdk.proxy2.$Proxy158.save(Unknown Source) ~[na:na]
+	at com.marketplace.valoracion.DataLoader.run(DataLoader.java:27) ~[classes/:na]
+	at org.springframework.boot.SpringApplication.lambda$callRunner$1(SpringApplication.java:792) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.util.function.ThrowingConsumer$1.acceptWithException(ThrowingConsumer.java:82) ~[spring-core-7.0.7.jar:7.0.7]
+	at org.springframework.util.function.ThrowingConsumer.accept(ThrowingConsumer.java:60) ~[spring-core-7.0.7.jar:7.0.7]
+	at org.springframework.util.function.ThrowingConsumer$1.accept(ThrowingConsumer.java:86) ~[spring-core-7.0.7.jar:7.0.7]
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:800) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:791) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.lambda$callRunners$0(SpringApplication.java:776) ~[spring-boot-4.0.6.jar:4.0.6]
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184) ~[na:na]
+	at java.base/java.util.stream.SortedOps$SizedRefSortingSink.end(SortedOps.java:357) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:510) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499) ~[na:na]
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:151) ~[na:na]
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:174) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234) ~[na:na]
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596) ~[na:na]
+	at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:776) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:328) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1365) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354) ~[spring-boot-4.0.6.jar:4.0.6]
+	at com.marketplace.valoracion.ValoracionApplication.main(ValoracionApplication.java:10) ~[classes/:na]
+Caused by: org.hibernate.exception.ConstraintViolationException: could not execute statement [Field 'sugerencia' doesn't have a default value] [insert into valoracion (num_estrella,producto_id,recomendacion) values (?,?,?)]
+	at org.hibernate.dialect.MySQLDialect.lambda$buildSQLExceptionConversionDelegate$0(MySQLDialect.java:1273) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:34) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:115) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:184) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.id.insert.GetGeneratedKeysDelegate.performMutation(GetGeneratedKeysDelegate.java:103) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.engine.jdbc.mutation.internal.MutationExecutorSingleNonBatched.performNonBatchedOperations(MutationExecutorSingleNonBatched.java:45) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.engine.jdbc.mutation.internal.AbstractMutationExecutor.execute(AbstractMutationExecutor.java:66) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.engine.jdbc.mutation.internal.AbstractMutationExecutor.execute(AbstractMutationExecutor.java:55) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.persister.entity.mutation.InsertCoordinatorStandard.doStaticInserts(InsertCoordinatorStandard.java:180) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.persister.entity.mutation.InsertCoordinatorStandard.coordinateInsert(InsertCoordinatorStandard.java:120) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.persister.entity.mutation.InsertCoordinatorStandard.insert(InsertCoordinatorStandard.java:84) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.action.internal.EntityIdentityInsertAction.execute(EntityIdentityInsertAction.java:85) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.engine.spi.ActionQueue.execute(ActionQueue.java:667) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.engine.spi.ActionQueue.addResolvedEntityInsertAction(ActionQueue.java:291) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.engine.spi.ActionQueue.addInsertAction(ActionQueue.java:270) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.engine.spi.ActionQueue.addAction(ActionQueue.java:322) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.event.internal.AbstractSaveEventListener.addInsertAction(AbstractSaveEventListener.java:371) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSaveOrReplicate(AbstractSaveEventListener.java:285) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSave(AbstractSaveEventListener.java:215) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.event.internal.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:133) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.event.internal.DefaultPersistEventListener.entityIsTransient(DefaultPersistEventListener.java:144) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.event.internal.DefaultPersistEventListener.persist(DefaultPersistEventListener.java:90) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.event.internal.DefaultPersistEventListener.onPersist(DefaultPersistEventListener.java:74) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.event.internal.DefaultPersistEventListener.onPersist(DefaultPersistEventListener.java:50) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:138) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.internal.SessionImpl.firePersist(SessionImpl.java:692) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.internal.SessionImpl.persist(SessionImpl.java:675) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityHandlerInvocationHandler.invokeMethod(SharedEntityManagerCreator.java:240) ~[spring-orm-7.0.7.jar:7.0.7]
+	at org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler.invoke(SharedEntityManagerCreator.java:386) ~[spring-orm-7.0.7.jar:7.0.7]
+	at jdk.proxy2/jdk.proxy2.$Proxy153.persist(Unknown Source) ~[na:na]
+	at org.springframework.data.jpa.repository.support.SimpleJpaRepository.save(SimpleJpaRepository.java:664) ~[spring-data-jpa-4.0.5.jar:4.0.5]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359) ~[spring-aop-7.0.7.jar:7.0.7]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker$RepositoryFragmentMethodInvoker.lambda$new$0(RepositoryMethodInvoker.java:278) ~[spring-data-commons-4.0.5.jar:4.0.5]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.doInvoke(RepositoryMethodInvoker.java:169) ~[spring-data-commons-4.0.5.jar:4.0.5]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.invoke(RepositoryMethodInvoker.java:158) ~[spring-data-commons-4.0.5.jar:4.0.5]
+	at org.springframework.data.repository.core.support.RepositoryComposition$RepositoryFragments.invoke(RepositoryComposition.java:545) ~[spring-data-commons-4.0.5.jar:4.0.5]
+	at org.springframework.data.repository.core.support.RepositoryComposition.invoke(RepositoryComposition.java:290) ~[spring-data-commons-4.0.5.jar:4.0.5]
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$ImplementationMethodExecutionInterceptor.invoke(RepositoryFactorySupport.java:690) ~[spring-data-commons-4.0.5.jar:4.0.5]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) ~[spring-aop-7.0.7.jar:7.0.7]
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:171) ~[spring-data-commons-4.0.5.jar:4.0.5]
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:146) ~[spring-data-commons-4.0.5.jar:4.0.5]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) ~[spring-aop-7.0.7.jar:7.0.7]
+	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:69) ~[spring-data-commons-4.0.5.jar:4.0.5]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) ~[spring-aop-7.0.7.jar:7.0.7]
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:133) ~[spring-tx-7.0.7.jar:7.0.7]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:371) ~[spring-tx-7.0.7.jar:7.0.7]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:130) ~[spring-tx-7.0.7.jar:7.0.7]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) ~[spring-aop-7.0.7.jar:7.0.7]
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:135) ~[spring-tx-7.0.7.jar:7.0.7]
+	... 26 common frames omitted
+Caused by: java.sql.SQLException: Field 'sugerencia' doesn't have a default value
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:121) ~[mysql-connector-j-9.7.0.jar:9.7.0]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114) ~[mysql-connector-j-9.7.0.jar:9.7.0]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:988) ~[mysql-connector-j-9.7.0.jar:9.7.0]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1166) ~[mysql-connector-j-9.7.0.jar:9.7.0]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1101) ~[mysql-connector-j-9.7.0.jar:9.7.0]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1448) ~[mysql-connector-j-9.7.0.jar:9.7.0]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:1084) ~[mysql-connector-j-9.7.0.jar:9.7.0]
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61) ~[HikariCP-7.0.2.jar:na]
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java) ~[HikariCP-7.0.2.jar:na]
+	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:181) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	... 75 common frames omitted
+
+2026-06-27T19:02:07.500-04:00  INFO 20650 --- [valoracion-service] [main] c.m.valoracion.ValoracionApplication     : Starting ValoracionApplication using Java 21.0.11 with PID 20650 (/Users/nicolasherrera/Desktop/Proyecto-Transversal/valoracion/target/classes started by nicolasherrera in /Users/nicolasherrera/Desktop/Proyecto-Transversal)
+2026-06-27T19:02:07.503-04:00 DEBUG 20650 --- [valoracion-service] [main] c.m.valoracion.ValoracionApplication     : Running with Spring Boot v4.0.6, Spring v7.0.7
+2026-06-27T19:02:07.503-04:00  INFO 20650 --- [valoracion-service] [main] c.m.valoracion.ValoracionApplication     : The following 1 profile is active: "dev"
+2026-06-27T19:02:08.510-04:00 DEBUG 20650 --- [valoracion-service] [main] o.s.w.f.ServerHttpObservationFilter      : Filter 'webMvcObservationFilter' configured for use
+2026-06-27T19:02:09.054-04:00  WARN 20650 --- [valoracion-service] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-27T19:02:09.802-04:00  WARN 20650 --- [valoracion-service] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-27T19:02:09.838-04:00  WARN 20650 --- [valoracion-service] [main] .s.a.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 27ab7eaa-4fff-4950-8fd4-862191fc6784
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-06-27T19:02:09.963-04:00 DEBUG 20650 --- [valoracion-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 11 mappings in 'requestMappingHandlerMapping'
+2026-06-27T19:02:09.982-04:00 DEBUG 20650 --- [valoracion-service] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /doc/swagger-ui/**, /doc/swagger-ui/*swagger-initializer.js, /webjars/*swagger-ui/**, /webjars/*swagger-ui/*swagger-initializer.js, /webjars/*swagger-ui/5.32.2/*swagger-initializer.js] in 'resourceHandlerMapping'
+2026-06-27T19:02:09.997-04:00 DEBUG 20650 --- [valoracion-service] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 2 RequestBodyAdvice, 1 ResponseBodyAdvice
+2026-06-27T19:02:10.023-04:00 DEBUG 20650 --- [valoracion-service] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2026-06-27T19:02:10.282-04:00  INFO 20650 --- [valoracion-service] [main] c.m.valoracion.ValoracionApplication     : Started ValoracionApplication in 3.035 seconds (process running for 3.425)
+2026-06-27T19:02:10.417-04:00  WARN 20650 --- [valoracion-service] [main] org.hibernate.orm.jdbc.error             : HHH000247: ErrorCode: 1364, SQLState: HY000
+2026-06-27T19:02:10.417-04:00  WARN 20650 --- [valoracion-service] [main] org.hibernate.orm.jdbc.error             : Field 'sugerencia' doesn't have a default value
+2026-06-27T19:02:10.430-04:00 ERROR 20650 --- [valoracion-service] [main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.dao.DataIntegrityViolationException: could not execute statement [Field 'sugerencia' doesn't have a default value] [insert into valoracion (num_estrella,producto_id,recomendacion) values (?,?,?)]; SQL [insert into valoracion (num_estrella,producto_id,recomendacion) values (?,?,?)]; constraint [sugerencia]
+	at org.springframework.orm.jpa.hibernate.HibernateExceptionTranslator.convertHibernateAccessException(HibernateExceptionTranslator.java:169) ~[spring-orm-7.0.7.jar:7.0.7]
+	at org.springframework.orm.jpa.hibernate.HibernateExceptionTranslator.convertHibernateAccessException(HibernateExceptionTranslator.java:131) ~[spring-orm-7.0.7.jar:7.0.7]
+	at org.springframework.orm.jpa.hibernate.HibernateExceptionTranslator.translateExceptionIfPossible(HibernateExceptionTranslator.java:105) ~[spring-orm-7.0.7.jar:7.0.7]
+	at org.springframework.orm.jpa.vendor.HibernateJpaDialect.translateExceptionIfPossible(HibernateJpaDialect.java:223) ~[spring-orm-7.0.7.jar:7.0.7]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.translateExceptionIfPossible(AbstractEntityManagerFactoryBean.java:576) ~[spring-orm-7.0.7.jar:7.0.7]
+	at org.springframework.dao.support.ChainedPersistenceExceptionTranslator.translateExceptionIfPossible(ChainedPersistenceExceptionTranslator.java:61) ~[spring-tx-7.0.7.jar:7.0.7]
+	at org.springframework.dao.support.DataAccessUtils.translateIfNecessary(DataAccessUtils.java:346) ~[spring-tx-7.0.7.jar:7.0.7]
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:157) ~[spring-tx-7.0.7.jar:7.0.7]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) ~[spring-aop-7.0.7.jar:7.0.7]
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:166) ~[spring-data-jpa-4.0.5.jar:4.0.5]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) ~[spring-aop-7.0.7.jar:7.0.7]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:222) ~[spring-aop-7.0.7.jar:7.0.7]
+	at jdk.proxy2/jdk.proxy2.$Proxy158.save(Unknown Source) ~[na:na]
+	at com.marketplace.valoracion.DataLoader.run(DataLoader.java:27) ~[classes/:na]
+	at org.springframework.boot.SpringApplication.lambda$callRunner$1(SpringApplication.java:792) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.util.function.ThrowingConsumer$1.acceptWithException(ThrowingConsumer.java:82) ~[spring-core-7.0.7.jar:7.0.7]
+	at org.springframework.util.function.ThrowingConsumer.accept(ThrowingConsumer.java:60) ~[spring-core-7.0.7.jar:7.0.7]
+	at org.springframework.util.function.ThrowingConsumer$1.accept(ThrowingConsumer.java:86) ~[spring-core-7.0.7.jar:7.0.7]
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:800) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:791) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.lambda$callRunners$0(SpringApplication.java:776) ~[spring-boot-4.0.6.jar:4.0.6]
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184) ~[na:na]
+	at java.base/java.util.stream.SortedOps$SizedRefSortingSink.end(SortedOps.java:357) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:510) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499) ~[na:na]
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:151) ~[na:na]
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:174) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234) ~[na:na]
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596) ~[na:na]
+	at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:776) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:328) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1365) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354) ~[spring-boot-4.0.6.jar:4.0.6]
+	at com.marketplace.valoracion.ValoracionApplication.main(ValoracionApplication.java:10) ~[classes/:na]
+Caused by: org.hibernate.exception.ConstraintViolationException: could not execute statement [Field 'sugerencia' doesn't have a default value] [insert into valoracion (num_estrella,producto_id,recomendacion) values (?,?,?)]
+	at org.hibernate.dialect.MySQLDialect.lambda$buildSQLExceptionConversionDelegate$0(MySQLDialect.java:1273) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:34) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:115) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:184) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.id.insert.GetGeneratedKeysDelegate.performMutation(GetGeneratedKeysDelegate.java:103) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.engine.jdbc.mutation.internal.MutationExecutorSingleNonBatched.performNonBatchedOperations(MutationExecutorSingleNonBatched.java:45) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.engine.jdbc.mutation.internal.AbstractMutationExecutor.execute(AbstractMutationExecutor.java:66) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.engine.jdbc.mutation.internal.AbstractMutationExecutor.execute(AbstractMutationExecutor.java:55) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.persister.entity.mutation.InsertCoordinatorStandard.doStaticInserts(InsertCoordinatorStandard.java:180) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.persister.entity.mutation.InsertCoordinatorStandard.coordinateInsert(InsertCoordinatorStandard.java:120) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.persister.entity.mutation.InsertCoordinatorStandard.insert(InsertCoordinatorStandard.java:84) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.action.internal.EntityIdentityInsertAction.execute(EntityIdentityInsertAction.java:85) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.engine.spi.ActionQueue.execute(ActionQueue.java:667) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.engine.spi.ActionQueue.addResolvedEntityInsertAction(ActionQueue.java:291) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.engine.spi.ActionQueue.addInsertAction(ActionQueue.java:270) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.engine.spi.ActionQueue.addAction(ActionQueue.java:322) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.event.internal.AbstractSaveEventListener.addInsertAction(AbstractSaveEventListener.java:371) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSaveOrReplicate(AbstractSaveEventListener.java:285) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSave(AbstractSaveEventListener.java:215) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.event.internal.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:133) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.event.internal.DefaultPersistEventListener.entityIsTransient(DefaultPersistEventListener.java:144) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.event.internal.DefaultPersistEventListener.persist(DefaultPersistEventListener.java:90) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.event.internal.DefaultPersistEventListener.onPersist(DefaultPersistEventListener.java:74) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.event.internal.DefaultPersistEventListener.onPersist(DefaultPersistEventListener.java:50) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:138) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.internal.SessionImpl.firePersist(SessionImpl.java:692) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.internal.SessionImpl.persist(SessionImpl.java:675) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityHandlerInvocationHandler.invokeMethod(SharedEntityManagerCreator.java:240) ~[spring-orm-7.0.7.jar:7.0.7]
+	at org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler.invoke(SharedEntityManagerCreator.java:386) ~[spring-orm-7.0.7.jar:7.0.7]
+	at jdk.proxy2/jdk.proxy2.$Proxy153.persist(Unknown Source) ~[na:na]
+	at org.springframework.data.jpa.repository.support.SimpleJpaRepository.save(SimpleJpaRepository.java:664) ~[spring-data-jpa-4.0.5.jar:4.0.5]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359) ~[spring-aop-7.0.7.jar:7.0.7]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker$RepositoryFragmentMethodInvoker.lambda$new$0(RepositoryMethodInvoker.java:278) ~[spring-data-commons-4.0.5.jar:4.0.5]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.doInvoke(RepositoryMethodInvoker.java:169) ~[spring-data-commons-4.0.5.jar:4.0.5]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.invoke(RepositoryMethodInvoker.java:158) ~[spring-data-commons-4.0.5.jar:4.0.5]
+	at org.springframework.data.repository.core.support.RepositoryComposition$RepositoryFragments.invoke(RepositoryComposition.java:545) ~[spring-data-commons-4.0.5.jar:4.0.5]
+	at org.springframework.data.repository.core.support.RepositoryComposition.invoke(RepositoryComposition.java:290) ~[spring-data-commons-4.0.5.jar:4.0.5]
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$ImplementationMethodExecutionInterceptor.invoke(RepositoryFactorySupport.java:690) ~[spring-data-commons-4.0.5.jar:4.0.5]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) ~[spring-aop-7.0.7.jar:7.0.7]
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:171) ~[spring-data-commons-4.0.5.jar:4.0.5]
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:146) ~[spring-data-commons-4.0.5.jar:4.0.5]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) ~[spring-aop-7.0.7.jar:7.0.7]
+	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:69) ~[spring-data-commons-4.0.5.jar:4.0.5]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) ~[spring-aop-7.0.7.jar:7.0.7]
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:133) ~[spring-tx-7.0.7.jar:7.0.7]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:371) ~[spring-tx-7.0.7.jar:7.0.7]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:130) ~[spring-tx-7.0.7.jar:7.0.7]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) ~[spring-aop-7.0.7.jar:7.0.7]
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:135) ~[spring-tx-7.0.7.jar:7.0.7]
+	... 26 common frames omitted
+Caused by: java.sql.SQLException: Field 'sugerencia' doesn't have a default value
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:121) ~[mysql-connector-j-9.7.0.jar:9.7.0]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114) ~[mysql-connector-j-9.7.0.jar:9.7.0]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:988) ~[mysql-connector-j-9.7.0.jar:9.7.0]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1166) ~[mysql-connector-j-9.7.0.jar:9.7.0]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1101) ~[mysql-connector-j-9.7.0.jar:9.7.0]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1448) ~[mysql-connector-j-9.7.0.jar:9.7.0]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:1084) ~[mysql-connector-j-9.7.0.jar:9.7.0]
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61) ~[HikariCP-7.0.2.jar:na]
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java) ~[HikariCP-7.0.2.jar:na]
+	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:181) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	... 75 common frames omitted
+
+2026-06-27T19:04:48.830-04:00  INFO 20776 --- [valoracion-service] [main] c.m.valoracion.ValoracionApplication     : Starting ValoracionApplication using Java 21.0.11 with PID 20776 (/Users/nicolasherrera/Desktop/Proyecto-Transversal/valoracion/target/classes started by nicolasherrera in /Users/nicolasherrera/Desktop/Proyecto-Transversal)
+2026-06-27T19:04:48.831-04:00 DEBUG 20776 --- [valoracion-service] [main] c.m.valoracion.ValoracionApplication     : Running with Spring Boot v4.0.6, Spring v7.0.7
+2026-06-27T19:04:48.832-04:00  INFO 20776 --- [valoracion-service] [main] c.m.valoracion.ValoracionApplication     : The following 1 profile is active: "dev"
+2026-06-27T19:04:49.862-04:00 DEBUG 20776 --- [valoracion-service] [main] o.s.w.f.ServerHttpObservationFilter      : Filter 'webMvcObservationFilter' configured for use
+2026-06-27T19:04:50.382-04:00  WARN 20776 --- [valoracion-service] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-27T19:04:51.108-04:00  WARN 20776 --- [valoracion-service] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-27T19:04:51.147-04:00  WARN 20776 --- [valoracion-service] [main] .s.a.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 8bc62984-c0c0-4236-9255-c5d983dad36e
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-06-27T19:04:51.268-04:00 DEBUG 20776 --- [valoracion-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 11 mappings in 'requestMappingHandlerMapping'
+2026-06-27T19:04:51.286-04:00 DEBUG 20776 --- [valoracion-service] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /doc/swagger-ui/**, /doc/swagger-ui/*swagger-initializer.js, /webjars/*swagger-ui/**, /webjars/*swagger-ui/*swagger-initializer.js, /webjars/*swagger-ui/5.32.2/*swagger-initializer.js] in 'resourceHandlerMapping'
+2026-06-27T19:04:51.302-04:00 DEBUG 20776 --- [valoracion-service] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 2 RequestBodyAdvice, 1 ResponseBodyAdvice
+2026-06-27T19:04:51.327-04:00 DEBUG 20776 --- [valoracion-service] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2026-06-27T19:04:51.581-04:00  INFO 20776 --- [valoracion-service] [main] c.m.valoracion.ValoracionApplication     : Started ValoracionApplication in 2.99 seconds (process running for 3.397)
+2026-06-27T19:04:51.878-04:00  INFO 20776 --- [valoracion-service] [RMI TCP Connection(2)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-06-27T19:04:51.879-04:00 DEBUG 20776 --- [valoracion-service] [RMI TCP Connection(2)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2026-06-27T19:04:51.879-04:00 DEBUG 20776 --- [valoracion-service] [RMI TCP Connection(2)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2026-06-27T19:04:51.881-04:00 DEBUG 20776 --- [valoracion-service] [RMI TCP Connection(2)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@38eb2140
+2026-06-27T19:04:51.881-04:00 DEBUG 20776 --- [valoracion-service] [RMI TCP Connection(2)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@2a3ced3d
+2026-06-27T19:04:51.881-04:00 DEBUG 20776 --- [valoracion-service] [RMI TCP Connection(2)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2026-06-27T19:04:51.881-04:00  INFO 20776 --- [valoracion-service] [RMI TCP Connection(2)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2026-06-27T19:05:08.979-04:00  INFO 20803 --- [notificacion-service] [main] c.m.n.NotificacionApplication            : Starting NotificacionApplication using Java 21.0.11 with PID 20803 (/Users/nicolasherrera/Desktop/Proyecto-Transversal/notificacion/target/classes started by nicolasherrera in /Users/nicolasherrera/Desktop/Proyecto-Transversal)
+2026-06-27T19:05:08.981-04:00 DEBUG 20803 --- [notificacion-service] [main] c.m.n.NotificacionApplication            : Running with Spring Boot v4.0.6, Spring v7.0.7
+2026-06-27T19:05:08.982-04:00  INFO 20803 --- [notificacion-service] [main] c.m.n.NotificacionApplication            : The following 1 profile is active: "dev"
+2026-06-27T19:05:09.939-04:00 DEBUG 20803 --- [notificacion-service] [main] o.s.w.f.ServerHttpObservationFilter      : Filter 'webMvcObservationFilter' configured for use
+2026-06-27T19:05:10.463-04:00  WARN 20803 --- [notificacion-service] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-27T19:05:11.211-04:00  WARN 20803 --- [notificacion-service] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-27T19:05:11.249-04:00  WARN 20803 --- [notificacion-service] [main] .s.a.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 22edde1d-52d0-48cc-87bb-d649a9e0e2d1
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-06-27T19:05:11.374-04:00 DEBUG 20803 --- [notificacion-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 10 mappings in 'requestMappingHandlerMapping'
+2026-06-27T19:05:11.402-04:00 DEBUG 20803 --- [notificacion-service] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /doc/swagger-ui/**, /doc/swagger-ui/*swagger-initializer.js, /webjars/*swagger-ui/**, /webjars/*swagger-ui/*swagger-initializer.js, /webjars/*swagger-ui/5.32.2/*swagger-initializer.js] in 'resourceHandlerMapping'
+2026-06-27T19:05:11.421-04:00 DEBUG 20803 --- [notificacion-service] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 2 RequestBodyAdvice, 1 ResponseBodyAdvice
+2026-06-27T19:05:11.444-04:00 DEBUG 20803 --- [notificacion-service] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2026-06-27T19:05:11.693-04:00  INFO 20803 --- [notificacion-service] [main] c.m.n.NotificacionApplication            : Started NotificacionApplication in 2.941 seconds (process running for 3.321)
+2026-06-27T19:05:12.070-04:00  INFO 20803 --- [notificacion-service] [RMI TCP Connection(4)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-06-27T19:05:12.070-04:00 DEBUG 20803 --- [notificacion-service] [RMI TCP Connection(4)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2026-06-27T19:05:12.070-04:00 DEBUG 20803 --- [notificacion-service] [RMI TCP Connection(4)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2026-06-27T19:05:12.071-04:00 DEBUG 20803 --- [notificacion-service] [RMI TCP Connection(4)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@1cb58c8a
+2026-06-27T19:05:12.071-04:00 DEBUG 20803 --- [notificacion-service] [RMI TCP Connection(4)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@30f74965
+2026-06-27T19:05:12.071-04:00 DEBUG 20803 --- [notificacion-service] [RMI TCP Connection(4)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2026-06-27T19:05:12.071-04:00  INFO 20803 --- [notificacion-service] [RMI TCP Connection(4)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2026-06-27T19:07:51.273-04:00  INFO 21107 --- [reporte-service] [main] c.m.reporte.ReporteApplication           : Starting ReporteApplication using Java 21.0.11 with PID 21107 (/Users/nicolasherrera/Desktop/Proyecto-Transversal/reporte/target/classes started by nicolasherrera in /Users/nicolasherrera/Desktop/Proyecto-Transversal)
+2026-06-27T19:07:51.276-04:00 DEBUG 21107 --- [reporte-service] [main] c.m.reporte.ReporteApplication           : Running with Spring Boot v4.0.6, Spring v7.0.7
+2026-06-27T19:07:51.277-04:00  INFO 21107 --- [reporte-service] [main] c.m.reporte.ReporteApplication           : The following 1 profile is active: "dev"
+2026-06-27T19:07:52.305-04:00 DEBUG 21107 --- [reporte-service] [main] o.s.w.f.ServerHttpObservationFilter      : Filter 'webMvcObservationFilter' configured for use
+2026-06-27T19:07:52.937-04:00  WARN 21107 --- [reporte-service] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-27T19:07:53.803-04:00  WARN 21107 --- [reporte-service] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-27T19:07:53.841-04:00  WARN 21107 --- [reporte-service] [main] .s.a.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 06d88c40-711c-438d-8b81-07ae0f757bfb
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-06-27T19:07:53.976-04:00 DEBUG 21107 --- [reporte-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 13 mappings in 'requestMappingHandlerMapping'
+2026-06-27T19:07:53.994-04:00 DEBUG 21107 --- [reporte-service] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /doc/swagger-ui/**, /doc/swagger-ui/*swagger-initializer.js, /webjars/*swagger-ui/**, /webjars/*swagger-ui/*swagger-initializer.js, /webjars/*swagger-ui/5.32.2/*swagger-initializer.js] in 'resourceHandlerMapping'
+2026-06-27T19:07:54.011-04:00 DEBUG 21107 --- [reporte-service] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 2 RequestBodyAdvice, 1 ResponseBodyAdvice
+2026-06-27T19:07:54.035-04:00 DEBUG 21107 --- [reporte-service] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2026-06-27T19:07:54.289-04:00  INFO 21107 --- [reporte-service] [main] c.m.reporte.ReporteApplication           : Started ReporteApplication in 3.271 seconds (process running for 3.686)
+2026-06-27T19:07:54.785-04:00  INFO 21107 --- [reporte-service] [RMI TCP Connection(1)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-06-27T19:07:54.785-04:00 DEBUG 21107 --- [reporte-service] [RMI TCP Connection(1)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2026-06-27T19:07:54.785-04:00 DEBUG 21107 --- [reporte-service] [RMI TCP Connection(1)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2026-06-27T19:07:54.786-04:00 DEBUG 21107 --- [reporte-service] [RMI TCP Connection(1)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@249f95a2
+2026-06-27T19:07:54.786-04:00 DEBUG 21107 --- [reporte-service] [RMI TCP Connection(1)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@78f649d3
+2026-06-27T19:07:54.787-04:00 DEBUG 21107 --- [reporte-service] [RMI TCP Connection(1)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2026-06-27T19:07:54.787-04:00  INFO 21107 --- [reporte-service] [RMI TCP Connection(1)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2026-06-27T19:08:08.952-04:00  INFO 21115 --- [pago-service] [main] com.marketplace.pago.PagoApplication     : Starting PagoApplication using Java 21.0.11 with PID 21115 (/Users/nicolasherrera/Desktop/Proyecto-Transversal/pago/target/classes started by nicolasherrera in /Users/nicolasherrera/Desktop/Proyecto-Transversal)
+2026-06-27T19:08:08.953-04:00 DEBUG 21115 --- [pago-service] [main] com.marketplace.pago.PagoApplication     : Running with Spring Boot v4.0.6, Spring v7.0.7
+2026-06-27T19:08:08.954-04:00  INFO 21115 --- [pago-service] [main] com.marketplace.pago.PagoApplication     : The following 1 profile is active: "dev"
+2026-06-27T19:08:09.926-04:00 DEBUG 21115 --- [pago-service] [main] o.s.w.f.ServerHttpObservationFilter      : Filter 'webMvcObservationFilter' configured for use
+2026-06-27T19:08:10.458-04:00  WARN 21115 --- [pago-service] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-27T19:08:11.192-04:00  WARN 21115 --- [pago-service] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-27T19:08:11.230-04:00  WARN 21115 --- [pago-service] [main] .s.a.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 0fd375a7-cf6c-4f59-ba46-6b8e1fbeaf35
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-06-27T19:08:11.357-04:00 DEBUG 21115 --- [pago-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 10 mappings in 'requestMappingHandlerMapping'
+2026-06-27T19:08:11.376-04:00 DEBUG 21115 --- [pago-service] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /doc/swagger-ui/**, /doc/swagger-ui/*swagger-initializer.js, /webjars/*swagger-ui/**, /webjars/*swagger-ui/*swagger-initializer.js, /webjars/*swagger-ui/5.32.2/*swagger-initializer.js] in 'resourceHandlerMapping'
+2026-06-27T19:08:11.390-04:00 DEBUG 21115 --- [pago-service] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 2 RequestBodyAdvice, 1 ResponseBodyAdvice
+2026-06-27T19:08:11.416-04:00 DEBUG 21115 --- [pago-service] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2026-06-27T19:08:11.678-04:00  INFO 21115 --- [pago-service] [main] com.marketplace.pago.PagoApplication     : Started PagoApplication in 2.943 seconds (process running for 3.371)
+2026-06-27T19:08:12.031-04:00  INFO 21115 --- [pago-service] [RMI TCP Connection(2)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-06-27T19:08:12.031-04:00 DEBUG 21115 --- [pago-service] [RMI TCP Connection(2)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2026-06-27T19:08:12.031-04:00 DEBUG 21115 --- [pago-service] [RMI TCP Connection(2)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2026-06-27T19:08:12.032-04:00 DEBUG 21115 --- [pago-service] [RMI TCP Connection(2)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@6d6c4775
+2026-06-27T19:08:12.032-04:00 DEBUG 21115 --- [pago-service] [RMI TCP Connection(2)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@13448d2d
+2026-06-27T19:08:12.032-04:00 DEBUG 21115 --- [pago-service] [RMI TCP Connection(2)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2026-06-27T19:08:12.032-04:00  INFO 21115 --- [pago-service] [RMI TCP Connection(2)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2026-06-27T19:09:05.781-04:00 DEBUG 20481 --- [pedido-service] [http-nio-8086-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/pedidos", parameters={}
+2026-06-27T19:09:05.787-04:00 DEBUG 20481 --- [pedido-service] [http-nio-8086-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.marketplace.pedido.controller.PedidoController#listar()
+2026-06-27T19:09:05.799-04:00  INFO 20481 --- [pedido-service] [http-nio-8086-exec-2] c.m.pedido.service.PedidoService         : Se listan todos los pedidos
+2026-06-27T19:09:06.084-04:00 DEBUG 20481 --- [pedido-service] [http-nio-8086-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/hal+json', given [*/*] and supported [application/hal+json]
+2026-06-27T19:09:06.087-04:00 DEBUG 20481 --- [pedido-service] [http-nio-8086-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Writing [CollectionModel { content: [EntityModel { content: PedidoResponseDTO(id=1, productoId=0, nomProducto (truncated)...]
+2026-06-27T19:09:06.131-04:00 DEBUG 20481 --- [pedido-service] [http-nio-8086-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2026-06-27T19:09:24.105-04:00 DEBUG 21115 --- [pago-service] [http-nio-8087-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/pagos", parameters={}
+2026-06-27T19:09:24.110-04:00 DEBUG 21115 --- [pago-service] [http-nio-8087-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.marketplace.pago.controller.PagoController#listar()
+2026-06-27T19:09:24.121-04:00  INFO 21115 --- [pago-service] [http-nio-8087-exec-1] c.marketplace.pago.service.PagoService   : Se listan todos los pagos
+2026-06-27T19:09:24.333-04:00 DEBUG 21115 --- [pago-service] [http-nio-8087-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/hal+json', given [*/*] and supported [application/hal+json]
+2026-06-27T19:09:24.336-04:00 DEBUG 21115 --- [pago-service] [http-nio-8087-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Writing [CollectionModel { content: [EntityModel { content: PagoResponseDTO(id=1, pedidoId=1, metodoPago=PayP (truncated)...]
+2026-06-27T19:09:24.384-04:00 DEBUG 21115 --- [pago-service] [http-nio-8087-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2026-06-27T19:09:35.077-04:00 DEBUG 20776 --- [valoracion-service] [http-nio-8088-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/valoracion", parameters={}
+2026-06-27T19:09:35.085-04:00 DEBUG 20776 --- [valoracion-service] [http-nio-8088-exec-2] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2026-06-27T19:09:35.091-04:00 DEBUG 20776 --- [valoracion-service] [http-nio-8088-exec-2] o.s.w.s.r.ResourceHttpRequestHandler     : Resource not found for path [valoracion]
+2026-06-27T19:09:35.114-04:00 DEBUG 20776 --- [valoracion-service] [http-nio-8088-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Using @ExceptionHandler com.marketplace.valoracion.Exception.GlobalExceptionHandler#handleGenericException(Exception)
+2026-06-27T19:09:35.141-04:00 DEBUG 20776 --- [valoracion-service] [http-nio-8088-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/yaml]
+2026-06-27T19:09:35.143-04:00 DEBUG 20776 --- [valoracion-service] [http-nio-8088-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ExceptionDTO(code=500, type=Internal Server Error, date=Sat Jun 27 19:09:35 CLT 2026, message=Error  (truncated)...]
+2026-06-27T19:09:35.154-04:00 DEBUG 20776 --- [valoracion-service] [http-nio-8088-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource valoracion for request '/valoracion'.]
+2026-06-27T19:09:35.157-04:00 DEBUG 20776 --- [valoracion-service] [http-nio-8088-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 500 INTERNAL_SERVER_ERROR
+2026-06-27T19:09:37.771-04:00 DEBUG 20776 --- [valoracion-service] [http-nio-8088-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/valoracion", parameters={}
+2026-06-27T19:09:37.773-04:00 DEBUG 20776 --- [valoracion-service] [http-nio-8088-exec-3] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2026-06-27T19:09:37.774-04:00 DEBUG 20776 --- [valoracion-service] [http-nio-8088-exec-3] o.s.w.s.r.ResourceHttpRequestHandler     : Resource not found for path [valoracion]
+2026-06-27T19:09:37.778-04:00 DEBUG 20776 --- [valoracion-service] [http-nio-8088-exec-3] .m.m.a.ExceptionHandlerExceptionResolver : Using @ExceptionHandler com.marketplace.valoracion.Exception.GlobalExceptionHandler#handleGenericException(Exception)
+2026-06-27T19:09:37.780-04:00 DEBUG 20776 --- [valoracion-service] [http-nio-8088-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/yaml]
+2026-06-27T19:09:37.780-04:00 DEBUG 20776 --- [valoracion-service] [http-nio-8088-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ExceptionDTO(code=500, type=Internal Server Error, date=Sat Jun 27 19:09:37 CLT 2026, message=Error  (truncated)...]
+2026-06-27T19:09:37.782-04:00 DEBUG 20776 --- [valoracion-service] [http-nio-8088-exec-3] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource valoracion for request '/valoracion'.]
+2026-06-27T19:09:37.783-04:00 DEBUG 20776 --- [valoracion-service] [http-nio-8088-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 500 INTERNAL_SERVER_ERROR
+2026-06-27T19:10:07.405-04:00 DEBUG 20803 --- [notificacion-service] [http-nio-8089-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/notificacion", parameters={}
+2026-06-27T19:10:07.411-04:00 DEBUG 20803 --- [notificacion-service] [http-nio-8089-exec-2] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2026-06-27T19:10:07.417-04:00 DEBUG 20803 --- [notificacion-service] [http-nio-8089-exec-2] o.s.w.s.r.ResourceHttpRequestHandler     : Resource not found for path [notificacion]
+2026-06-27T19:10:07.423-04:00 DEBUG 20803 --- [notificacion-service] [http-nio-8089-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Using @ExceptionHandler com.marketplace.notificacion.Exception.GlobalExceptionHandler#handleGenericException(Exception)
+2026-06-27T19:10:07.452-04:00 DEBUG 20803 --- [notificacion-service] [http-nio-8089-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/yaml]
+2026-06-27T19:10:07.455-04:00 DEBUG 20803 --- [notificacion-service] [http-nio-8089-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ExceptionDTO(code=500, type=Internal Server Error, date=Sat Jun 27 19:10:07 CLT 2026, message=Error  (truncated)...]
+2026-06-27T19:10:07.470-04:00 DEBUG 20803 --- [notificacion-service] [http-nio-8089-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource notificacion for request '/notificacion'.]
+2026-06-27T19:10:07.472-04:00 DEBUG 20803 --- [notificacion-service] [http-nio-8089-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 500 INTERNAL_SERVER_ERROR
+2026-06-27T19:10:17.964-04:00 DEBUG 21107 --- [reporte-service] [http-nio-8090-exec-1] o.s.web.servlet.DispatcherServlet        : "ERROR" dispatch for GET "/error", parameters={}
+2026-06-27T19:10:17.969-04:00 DEBUG 21107 --- [reporte-service] [http-nio-8090-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springframework.boot.webmvc.autoconfigure.error.BasicErrorController#error(HttpServletRequest)
+2026-06-27T19:10:17.991-04:00 DEBUG 21107 --- [reporte-service] [http-nio-8090-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/yaml]
+2026-06-27T19:10:17.992-04:00 DEBUG 21107 --- [reporte-service] [http-nio-8090-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{timestamp=Sat Jun 27 19:10:17 CLT 2026, status=400, error=Bad Request, path=/reportes%0A}]
+2026-06-27T19:10:18.004-04:00 DEBUG 21107 --- [reporte-service] [http-nio-8090-exec-1] o.s.web.servlet.DispatcherServlet        : Exiting from "ERROR" dispatch, status 400
+2026-06-27T19:10:20.148-04:00 DEBUG 21107 --- [reporte-service] [http-nio-8090-exec-4] o.s.web.servlet.DispatcherServlet        : "ERROR" dispatch for GET "/error", parameters={}
+2026-06-27T19:10:20.149-04:00 DEBUG 21107 --- [reporte-service] [http-nio-8090-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springframework.boot.webmvc.autoconfigure.error.BasicErrorController#error(HttpServletRequest)
+2026-06-27T19:10:20.151-04:00 DEBUG 21107 --- [reporte-service] [http-nio-8090-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/yaml]
+2026-06-27T19:10:20.152-04:00 DEBUG 21107 --- [reporte-service] [http-nio-8090-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{timestamp=Sat Jun 27 19:10:20 CLT 2026, status=400, error=Bad Request, path=/reportes%0A}]
+2026-06-27T19:10:20.153-04:00 DEBUG 21107 --- [reporte-service] [http-nio-8090-exec-4] o.s.web.servlet.DispatcherServlet        : Exiting from "ERROR" dispatch, status 400
+2026-06-27T19:12:30.036-04:00 DEBUG 20776 --- [valoracion-service] [http-nio-8088-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/valoracion", parameters={}
+2026-06-27T19:12:30.041-04:00 DEBUG 20776 --- [valoracion-service] [http-nio-8088-exec-6] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2026-06-27T19:12:30.053-04:00 DEBUG 20776 --- [valoracion-service] [http-nio-8088-exec-6] o.s.w.s.r.ResourceHttpRequestHandler     : Resource not found for path [valoracion]
+2026-06-27T19:12:30.054-04:00 DEBUG 20776 --- [valoracion-service] [http-nio-8088-exec-6] .m.m.a.ExceptionHandlerExceptionResolver : Using @ExceptionHandler com.marketplace.valoracion.Exception.GlobalExceptionHandler#handleGenericException(Exception)
+2026-06-27T19:12:30.055-04:00 DEBUG 20776 --- [valoracion-service] [http-nio-8088-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/yaml]
+2026-06-27T19:12:30.055-04:00 DEBUG 20776 --- [valoracion-service] [http-nio-8088-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ExceptionDTO(code=500, type=Internal Server Error, date=Sat Jun 27 19:12:30 CLT 2026, message=Error  (truncated)...]
+2026-06-27T19:12:30.057-04:00 DEBUG 20776 --- [valoracion-service] [http-nio-8088-exec-6] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource valoracion for request '/valoracion'.]
+2026-06-27T19:12:30.057-04:00 DEBUG 20776 --- [valoracion-service] [http-nio-8088-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 500 INTERNAL_SERVER_ERROR
+2026-06-27T19:13:26.432-04:00 DEBUG 20776 --- [valoracion-service] [http-nio-8088-exec-8] o.s.web.servlet.DispatcherServlet        : GET "/valoraciones", parameters={}
+2026-06-27T19:13:26.445-04:00 DEBUG 20776 --- [valoracion-service] [http-nio-8088-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.marketplace.valoracion.controller.ValoracionController#listar()
+2026-06-27T19:13:26.467-04:00  INFO 20776 --- [valoracion-service] [http-nio-8088-exec-8] c.m.v.service.ValoracionService          : Se listan todas las valoraciones
+2026-06-27T19:13:26.749-04:00 DEBUG 20776 --- [valoracion-service] [http-nio-8088-exec-8] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/hal+json', given [*/*] and supported [application/hal+json]
+2026-06-27T19:13:26.753-04:00 DEBUG 20776 --- [valoracion-service] [http-nio-8088-exec-8] m.m.a.RequestResponseBodyMethodProcessor : Writing [CollectionModel { content: [EntityModel { content: ValoracionResponseDTO(id=1, productoId=0, numEstr (truncated)...]
+2026-06-27T19:13:26.791-04:00 DEBUG 20776 --- [valoracion-service] [http-nio-8088-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK

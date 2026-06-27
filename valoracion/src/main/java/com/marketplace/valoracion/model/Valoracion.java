@@ -30,4 +30,8 @@ public class Valoracion {
     @Column(nullable = false, length = 512)
     private String recomendacion;
 
+    @NotBlank(message = "Añade una sugerencia")
+    @Column(nullable = false, length = 500)
+    private String sugerencia;
 }
+

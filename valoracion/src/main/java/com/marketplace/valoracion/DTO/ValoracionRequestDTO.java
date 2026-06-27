@@ -22,4 +22,7 @@ public class ValoracionRequestDTO {
     @Size(min = 10, message = "La recomendación debe tener al menos 10 caracteres")
     private String recomendacion;
 
+    @NotBlank(message = "Añade una sugerencia para el vendedor")
+    @Size(min = 10, message = "La sugerencia debe tener al menos 10 caracteres")
+    private String sugerencia;
 }

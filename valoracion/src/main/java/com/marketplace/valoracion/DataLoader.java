@@ -2,7 +2,7 @@ package com.marketplace.valoracion;
 
 import com.marketplace.valoracion.model.Valoracion;
 import com.marketplace.valoracion.repository.ValoracionRepository;
-import net.datafaker.Faker;          // versión nueva
+import net.datafaker.Faker;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Profile;
@@ -24,10 +24,10 @@ public class DataLoader implements CommandLineRunner {
             valoracion.setProductoId((long) i);
             valoracion.setNumEstrella(faker.number().numberBetween(1, 6));
             valoracion.setRecomendacion(faker.lorem().sentence(10));
+            valoracion.setSugerencia(faker.lorem().sentence(5));
             valoracionRepository.save(valoracion);
         }
 
         System.out.println("Valoraciones generadas con DataFaker");
     }
 }
-

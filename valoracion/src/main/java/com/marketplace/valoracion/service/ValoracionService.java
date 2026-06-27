@@ -28,7 +28,8 @@ public class ValoracionService {
                 v.getId(),
                 v.getProductoId(),
                 v.getNumEstrella(),
-                v.getRecomendacion()
+                v.getRecomendacion(),
+                v.getSugerencia()
         );
     }
 
@@ -47,13 +48,11 @@ public class ValoracionService {
                     .bodyToMono(ProductoClientDTO.class)
                     .block();
         } catch (WebClientResponseException.NotFound e) {
-            // El producto no existe en el microservicio de Producto
             log.error("Producto con id {} no encontrado", productoId);
             throw new IllegalArgumentException(
                     "No se puede valorar: el producto con id " + productoId + " no existe."
             );
         } catch (Exception e) {
-            // El microservicio de Producto está caído o no responde
             log.error("Microservicio Producto no disponible: {}", e.getMessage());
             throw new IllegalArgumentException(
                     "El servicio de productos no está disponible en este momento. Intenta más tarde."
@@ -72,13 +71,6 @@ public class ValoracionService {
     public ValoracionResponseDTO findValoracionById(long id) {
         log.info("Se busca valoración con id: {}", id);
         return toDTO(obtenerOFallar(id));
-    }
-
-    public List<ValoracionResponseDTO> findByProductoId(Long productoId) {
-        log.info("Se buscan valoraciones del producto id: {}", productoId);
-        return valoracionRepository.findByProductoId(productoId).stream()
-                .map(this::toDTO)
-                .collect(Collectors.toList());
     }
 
     public ValoracionResponseDTO makeValoracion(ValoracionRequestDTO dto) {
@@ -101,19 +93,22 @@ public class ValoracionService {
             throw new IllegalArgumentException("La recomendación debe tener al menos 10 caracteres.");
         }
 
+        // ── Regla 4: La sugerencia debe tener al menos 10 caracteres ─────────
+        if (dto.getSugerencia().trim().length() < 10) {
+            throw new IllegalArgumentException("La sugerencia debe tener al menos 10 caracteres.");
+        }
+
         // ── Verifica que el producto existe y está activo ─────────────────────
         ProductoClientDTO producto = obtenerProducto(dto.getProductoId());
         if (!producto.getActivo()) {
-            log.warn("Intento de valorar producto inactivo con id: {}", dto.getProductoId());
             throw new IllegalArgumentException("No se puede valorar un producto que no está activo.");
         }
-
-        log.info("Producto '{}' verificado. Creando valoración.", producto.getNombre());
 
         Valoracion valoracion = new Valoracion();
         valoracion.setProductoId(dto.getProductoId());
         valoracion.setNumEstrella(dto.getNumEstrella());
         valoracion.setRecomendacion(dto.getRecomendacion().trim());
+        valoracion.setSugerencia(dto.getSugerencia().trim());
         valoracion = valoracionRepository.save(valoracion);
 
         log.info("Valoración creada con id: {}", valoracion.getId());
@@ -123,20 +118,20 @@ public class ValoracionService {
     public ValoracionResponseDTO updateValoracion(long id, ValoracionRequestDTO dto) {
         log.info("Actualizando valoración con id: {}", id);
 
-        // ── Regla 1: Las estrellas deben estar entre 1 y 5 ──────────────────
         if (dto.getNumEstrella() < 1 || dto.getNumEstrella() > 5) {
             throw new IllegalArgumentException("El número de estrellas debe estar entre 1 y 5.");
         }
-
-        // ── Regla 2: La recomendación debe tener al menos 10 caracteres ──────
         if (dto.getRecomendacion().trim().length() < 10) {
             throw new IllegalArgumentException("La recomendación debe tener al menos 10 caracteres.");
         }
-
+        if (dto.getSugerencia().trim().length() < 10) {
+            throw new IllegalArgumentException("La sugerencia debe tener al menos 10 caracteres.");
+        }
 
         Valoracion valoracion = obtenerOFallar(id);
         valoracion.setNumEstrella(dto.getNumEstrella());
         valoracion.setRecomendacion(dto.getRecomendacion().trim());
+        valoracion.setSugerencia(dto.getSugerencia().trim());
         valoracion = valoracionRepository.save(valoracion);
 
         log.info("Valoración con id: {} actualizada exitosamente", id);
