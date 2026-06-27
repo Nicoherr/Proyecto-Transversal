@@ -1,8 +1,6 @@
 package com.marketplace.valoracion.DTO;
 
-
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,10 +13,13 @@ public class ValoracionRequestDTO {
     @NotNull(message = "El id del producto es obligatorio")
     private Long productoId;
 
-    @NotNull(message = "El campo no puede ser nulo")
+    @NotNull(message = "El número de estrellas es obligatorio")
+    @Min(value = 1, message = "El mínimo de estrellas es 1")
+    @Max(value = 5, message = "El máximo de estrellas es 5")
     private int numEstrella;
 
     @NotBlank(message = "Ingresa una recomendacion del producto")
+    @Size(min = 10, message = "La recomendación debe tener al menos 10 caracteres")
     private String recomendacion;
 
 }

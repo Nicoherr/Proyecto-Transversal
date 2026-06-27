@@ -3,14 +3,14 @@ package com.marketplace.pago.DTO;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 import java.util.Date;
 
-@Data //Getter and Setter
-@AllArgsConstructor //Constructores con parametros
-@NoArgsConstructor //Constructores sin parametros
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class PagoResponseDTO {
     private long id = 0;
+    private Long pedidoId;
     private String metodoPago;
     private String comprobante;
     private Date fecha;

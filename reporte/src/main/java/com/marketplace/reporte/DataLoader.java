@@ -32,24 +32,25 @@ public class DataLoader implements CommandLineRunner {
                 "Productos más vendidos", "Clientes frecuentes"
         );
 
-        // Genera 5 reportes con 2 detalles cada uno
         for (int i = 0; i < 5; i++) {
             Reporte reporte = new Reporte();
+            reporte.setPagoId((long) (i + 1));   // ← línea nueva
             reporte.setTipo(tipos.get(i));
             reporte.setDescripcion(faker.lorem().sentence(10));
             reporte.setFecha(new Date());
             reporte.setEstado(true);
             reporte = reporteRepository.save(reporte);
 
-            // Genera 2 detalles por reporte
-            for (int j = 0; j < 2; j++) {
-                DetalleReporte detalle = new DetalleReporte();
-                detalle.setObservacion(faker.lorem().sentence(8));
-                detalle.setValor(faker.number().numberBetween(1, 10000));
-                detalle.setReporte(reporte);
-                detalleReporteRepository.save(detalle);
-            }
         }
+        // Genera 2 detalles por reporte
+        for (int j = 0; j < 2; j++) {
+            DetalleReporte detalle = new DetalleReporte();
+            detalle.setObservacion(faker.lorem().sentence(8));
+            detalle.setValor(faker.number().numberBetween(1, 10000));
+            detalle.setReporte(reporte);
+            detalleReporteRepository.save(detalle);
+        }
+
 
         System.out.println("Reportes y detalles generados con DataFaker");
     }

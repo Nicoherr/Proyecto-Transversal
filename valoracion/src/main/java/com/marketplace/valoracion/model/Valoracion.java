@@ -7,22 +7,27 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity //JPA crea la tabla en la BD automaticamente.
-@Table(name = "valoracion") //Nombre de la Tabla en la Base de datos
-@Data //Getter and Setter
-@AllArgsConstructor //Constructores con parametros
-@NoArgsConstructor //Constructores sin parametros
+@Entity
+@Table(name = "valoracion")
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Valoracion {
-    @Id// este campo es el ID único de cada registro
-    @GeneratedValue(strategy = GenerationType.IDENTITY)// el ID se genera solo, no lo ingresa el usuario
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @NotNull(message = "El campo no puede ser nulo")
-    @Column(nullable = false)//Validamos que el dato no sea nulo en la Base de Datos.
+    @NotNull(message = "El id del producto es obligatorio")
+    @Column(nullable = false)
+    private Long productoId;
+
+    @NotNull(message = "El número de estrellas es obligatorio")
+    @Column(nullable = false)
     private int numEstrella;
 
     @NotBlank(message = "Ingresa una recomendacion del producto")
-    @Column(nullable = false, length = 512)//Validamos que el dato no sea nulo en la Base de Datos.
+    @Column(nullable = false, length = 512)
     private String recomendacion;
 
 }

@@ -7,29 +7,35 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity //JPA crea la tabla en la BD automaticamente.
-@Table(name = "pedido") //Nombre de la Tabla en la Base de datos
-@Data //Getter and Setter
-@AllArgsConstructor //Constructores con parametros
-@NoArgsConstructor //Constructores sin parametros
+@Entity
+@Table(name = "pedido")
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Pedido {
-    @Id// este campo es el ID único de cada registro
-    @GeneratedValue(strategy = GenerationType.IDENTITY)// el ID se genera solo, no lo ingresa el usuario
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    // ID del producto pedido (referencia al microservicio de Producto)
+    @NotNull(message = "El id del producto es obligatorio")
+    @Column(nullable = false)
+    private Long productoId;
+
     @NotBlank(message = "Ingresa el nombre del producto")
-    @Column(nullable = false, length = 200)//Validamos que el dato no sea nulo en la Base de Datos.
+    @Column(nullable = false, length = 200)
     private String nomProducto;
 
-    @NotBlank(message = "Deves especificar el tipo de producto")
-    @Column(nullable = false, length = 30)//Validamos que el dato no sea nulo en la Base de Datos.
+    @NotBlank(message = "Debes especificar el tipo de producto")
+    @Column(nullable = false, length = 30)
     private String tipoProducto;
 
-    @NotNull(message = "Deves ingresar el precio del producto que deseas vender")
-    @Column(nullable = false)//Validamos que el dato no sea nulo en la Base de Datos.
+    @NotNull(message = "Debes ingresar el precio del producto")
+    @Column(nullable = false)
     private int precio;
 
-    @NotBlank(message = "Ingresa la direccion para el despacho")
+    @NotBlank(message = "Ingresa la dirección para el despacho")
     @Column
     private String direccionEntrega;
 }

@@ -32,12 +32,23 @@ public class PagoService {
 
     // ─── Mapper ───────────────────────────────────────────────────────────────
     private PagoResponseDTO toDTO(Pago pago) {
-        return new PagoResponseDTO(pago.getId(), pago.getMetodoPago(), pago.getComprobante(), pago.getFecha());
+        return new PagoResponseDTO(
+                pago.getId(),
+                pago.getPedidoId(),
+                pago.getMetodoPago(),
+                pago.getComprobante(),
+                pago.getFecha()
+        );
+    }
+
+    private Pago obtenerOFallar(long id) {
+        return pagoRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Pago no encontrado con id: " + id));
     }
 
     // ─── Comunicación con microservicio Pedido ─────────────────────────────────
     private PedidoClientDTO obtenerPedido(Long pedidoId) {
-        log.info("Consultando microservicio Pedido para verificar pedido con id: {}", pedidoId);
+        log.info("Consultando microservicio Pedido para id: {}", pedidoId);
         try {
             return pedidoWebClient.get()
                     .uri("/pedidos/{id}", pedidoId)
@@ -45,11 +56,13 @@ public class PagoService {
                     .bodyToMono(PedidoClientDTO.class)
                     .block();
         } catch (WebClientResponseException.NotFound e) {
-            log.error("Pedido con id {} no encontrado en el microservicio de Pedido", pedidoId);
+            log.error("Pedido con id {} no encontrado", pedidoId);
             throw new IllegalArgumentException("El pedido con id " + pedidoId + " no existe.");
         } catch (Exception e) {
-            log.error("Error al comunicarse con el microservicio de Pedido: {}", e.getMessage());
-            throw new IllegalArgumentException("No se pudo verificar el pedido. Intenta nuevamente.");
+            log.error("Microservicio Pedido no disponible: {}", e.getMessage());
+            throw new IllegalArgumentException(
+                    "El servicio de pedidos no está disponible en este momento. Intenta más tarde."
+            );
         }
     }
 
@@ -63,56 +76,59 @@ public class PagoService {
 
     public PagoResponseDTO findPagosById(long id) {
         log.info("Se busca pago con id: {}", id);
-        Pago pago = pagoRepository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Pago no encontrado con id: " + id));
-        return toDTO(pago);
+        return toDTO(obtenerOFallar(id));
     }
 
     public PagoResponseDTO makePago(PagoRequestDTO dto) {
-        log.info("Se inicia la creación de pago para pedidoId: {}", dto.getPedidoId());
+        log.info("Creando pago para pedidoId: {}", dto.getPedidoId());
 
         // ── Regla 1: El método de pago debe ser uno de los permitidos ─────────
         if (!METODOS_PERMITIDOS.contains(dto.getMetodoPago())) {
             throw new IllegalArgumentException(
-                    "Método de pago inválido. Los métodos permitidos son: " + String.join(", ", METODOS_PERMITIDOS)
+                    "Método de pago inválido. Los métodos permitidos son: "
+                            + String.join(", ", METODOS_PERMITIDOS)
             );
         }
 
-        // ── Regla 2: No se puede procesar un pago para un pedido ya pagado ────
-        boolean yaExistePago = pagoRepository.findAll().stream()
-                .anyMatch(p -> p.getPedidoId() != null && p.getPedidoId().equals(dto.getPedidoId()));
-        if (yaExistePago) {
-            log.warn("Intento de pagar dos veces el pedido con id: {}", dto.getPedidoId());
-            throw new IllegalArgumentException("El pedido con id " + dto.getPedidoId() + " ya tiene un pago registrado.");
+        // ── Regla 2: No se puede pagar dos veces el mismo pedido ─────────────
+        // Usa existsByPedidoId en vez de findAll().stream() para ser eficiente
+        if (pagoRepository.existsByPedidoId(dto.getPedidoId())) {
+            log.warn("Intento de pagar dos veces el pedido id: {}", dto.getPedidoId());
+            throw new IllegalArgumentException(
+                    "El pedido con id " + dto.getPedidoId() + " ya tiene un pago registrado."
+            );
         }
 
-        // ── Interacción: verificar que el pedido existe ───────────────────────
+        // ── Verifica que el pedido existe ─────────────────────────────────────
         PedidoClientDTO pedido = obtenerPedido(dto.getPedidoId());
-        log.info("Pedido verificado: producto '{}' por ${}. Procediendo con el pago.", pedido.getNomProducto(), pedido.getPrecio());
 
         // ── Regla 3: El precio del pedido debe ser mayor a 0 ─────────────────
         if (pedido.getPrecio() <= 0) {
-            throw new IllegalArgumentException("No se puede procesar un pago para un pedido con precio inválido.");
+            throw new IllegalArgumentException(
+                    "No se puede procesar un pago para un pedido con precio inválido."
+            );
         }
+
+        log.info("Pedido '{}' verificado (precio: ${}). Procesando pago.",
+                pedido.getNomProducto(), pedido.getPrecio());
 
         String comprobante = "COMP-" + UUID.randomUUID().toString().substring(0, 8).toUpperCase();
 
         Pago pago = new Pago();
+        pago.setPedidoId(dto.getPedidoId());
         pago.setMetodoPago(dto.getMetodoPago());
         pago.setComprobante(comprobante);
         pago.setFecha(new Date());
-        pago.setPedidoId(dto.getPedidoId());
         pago = pagoRepository.save(pago);
 
-        log.info("Pago creado exitosamente con comprobante: {} para pedido '{}'", comprobante, pedido.getNomProducto());
+        log.info("Pago creado con comprobante: {} para pedido '{}'",
+                comprobante, pedido.getNomProducto());
         return toDTO(pago);
     }
 
     public void deletePago(long id) {
-        log.info("Se elimina pago con id: {}", id);
-        Pago pago = pagoRepository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Pago no encontrado con id: " + id));
-        pagoRepository.delete(pago);
+        log.info("Eliminando pago con id: {}", id);
+        pagoRepository.delete(obtenerOFallar(id));
         log.info("Pago con id: {} eliminado exitosamente", id);
     }
 }

@@ -26,7 +26,6 @@ public class DataLoader implements CommandLineRunner {
             Valoracion valoracion = new Valoracion();
             valoracion.setNumEstrella(faker.number().numberBetween(1, 6)); // Entre 1 y 5
             valoracion.setRecomendacion(faker.lorem().sentence(10)); // Frase de 10 palabras
-            valoracion.setSugerencia(faker.lorem().sentence(5));
             valoracionRepository.save(valoracion);
         }
 

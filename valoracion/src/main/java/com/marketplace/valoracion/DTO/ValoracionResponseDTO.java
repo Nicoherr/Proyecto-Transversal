@@ -4,11 +4,12 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data //Getter and Setter
-@AllArgsConstructor //Constructores con parametros
-@NoArgsConstructor //Constructores sin parametros
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class ValoracionResponseDTO {
     private long id = 0;
+    private Long productoId;
     private int numEstrella;
     private String recomendacion;
 }

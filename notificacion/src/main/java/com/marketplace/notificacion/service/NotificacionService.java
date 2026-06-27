@@ -25,12 +25,23 @@ public class NotificacionService {
 
     // ─── Mapper ───────────────────────────────────────────────────────────────
     private NotificacionResponseDTO toDTO(Notificacion n) {
-        return new NotificacionResponseDTO(n.getId(), n.getAsunto(), n.getMensaje(), n.getFecha());
+        return new NotificacionResponseDTO(
+                n.getId(),
+                n.getPedidoId(),
+                n.getAsunto(),
+                n.getMensaje(),
+                n.getFecha()
+        );
+    }
+
+    private Notificacion obtenerOFallar(long id) {
+        return notificacionRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Notificación no encontrada con id: " + id));
     }
 
     // ─── Comunicación con microservicio Pedido ─────────────────────────────────
     private PedidoClientDTO obtenerPedido(Long pedidoId) {
-        log.info("Consultando microservicio Pedido para verificar pedido con id: {}", pedidoId);
+        log.info("Consultando microservicio Pedido para id: {}", pedidoId);
         try {
             return pedidoWebClient.get()
                     .uri("/pedidos/{id}", pedidoId)
@@ -38,11 +49,15 @@ public class NotificacionService {
                     .bodyToMono(PedidoClientDTO.class)
                     .block();
         } catch (WebClientResponseException.NotFound e) {
-            log.error("Pedido con id {} no encontrado en el microservicio de Pedido", pedidoId);
-            throw new IllegalArgumentException("No se puede notificar: el pedido con id " + pedidoId + " no existe.");
+            log.error("Pedido con id {} no encontrado", pedidoId);
+            throw new IllegalArgumentException(
+                    "No se puede notificar: el pedido con id " + pedidoId + " no existe."
+            );
         } catch (Exception e) {
-            log.error("Error al comunicarse con el microservicio de Pedido: {}", e.getMessage());
-            throw new IllegalArgumentException("No se pudo verificar el pedido. Intenta nuevamente.");
+            log.error("Microservicio Pedido no disponible: {}", e.getMessage());
+            throw new IllegalArgumentException(
+                    "El servicio de pedidos no está disponible en este momento. Intenta más tarde."
+            );
         }
     }
 
@@ -56,55 +71,89 @@ public class NotificacionService {
 
     public NotificacionResponseDTO findNotificacionesById(long id) {
         log.info("Se busca notificación con id: {}", id);
-        Notificacion notificacion = notificacionRepository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Notificación no encontrada con id: " + id));
-        return toDTO(notificacion);
+        return toDTO(obtenerOFallar(id));
+    }
+
+    public List<NotificacionResponseDTO> findByPedidoId(Long pedidoId) {
+        log.info("Se buscan notificaciones del pedido id: {}", pedidoId);
+        return notificacionRepository.findByPedidoId(pedidoId).stream()
+                .map(this::toDTO)
+                .collect(Collectors.toList());
     }
 
     public NotificacionResponseDTO makeNotificacion(NotificacionRequestDTO dto) {
-        log.info("Se inicia la creación de notificación para pedidoId: {}", dto.getPedidoId());
+        log.info("Creando notificación para pedidoId: {}", dto.getPedidoId());
 
         // ── Regla 1: El asunto no puede tener menos de 5 caracteres ──────────
-        if (dto.getAsunto() == null || dto.getAsunto().trim().length() < 5) {
-            throw new IllegalArgumentException("El asunto de la notificación debe tener al menos 5 caracteres.");
+        if (dto.getAsunto().trim().length() < 5) {
+            throw new IllegalArgumentException("El asunto debe tener al menos 5 caracteres.");
         }
 
-        // ── Regla 2: El mensaje no puede estar vacío ─────────────────────────
-        if (dto.getMensaje() == null || dto.getMensaje().trim().isEmpty()) {
-            throw new IllegalArgumentException("El mensaje de la notificación no puede estar vacío.");
+        // ── Regla 2: El mensaje debe tener entre 10 y 500 caracteres ─────────
+        if (dto.getMensaje().trim().length() < 10) {
+            throw new IllegalArgumentException("El mensaje debe tener al menos 10 caracteres.");
         }
-
-        // ── Regla 3: El mensaje no puede superar los 500 caracteres ──────────
         if (dto.getMensaje().trim().length() > 500) {
             throw new IllegalArgumentException("El mensaje no puede superar los 500 caracteres.");
         }
 
-        // ── Interacción: verificar que el pedido existe ───────────────────────
+        // ── Regla 3: No puede existir la misma notificación para ese pedido ──
+        if (notificacionRepository.existsByPedidoIdAndAsunto(dto.getPedidoId(), dto.getAsunto().trim())) {
+            throw new IllegalArgumentException(
+                    "Ya existe una notificación con ese asunto para el pedido id: " + dto.getPedidoId()
+            );
+        }
+
+        // ── Verifica que el pedido existe ─────────────────────────────────────
         PedidoClientDTO pedido = obtenerPedido(dto.getPedidoId());
+        log.info("Pedido '{}' verificado. Creando notificación.", pedido.getNomProducto());
 
-        log.info("Pedido verificado: producto '{}' por ${}. Generando notificación.", pedido.getNomProducto(), pedido.getPrecio());
-
-        // El sistema construye el mensaje enriquecido con datos del pedido real
-        String mensajeFinal = dto.getMensaje().trim() + " [Pedido #" + pedido.getId() + " - " + pedido.getNomProducto() + "]";
+        // Enriquece el mensaje con datos del pedido
+        String mensajeFinal = dto.getMensaje().trim()
+                + " [Pedido #" + pedido.getId() + " - " + pedido.getNomProducto() + "]";
 
         Notificacion notificacion = new Notificacion();
+        notificacion.setPedidoId(dto.getPedidoId());
         notificacion.setAsunto(dto.getAsunto().trim());
         notificacion.setMensaje(mensajeFinal);
         notificacion.setFecha(new Date());
         notificacion = notificacionRepository.save(notificacion);
 
-        log.info("Notificación creada exitosamente con id: {} para pedido '{}'", notificacion.getId(), pedido.getNomProducto());
+        log.info("Notificación creada con id: {}", notificacion.getId());
+        return toDTO(notificacion);
+    }
+
+    public NotificacionResponseDTO updateNotificacion(long id, NotificacionRequestDTO dto) {
+        log.info("Actualizando notificación con id: {}", id);
+
+        // ── Regla 1: El asunto no puede tener menos de 5 caracteres ──────────
+        if (dto.getAsunto().trim().length() < 5) {
+            throw new IllegalArgumentException("El asunto debe tener al menos 5 caracteres.");
+        }
+
+        // ── Regla 2: El mensaje debe tener entre 10 y 500 caracteres ─────────
+        if (dto.getMensaje().trim().length() < 10) {
+            throw new IllegalArgumentException("El mensaje debe tener al menos 10 caracteres.");
+        }
+        if (dto.getMensaje().trim().length() > 500) {
+            throw new IllegalArgumentException("El mensaje no puede superar los 500 caracteres.");
+        }
+
+        Notificacion notificacion = obtenerOFallar(id);
+        notificacion.setAsunto(dto.getAsunto().trim());
+        notificacion.setMensaje(dto.getMensaje().trim());
+        notificacion = notificacionRepository.save(notificacion);
+
+        log.info("Notificación con id: {} actualizada exitosamente", id);
         return toDTO(notificacion);
     }
 
     public void deleteNotificacion(long id) {
-        log.info("Se elimina notificación con id: {}", id);
-        Notificacion notificacion = notificacionRepository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Notificación no encontrada con id: " + id));
-        notificacionRepository.delete(notificacion);
+        log.info("Eliminando notificación con id: {}", id);
+        notificacionRepository.delete(obtenerOFallar(id));
         log.info("Notificación con id: {} eliminada exitosamente", id);
     }
-
 }
+
 
 
