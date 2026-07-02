@@ -14,6 +14,7 @@ import org.springframework.web.reactive.function.client.WebClient;
 
 import java.util.Date;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -59,7 +60,7 @@ public class PagoServiceTest {
     public void testFindById_NotFound() {
         when(pagoRepository.findById(99L)).thenReturn(Optional.empty());
 
-        assertThrows(IllegalArgumentException.class, () ->
+        assertThrows(NoSuchElementException.class, () ->
                 pagoService.findPagosById(99L));
     }
 

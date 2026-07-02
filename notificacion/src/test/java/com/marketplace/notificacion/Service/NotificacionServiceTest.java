@@ -14,6 +14,7 @@ import org.springframework.web.reactive.function.client.WebClient;
 
 import java.util.Date;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -58,7 +59,7 @@ public class NotificacionServiceTest {
     public void testFindById_NotFound() {
         when(notificacionRepository.findById(99L)).thenReturn(Optional.empty());
 
-        assertThrows(IllegalArgumentException.class, () ->
+        assertThrows(NoSuchElementException.class, () ->
                 notificacionService.findNotificacionesById(99L));
     }
 

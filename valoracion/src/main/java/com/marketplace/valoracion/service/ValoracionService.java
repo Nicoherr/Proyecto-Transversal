@@ -12,6 +12,7 @@ import org.springframework.web.reactive.function.client.WebClient;
 import org.springframework.web.reactive.function.client.WebClientResponseException;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 
 @Service
@@ -35,7 +36,7 @@ public class ValoracionService {
 
     private Valoracion obtenerOFallar(long id) {
         return valoracionRepository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Valoración no encontrada con id: " + id));
+                .orElseThrow(() -> new NoSuchElementException("Valoración no encontrada con id: " + id));
     }
 
     // ─── Comunicación con microservicio Producto ───────────────────────────────
@@ -71,6 +72,13 @@ public class ValoracionService {
     public ValoracionResponseDTO findValoracionById(long id) {
         log.info("Se busca valoración con id: {}", id);
         return toDTO(obtenerOFallar(id));
+    }
+
+    public List<ValoracionResponseDTO> findByProductoId(Long productoId) {
+        log.info("Se buscan valoraciones del producto id: {}", productoId);
+        return valoracionRepository.findByProductoId(productoId).stream()
+                .map(this::toDTO)
+                .collect(Collectors.toList());
     }
 
     public ValoracionResponseDTO makeValoracion(ValoracionRequestDTO dto) {

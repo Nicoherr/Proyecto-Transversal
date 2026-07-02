@@ -12,6 +12,7 @@ import org.springframework.web.reactive.function.client.WebClient;
 import org.springframework.web.reactive.function.client.WebClientResponseException;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 
 @Service
@@ -36,7 +37,7 @@ public class PedidoService {
 
     private Pedido obtenerOFallar(long id) {
         return pedidoRepository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Pedido no encontrado con id: " + id));
+                .orElseThrow(() -> new NoSuchElementException("Pedido no encontrado con id: " + id));
     }
 
     // ─── Comunicación con microservicio Producto ───────────────────────────────
@@ -94,31 +95,27 @@ public class PedidoService {
         ProductoClientDTO producto = obtenerProducto(dto.getProductoId());
 
         if (!producto.getActivo()) {
-            log.warn("Intento de pedir producto inactivo con id: {}", dto.getProductoId());
             throw new IllegalArgumentException(
                     "El producto '" + producto.getNombre() + "' no está disponible para pedidos."
             );
         }
 
         if (producto.getStock() <= 0) {
-            log.warn("Intento de pedir producto sin stock con id: {}", dto.getProductoId());
             throw new IllegalArgumentException(
                     "El producto '" + producto.getNombre() + "' no tiene stock disponible."
             );
         }
 
         // ── Regla 4: El precio enviado no puede diferir más de un 10% del real ─
-        double diferencia = Math.abs(dto.getPrecio() - producto.getPrecio()) / producto.getPrecio();
+        double diferencia = Math.abs(dto.getPrecio() - producto.getPrecio()) / (double) producto.getPrecio();
         if (diferencia > 0.10) {
-            log.warn("Precio enviado (${}) difiere del precio real (${})", dto.getPrecio(), producto.getPrecio());
             throw new IllegalArgumentException(
                     "El precio enviado no coincide con el precio del producto. Precio actual: $"
                             + producto.getPrecio()
             );
         }
 
-        log.info("Producto '{}' verificado. Stock: {}. Creando pedido.",
-                producto.getNombre(), producto.getStock());
+        log.info("Producto '{}' verificado. Creando pedido.", producto.getNombre());
 
         Pedido pedido = new Pedido();
         pedido.setProductoId(dto.getProductoId());
@@ -128,19 +125,16 @@ public class PedidoService {
         pedido.setDireccionEntrega(dto.getDireccionEntrega().trim());
         pedido = pedidoRepository.save(pedido);
 
-        log.info("Pedido creado con id: {} para producto '{}'", pedido.getId(), producto.getNombre());
+        log.info("Pedido creado con id: {}", pedido.getId());
         return toDTO(pedido);
     }
 
     public PedidoResponseDTO updatePedido(long id, PedidoRequestDTO dto) {
         log.info("Actualizando pedido con id: {}", id);
 
-        // ── Regla 1: El precio debe ser mayor a 0 ────────────────────────────
         if (dto.getPrecio() <= 0) {
             throw new IllegalArgumentException("El precio del pedido debe ser mayor a 0.");
         }
-
-        // ── Regla 2: La dirección de entrega no puede estar vacía ─────────────
         if (dto.getDireccionEntrega().trim().isEmpty()) {
             throw new IllegalArgumentException("La dirección de entrega es obligatoria.");
         }

@@ -14,6 +14,7 @@ import org.springframework.web.reactive.function.client.WebClient;
 
 import java.util.Date;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -59,7 +60,7 @@ public class ReporteServiceTest {
     public void testFindById_NotFound() {
         when(reporteRepository.findById(99L)).thenReturn(Optional.empty());
 
-        assertThrows(IllegalArgumentException.class, () ->
+        assertThrows(NoSuchElementException.class, () ->
                 reporteService.findReportesById(99L));
     }
 
@@ -99,7 +100,7 @@ public class ReporteServiceTest {
         ReporteRequestDTO dto = crearRequest();
         when(reporteRepository.existsByTipoAndEstado(dto.getTipo(), true)).thenReturn(true);
 
-        assertThrows(IllegalArgumentException.class, () ->
+        assertThrows(NoSuchElementException.class, () ->
                 reporteService.makeReporte(dto));
     }
 
