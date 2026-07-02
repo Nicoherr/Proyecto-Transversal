@@ -24,6 +24,13 @@ El sistema permite a vendedores publicar productos y a compradores realizar comp
 | BCrypt | Encriptación de contraseñas |
 | Postman | Pruebas de APIs |
 | GitHub | Control de versiones |
+## 📌 Próximos pasos / Cosas por implementar
+
+Sección destinada al seguimiento de las últimas tareas pendientes y criterios de aceptación del proyecto:
+
+### ⚙️ Configuración y Variables de Entorno
+
+### Pruebas y Calidad de Código (Testeos)
 
 ## Microservicios (10 independientes)
 

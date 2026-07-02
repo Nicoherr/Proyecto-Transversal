@@ -3,7 +3,7 @@ version: '3.8'
 services:
 
   # ===================================================================
-  # BASES DE DATOS - Una por cada microservicio
+  # BASES DE DATOS - Una por cada microservicio (Con Variables Dinámicas)
   # ===================================================================
 
   mysql-valoracion:
@@ -11,10 +11,10 @@ services:
     container_name: mysql-valoracion
     restart: always
     environment:
-      MYSQL_DATABASE: db_valoracion
-      MYSQL_USER: dev
-      MYSQL_PASSWORD: dev123
-      MYSQL_ROOT_PASSWORD: root123
+      MYSQL_DATABASE: ${MYSQL_VALORACION_DB:db_valoracion}
+      MYSQL_USER: ${MYSQL_USER:dev}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:dev123}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:root123}
     ports:
       - "3307:3306"
     networks:
@@ -30,10 +30,10 @@ services:
     container_name: mysql-notificacion
     restart: always
     environment:
-      MYSQL_DATABASE: db_notificacion
-      MYSQL_USER: dev
-      MYSQL_PASSWORD: dev123
-      MYSQL_ROOT_PASSWORD: root123
+      MYSQL_DATABASE: ${MYSQL_NOTIFICACION_DB:db_notificacion}
+      MYSQL_USER: ${MYSQL_USER:dev}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:dev123}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:root123}
     ports:
       - "3308:3306"
     networks:
@@ -49,10 +49,10 @@ services:
     container_name: mysql-pago
     restart: always
     environment:
-      MYSQL_DATABASE: db_pago
-      MYSQL_USER: dev
-      MYSQL_PASSWORD: dev123
-      MYSQL_ROOT_PASSWORD: root123
+      MYSQL_DATABASE: ${MYSQL_PAGO_DB:db_pago}
+      MYSQL_USER: ${MYSQL_USER:dev}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:dev123}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:root123}
     ports:
       - "3309:3306"
     networks:
@@ -68,10 +68,10 @@ services:
     container_name: mysql-pedido
     restart: always
     environment:
-      MYSQL_DATABASE: db_pedido
-      MYSQL_USER: dev
-      MYSQL_PASSWORD: dev123
-      MYSQL_ROOT_PASSWORD: root123
+      MYSQL_DATABASE: ${MYSQL_PEDIDO_DB:db_pedido}
+      MYSQL_USER: ${MYSQL_USER:dev}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:dev123}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:root123}
     ports:
       - "3310:3306"
     networks:
@@ -87,10 +87,10 @@ services:
     container_name: mysql-reporte
     restart: always
     environment:
-      MYSQL_DATABASE: db_reporte
-      MYSQL_USER: dev
-      MYSQL_PASSWORD: dev123
-      MYSQL_ROOT_PASSWORD: root123
+      MYSQL_DATABASE: ${MYSQL_REPORTE_DB:db_reporte}
+      MYSQL_USER: ${MYSQL_USER:dev}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:dev123}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:root123}
     ports:
       - "3311:3306"
     networks:
@@ -100,34 +100,35 @@ services:
       timeout: 20s
       retries: 10
       interval: 10s
+
   mysql-carrito:
     image: mysql:8.4
     container_name: mysql-carrito
     restart: always
     environment:
-       MYSQL_DATABASE: db_carrito
-       MYSQL_USER: dev
-       MYSQL_PASSWORD: dev123
-       MYSQL_ROOT_PASSWORD: root123
+      MYSQL_DATABASE: ${MYSQL_CARRITO_DB:db_carrito}
+      MYSQL_USER: ${MYSQL_USER:dev}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:dev123}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:root123}
     ports:
-       - "3312:3306"
+      - "3312:3306"
     networks:
       - marketplace-network
     healthcheck:
-       test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
-       timeout: 20s
-       retries: 10
-       interval: 10s
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      timeout: 20s
+      retries: 10
+      interval: 10s
 
   mysql-inventario:
     image: mysql:8.4
     container_name: mysql-inventario
     restart: always
     environment:
-      MYSQL_DATABASE: db_inventario
-      MYSQL_USER: dev
-      MYSQL_PASSWORD: dev123
-      MYSQL_ROOT_PASSWORD: root123
+      MYSQL_DATABASE: ${MYSQL_INVENTARIO_DB:db_inventario}
+      MYSQL_USER: ${MYSQL_USER:dev}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:dev123}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:root123}
     ports:
       - "3313:3306"
     networks:
@@ -143,10 +144,10 @@ services:
     container_name: mysql-producto
     restart: always
     environment:
-      MYSQL_DATABASE: db_producto
-      MYSQL_USER: dev
-      MYSQL_PASSWORD: dev123
-      MYSQL_ROOT_PASSWORD: root123
+      MYSQL_DATABASE: ${MYSQL_PRODUCTO_DB:db_producto}
+      MYSQL_USER: ${MYSQL_USER:dev}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:dev123}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:root123}
     ports:
       - "3314:3306"
     networks:
@@ -162,10 +163,10 @@ services:
     container_name: mysql-usuario
     restart: always
     environment:
-      MYSQL_DATABASE: db_usuario
-      MYSQL_USER: dev
-      MYSQL_PASSWORD: dev123
-      MYSQL_ROOT_PASSWORD: root123
+      MYSQL_DATABASE: ${MYSQL_USUARIO_DB:db_usuario}
+      MYSQL_USER: ${MYSQL_USER:dev}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:dev123}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:root123}
     ports:
       - "3315:3306"
     networks:
@@ -181,10 +182,10 @@ services:
     container_name: mysql-vendedor
     restart: always
     environment:
-      MYSQL_DATABASE: db_vendedor
-      MYSQL_USER: dev
-      MYSQL_PASSWORD: dev123
-      MYSQL_ROOT_PASSWORD: root123
+      MYSQL_DATABASE: ${MYSQL_VENDEDOR_DB:db_vendedor}
+      MYSQL_USER: ${MYSQL_USER:dev}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:dev123}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:root123}
     ports:
       - "3316:3306"
     networks:
@@ -194,6 +195,7 @@ services:
       timeout: 20s
       retries: 10
       interval: 10s
+
   # ===================================================================
   # EUREKA SERVER
   # ===================================================================
@@ -327,23 +329,24 @@ services:
       timeout: 10s
       retries: 5
       interval: 10s
+
   carrito:
-     build:
-        context: ./carrito
-     image: carrito:1.0
-     container_name: carrito
-     environment:
-       SPRING_PROFILES_ACTIVE: docker
-     depends_on:
-       mysql-carrito:
-         condition: service_healthy
-       eurekaserver:
+    build:
+      context: ./carrito
+    image: carrito:1.0
+    container_name: carrito
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+    depends_on:
+      mysql-carrito:
         condition: service_healthy
-     ports:
-     - "8081:8081"
-     networks:
+      eurekaserver:
+        condition: service_healthy
+    ports:
+      - "8081:8081"
+    networks:
       - marketplace-network
-     healthcheck:
+    healthcheck:
       test: [ "CMD", "wget", "-q", "--spider", "http://localhost:8081/actuator/health" ]
       timeout: 10s
       retries: 5
@@ -436,6 +439,7 @@ services:
       timeout: 10s
       retries: 5
       interval: 10s
+
   # ===================================================================
   # API GATEWAY
   # ===================================================================
@@ -461,13 +465,13 @@ services:
       carrito:
         condition: service_healthy
       inventario:
-          condition: service_healthy
+        condition: service_healthy
       producto:
-          condition: service_healthy
+        condition: service_healthy
       usuario:
-          condition: service_healthy
+        condition: service_healthy
       vendedor:
-          condition: service_healthy
+        condition: service_healthy
       valoracion:
         condition: service_healthy
       notificacion:

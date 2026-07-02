@@ -7,10 +7,10 @@ services:
     container_name: usuario-mysql
     restart: always
     environment:
-      MYSQL_DATABASE: dev_usuario
-      MYSQL_USER: dev
-      MYSQL_PASSWORD: dev123
-      MYSQL_ROOT_PASSWORD: root123
+      MYSQL_DATABASE: ${MYSQL_DATABASE:dev_usuario}
+      MYSQL_USER: ${MYSQL_USER:dev}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:dev123}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:root123}
     ports:
       - "3310:3306"
     volumes:
