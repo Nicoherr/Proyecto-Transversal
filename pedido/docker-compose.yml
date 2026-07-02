@@ -8,9 +8,9 @@ services:
     restart: always
     environment:
       MYSQL_DATABASE: db_pedido
-      MYSQL_USER: dev
-      MYSQL_PASSWORD: dev123
-      MYSQL_ROOT_PASSWORD: root123
+      MYSQL_USER: ${DB_USERNAME:-dev}
+      MYSQL_PASSWORD: ${DB_PASSWORD:-dev123}
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD:-root123}
     ports:
       - "3310:3306"
     networks:
@@ -31,10 +31,11 @@ services:
     networks:
       - pedido-network
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8761/actuator/health"]
+      test: ["CMD", "wget", "-q", "--spider", "http://localhost:8761"]
       timeout: 10s
-      retries: 5
-      interval: 10s
+      retries: 10
+      interval: 15s
+      start_period: 30s
 
   pedido:
     build:
@@ -43,6 +44,11 @@ services:
     container_name: pedido-service
     environment:
       SPRING_PROFILES_ACTIVE: docker
+      DB_URL: jdbc:mysql://mysql:3306/db_pedido
+      DB_USERNAME: ${DB_USERNAME:-dev}
+      DB_PASSWORD: ${DB_PASSWORD:-dev123}
+      EUREKA_URL: http://eurekaserver:8761/eureka/
+      PRODUCTO_URL: http://producto:8084
     depends_on:
       mysql:
         condition: service_healthy
@@ -53,7 +59,7 @@ services:
     networks:
       - pedido-network
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8086/actuator/health"]
+      test: ["CMD", "wget", "-q", "--spider", "http://localhost:8086/actuator/health"]
       timeout: 10s
       retries: 5
       interval: 10s
@@ -61,4 +67,3 @@ services:
 networks:
   pedido-network:
     driver: bridge
-
