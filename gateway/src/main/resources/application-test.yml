@@ -1,0 +1,30 @@
+eureka:
+  client:
+    enabled: false
+
+services:
+  carrito:
+    url: http://localhost:8081
+  inventario:
+    url: http://localhost:8082
+  vendedor:
+    url: http://localhost:8083
+  producto:
+    url: http://localhost:8084
+  usuario:
+    url: http://localhost:8085
+  pedido:
+    url: http://localhost:8086
+  pago:
+    url: http://localhost:8087
+  valoracion:
+    url: http://localhost:8088
+  notificacion:
+    url: http://localhost:8089
+  reporte:
+    url: http://localhost:8090
+
+logging:
+  level:
+    root: WARN
+    com.marketplace.gateway: DEBUG
