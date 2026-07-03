@@ -1,0 +1,31 @@
+services:
+  carrito:
+    url: ${SERVICES_CARRITO_URL}
+  inventario:
+    url: ${SERVICES_INVENTARIO_URL}
+  vendedor:
+    url: ${SERVICES_VENDEDOR_URL}
+  producto:
+    url: ${SERVICES_PRODUCTO_URL}
+  usuario:
+    url: ${SERVICES_USUARIO_URL}
+  pedido:
+    url: ${SERVICES_PEDIDO_URL}
+  pago:
+    url: ${SERVICES_PAGO_URL}
+  valoracion:
+    url: ${SERVICES_VALORACION_URL}
+  notificacion:
+    url: ${SERVICES_NOTIFICACION_URL}
+  reporte:
+    url: ${SERVICES_REPORTE_URL}
+
+eureka:
+  client:
+    service-url:
+      defaultZone: ${EUREKA_URL}
+
+logging:
+  level:
+    root: ERROR
+    com.marketplace.gateway: WARN

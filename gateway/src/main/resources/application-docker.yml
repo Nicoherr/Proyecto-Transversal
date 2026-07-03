@@ -1,49 +1,32 @@
-spring:
-  cloud:
-    gateway:
-      mvc:
-        routes:
-          - id: valoracion
-            uri: http://valoracion:8088
-            predicates:
-              - Path=/api/valoracion/**
-            filters:
-              - StripPrefix=1
-
-          - id: notificacion
-            uri: http://notificacion:8089
-            predicates:
-              - Path=/api/notificaciones/**
-            filters:
-              - StripPrefix=1
-
-          - id: pago
-            uri: http://pago:8087
-            predicates:
-              - Path=/api/pagos/**
-            filters:
-              - StripPrefix=1
-
-          - id: pedido
-            uri: http://pedido:8086
-            predicates:
-              - Path=/api/pedidos/**
-            filters:
-              - StripPrefix=1
-
-          - id: reporte
-            uri: http://reporte:8090
-            predicates:
-              - Path=/api/reportes/**
-            filters:
-              - StripPrefix=1
+services:
+  carrito:
+    url: ${SERVICES_CARRITO_URL:http://carrito:8081}
+  inventario:
+    url: ${SERVICES_INVENTARIO_URL:http://inventario:8082}
+  vendedor:
+    url: ${SERVICES_VENDEDOR_URL:http://vendedor:8083}
+  producto:
+    url: ${SERVICES_PRODUCTO_URL:http://producto:8084}
+  usuario:
+    url: ${SERVICES_USUARIO_URL:http://usuario:8085}
+  pedido:
+    url: ${SERVICES_PEDIDO_URL:http://pedido:8086}
+  pago:
+    url: ${SERVICES_PAGO_URL:http://pago:8087}
+  valoracion:
+    url: ${SERVICES_VALORACION_URL:http://valoracion:8088}
+  notificacion:
+    url: ${SERVICES_NOTIFICACION_URL:http://notificacion:8089}
+  reporte:
+    url: ${SERVICES_REPORTE_URL:http://reporte:8090}
 
 eureka:
   client:
     service-url:
-      defaultZone: http://eurekaserver:8761/eureka/
+      defaultZone: ${EUREKA_URL:http://eurekaserver:8761/eureka/}
 
 logging:
   level:
     root: WARN
     org.springframework.cloud.gateway: INFO
+    com.marketplace.gateway: INFO

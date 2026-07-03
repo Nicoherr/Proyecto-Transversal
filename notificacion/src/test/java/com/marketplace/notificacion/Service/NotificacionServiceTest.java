@@ -1,5 +1,6 @@
 package com.marketplace.notificacion.Service;
 
+import com.marketplace.notificacion.DTO.NotificacionRequestDTO;
 import com.marketplace.notificacion.DTO.NotificacionResponseDTO;
 import com.marketplace.notificacion.model.Notificacion;
 import com.marketplace.notificacion.repository.NotificacionRepository;
@@ -13,10 +14,11 @@ import org.springframework.web.reactive.function.client.WebClient;
 
 import java.util.Date;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
-import static org.mockito.Mockito.*;
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 public class NotificacionServiceTest {
@@ -30,82 +32,104 @@ public class NotificacionServiceTest {
     @Mock
     private WebClient pedidoWebClient;
 
+    // ─── Tests CRUD ───────────────────────────────────────────────────────────
+
     @Test
     public void testFindAll() {
-        Notificacion notificacion = crearNotificacion();
-        when(notificacionRepository.findAll()).thenReturn(List.of(notificacion));
+        when(notificacionRepository.findAll()).thenReturn(List.of(crearNotificacion()));
 
         List<NotificacionResponseDTO> resultado = notificacionService.findAllNotificaciones();
 
         assertNotNull(resultado);
         assertEquals(1, resultado.size());
-        assertEquals("Oferta especial", resultado.get(0).getAsunto());
+        assertEquals("Pedido confirmado", resultado.get(0).getAsunto());
     }
 
     @Test
     public void testFindById() {
-        long id = 1L;
-        Notificacion notificacion = crearNotificacion();
-        when(notificacionRepository.findById(id)).thenReturn(Optional.of(notificacion));
+        when(notificacionRepository.findById(1L)).thenReturn(Optional.of(crearNotificacion()));
 
-        NotificacionResponseDTO resultado = notificacionService.findNotificacionesById(id);
+        NotificacionResponseDTO resultado = notificacionService.findNotificacionesById(1L);
 
         assertNotNull(resultado);
-        assertEquals("Oferta especial", resultado.getAsunto());
+        assertEquals(1L, resultado.getPedidoId());
     }
 
     @Test
     public void testFindById_NotFound() {
-        long id = 99L;
-        when(notificacionRepository.findById(id)).thenReturn(Optional.empty());
+        when(notificacionRepository.findById(99L)).thenReturn(Optional.empty());
 
-        assertThrows(IllegalArgumentException.class, () -> {
-            notificacionService.findNotificacionesById(id);
-        });
+        assertThrows(NoSuchElementException.class, () ->
+                notificacionService.findNotificacionesById(99L));
     }
 
     @Test
     public void testDeleteNotificacion() {
-        long id = 1L;
         Notificacion notificacion = crearNotificacion();
-        when(notificacionRepository.findById(id)).thenReturn(Optional.of(notificacion));
+        when(notificacionRepository.findById(1L)).thenReturn(Optional.of(notificacion));
         doNothing().when(notificacionRepository).delete(notificacion);
 
-        notificacionService.deleteNotificacion(id);
+        notificacionService.deleteNotificacion(1L);
 
         verify(notificacionRepository, times(1)).delete(notificacion);
     }
 
+    // ─── Tests reglas de negocio ──────────────────────────────────────────────
+
     @Test
     public void testMakeNotificacion_AsuntoCorto() {
-        com.marketplace.notificacion.DTO.NotificacionRequestDTO dto = new com.marketplace.notificacion.DTO.NotificacionRequestDTO();
-        dto.setPedidoId(1L);
+        NotificacionRequestDTO dto = crearRequest();
         dto.setAsunto("Hi");
-        dto.setMensaje("Mensaje válido para la prueba");
 
-        assertThrows(IllegalArgumentException.class, () -> {
-            notificacionService.makeNotificacion(dto);
-        });
+        assertThrows(IllegalArgumentException.class, () ->
+                notificacionService.makeNotificacion(dto));
     }
 
     @Test
-    public void testMakeNotificacion_MensajeVacio() {
-        com.marketplace.notificacion.DTO.NotificacionRequestDTO dto = new com.marketplace.notificacion.DTO.NotificacionRequestDTO();
-        dto.setPedidoId(1L);
-        dto.setAsunto("Asunto válido");
-        dto.setMensaje("");
+    public void testMakeNotificacion_MensajeCorto() {
+        NotificacionRequestDTO dto = crearRequest();
+        dto.setMensaje("Corto");
 
-        assertThrows(IllegalArgumentException.class, () -> {
-            notificacionService.makeNotificacion(dto);
-        });
+        assertThrows(IllegalArgumentException.class, () ->
+                notificacionService.makeNotificacion(dto));
     }
 
+    @Test
+    public void testMakeNotificacion_MensajeLargo() {
+        NotificacionRequestDTO dto = crearRequest();
+        dto.setMensaje("a".repeat(501));
+
+        assertThrows(IllegalArgumentException.class, () ->
+                notificacionService.makeNotificacion(dto));
+    }
+
+    @Test
+    public void testMakeNotificacion_Duplicado() {
+        NotificacionRequestDTO dto = crearRequest();
+        when(notificacionRepository.existsByPedidoIdAndAsunto(
+                dto.getPedidoId(), dto.getAsunto())).thenReturn(true);
+
+        assertThrows(IllegalArgumentException.class, () ->
+                notificacionService.makeNotificacion(dto));
+    }
+
+    // ─── Helpers ──────────────────────────────────────────────────────────────
+
     private Notificacion crearNotificacion() {
-        Notificacion notificacion = new Notificacion();
-        notificacion.setId(1L);
-        notificacion.setAsunto("Oferta especial");
-        notificacion.setMensaje("El producto que seguías bajó de precio");
-        notificacion.setFecha(new Date());
-        return notificacion;
+        Notificacion n = new Notificacion();
+        n.setId(1L);
+        n.setPedidoId(1L);
+        n.setAsunto("Pedido confirmado");
+        n.setMensaje("Tu pedido ha sido confirmado exitosamente");
+        n.setFecha(new Date());
+        return n;
+    }
+
+    private NotificacionRequestDTO crearRequest() {
+        NotificacionRequestDTO dto = new NotificacionRequestDTO();
+        dto.setPedidoId(1L);
+        dto.setAsunto("Pedido confirmado");
+        dto.setMensaje("Tu pedido ha sido confirmado exitosamente en el sistema");
+        return dto;
     }
 }

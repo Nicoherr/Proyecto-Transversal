@@ -13,10 +13,11 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.web.reactive.function.client.WebClient;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
-import static org.mockito.Mockito.*;
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 public class ValoracionServiceTest {
@@ -30,10 +31,11 @@ public class ValoracionServiceTest {
     @Mock
     private WebClient productoWebClient;
 
+    // ─── Tests CRUD ───────────────────────────────────────────────────────────
+
     @Test
     public void testFindAll() {
-        Valoracion valoracion = crearValoracion();
-        when(valoracionRepository.findAll()).thenReturn(List.of(valoracion));
+        when(valoracionRepository.findAll()).thenReturn(List.of(crearValoracion()));
 
         List<ValoracionResponseDTO> resultado = valoracionService.findAllValoraciones();
 
@@ -44,67 +46,99 @@ public class ValoracionServiceTest {
 
     @Test
     public void testFindById() {
-        long id = 1L;
-        Valoracion valoracion = crearValoracion();
-        when(valoracionRepository.findById(id)).thenReturn(Optional.of(valoracion));
+        when(valoracionRepository.findById(1L)).thenReturn(Optional.of(crearValoracion()));
 
-        ValoracionResponseDTO resultado = valoracionService.findValoracionById(id);
+        ValoracionResponseDTO resultado = valoracionService.findValoracionById(1L);
 
         assertNotNull(resultado);
         assertEquals(5, resultado.getNumEstrella());
+        assertEquals(1L, resultado.getProductoId());
     }
 
     @Test
     public void testFindById_NotFound() {
-        long id = 99L;
-        when(valoracionRepository.findById(id)).thenReturn(Optional.empty());
+        when(valoracionRepository.findById(99L)).thenReturn(Optional.empty());
 
-        assertThrows(IllegalArgumentException.class, () -> {
-            valoracionService.findValoracionById(id);
-        });
+        assertThrows(NoSuchElementException.class, () ->
+                valoracionService.findValoracionById(99L));
     }
 
     @Test
     public void testDeleteValoracion() {
-        long id = 1L;
         Valoracion valoracion = crearValoracion();
-        when(valoracionRepository.findById(id)).thenReturn(Optional.of(valoracion));
+        when(valoracionRepository.findById(1L)).thenReturn(Optional.of(valoracion));
         doNothing().when(valoracionRepository).delete(valoracion);
 
-        valoracionService.deleteValoracion(id);
+        valoracionService.deleteValoracion(1L);
 
         verify(valoracionRepository, times(1)).delete(valoracion);
     }
 
-    @Test
-    public void testMakeValoracion_EstrellaInvalida() {
-        ValoracionRequestDTO dto = new ValoracionRequestDTO();
-        dto.setProductoId(1L);
-        dto.setNumEstrella(6);
-        dto.setRecomendacion("Excelente producto muy bueno");
+    // ─── Tests reglas de negocio ──────────────────────────────────────────────
 
-        assertThrows(IllegalArgumentException.class, () -> {
-            valoracionService.makeValoracion(dto);
-        });
+    @Test
+    public void testMakeValoracion_EstrellaMinima() {
+        ValoracionRequestDTO dto = crearRequest();
+        dto.setNumEstrella(0);
+
+        assertThrows(IllegalArgumentException.class, () ->
+                valoracionService.makeValoracion(dto));
+    }
+
+    @Test
+    public void testMakeValoracion_EstrellaMaxima() {
+        ValoracionRequestDTO dto = crearRequest();
+        dto.setNumEstrella(6);
+
+        assertThrows(IllegalArgumentException.class, () ->
+                valoracionService.makeValoracion(dto));
     }
 
     @Test
     public void testMakeValoracion_RecomendacionCorta() {
-        ValoracionRequestDTO dto = new ValoracionRequestDTO();
-        dto.setProductoId(1L);
-        dto.setNumEstrella(4);
+        ValoracionRequestDTO dto = crearRequest();
         dto.setRecomendacion("Corto");
 
-        assertThrows(IllegalArgumentException.class, () -> {
-            valoracionService.makeValoracion(dto);
-        });
+        assertThrows(IllegalArgumentException.class, () ->
+                valoracionService.makeValoracion(dto));
     }
 
+    @Test
+    public void testMakeValoracion_SugerenciaCorta() {
+        ValoracionRequestDTO dto = crearRequest();
+        dto.setSugerencia("Corta");
+
+        assertThrows(IllegalArgumentException.class, () ->
+                valoracionService.makeValoracion(dto));
+    }
+
+    @Test
+    public void testMakeValoracion_Duplicado() {
+        ValoracionRequestDTO dto = crearRequest();
+        when(valoracionRepository.existsByProductoId(dto.getProductoId())).thenReturn(true);
+
+        assertThrows(IllegalArgumentException.class, () ->
+                valoracionService.makeValoracion(dto));
+    }
+
+    // ─── Helpers ──────────────────────────────────────────────────────────────
+
     private Valoracion crearValoracion() {
-        Valoracion valoracion = new Valoracion();
-        valoracion.setId(1L);
-        valoracion.setNumEstrella(5);
-        valoracion.setRecomendacion("Excelente producto, muy buena calidad");
-        return valoracion;
+        Valoracion v = new Valoracion();
+        v.setId(1L);
+        v.setProductoId(1L);
+        v.setNumEstrella(5);
+        v.setRecomendacion("Excelente producto, muy buena calidad");
+        v.setSugerencia("Podrían mejorar el empaque del producto");
+        return v;
+    }
+
+    private ValoracionRequestDTO crearRequest() {
+        ValoracionRequestDTO dto = new ValoracionRequestDTO();
+        dto.setProductoId(1L);
+        dto.setNumEstrella(5);
+        dto.setRecomendacion("Excelente producto, muy buena calidad");
+        dto.setSugerencia("Podrían mejorar el empaque del producto");
+        return dto;
     }
 }

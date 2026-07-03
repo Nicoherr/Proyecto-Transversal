@@ -13,6 +13,7 @@ import org.springframework.web.reactive.function.client.WebClientResponseExcepti
 
 import java.util.Date;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 
 @Service
@@ -36,7 +37,7 @@ public class NotificacionService {
 
     private Notificacion obtenerOFallar(long id) {
         return notificacionRepository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Notificación no encontrada con id: " + id));
+                .orElseThrow(() -> new NoSuchElementException("Notificación no encontrada con id: " + id));
     }
 
     // ─── Comunicación con microservicio Pedido ─────────────────────────────────
@@ -104,11 +105,10 @@ public class NotificacionService {
             );
         }
 
-        // ── Verifica que el pedido existe ─────────────────────────────────────
+        // ── Verifica que el pedido existe (WebClient al final) ────────────────
         PedidoClientDTO pedido = obtenerPedido(dto.getPedidoId());
         log.info("Pedido '{}' verificado. Creando notificación.", pedido.getNomProducto());
 
-        // Enriquece el mensaje con datos del pedido
         String mensajeFinal = dto.getMensaje().trim()
                 + " [Pedido #" + pedido.getId() + " - " + pedido.getNomProducto() + "]";
 
@@ -126,12 +126,9 @@ public class NotificacionService {
     public NotificacionResponseDTO updateNotificacion(long id, NotificacionRequestDTO dto) {
         log.info("Actualizando notificación con id: {}", id);
 
-        // ── Regla 1: El asunto no puede tener menos de 5 caracteres ──────────
         if (dto.getAsunto().trim().length() < 5) {
             throw new IllegalArgumentException("El asunto debe tener al menos 5 caracteres.");
         }
-
-        // ── Regla 2: El mensaje debe tener entre 10 y 500 caracteres ─────────
         if (dto.getMensaje().trim().length() < 10) {
             throw new IllegalArgumentException("El mensaje debe tener al menos 10 caracteres.");
         }
@@ -154,6 +151,3 @@ public class NotificacionService {
         log.info("Notificación con id: {} eliminada exitosamente", id);
     }
 }
-
-
-

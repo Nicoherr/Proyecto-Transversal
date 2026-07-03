@@ -14,10 +14,11 @@ import org.springframework.web.reactive.function.client.WebClient;
 
 import java.util.Date;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
-import static org.mockito.Mockito.*;
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 public class ReporteServiceTest {
@@ -31,10 +32,11 @@ public class ReporteServiceTest {
     @Mock
     private WebClient pagoWebClient;
 
+    // ─── Tests CRUD ───────────────────────────────────────────────────────────
+
     @Test
     public void testFindAll() {
-        Reporte reporte = crearReporte();
-        when(reporteRepository.findAll()).thenReturn(List.of(reporte));
+        when(reporteRepository.findAll()).thenReturn(List.of(crearReporte()));
 
         List<ReporteResponseDTO> resultado = reporteService.findAllReportes();
 
@@ -45,69 +47,81 @@ public class ReporteServiceTest {
 
     @Test
     public void testFindById() {
-        long id = 1L;
-        Reporte reporte = crearReporte();
-        when(reporteRepository.findById(id)).thenReturn(Optional.of(reporte));
+        when(reporteRepository.findById(1L)).thenReturn(Optional.of(crearReporte()));
 
-        ReporteResponseDTO resultado = reporteService.findReportesById(id);
+        ReporteResponseDTO resultado = reporteService.findReportesById(1L);
 
         assertNotNull(resultado);
-        assertEquals("Ventas mensuales", resultado.getTipo());
+        assertEquals(1L, resultado.getPagoId());
+        assertTrue(resultado.getEstado());
     }
 
     @Test
     public void testFindById_NotFound() {
-        long id = 99L;
-        when(reporteRepository.findById(id)).thenReturn(Optional.empty());
+        when(reporteRepository.findById(99L)).thenReturn(Optional.empty());
 
-        assertThrows(IllegalArgumentException.class, () -> {
-            reporteService.findReportesById(id);
-        });
+        assertThrows(NoSuchElementException.class, () ->
+                reporteService.findReportesById(99L));
     }
 
     @Test
     public void testDeleteReporte() {
-        long id = 1L;
         Reporte reporte = crearReporte();
-        when(reporteRepository.findById(id)).thenReturn(Optional.of(reporte));
+        when(reporteRepository.findById(1L)).thenReturn(Optional.of(reporte));
         doNothing().when(reporteRepository).delete(reporte);
 
-        reporteService.deleteReporte(id);
+        reporteService.deleteReporte(1L);
 
         verify(reporteRepository, times(1)).delete(reporte);
     }
 
+    // ─── Tests reglas de negocio ──────────────────────────────────────────────
+
     @Test
     public void testMakeReporte_TipoInvalido() {
-        ReporteRequestDTO dto = new ReporteRequestDTO();
-        dto.setPagoId(1L);
+        ReporteRequestDTO dto = crearRequest();
         dto.setTipo("Tipo inválido");
-        dto.setDescripcion("Descripción válida del reporte");
 
-        assertThrows(IllegalArgumentException.class, () -> {
-            reporteService.makeReporte(dto);
-        });
+        assertThrows(IllegalArgumentException.class, () ->
+                reporteService.makeReporte(dto));
     }
 
     @Test
     public void testMakeReporte_DescripcionCorta() {
+        ReporteRequestDTO dto = crearRequest();
+        dto.setDescripcion("Corta");
+
+        assertThrows(IllegalArgumentException.class, () ->
+                reporteService.makeReporte(dto));
+    }
+
+    @Test
+    public void testMakeReporte_Duplicado() {
+        ReporteRequestDTO dto = crearRequest();
+        when(reporteRepository.existsByTipoAndEstado(dto.getTipo(), true)).thenReturn(true);
+
+        assertThrows(NoSuchElementException.class, () ->
+                reporteService.makeReporte(dto));
+    }
+
+    // ─── Helpers ──────────────────────────────────────────────────────────────
+
+    private Reporte crearReporte() {
+        Reporte r = new Reporte();
+        r.setId(1L);
+        r.setPagoId(1L);
+        r.setTipo("Ventas mensuales");
+        r.setDescripcion("Reporte de ventas del mes de junio 2026");
+        r.setFecha(new Date());
+        r.setEstado(true);
+        return r;
+    }
+
+    private ReporteRequestDTO crearRequest() {
         ReporteRequestDTO dto = new ReporteRequestDTO();
         dto.setPagoId(1L);
         dto.setTipo("Ventas mensuales");
-        dto.setDescripcion("Corto");
-
-        assertThrows(IllegalArgumentException.class, () -> {
-            reporteService.makeReporte(dto);
-        });
-    }
-
-    private Reporte crearReporte() {
-        Reporte reporte = new Reporte();
-        reporte.setId(1L);
-        reporte.setTipo("Ventas mensuales");
-        reporte.setDescripcion("Resumen de ventas del mes de junio");
-        reporte.setFecha(new Date());
-        reporte.setEstado(true);
-        return reporte;
+        dto.setDescripcion("Reporte de ventas del mes de junio 2026");
+        return dto;
     }
 }

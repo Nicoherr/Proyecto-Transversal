@@ -11,6 +11,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 
 @Service
@@ -21,100 +22,49 @@ public class DetalleReporteService {
     private final DetalleReporteRepository detalleReporteRepository;
     private final ReporteRepository reporteRepository;
 
-    // ─── Mapper ───────────────────────────────────────────────────────────────
-    private DetalleReporteResponseDTO toDTO(DetalleReporte detalle) {
+    // Convierte la entidad a ResponseDTO
+    private DetalleReporteResponseDTO makeToResponseDTO(DetalleReporte detalle) {
         return new DetalleReporteResponseDTO(
                 detalle.getId(),
                 detalle.getObservacion(),
                 detalle.getValor(),
-                detalle.getReporte().getId(),
-                detalle.getReporte().getTipo()
+                detalle.getReporte().getId(),   // ID del reporte padre (llave foránea)
+                detalle.getReporte().getTipo()  // Tipo del reporte padre
         );
     }
 
-    private DetalleReporte obtenerOFallar(Long id) {
-        return detalleReporteRepository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Detalle no encontrado con id: " + id));
-    }
-
-    private Reporte obtenerReporteOFallar(Long reporteId) {
-        return reporteRepository.findById(reporteId)
-                .orElseThrow(() -> new IllegalArgumentException("Reporte no encontrado con id: " + reporteId));
-    }
-
-    // ─── CRUD ─────────────────────────────────────────────────────────────────
+    // Listar todos los detalles de un reporte específico
     public List<DetalleReporteResponseDTO> findByReporteId(Long reporteId) {
         log.info("Se listan los detalles del reporte con id: {}", reporteId);
-
-        // Verifica que el reporte padre existe
-        obtenerReporteOFallar(reporteId);
-
         return detalleReporteRepository.findByReporteId(reporteId).stream()
-                .map(this::toDTO)
+                .map(this::makeToResponseDTO)
                 .collect(Collectors.toList());
     }
 
+    // Crear un detalle vinculado a un reporte existente
     public DetalleReporteResponseDTO makeDetalle(DetalleReporteRequestDTO dto) {
-        log.info("Creando detalle para reporte id: {}", dto.getReporteId());
+        log.info("Se crea detalle para reporte con id: {}", dto.getReporteId());
 
-        // ── Regla 1: La observación debe tener al menos 10 caracteres ────────
-        if (dto.getObservacion().trim().length() < 10) {
-            throw new IllegalArgumentException(
-                    "La observación debe tener al menos 10 caracteres."
-            );
-        }
+        // Verifica que el reporte existe antes de crear el detalle
+        Reporte reporte = reporteRepository.findById(dto.getReporteId())
+                .orElseThrow(() -> new NoSuchElementException("Reporte no encontrado con id: " + dto.getReporteId()));
 
-        // ── Regla 2: El valor debe ser mayor a 0 ─────────────────────────────
-        if (dto.getValor() <= 0) {
-            throw new IllegalArgumentException("El valor del detalle debe ser mayor a 0.");
-        }
-
-        // ── Verifica que el reporte padre existe y está activo ────────────────
-        Reporte reporte = obtenerReporteOFallar(dto.getReporteId());
-
-        if (!Boolean.TRUE.equals(reporte.getEstado())) {
-            throw new IllegalArgumentException(
-                    "No se puede agregar detalles a un reporte inactivo (id: " + dto.getReporteId() + ")."
-            );
-        }
-
+        // Crea el detalle y lo vincula al reporte mediante la relación @ManyToOne
         DetalleReporte detalle = new DetalleReporte();
-        detalle.setObservacion(dto.getObservacion().trim());
+        detalle.setObservacion(dto.getObservacion());
         detalle.setValor(dto.getValor());
-        detalle.setReporte(reporte);
-        detalle = detalleReporteRepository.save(detalle);
+        detalle.setReporte(reporte); // Asigna el objeto Reporte completo, no solo el ID
 
+        detalle = detalleReporteRepository.save(detalle);
         log.info("Detalle creado con id: {} para reporte: {}", detalle.getId(), reporte.getTipo());
-        return toDTO(detalle);
+        return makeToResponseDTO(detalle);
     }
 
-    public DetalleReporteResponseDTO updateDetalle(Long id, DetalleReporteRequestDTO dto) {
-        log.info("Actualizando detalle con id: {}", id);
-
-        // ── Regla 1: La observación debe tener al menos 10 caracteres ────────
-        if (dto.getObservacion().trim().length() < 10) {
-            throw new IllegalArgumentException(
-                    "La observación debe tener al menos 10 caracteres."
-            );
-        }
-
-        // ── Regla 2: El valor debe ser mayor a 0 ─────────────────────────────
-        if (dto.getValor() <= 0) {
-            throw new IllegalArgumentException("El valor del detalle debe ser mayor a 0.");
-        }
-
-        DetalleReporte detalle = obtenerOFallar(id);
-        detalle.setObservacion(dto.getObservacion().trim());
-        detalle.setValor(dto.getValor());
-        detalle = detalleReporteRepository.save(detalle);
-
-        log.info("Detalle con id: {} actualizado exitosamente", id);
-        return toDTO(detalle);
-    }
-
+    // Eliminar un detalle
     public void deleteDetalle(Long id) {
-        log.info("Eliminando detalle con id: {}", id);
-        detalleReporteRepository.delete(obtenerOFallar(id));
-        log.info("Detalle con id: {} eliminado exitosamente", id);
+        log.info("Se elimina detalle con id: {}", id);
+        DetalleReporte detalle = detalleReporteRepository.findById(id)
+                .orElseThrow(() -> new NoSuchElementException("Detalle no encontrado con id: " + id));
+        detalleReporteRepository.delete(detalle);
     }
 }

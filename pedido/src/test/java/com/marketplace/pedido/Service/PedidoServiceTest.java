@@ -13,10 +13,11 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.web.reactive.function.client.WebClient;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
-import static org.mockito.Mockito.*;
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 public class PedidoServiceTest {
@@ -30,73 +31,107 @@ public class PedidoServiceTest {
     @Mock
     private WebClient productoWebClient;
 
+    // ─── Tests CRUD ───────────────────────────────────────────────────────────
+
     @Test
     public void testFindAll() {
-        Pedido pedido = crearPedido();
-        when(pedidoRepository.findAll()).thenReturn(List.of(pedido));
+        when(pedidoRepository.findAll()).thenReturn(List.of(crearPedido()));
 
         List<PedidoResponseDTO> resultado = pedidoService.findAllPedidos();
 
         assertNotNull(resultado);
         assertEquals(1, resultado.size());
-        assertEquals("Audífonos Bluetooth", resultado.get(0).getNomProducto());
+        assertEquals("Laptop Gamer", resultado.get(0).getNomProducto());
     }
 
     @Test
     public void testFindById() {
-        long id = 1L;
-        Pedido pedido = crearPedido();
-        when(pedidoRepository.findById(id)).thenReturn(Optional.of(pedido));
+        when(pedidoRepository.findById(1L)).thenReturn(Optional.of(crearPedido()));
 
-        PedidoResponseDTO resultado = pedidoService.findPedidoById(id);
+        PedidoResponseDTO resultado = pedidoService.findPedidoById(1L);
 
         assertNotNull(resultado);
-        assertEquals("Audífonos Bluetooth", resultado.getNomProducto());
+        assertEquals(1L, resultado.getProductoId());
+        assertEquals("Laptop Gamer", resultado.getNomProducto());
     }
 
     @Test
     public void testFindById_NotFound() {
-        long id = 99L;
-        when(pedidoRepository.findById(id)).thenReturn(Optional.empty());
+        when(pedidoRepository.findById(99L)).thenReturn(Optional.empty());
 
-        assertThrows(IllegalArgumentException.class, () -> {
-            pedidoService.findPedidoById(id);
-        });
+        assertThrows(NoSuchElementException.class, () ->
+                pedidoService.findPedidoById(99L));
     }
 
     @Test
     public void testDeletePedido() {
-        long id = 1L;
         Pedido pedido = crearPedido();
-        when(pedidoRepository.findById(id)).thenReturn(Optional.of(pedido));
+        when(pedidoRepository.findById(1L)).thenReturn(Optional.of(pedido));
         doNothing().when(pedidoRepository).delete(pedido);
 
-        pedidoService.deletePedido(id);
+        pedidoService.deletePedido(1L);
 
         verify(pedidoRepository, times(1)).delete(pedido);
     }
 
-    @Test
-    public void testMakePedido_PrecioInvalido() {
-        PedidoRequestDTO dto = new PedidoRequestDTO();
-        dto.setProductoId(1L);
-        dto.setNomProducto("Audífonos");
-        dto.setTipoProducto("Electrónica");
-        dto.setPrecio(0);
-        dto.setDireccionEntrega("Av. Libertador 1234");
+    // ─── Tests reglas de negocio ──────────────────────────────────────────────
 
-        assertThrows(IllegalArgumentException.class, () -> {
-            pedidoService.makePedido(dto);
-        });
+    @Test
+    public void testMakePedido_PrecioCero() {
+        PedidoRequestDTO dto = crearRequest();
+        dto.setPrecio(0);
+
+        assertThrows(IllegalArgumentException.class, () ->
+                pedidoService.makePedido(dto));
     }
+
+    @Test
+    public void testMakePedido_PrecioNegativo() {
+        PedidoRequestDTO dto = crearRequest();
+        dto.setPrecio(-100);
+
+        assertThrows(IllegalArgumentException.class, () ->
+                pedidoService.makePedido(dto));
+    }
+
+    @Test
+    public void testMakePedido_NombreVacio() {
+        PedidoRequestDTO dto = crearRequest();
+        dto.setNomProducto("   ");
+
+        assertThrows(IllegalArgumentException.class, () ->
+                pedidoService.makePedido(dto));
+    }
+
+    @Test
+    public void testMakePedido_DireccionVacia() {
+        PedidoRequestDTO dto = crearRequest();
+        dto.setDireccionEntrega("   ");
+
+        assertThrows(IllegalArgumentException.class, () ->
+                pedidoService.makePedido(dto));
+    }
+
+    // ─── Helpers ──────────────────────────────────────────────────────────────
 
     private Pedido crearPedido() {
         Pedido pedido = new Pedido();
         pedido.setId(1L);
-        pedido.setNomProducto("Audífonos Bluetooth");
+        pedido.setProductoId(1L);
+        pedido.setNomProducto("Laptop Gamer");
         pedido.setTipoProducto("Electrónica");
-        pedido.setPrecio(50000);
-        pedido.setDireccionEntrega("Av. Libertador 1234, Santiago");
+        pedido.setPrecio(500000);
+        pedido.setDireccionEntrega("Av. Providencia 123, Santiago");
         return pedido;
+    }
+
+    private PedidoRequestDTO crearRequest() {
+        PedidoRequestDTO dto = new PedidoRequestDTO();
+        dto.setProductoId(1L);
+        dto.setNomProducto("Laptop Gamer");
+        dto.setTipoProducto("Electrónica");
+        dto.setPrecio(500000);
+        dto.setDireccionEntrega("Av. Providencia 123, Santiago");
+        return dto;
     }
 }

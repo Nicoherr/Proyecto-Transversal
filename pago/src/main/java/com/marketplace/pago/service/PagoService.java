@@ -13,6 +13,7 @@ import org.springframework.web.reactive.function.client.WebClientResponseExcepti
 
 import java.util.Date;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Set;
 import java.util.UUID;
 import java.util.stream.Collectors;
@@ -25,7 +26,6 @@ public class PagoService {
     private final PagoRepository pagoRepository;
     private final WebClient pedidoWebClient;
 
-    // Métodos de pago permitidos por el marketplace
     private static final Set<String> METODOS_PERMITIDOS = Set.of(
             "Tarjeta de crédito", "Tarjeta de débito", "Transferencia bancaria", "PayPal"
     );
@@ -43,7 +43,7 @@ public class PagoService {
 
     private Pago obtenerOFallar(long id) {
         return pagoRepository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Pago no encontrado con id: " + id));
+                .orElseThrow(() -> new NoSuchElementException("Pago no encontrado con id: " + id));
     }
 
     // ─── Comunicación con microservicio Pedido ─────────────────────────────────
@@ -91,7 +91,6 @@ public class PagoService {
         }
 
         // ── Regla 2: No se puede pagar dos veces el mismo pedido ─────────────
-        // Usa existsByPedidoId en vez de findAll().stream() para ser eficiente
         if (pagoRepository.existsByPedidoId(dto.getPedidoId())) {
             log.warn("Intento de pagar dos veces el pedido id: {}", dto.getPedidoId());
             throw new IllegalArgumentException(
@@ -99,7 +98,7 @@ public class PagoService {
             );
         }
 
-        // ── Verifica que el pedido existe ─────────────────────────────────────
+        // ── Verifica que el pedido existe (WebClient al final) ────────────────
         PedidoClientDTO pedido = obtenerPedido(dto.getPedidoId());
 
         // ── Regla 3: El precio del pedido debe ser mayor a 0 ─────────────────
@@ -109,8 +108,7 @@ public class PagoService {
             );
         }
 
-        log.info("Pedido '{}' verificado (precio: ${}). Procesando pago.",
-                pedido.getNomProducto(), pedido.getPrecio());
+        log.info("Pedido '{}' verificado. Procesando pago.", pedido.getNomProducto());
 
         String comprobante = "COMP-" + UUID.randomUUID().toString().substring(0, 8).toUpperCase();
 
@@ -121,8 +119,7 @@ public class PagoService {
         pago.setFecha(new Date());
         pago = pagoRepository.save(pago);
 
-        log.info("Pago creado con comprobante: {} para pedido '{}'",
-                comprobante, pedido.getNomProducto());
+        log.info("Pago creado con comprobante: {}", comprobante);
         return toDTO(pago);
     }
 
@@ -132,3 +129,4 @@ public class PagoService {
         log.info("Pago con id: {} eliminado exitosamente", id);
     }
 }
+
