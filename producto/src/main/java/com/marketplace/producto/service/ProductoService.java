@@ -20,39 +20,63 @@ public class ProductoService {
     }
 
     public ProductoResponseDTO crear(ProductoRequestDTO dto) {
-        log.info("Intentando registrar un nuevo producto '{}' (Precio: {}) para el vendedor ID: {}",
+        log.info("[POST] Creando nuevo producto '{}' - Precio: ${}  - Vendedor ID: {}",
                 dto.getNombre(), dto.getPrecio(), dto.getVendedorId());
+        log.debug("[POST] DTO recibido: {}", dto);
 
-        Producto producto = new Producto();
-        producto.setNombre(dto.getNombre());
-        producto.setDescripcion(dto.getDescripcion());
-        producto.setPrecio(dto.getPrecio());
-        producto.setStock(dto.getStock());
-        producto.setVendedorId(dto.getVendedorId());
-        // El campo 'activo' ya se asigna a true por defecto en el modelo
+        try {
+            Producto producto = new Producto();
+            producto.setNombre(dto.getNombre());
+            producto.setDescripcion(dto.getDescripcion());
+            producto.setPrecio(dto.getPrecio());
+            producto.setStock(dto.getStock());
+            producto.setVendedorId(dto.getVendedorId());
+            // El campo 'activo' ya se asigna a true por defecto en el modelo
 
-        Producto guardado = repository.save(producto);
+            Producto guardado = repository.save(producto);
 
-        log.info("Producto creado exitosamente con ID: {}", guardado.getId());
-        return convertirAResponse(guardado);
+            log.info("[POST] Producto creado exitosamente - ID: {}, Nombre: '{}', Stock: {}",
+                    guardado.getId(), guardado.getNombre(), guardado.getStock());
+            return convertirAResponse(guardado);
+        } catch (Exception e) {
+            log.error("[POST] Error al crear producto '{}': {}", dto.getNombre(), e.getMessage());
+            throw e;
+        }
     }
 
     public List<ProductoResponseDTO> listar() {
-        log.info("Listando todos los productos del catálogo");
-
-        return repository.findAll().stream()
-                .map(this::convertirAResponse)
-                .collect(Collectors.toList());
+        log.info("[GET] Listando todos los productos del catálogo");
+        
+        try {
+            List<ProductoResponseDTO> productos = repository.findAll().stream()
+                    .map(this::convertirAResponse)
+                    .collect(Collectors.toList());
+            
+            log.info("[GET] Se encontraron {} productos en el catálogo", productos.size());
+            return productos;
+        } catch (Exception e) {
+            log.error("[GET] Error al listar productos: {}", e.getMessage());
+            throw e;
+        }
     }
 
     public ProductoResponseDTO obtener(Long id) {
-        log.info("Buscando producto con ID: {}", id);
+        log.info("[GET] Buscando producto con ID: {}", id);
 
-        Producto p = repository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Producto no encontrado con id: " + id));
+        try {
+            Producto p = repository.findById(id)
+                    .orElseThrow(() -> {
+                        log.error("[GET] Producto no encontrado - ID: {}", id);
+                        return new RuntimeException("Producto no encontrado con id: " + id);
+                    });
 
-        log.info("Producto '{}' encontrado correctamente", p.getNombre());
-        return convertirAResponse(p);
+            log.info("[GET] Producto encontrado - ID: {}, Nombre: '{}', Stock: {}, Activo: {}",
+                    p.getId(), p.getNombre(), p.getStock(), p.isActivo());
+            return convertirAResponse(p);
+        } catch (Exception e) {
+            log.error("[GET] Error al obtener producto ID {}: {}", id, e.getMessage());
+            throw e;
+        }
     }
 
     // Método de mapeo

@@ -28,52 +28,80 @@ public class CarritoService {
     }
 
     public CarritoResponseDTO crear(CarritoRequestDTO dto) {
-        log.info("Creando un nuevo carrito para el Usuario ID: {}", dto.getUsuarioId());
-        Carrito carrito = new Carrito();
-        carrito.setUsuarioId(dto.getUsuarioId());
-        Carrito guardado = carritoRepository.save(carrito);
-        log.info("Carrito creado exitosamente con ID: {}", guardado.getId());
-        return convertirAResponse(guardado);
+        log.info("[POST] Creando nuevo carrito para Usuario ID: {}", dto.getUsuarioId());
+        log.debug("[POST] DTO recibido: {}", dto);
+        try {
+            Carrito carrito = new Carrito();
+            carrito.setUsuarioId(dto.getUsuarioId());
+            Carrito guardado = carritoRepository.save(carrito);
+            log.info("[POST] Carrito creado exitosamente - ID: {}, Usuario ID: {}", 
+                    guardado.getId(), guardado.getUsuarioId());
+            return convertirAResponse(guardado);
+        } catch (Exception e) {
+            log.error("[POST] Error al crear carrito para Usuario ID {}: {}", dto.getUsuarioId(), e.getMessage());
+            throw e;
+        }
     }
 
     public CarritoResponseDTO obtener(Long id) {
-        log.info("Buscando carrito con ID: {}", id);
-        Carrito c = carritoRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Carrito no encontrado con id: " + id));
-        log.info("Carrito encontrado para el Usuario ID: {}", c.getUsuarioId());
-        return convertirAResponse(c);
+        log.info("[GET] Buscando carrito con ID: {}", id);
+        try {
+            Carrito c = carritoRepository.findById(id)
+                    .orElseThrow(() -> {
+                        log.error("[GET] Carrito no encontrado con ID: {}", id);
+                        return new RuntimeException("Carrito no encontrado con id: " + id);
+                    });
+            log.info("[GET] Carrito encontrado para Usuario ID: {}", c.getUsuarioId());
+            return convertirAResponse(c);
+        } catch (Exception e) {
+            log.error("[GET] Error al obtener carrito ID {}: {}", id, e.getMessage());
+            throw e;
+        }
     }
 
     public CarritoProductoResponseDTO agregarProducto(CarritoProductoRequestDTO dto) {
-        log.info("Agregando {} unidades del Producto ID: {} al Carrito ID: {}",
+        log.info("[POST] Agregando {} unidades de Producto ID: {} al Carrito ID: {}",
                 dto.getCantidad(), dto.getProductoId(), dto.getCarritoId());
+        log.debug("[POST] DTO recibido: {}", dto);
+        
+        try {
+            // Buscamos el carrito completo porque @ManyToOne necesita la entidad, no solo el ID
+            Carrito carrito = carritoRepository.findById(dto.getCarritoId())
+                    .orElseThrow(() -> {
+                        log.error("[POST] Carrito no encontrado - ID: {}", dto.getCarritoId());
+                        return new RuntimeException("Carrito no encontrado con ID: " + dto.getCarritoId());
+                    });
 
-        // Buscamos el carrito completo porque @ManyToOne necesita la entidad, no solo el ID
-        Carrito carrito = carritoRepository.findById(dto.getCarritoId())
-                .orElseThrow(() -> new RuntimeException("Carrito no encontrado con ID: " + dto.getCarritoId()));
+            // Verificamos si el producto ya existe en el carrito
+            Optional<CarritoProducto> productoExistente = carritoProductoRepository
+                    .findByCarrito_IdAndProductoId(dto.getCarritoId(), dto.getProductoId());
 
-        // Verificamos si el producto ya existe en el carrito
-        Optional<CarritoProducto> productoExistente = carritoProductoRepository
-                .findByCarrito_IdAndProductoId(dto.getCarritoId(), dto.getProductoId());
+            CarritoProducto guardado;
+            if (productoExistente.isPresent()) {
+                // Si ya existe, solo sumamos la cantidad nueva a la que había
+                CarritoProducto cp = productoExistente.get();
+                int cantidadAnterior = cp.getCantidad();
+                cp.setCantidad(cp.getCantidad() + dto.getCantidad());
+                guardado = carritoProductoRepository.save(cp);
+                log.info("[POST] Producto ya existía en carrito - Cantidad actualizada de {} a {}",
+                        cantidadAnterior, guardado.getCantidad());
+            } else {
+                // Si no existe, lo creamos y le asignamos la entidad Carrito completa
+                CarritoProducto nuevoCp = new CarritoProducto();
+                nuevoCp.setCarrito(carrito);
+                nuevoCp.setProductoId(dto.getProductoId());
+                nuevoCp.setCantidad(dto.getCantidad());
+                guardado = carritoProductoRepository.save(nuevoCp);
+                log.info("[POST] Nuevo producto agregado al carrito - Producto ID: {}, Cantidad: {}", 
+                        guardado.getProductoId(), guardado.getCantidad());
+            }
 
-        CarritoProducto guardado;
-        if (productoExistente.isPresent()) {
-            // Si ya existe, solo sumamos la cantidad nueva a la que había
-            CarritoProducto cp = productoExistente.get();
-            cp.setCantidad(cp.getCantidad() + dto.getCantidad());
-            guardado = carritoProductoRepository.save(cp);
-            log.info("Producto ya existía en el carrito. Cantidad actualizada a: {}", guardado.getCantidad());
-        } else {
-            // Si no existe, lo creamos y le asignamos la entidad Carrito completa
-            CarritoProducto nuevoCp = new CarritoProducto();
-            nuevoCp.setCarrito(carrito); // ✅ Asignamos la entidad, no el ID
-            nuevoCp.setProductoId(dto.getProductoId());
-            nuevoCp.setCantidad(dto.getCantidad());
-            guardado = carritoProductoRepository.save(nuevoCp);
-            log.info("Producto agregado al carrito exitosamente con ID: {}", guardado.getId());
+            return convertirProductoAResponse(guardado);
+        } catch (Exception e) {
+            log.error("[POST] Error al agregar producto {} al carrito {}: {}", 
+                    dto.getProductoId(), dto.getCarritoId(), e.getMessage());
+            throw e;
         }
-
-        return convertirProductoAResponse(guardado);
     }
 
     public List<CarritoProductoResponseDTO> listarProductos(Long carritoId) {

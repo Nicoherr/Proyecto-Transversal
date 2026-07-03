@@ -20,38 +20,62 @@ public class VendedorService {
     }
 
     public VendedorResponseDTO crear(VendedorRequestDTO dto) {
-        log.info("Intentando registrar un nuevo vendedor (Tienda: {}) para el usuario ID: {}", dto.getNombreTienda(), dto.getUsuarioId());
+        log.info("[POST] Creando nuevo vendedor - Tienda: '{}', Usuario ID: {}",
+                dto.getNombreTienda(), dto.getUsuarioId());
+        log.debug("[POST] DTO recibido: {}", dto);
 
-        Vendedor vendedor = new Vendedor();
-        vendedor.setNombreTienda(dto.getNombreTienda());
-        vendedor.setDescripcion(dto.getDescripcion());
-        vendedor.setUsuarioId(dto.getUsuarioId());
-        // reputacion (0.0), cantidadValoraciones (0) y activo (true) ya se asignan solos por el modelo
+        try {
+            Vendedor vendedor = new Vendedor();
+            vendedor.setNombreTienda(dto.getNombreTienda());
+            vendedor.setDescripcion(dto.getDescripcion());
+            vendedor.setUsuarioId(dto.getUsuarioId());
+            // reputacion (0.0), cantidadValoraciones (0) y activo (true) ya se asignan solos por el modelo
 
-        Vendedor guardado = repository.save(vendedor);
+            Vendedor guardado = repository.save(vendedor);
 
-        log.info("Vendedor creado exitosamente con ID: {}", guardado.getId());
-        return convertirAResponse(guardado);
+            log.info("[POST] Vendedor creado exitosamente - ID: {}, Tienda: '{}', Usuario ID: {}",
+                    guardado.getId(), guardado.getNombreTienda(), guardado.getUsuarioId());
+            return convertirAResponse(guardado);
+        } catch (Exception e) {
+            log.error("[POST] Error al crear vendedor '{}' para Usuario ID {}: {}",
+                    dto.getNombreTienda(), dto.getUsuarioId(), e.getMessage());
+            throw e;
+        }
     }
 
     public List<VendedorResponseDTO> listar() {
-        log.info("Listando todos los vendedores registrados");
-
-        return repository.findAll().stream()
-                .map(this::convertirAResponse)
-                .collect(Collectors.toList());
+        log.info("[GET] Listando todos los vendedores registrados");
+        
+        try {
+            List<VendedorResponseDTO> vendedores = repository.findAll().stream()
+                    .map(this::convertirAResponse)
+                    .collect(Collectors.toList());
+            
+            log.info("[GET] Se encontraron {} vendedores registrados", vendedores.size());
+            return vendedores;
+        } catch (Exception e) {
+            log.error("[GET] Error al listar vendedores: {}", e.getMessage());
+            throw e;
+        }
     }
 
     public VendedorResponseDTO obtener(Long id) {
-        log.info("Buscando vendedor con ID: {}", id);
+        log.info("[GET] Buscando vendedor con ID: {}", id);
 
-        Vendedor v = repository.findById(id)
-                .orElseThrow(() -> {
-                    return new RuntimeException("Vendedor no encontrado con id: " + id);
-                });
+        try {
+            Vendedor v = repository.findById(id)
+                    .orElseThrow(() -> {
+                        log.error("[GET] Vendedor no encontrado - ID: {}", id);
+                        return new RuntimeException("Vendedor no encontrado con id: " + id);
+                    });
 
-        log.info("Vendedor '{}' encontrado correctamente", v.getNombreTienda());
-        return convertirAResponse(v);
+            log.info("[GET] Vendedor encontrado - ID: {}, Tienda: '{}', Reputación: {:.2f}/5.0, Activo: {}",
+                    v.getId(), v.getNombreTienda(), v.getReputacion(), v.isActivo());
+            return convertirAResponse(v);
+        } catch (Exception e) {
+            log.error("[GET] Error al obtener vendedor ID {}: {}", id, e.getMessage());
+            throw e;
+        }
     }
 
     // Método de mapeo
