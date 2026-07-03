@@ -25,9 +25,9 @@ public class ReporteService {
     private final ReporteRepository reporteRepository;
     private final WebClient pagoWebClient;
 
-    // Tipos de reporte válidos en el marketplace
     private static final Set<String> TIPOS_VALIDOS = Set.of(
-            "Ventas mensuales", "Ventas anuales", "Pagos pendientes", "Productos más vendidos", "Clientes frecuentes"
+            "Ventas mensuales", "Ventas anuales", "Pagos pendientes",
+            "Productos más vendidos", "Clientes frecuentes"
     );
 
     // ─── Mapper ───────────────────────────────────────────────────────────────
@@ -38,7 +38,8 @@ public class ReporteService {
                 r.getTipo(),
                 r.getDescripcion(),
                 r.getFecha(),
-                r.getEstado());
+                r.getEstado()
+        );
     }
 
     private Reporte obtenerOFallar(long id) {
@@ -48,7 +49,7 @@ public class ReporteService {
 
     // ─── Comunicación con microservicio Pago ──────────────────────────────────
     private PagoClientDTO obtenerPago(Long pagoId) {
-        log.info("Consultando microservicio Pago para verificar pago con id: {}", pagoId);
+        log.info("Consultando microservicio Pago para id: {}", pagoId);
         try {
             return pagoWebClient.get()
                     .uri("/pagos/{id}", pagoId)
@@ -56,11 +57,15 @@ public class ReporteService {
                     .bodyToMono(PagoClientDTO.class)
                     .block();
         } catch (WebClientResponseException.NotFound e) {
-            log.error("Pago con id {} no encontrado en el microservicio de Pago", pagoId);
-            throw new IllegalArgumentException("No se puede generar el reporte: el pago con id " + pagoId + " no existe.");
+            log.error("Pago con id {} no encontrado", pagoId);
+            throw new IllegalArgumentException(
+                    "No se puede generar el reporte: el pago con id " + pagoId + " no existe."
+            );
         } catch (Exception e) {
-            log.error("Error al comunicarse con el microservicio de Pago: {}", e.getMessage());
-            throw new IllegalArgumentException("No se pudo verificar el pago. Intenta nuevamente.");
+            log.error("Microservicio Pago no disponible: {}", e.getMessage());
+            throw new IllegalArgumentException(
+                    "El servicio de pagos no está disponible en este momento. Intenta más tarde."
+            );
         }
     }
 
@@ -78,49 +83,52 @@ public class ReporteService {
     }
 
     public ReporteResponseDTO makeReporte(ReporteRequestDTO dto) {
-        log.info("Se inicia la creación de reporte tipo: '{}' para pagoId: {}", dto.getTipo(), dto.getPagoId());
+        log.info("Creando reporte tipo: '{}' para pagoId: {}", dto.getTipo(), dto.getPagoId());
 
-        // ── Regla 1: El tipo de reporte debe ser uno de los válidos ──────────
+        // ── Regla 1: El tipo debe ser uno de los válidos ──────────────────────
         if (!TIPOS_VALIDOS.contains(dto.getTipo())) {
             throw new IllegalArgumentException(
-                    "Tipo de reporte inválido. Los tipos permitidos son: " + String.join(", ", TIPOS_VALIDOS)
+                    "Tipo de reporte inválido. Los tipos permitidos son: "
+                            + String.join(", ", TIPOS_VALIDOS)
             );
         }
 
         // ── Regla 2: La descripción debe tener al menos 10 caracteres ────────
-        if (dto.getDescripcion() == null || dto.getDescripcion().trim().length() < 10) {
-            throw new IllegalArgumentException("La descripción del reporte debe tener al menos 10 caracteres.");
+        if (dto.getDescripcion().trim().length() < 10) {
+            throw new IllegalArgumentException(
+                    "La descripción del reporte debe tener al menos 10 caracteres."
+            );
         }
 
         // ── Regla 3: No puede haber un reporte activo del mismo tipo ─────────
-        boolean reporteDuplicado = reporteRepository.findAll().stream()
-                .anyMatch(r -> r.getTipo().equalsIgnoreCase(dto.getTipo()) && Boolean.TRUE.equals(r.getEstado()));
-        if (reporteDuplicado) {
-            log.warn("Intento de crear reporte duplicado de tipo: '{}'", dto.getTipo());
-            throw new IllegalArgumentException("Ya existe un reporte activo de tipo '" + dto.getTipo() + "'.");
+        if (reporteRepository.existsByTipoAndEstado(dto.getTipo(), true)) {
+            throw new IllegalArgumentException(
+                    "Ya existe un reporte activo de tipo '" + dto.getTipo() + "'."
+            );
         }
 
-        // ── Interacción: verificar que el pago existe ─────────────────────────
+        // ── Verifica que el pago existe (WebClient al final) ──────────────────
         PagoClientDTO pago = obtenerPago(dto.getPagoId());
-        log.info("Pago verificado: comprobante '{}' con método '{}'. Generando reporte.", pago.getComprobante(), pago.getMetodoPago());
+        log.info("Pago verificado: comprobante '{}'. Creando reporte.", pago.getComprobante());
 
-        // La descripción se enriquece con datos reales del pago
         String descripcionFinal = dto.getDescripcion().trim()
-                + " [Comprobante: " + pago.getComprobante() + " | Método: " + pago.getMetodoPago() + "]";
+                + " [Comprobante: " + pago.getComprobante()
+                + " | Método: " + pago.getMetodoPago() + "]";
 
         Reporte reporte = new Reporte();
+        reporte.setPagoId(dto.getPagoId());
         reporte.setTipo(dto.getTipo());
         reporte.setDescripcion(descripcionFinal);
         reporte.setFecha(new Date());
         reporte.setEstado(true);
         reporte = reporteRepository.save(reporte);
 
-        log.info("Reporte tipo '{}' creado exitosamente con id: {}", dto.getTipo(), reporte.getId());
+        log.info("Reporte tipo '{}' creado con id: {}", dto.getTipo(), reporte.getId());
         return toDTO(reporte);
     }
 
     public void deleteReporte(long id) {
-        log.info("Se elimina reporte con id: {}", id);
+        log.info("Eliminando reporte con id: {}", id);
         reporteRepository.delete(obtenerOFallar(id));
         log.info("Reporte con id: {} eliminado exitosamente", id);
     }

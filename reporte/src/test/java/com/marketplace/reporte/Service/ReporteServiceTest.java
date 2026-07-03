@@ -100,7 +100,7 @@ public class ReporteServiceTest {
         ReporteRequestDTO dto = crearRequest();
         when(reporteRepository.existsByTipoAndEstado(dto.getTipo(), true)).thenReturn(true);
 
-        assertThrows(NoSuchElementException.class, () ->
+        assertThrows(IllegalArgumentException.class, () ->
                 reporteService.makeReporte(dto));
     }
 
