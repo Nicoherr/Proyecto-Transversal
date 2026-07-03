@@ -3,6 +3,7 @@ package com.marketplace.pago.model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,6 +21,10 @@ public class Pago {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    @NotNull(message = "El id del pedido es obligatorio")
+    @Column(name = "pedido_id", nullable = false)
+    private Long pedidoId;
+
     @NotBlank(message = "Escribe el metodo de pago")
     @Column(nullable = false, length = 50)
     private String metodoPago;
@@ -30,6 +35,7 @@ public class Pago {
     @Column(nullable = false)
     private Date fecha;
 
-    @Column(name = "pedido_id")
-    private Long pedidoId; // Referencia al pedido pagado (para evitar pagos duplicados)
+
+
+
 }

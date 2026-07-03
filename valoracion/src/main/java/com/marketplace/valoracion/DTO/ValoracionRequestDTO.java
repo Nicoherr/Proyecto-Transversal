@@ -13,7 +13,6 @@ public class ValoracionRequestDTO {
     @NotNull(message = "El id del producto es obligatorio")
     private Long productoId;
 
-    @NotNull(message = "El número de estrellas es obligatorio")
     @Min(value = 1, message = "El mínimo de estrellas es 1")
     @Max(value = 5, message = "El máximo de estrellas es 5")
     private int numEstrella;
