@@ -21,39 +21,64 @@ public class InventarioService {
     }
 
     public InventarioResponseDTO crear(InventarioRequestDTO dto) {
-        log.info("Creando registro de inventario para el Producto ID: {} con stock inicial de: {}",
+        log.info("[POST] Creando registro de inventario para Producto ID: {} - Stock inicial: {}",
                 dto.getProductoId(), dto.getStock());
+        log.debug("[POST] DTO recibido: {}", dto);
+        
+        try {
+            Inventario inventario = new Inventario();
+            inventario.setProductoId(dto.getProductoId());
+            inventario.setStock(dto.getStock());
+            // Si el DTO trae stockMinimo lo asignamos, si no, tomará el 5 por defecto del modelo
+            if (dto.getStockMinimo() > 0) {
+                inventario.setStockMinimo(dto.getStockMinimo());
+            }
 
-        Inventario inventario = new Inventario();
-        inventario.setProductoId(dto.getProductoId());
-        inventario.setStock(dto.getStock());
-        // Si el DTO trae stockMinimo lo asignamos, si no, tomará el 5 por defecto del modelo
-        if (dto.getStockMinimo() > 0) {
-            inventario.setStockMinimo(dto.getStockMinimo());
+            Inventario guardado = repository.save(inventario);
+
+            log.info("[POST] Inventario creado exitosamente - ID: {}, Producto ID: {}, Stock: {}",
+                    guardado.getId(), guardado.getProductoId(), guardado.getStock());
+            return convertirAResponse(guardado);
+        } catch (Exception e) {
+            log.error("[POST] Error al crear inventario para Producto ID {}: {}", 
+                    dto.getProductoId(), e.getMessage());
+            throw e;
         }
-
-        Inventario guardado = repository.save(inventario);
-
-        log.info("Inventario creado exitosamente con ID: {}", guardado.getId());
-        return convertirAResponse(guardado);
     }
 
     public List<InventarioResponseDTO> listar() {
-        log.info("Listando todos los registros de inventario");
-
-        return repository.findAll().stream()
-                .map(this::convertirAResponse)
-                .collect(Collectors.toList());
+        log.info("[GET] Listando todos los registros de inventario");
+        
+        try {
+            List<InventarioResponseDTO> inventarios = repository.findAll().stream()
+                    .map(this::convertirAResponse)
+                    .collect(Collectors.toList());
+            
+            log.info("[GET] Se encontraron {} registros de inventario", inventarios.size());
+            return inventarios;
+        } catch (Exception e) {
+            log.error("[GET] Error al listar inventario: {}", e.getMessage());
+            throw e;
+        }
     }
 
     public InventarioResponseDTO obtener(Long id) {
-        log.info("Buscando inventario con ID: {}", id);
+        log.info("[GET] Buscando inventario con ID: {}", id);
+        
+        try {
+            Inventario i = repository.findById(id)
+                    .orElseThrow(() -> {
+                        log.error("[GET] Inventario no encontrado - ID: {}", id);
+                        return new RuntimeException("Registro de inventario no encontrado con id: " + id);
+                    });
 
-        Inventario i = repository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Registro de inventario no encontrado con id: " + id));
-
-        log.info("Inventario del Producto ID {} encontrado correctamente", i.getProductoId());
-        return convertirAResponse(i);
+            log.info("[GET] Inventario encontrado - ID: {}, Producto ID: {}, Stock: {}",
+                    i.getId(), i.getProductoId(), i.getStock());
+            return convertirAResponse(i);
+        } catch (Exception e) {
+            log.error("[GET] Error al obtener inventario ID {}: {}", id, e.getMessage());
+            throw e;
+        }
     }
 
     // Método de mapeo
